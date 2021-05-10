@@ -8,48 +8,6 @@ source "$HOME/.cargo/env"
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 setopt INC_APPEND_HISTORY
 
-# owl4ce s preferences
-PRIV="doas"
-
-alias c="clear"
-alias q="exit"
-alias hd="hexdump -C"
-alias default-apps="printf '\ec' && ~/.scripts/default-apps/launch && ~/.scripts/default-apps/launch -e"
-alias pacrem="$PRIV pacman -Rcns"
-alias yayupd="yay -Sy"
-alias yayupg="yay -Syu"
-alias emergeins="$PRIV emerge -av"
-alias emergeinmask="$PRIV emerge -av --autounmask=y --autounmask-write"
-alias emergepv="$PRIV emerge -pv"
-alias emergeupd="$PRIV emaint -a sync"
-alias emergeupg="$PRIV emerge -av --update --deep --changed-use @world"
-alias emergedepc="$PRIV emerge --depclean -av"
-alias emergenuse="$PRIV emerge -av --update --newuse --deep @world"
-alias emergecuse="$PRIV emerge -av --update --changed-use --deep @world"
-alias ecleandist="$PRIV eclean-dist --deep"
-alias ecleanpkg="$PRIV eclean-pkg --deep"
-alias ecleankern="$PRIV eclean-kernel -n 3"
-alias rc-service="$PRIV rc-service"
-alias rc-update="$PRIV rc-update"
-alias pingoogle="ping 8.8.8.8"
-alias trimall="$PRIV fstrim -va"
-alias nanosu="$PRIV nano"
-alias nvimsu="$PRIV nvim"
-alias refram="$PRIV bash -c \"sync; echo 3 > /proc/sys/vm/drop_caches\""
-#alias ls="exa -lgh --icons --group-directories-first"
-#alias la="exa -lgha --icons --group-directories-first"
-
-# Color toys aliases
-alias 256colors2="~/.color-toys/256colors2.pl"
-alias bloks="~/.color-toys/bloks"
-alias colortest="~/.color-toys/colortest"
-alias colortest-slim="~/.color-toys/colortest-slim"
-alias colorview="~/.color-toys/colorview"
-alias colorbars="~/.color-toys/colorbars"
-alias panes="~/.color-toys/panes"
-alias pipes1="~/.color-toys/pipes1"
-alias pipes2="~/.color-toys/pipes2"
-alias pipes2-slim="~/.color-toys/pipes2-slim"
 # GPG Dialog
 export GPG_TTY=$(tty)
 
@@ -81,10 +39,6 @@ export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND='fd --type d --hidden --follow --exclude .git'
 [[ -f $HOME/.bash_aliases ]] && . ~/.bash_aliases
-
-
-ROFI_PASS_CONFIG="$HOME/path/to/config" 
-
 
 # Incorporate git information into prompt
 
