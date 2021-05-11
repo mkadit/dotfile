@@ -4,8 +4,8 @@
 
 # rofi command. Make sure to have "$@" as last argument
 _rofi () {
-    rofi -theme themes/appsmenu.rasi -i -no-auto-select "$@"
-    # rofi -i -no-auto-select "$@"
+    # rofi -theme themes/appsmenu.rasi -i -no-auto-select "$@"
+    rofi -i -no-auto-select "$@"
 }
 
 # default command to generate passwords

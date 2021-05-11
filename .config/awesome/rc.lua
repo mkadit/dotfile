@@ -227,7 +227,7 @@ awful.keyboard.append_global_keybindings(
         awful.key({modkey}, "Return", function() awful.spawn(terminal) end,
                   {description = "open a terminal", group = "launcher"}),
         awful.key({modkey}, "r", function()
-            awful.util.spawn("bash -c ~/.config/rofi/scripts/appsmenu.sh")
+            awful.util.spawn("rofi -show")
         end, {description = "run prompt", group = "launcher"}),
         awful.key({modkey}, "p", function() menubar.show() end,
                   {description = "show the menubar", group = "launcher"})
@@ -545,4 +545,5 @@ client.connect_signal("mouse::enter", function(c)
     c:activate{context = "mouse_enter", raise = false}
 end)
 
-awful.spawn.with_shell(" xset r rate 300 50 &")
+awful.spawn.with_shell("xset r rate 300 50 &")
+awful.spawn.with_shell("picom")
