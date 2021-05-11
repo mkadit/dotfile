@@ -230,7 +230,25 @@ awful.keyboard.append_global_keybindings(
             awful.util.spawn("rofi -show")
         end, {description = "run prompt", group = "launcher"}),
         awful.key({modkey}, "p", function() menubar.show() end,
-                  {description = "show the menubar", group = "launcher"})
+                  {description = "show the menubar", group = "launcher"}),
+        awful.key({modkey}, "-", function()
+            awful.spawn.with_shell("pamixer --decrease 5")
+        end, {description = "lower the volume", group = "media"}),
+        awful.key({modkey}, "+", function()
+            awful.spawn.with_shell("pamixer --increase 5")
+        end, {description = "raise the volume", group = "media"}),
+        awful.key({modkey}, "m", function()
+            awful.spawn.with_shell("pamixer --toggle-mute")
+        end, {description = "mute audio", group = "media"}),
+        awful.key({modkey, "Shift"}, "b", function()
+            awful.spawn.with_shell("brightnessctl set 5%-")
+        end, {description = "decrease brightness", group = "brightness"}),
+        awful.key({modkey}, "b", function()
+            awful.spawn.with_shell("brightnessctl set +5%")
+        end, {description = "increase brightness", group = "brightness"}),
+        awful.key({modkey}, "l",
+                  function() awful.spawn.with_shell("slimlock") end,
+                  {description = "lock screen", group = "screen"})
     })
 
 -- Tags related keybindings
