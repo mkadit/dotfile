@@ -1,9 +1,6 @@
 sw_volume: 100
 audio_device_state:1:Pulseaudio
-audio_device_state:1:Visualizer
-state: pause
-current: 9
-time: 71.158000
+state: stop
 random: 0
 repeat: 0
 single: 0
@@ -12,14 +9,4 @@ crossfade: 0
 mixrampdb: 0.000000
 mixrampdelay: -1.000000
 playlist_begin
-0:OPENING DIGIMON ALL CAST VERSION「Butterfly」Full.mp3
-1:#35 I Return By Death _ Re -Zero OST Suite _ Most Emotional Music.mp3
-2:Most Emotional OST's of All Time - Requiem of Silence.mp3
-3:FFXIV OST - Eden - Shiva's Theme.mp3
-4:FFXIV OST - Kainé (Final Fantasy Main Theme Version).mp3
-5:Final Fantasy XIV - Endwalker - Main Theme (No SFX).mp3
-6:Michael Jackson - Beat It (Official Video).mp3
-7:Michael Jackson - Billie Jean (Official Video).mp3
-8:NieR Replicant ver.1.22474487139... OST - Ending Theme ''Ashes of Dreams'' Lyrics.mp3
-9:NieR Unreleased OST - Ashes of Dreams _ New ( Full English Ver.) [Nouveau Intro].mp3
 playlist_end
