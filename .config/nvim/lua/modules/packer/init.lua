@@ -105,10 +105,10 @@ packer.startup(function()
     }
 
     -- Colorizer
-    -- use {
-    --     'norcalli/nvim-colorizer.lua',
-    --     config = require'colorizer'.setup {'css', 'javascript', 'html'}
-    -- }
+    use {
+        'norcalli/nvim-colorizer.lua',
+        config = require'colorizer'.setup {'css', 'javascript', 'html'}
+    }
 
     -- Session and startpage
     use 'mhinz/vim-startify'
