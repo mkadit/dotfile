@@ -44,9 +44,6 @@ packer.startup(function()
     -- Comments
     use {
         'b3nj5m1n/kommentary',
-        config = require('kommentary.config').configure_language("default", {
-            prefer_single_line_comments = true
-        })
 
     }
 

@@ -3,7 +3,7 @@
 # export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
-source "$HOME/.cargo/env"
+# source "$HOME/.cargo/env"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
 setopt INC_APPEND_HISTORY
