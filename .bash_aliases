@@ -87,3 +87,4 @@ alias ytdlm="youtube-dl -f bestaudio --extract-audio --audio-format mp3 -o '~/Mu
 alias ytdlv="youtube-dl -f bestvideo+bestaudio -o '~/Videos/%(title)s.%(ext)s'"
 
 alias bassh="ssh -i muhammad.krishertanto_kawung.key muhammad.krishertanto@kawung.cs.ui.ac.id -p 12122"
+alias config='/usr/bin/git --git-dir=/home/mkadit/.cfg/ --work-tree=/home/mkadit'
