@@ -3,6 +3,7 @@
 # export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="$HOME/go/bin:$PATH"
+export PATH="$HOME/scripts:$PATH"
 # source "$HOME/.cargo/env"
 
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'

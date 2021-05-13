@@ -34,6 +34,14 @@ naughty.connect_signal("request::display_error", function(message, startup)
 end)
 -- }}}
 
+-- Point to .local/bin/<script name>
+-- attach script name to the .local/bin
+-- @param name string
+function lbin(name)
+	local bin_path = '/home/archi/.local/bin/'
+	return bin_path .. name
+end
+
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(require("themes.nord.theme"))
@@ -229,10 +237,13 @@ awful.keyboard.append_global_keybindings(
             awful.spawn.with_shell("CM_LAUNCHER=rofi clipmenu")
         end, {description = "clipboard history", group = "launcher"}),
         awful.key({modkey, "Shift"}, "w", function()
-            awful.spawn("networkmanager_dmenu")
+            awful.spawn(lbin("networkmanager_dmenu"))
         end, {description = "network manager", group = "launcher"}),
         awful.key({modkey}, "p",
-                  function() awful.spawn("maimpick") end,
+                  function() awful.spawn.with_shell(lbin("maimpick")) end,
+                  {description = "screenshot", group = "launcher"}),
+        awful.key({modkey, "Shift"}, "p",
+                  function() awful.spawn.with_shell(lbin("dmenu_ffmpeg")) end,
                   {description = "screenshot", group = "launcher"}),
         awful.key({modkey}, "-", function()
             awful.spawn.with_shell("pamixer --decrease 5")
