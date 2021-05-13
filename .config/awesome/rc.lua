@@ -82,13 +82,19 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- Table of layouts to cover with awful.layout.inc, order matters.
 tag.connect_signal("request::default_layouts", function()
     awful.layout.append_default_layouts({
-        awful.layout.suit.floating, awful.layout.suit.tile,
-        awful.layout.suit.tile.left, awful.layout.suit.tile.bottom,
-        awful.layout.suit.tile.top, awful.layout.suit.fair,
-        awful.layout.suit.fair.horizontal, awful.layout.suit.spiral,
-        awful.layout.suit.spiral.dwindle, awful.layout.suit.max,
-        awful.layout.suit.max.fullscreen, awful.layout.suit.magnifier,
-        awful.layout.suit.corner.nw
+        -- awful.layout.suit.floating, 
+        awful.layout.suit.tile,
+        -- awful.layout.suit.tile.left, 
+        -- awful.layout.suit.tile.bottom,
+        -- awful.layout.suit.tile.top,
+        -- awful.layout.suit.fair,
+        -- awful.layout.suit.fair.horizontal,
+        awful.layout.suit.spiral,
+        -- awful.layout.suit.spiral.dwindle,
+        awful.layout.suit.max,
+        -- awful.layout.suit.max.fullscreen,
+        -- awful.layout.suit.magnifier,
+        -- awful.layout.suit.corner.nw
     })
 end)
 -- }}}
@@ -100,16 +106,6 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
-
-screen.connect_signal("request::wallpaper", function(s)
-    -- Wallpaper
-    if beautiful.wallpaper then
-        local wallpaper = beautiful.wallpaper
-        -- If wallpaper is a function, call it with the screen
-        if type(wallpaper) == "function" then wallpaper = wallpaper(s) end
-        gears.wallpaper.maximized(wallpaper, s, true)
-    end
-end)
 
 screen.connect_signal("request::desktop_decoration", function(s)
     -- Each screen has its own tag table.
@@ -229,8 +225,15 @@ awful.keyboard.append_global_keybindings(
         awful.key({modkey}, "r", function()
             awful.util.spawn("rofi -show")
         end, {description = "run prompt", group = "launcher"}),
-        awful.key({modkey}, "p", function() menubar.show() end,
-                  {description = "show the menubar", group = "launcher"}),
+        awful.key({modkey, "Shift"}, "Tab", function()
+            awful.spawn.with_shell("CM_LAUNCHER=rofi clipmenu")
+        end, {description = "clipboard history", group = "launcher"}),
+        awful.key({modkey, "Shift"}, "w", function()
+            awful.spawn("networkmanager_dmenu")
+        end, {description = "network manager", group = "launcher"}),
+        awful.key({modkey}, "p",
+                  function() awful.spawn.with_shell("maimpick") end,
+                  {description = "screenshot", group = "launcher"}),
         awful.key({modkey}, "-", function()
             awful.spawn.with_shell("pamixer --decrease 5")
         end, {description = "lower the volume", group = "media"}),
@@ -565,3 +568,5 @@ end)
 
 awful.spawn.with_shell("xset r rate 300 50 &")
 awful.spawn.with_shell("picom")
+awful.spawn.with_shell("mpd")
+awful.spawn.with_shell("clipmenud")
