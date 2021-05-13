@@ -36,7 +36,7 @@ end)
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(require("themes.nord.theme"))
 
 -- This is used later as the default terminal and editor to run.
 terminal = "st"
@@ -102,7 +102,7 @@ end)
 -- {{{ Wibar
 
 -- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
+-- mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
@@ -175,14 +175,14 @@ screen.connect_signal("request::desktop_decoration", function(s)
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
             layout = wibox.layout.fixed.horizontal,
-            mylauncher,
+            -- mylauncher,
             s.mytaglist,
             s.mypromptbox
         },
         s.mytasklist, -- Middle widget
         { -- Right widgets
             layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
+            -- mykeyboardlayout,
             wibox.widget.systray(),
             mytextclock,
             s.mylayoutbox
@@ -232,7 +232,7 @@ awful.keyboard.append_global_keybindings(
             awful.spawn("networkmanager_dmenu")
         end, {description = "network manager", group = "launcher"}),
         awful.key({modkey}, "p",
-                  function() awful.spawn.with_shell("maimpick") end,
+                  function() awful.spawn("maimpick") end,
                   {description = "screenshot", group = "launcher"}),
         awful.key({modkey}, "-", function()
             awful.spawn.with_shell("pamixer --decrease 5")
@@ -250,7 +250,7 @@ awful.keyboard.append_global_keybindings(
             awful.spawn.with_shell("brightnessctl set +5%")
         end, {description = "increase brightness", group = "brightness"}),
         awful.key({modkey}, "l",
-                  function() awful.spawn.with_shell("slimlock") end,
+                  function() awful.spawn("slimlock") end,
                   {description = "lock screen", group = "screen"})
     })
 
