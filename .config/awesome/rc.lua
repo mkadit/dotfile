@@ -38,8 +38,7 @@ end)
 -- attach script name to the .local/bin
 -- @param name string
 function lbin(name)
-	local bin_path = '/home/archi/.local/bin/'
-	return bin_path .. name
+	return os.getenv('HOME') .. '/.local/bin/' .. name
 end
 
 -- {{{ Variable definitions
@@ -233,9 +232,12 @@ awful.keyboard.append_global_keybindings(
         awful.key({modkey}, "r", function()
             awful.util.spawn("rofi -show")
         end, {description = "run prompt", group = "launcher"}),
-        awful.key({modkey, "Shift"}, "Tab", function()
+        awful.key({modkey, "Control"}, "Tab", function()
             awful.spawn.with_shell("CM_LAUNCHER=rofi clipmenu")
         end, {description = "clipboard history", group = "launcher"}),
+        awful.key({modkey, "Shift"}, "Tab", function()
+            awful.spawn.with_shell("rofi-pass")
+        end, {description = "password manager", group = "launcher"}),
         awful.key({modkey, "Shift"}, "w", function()
             awful.spawn(lbin("networkmanager_dmenu"))
         end, {description = "network manager", group = "launcher"}),
@@ -244,11 +246,20 @@ awful.keyboard.append_global_keybindings(
                   {description = "screenshot", group = "launcher"}),
         awful.key({modkey, "Shift"}, "p",
                   function() awful.spawn.with_shell(lbin("dmenu_ffmpeg")) end,
-                  {description = "screenshot", group = "launcher"}),
+                  {description = "record", group = "launcher"}),
+        awful.key({modkey, "Control"}, "q",
+                  function() awful.spawn.with_shell(lbin("sysact")) end,
+                  {description = "system action", group = "launcher"}),
+        awful.key({modkey,}, "[",
+                  function() awful.spawn.with_shell(lbin("dmenu_mount")) end,
+                  {description = "mount drive", group = "launcher"}),
+        awful.key({modkey, "Shift"}, "[",
+                  function() awful.spawn.with_shell(lbin("dmenu_umount")) end,
+                  {description = "unmount drive", group = "launcher"}),
         awful.key({modkey}, "-", function()
             awful.spawn.with_shell("pamixer --decrease 5")
         end, {description = "lower the volume", group = "media"}),
-        awful.key({modkey}, "+", function()
+        awful.key({modkey}, "=", function()
             awful.spawn.with_shell("pamixer --increase 5")
         end, {description = "raise the volume", group = "media"}),
         awful.key({modkey}, "m", function()
@@ -577,7 +588,11 @@ client.connect_signal("mouse::enter", function(c)
     c:activate{context = "mouse_enter", raise = false}
 end)
 
+local wallpaper = "xwallpaper --zoom " .. os.getenv('HOME') ..  '/.local/share/bg'
+
 awful.spawn.with_shell("xset r rate 300 50 &")
 awful.spawn.with_shell("picom")
 awful.spawn.with_shell("mpd")
+awful.spawn.with_shell("dunst")
 awful.spawn.with_shell("clipmenud")
+awful.spawn.with_shell(wallpaper)

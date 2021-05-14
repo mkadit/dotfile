@@ -1,4 +1,4 @@
- permanently set alternative root dir. Use ":" to separate multiple roots
+ # permanently set alternative root dir. Use ":" to separate multiple roots
 # which can be switched at runtime with shift+left/right
 # root=/path/to/root
 
