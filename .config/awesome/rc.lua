@@ -19,7 +19,7 @@ local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
-require("awful.hotkeys_popup.keys")
+-- require("awful.hotkeys_popup.keys")
 
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
@@ -39,6 +39,10 @@ end)
 -- @param name string
 function lbin(name)
 	return os.getenv('HOME') .. '/.local/bin/' .. name
+end
+
+function sbar(name)
+	return os.getenv('HOME') .. '/.local/bin/statusbar' .. name
 end
 
 -- {{{ Variable definitions
@@ -113,6 +117,8 @@ end)
 
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
+
+
 
 screen.connect_signal("request::desktop_decoration", function(s)
     -- Each screen has its own tag table.
@@ -217,8 +223,8 @@ awful.keyboard.append_global_keybindings(
                   {description = "show main menu", group = "awesome"}),
         awful.key({modkey, "Control"}, "r", awesome.restart,
                   {description = "reload awesome", group = "awesome"}),
-        awful.key({modkey, "Shift"}, "q", awesome.quit,
-                  {description = "quit awesome", group = "awesome"}),
+        -- awful.key({modkey, "Shift"}, "q", awesome.quit,
+        --           {description = "quit awesome", group = "awesome"}),
         awful.key({modkey}, "x", function()
             awful.prompt.run {
                 prompt = "Run Lua code: ",
@@ -279,9 +285,9 @@ awful.keyboard.append_global_keybindings(
 -- Tags related keybindings
 awful.keyboard.append_global_keybindings(
     {
-        awful.key({modkey}, "Left", awful.tag.viewprev,
+        awful.key({modkey, "Shift"}, "q", awful.tag.viewprev,
                   {description = "view previous", group = "tag"}),
-        awful.key({modkey}, "Right", awful.tag.viewnext,
+        awful.key({modkey, "Shift"}, "e", awful.tag.viewnext,
                   {description = "view next", group = "tag"}),
         awful.key({modkey}, "Escape", awful.tag.history.restore,
                   {description = "go back", group = "tag"})
@@ -544,7 +550,7 @@ client.connect_signal("request::titlebars", function(c)
 
     awful.titlebar(c).widget = {
         { -- Left
-            awful.titlebar.widget.iconwidget(c),
+            -- awful.titlebar.widget.iconwidget(c),
             buttons = buttons,
             layout = wibox.layout.fixed.horizontal
         },
