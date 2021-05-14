@@ -1,6 +1,7 @@
 [global]
     ### Display ###
-
+    title = Dunst
+    class = Dunst
     # Which monitor should the notifications be displayed on.
     monitor = 0
 
@@ -153,7 +154,7 @@
     ### Icons ###
 
     # Align icons left/right/off
-    icon_position = right
+    icon_position = left
 
     # Scale larger icons down to this size, set to 0 to disable
     max_icon_size = 64
@@ -231,7 +232,7 @@
     # On the US keyboard layout "grave" is normally above TAB and left
     # of "1". Make sure this key actually exists on your keyboard layout,
     # e.g. check output of 'xmodmap -pke'
-    history = ctrl+grave
+    history = ctrl+Escape
 
     # Context menu.
     context = ctrl+shift+period
@@ -242,24 +243,26 @@
     background = "#3b4252"
     foreground = "#eceff4"
     frame_color = "#4c566a"
-    timeout = 10
+    timeout = 3
     # Icon for notifications with low urgency, uncomment to enable
-    #icon = /path/to/icon
+    icon = ~/.config/dunst/normal.png
 
 [urgency_normal]
     background = "#3b4252"
     foreground = "#eceff4"
-    timeout = 10
+    timeout = 5
     # Icon for notifications with normal urgency, uncomment to enable
     #icon = /path/to/icon
+    icon = ~/.config/dunst/normal.png
 
 [urgency_critical]
     background = "#3b4252"
     foreground = "#eceff4"
     frame_color = "#bf616a"
-    timeout = 0
+    timeout = 7
     # Icon for notifications with critical urgency, uncomment to enable
     #icon = /path/to/icon
+    icon = ~/.config/dunst/normal.png
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.
