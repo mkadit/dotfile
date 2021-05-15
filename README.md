@@ -76,8 +76,11 @@ zsh-fast-syntax-highlighting
 
 ## FAQ
 Q: Why is there no wallpaper?
+
 A: My config use xwallpaper to set the background using the file located  ~/.local/share/bg. In order to address
 this you can use the script `setbg` on a wallpaper of your chosing and all should be well
+
 Q: Neovim is not working as intended
+
 A: Make sure you use the latest version (nightly) and not the stable one since there are many plugins unavailable on the stable branch. Make ure you already have the necessary LSP in ~/.local/share/nvim/lspinstall as the
 configuration for the LSP is set to point to there
