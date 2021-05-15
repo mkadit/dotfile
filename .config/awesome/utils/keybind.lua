@@ -12,6 +12,9 @@ awful.keyboard.append_global_keybindings(
         awful.key({Mod}, 'p',
                   function() awful.spawn.with_shell(apps.screenshoot) end,
                   {description = "Take Screenshoot", group = "launcher"}),
+        awful.key({Mod, 'Shift'}, 'p',
+                  function() awful.spawn.with_shell(apps.screen_recorder) end,
+                  {description = 'recorder', group = "launcher"}),
         awful.key({Mod}, "Return", function() awful.spawn(apps.terminal) end,
                   {description = "Open a terminal", group = "launcher"}),
         awful.key({Mod}, 'r', function() awful.spawn(apps.launcher) end,
@@ -240,9 +243,6 @@ awful.keyboard.append_global_keybindings(
                 history_path = awful.util.get_cache_dir() .. "/history_eval"
             }
         end, {description = "lua execute prompt", group = "awesome"}),
-        awful.key({Mod, 'Shift'}, 'p',
-                  function() awful.spawn.with_shell(apps.screen_recorder) end,
-                  {description = 'recorder', group = 'awesome'})
     })
 
 -- media
