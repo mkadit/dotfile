@@ -27,7 +27,6 @@ GRADLE_HOME='$HOME/gradle' java \
     -Declipse.product=org.eclipse.jdt.ls.core.product \
     -Dlog.protocol=true \
     -Dlog.level=ALL \
-    -javaagent:/home/mkadit/.local/src/lombok.jar \
     -Xms1g \
     -Xmx2G \
     -jar $(echo "$JAR") \
@@ -38,4 +37,5 @@ GRADLE_HOME='$HOME/gradle' java \
     --add-opens java.base/java.lang=ALL-UNNAMED
 
 # For older version
+    # -javaagent:/home/mkadit/.local/src/lombok.jar \
 # -Xbootclasspath/a:/home/mkadit/.local/src/lombok.jar \
