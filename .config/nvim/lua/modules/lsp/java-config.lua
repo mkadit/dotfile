@@ -2,7 +2,7 @@ local M = {}
 function M.setup()
     require('jdtls').start_or_attach({
         cmd = {'java-lsp.sh', os.getenv('HOME') .. '/workspace/' .. vim.fn.fnamemodify(vim.fn.getcwd(), ':p:h:t')},
-        root_dir = require('jdtls.setup').find_root({'gradle.build', 'pom.xml'})
+        root_dir = require('jdtls.setup').find_root({'gradle.build', 'pom.xml', '.git'})
     })
 
     -- Utility servers
