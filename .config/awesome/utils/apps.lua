@@ -17,5 +17,7 @@ local apps = {
    clipboard = 'CM_LAUNCHER=rofi clipmenu',
    password = 'rofi-pass',
    network = os.getenv('HOME') .. '/.local/bin/networkmanager_dmenu',
+   systemd = os.getenv('HOME') .. '/.local/bin/dmenu_systemd',
+   kill_process = os.getenv('HOME') .. '/.local/bin/dmenu_kill',
 }
 return apps

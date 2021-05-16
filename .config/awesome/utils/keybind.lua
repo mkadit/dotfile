@@ -42,8 +42,13 @@ awful.keyboard.append_global_keybindings(
                   {description = "network manager", group = "launcher"}),
         awful.key({Mod}, "d", function()
             awful.spawn(apps.music)
-            -- Focus restored client
-        end, {description = "music player", group = "launcher"})
+        end, {description = "music player", group = "launcher"}),
+        awful.key({Mod}, "x",
+                  function() awful.spawn.with_shell(apps.kill_process) end,
+                  {description = "kill process", group = "launcher"}),
+        awful.key({Mod, "Shift"}, "x",
+                  function() awful.spawn.with_shell(apps.systemd) end,
+                  {description = "systemd manage", group = "launcher"}),
     })
 
 -- Workspaces keybindings --
@@ -235,7 +240,7 @@ awful.keyboard.append_global_keybindings(
                   {description = "show main menu", group = "awesome"}),
         awful.key({Mod, "Control"}, "r", awesome.restart,
                   {description = "reload awesome", group = "awesome"}),
-        awful.key({Mod}, "x", function()
+        awful.key({Mod, "Control"}, "x", function()
             awful.prompt.run {
                 prompt = "Run Lua code: ",
                 textbox = awful.screen.focused().mypromptbox.widget,

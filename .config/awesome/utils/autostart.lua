@@ -9,6 +9,7 @@ do
       "clipmenud",
       "picom",
       "xset r rate 300 50",
+	  "unclutter --timeout 10",
       wallpaper
        -- "sh /home/nako/screen.sh"
    }
