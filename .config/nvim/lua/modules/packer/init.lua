@@ -42,10 +42,7 @@ packer.startup(function()
 
 
     -- Comments
-    use {
-        'b3nj5m1n/kommentary',
-
-    }
+    use 'b3nj5m1n/kommentary'
 
     -- treesitter
     use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'}
@@ -105,10 +102,7 @@ packer.startup(function()
     }
 
     -- Colorizer
-    use {
-        'norcalli/nvim-colorizer.lua',
-        config = require'colorizer'.setup {'css', 'javascript', 'html'}
-    }
+    use 'norcalli/nvim-colorizer.lua'
 
     -- Session and startpage
     use 'mhinz/vim-startify'

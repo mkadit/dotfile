@@ -1,5 +1,4 @@
 local awful = require('awful')
-local wallpaper = "xwallpaper --zoom " .. os.getenv('HOME') ..  '/.local/share/bg'
 do
    local cmds = {
       -- "redshift",
@@ -10,8 +9,7 @@ do
       "picom",
       "xset r rate 300 50",
 	  "unclutter --timeout 10",
-      wallpaper
-       -- "sh /home/nako/screen.sh"
+      'setbg'
    }
    for _,i in pairs(cmds) do
       awful.spawn.with_shell(i .. "&")

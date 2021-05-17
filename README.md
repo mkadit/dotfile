@@ -31,6 +31,7 @@ alsa-utils
 atool
 awesome-git
 bat
+base-devel
 brightnessctl
 clipmenu
 cronie
@@ -66,6 +67,7 @@ nordic-theme
 notmuch
 ntfs-3g
 pamixer
+papirus-nord
 pass
 pavucontrol
 picom
@@ -99,10 +101,17 @@ xwallpaper
 youtube-dl
 zathura
 zathura-pdf-mupdf
-zs-fast-syntax-highlighting
 zsh
 zsh-autosuggestions
+zsh-fast-syntax-highlighting
 ```
+## After
+```
+chsh -s $(which zsh)
+fc-cache -rv
+sudo chmod u+s $(command -v brightnessctl)
+```
+
 ## FAQ
 Q: Why is there no wallpaper?
 
