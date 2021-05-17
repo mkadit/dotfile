@@ -30,8 +30,9 @@ abook
 alsa-utils
 atool
 awesome-git
-bat
 base-devel
+bat
+bluez
 brightnessctl
 clipmenu
 cronie
@@ -46,6 +47,7 @@ ffmpeg
 fzf
 git
 gnome-keyring
+gnupg
 htop
 imagemagick
 isync
@@ -66,6 +68,7 @@ newsboat
 nordic-theme
 notmuch
 ntfs-3g
+pamac-all
 pamixer
 papirus-nord
 pass
