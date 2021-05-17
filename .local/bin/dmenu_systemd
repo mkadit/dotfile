@@ -13,18 +13,22 @@ systemcontrol() {
     service=$(ls "$1" | grep "service" | $DMENU)
     option=$(echo "$1" | cut -d "/" -f 5)
     if [[ $service ]]; then
-        action=$(echo -e "Start\nStop\nReload" | $DMENU)
+        action=$(echo -e "Start\nStop\nReload\nEnable\nDisable" | $DMENU)
         if [[ $option == "system" ]]; then
             case $action in
             Start) sudo -A systemctl restart $service ;;
             Stop) sudo -A systemctl stop $service ;;
             Reload) sudo -A systemctl reload $service ;;
+            Enable) sudo -A systemctl enable $service ;;
+            Disable) sudo -A systemctl disable $service ;;
             esac
         else
             case $action in
             Start) systemctl --user restart $service ;;
             Stop) systemctl --user stop $service ;;
             Reload) systemctl --user reload $service ;;
+            Enable) systemctl --user enable $service ;;
+            Disable) systemctl --user disable $service ;;
             esac
         fi
         if [[ $action ]]; then

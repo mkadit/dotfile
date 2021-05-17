@@ -29,7 +29,7 @@ map R :restart<CR>
 map x :!sxiv -ft * 2>/dev/null &<CR>
 nnoremap o :file &<cr>
 map E :!$EDITOR %f<CR>
-map mkd :mkdir<space>
+" map kd :mkdir<space>
 map bpg :!setbg %f &<CR>
 map bvg :!xwinwrap -ov -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio %f &<CR>
 nnoremap blg :!betterlockscreen -u %f<CR>
@@ -83,7 +83,7 @@ fileviewer *.[1-8] man ./%c | col -b
 filetype *.[1-8] man ./%c
 
 fileviewer *.jpg,*.jpeg,*.png,*.ico,*.gif vifmimg draw %px %py %pw %ph %c %pc vifmimg clear
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm  rotdir %f 2>/dev/null | sxiv -ia 2>/dev/null &
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm  ~/.local/bin/rotdir %f 2>/dev/null | sxiv -ia 2>/dev/null &
 " filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm  sxiv %f
 
 filextype *.svg inkscape %f 2>/dev/null &

@@ -24,7 +24,8 @@ c.url.searchengines = {
     'srx': 'https://searx.decatec.de?q={}&categories=general&language=de'
 }
 
-c.editor.command = ['gvim', '-f', '{file}', '-c', 'normal {line}G{column0}1']
+c.editor.command = ["st", "-e", "nvim", "{file}"]
+
 c.backend = 'webengine'
 
 # config.set('colors.webpage.darkmode.enabled', True)
@@ -34,7 +35,9 @@ config.bind(
     ',P', 'spawn --userscript qute-pass --dmenu-invocation dmenu --password-only')
 c.scrolling.smooth = True
 config.bind('M', 'hint links spawn mpv {hint-url}')
-config.bind('Zm', 'hint links spawn st -e youtube-dl {hint-url}')
+# config.bind('Zv', 'hint links spawn st -e ytdlv {hint-url}')
+config.bind('Zv', 'hint links spawn st -e youtube-dl -f bestvideo+bestaudio -o "~/Videos/%(title)s.%(ext)s" {hint-url}')
+config.bind('Zm', 'hint links spawn st -e youtube-dl -f bestaudio -o "~/Music/%(title)s.%(ext)s" {hint-url}')
 config.bind('xb', 'config-cycle statusbar.show always never')
 config.bind('xt', 'config-cycle tabs.show always never')
 config.bind(

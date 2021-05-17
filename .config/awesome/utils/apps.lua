@@ -1,6 +1,6 @@
 local apps = {
    terminal = 'st',
-   file_manager = 'st -e vifm',
+   file_manager = 'st -e ' .. os.getenv('HOME') .. '/.local/bin/vifmrun',
    -- file_manager = 'thunar',
    news = 'st -e newsboat',
    email = 'st -e neomutt',
