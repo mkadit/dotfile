@@ -41,7 +41,7 @@ dmenu
 dosfstools
 dunst
 exfat-utils
-fd
+exiv2
 fd
 ffmpeg
 fzf
