@@ -65,6 +65,7 @@ neofetch
 neomutt
 neovim-nightly-git
 newsboat
+nmdu
 nordic-theme
 notmuch
 ntfs-3g
@@ -81,6 +82,7 @@ pulseaudio-alsa
 qutebrowser
 rclone
 ripgrep
+rmlint
 rofi
 simple-mtpfs
 slimlock
