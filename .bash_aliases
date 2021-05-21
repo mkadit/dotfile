@@ -69,10 +69,10 @@ verifyToken() {
 
 # custom alias
 
-QPAS='cat <(pacman -Si {1}) <(pacman -Fl {1} | awk "{print \$2}")'
-QYAS='cat <(yay -Si {1}) <(yay -Fl {1} | awk "{print \$2}")'
-QPAR='cat <(pacman -Qi {1}) <(pacman -Fl {1} | awk "{print \$2}")'
-QYAR='cat <(yay -Qi {1}) <(yay -Fl {1} | awk "{print \$2}")'
+QPAS='pacman -Si {1}'
+QYAS='yay -Si {1}'
+QPAR='pacman -Qi {1}'
+QYAR='yay -Qi {1}'
 alias pas='pacman -Slq | fzf -m --preview ${QPAS} | xargs -ro sudo pacman -S'
 alias yas='yay -Slq | fzf -m --preview ${QYAS} | xargs -ro  yay -S'
 alias par='pacman -Qqe | fzf -m --preview ${QPAR} | xargs -ro sudo pacman -Rns'
