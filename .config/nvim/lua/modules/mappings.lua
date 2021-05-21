@@ -138,7 +138,7 @@ local function set_keybindings()
         -- {'n', 'K', '<CMD>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true}},
         {'n', '<C-j>', '<CMD>lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>', {noremap = true, silent = true}},
         {'n', '<C-k>', '<CMD>lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>', {noremap = true, silent = true}},
-        {'n', 'gk', '<CMD>lua require("lspsaga.provider").preview_definition()<CR>', {noremap = true, silent = true}},
+        -- {'n', 'gk', '<CMD>lua require("lspsaga.provider").preview_definition()<CR>', {noremap = true, silent = true}},
         {'n', '[d', '<CMD>Lspsaga diagnostic_jump_prev<CR>', {noremap = true, silent = true}},
         {'n', ']d', '<CMD>Lspsaga diagnostic_jump_next<CR>', {noremap = true, silent = true}},
         {'n', 'rn', '<CMD>lua require("lspsaga.rename").rename()<CR>', {noremap = true, silent = true}},

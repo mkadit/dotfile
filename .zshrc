@@ -4,16 +4,21 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/scripts:$PATH"
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 export EDITOR="nvim"
-HISTFILE="$HOME/.local/share/history"
-HISTSIZE=10000
-HISTFILESIZE=10000 
 export FZF_DEFAULT_COMMAND='fd --hidden --follow --ignore-file=$HOME/.gitignore --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND --type f"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 # source "$HOME/.cargo/env"
 
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=8'
-setopt INC_APPEND_HISTORY
+##############################################################################
+# History Configuration
+##############################################################################
+HISTFILE="$HOME/.local/share/history"
+HISTSIZE=10000
+SAVEHIST=10000               #Number of history entries to save to disk
+#HISTDUP=erase               #Erase duplicates in the history file
+setopt appendhistory     #Append history to the history file (no overwriting)
+setopt sharehistory      #Share history across terminals
+setopt incappendhistory  #Immediately append to the history file, not just when a term is killed
 
 # GPG Dialog
 export GPG_TTY=$(tty)
