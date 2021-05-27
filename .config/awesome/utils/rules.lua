@@ -56,4 +56,5 @@ ruled.client.connect_signal("request::rules", function()
       rule_any   = { type = { "normal", "dialog" } },
       properties = { titlebars_enabled = true }
    }
+
 end)

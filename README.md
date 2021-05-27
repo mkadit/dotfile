@@ -86,6 +86,7 @@ rmlint
 rofi
 simple-mtpfs
 slimlock
+slop
 sxiv
 thunar
 tmux
@@ -116,6 +117,21 @@ chsh -s $(which zsh)
 fc-cache -rv
 sudo chmod u+s $(command -v brightnessctl)
 ```
+
+### Useful keybindings (maybe?)
+| Key                                                             | Command           |
+|-----------------------------------------------------------------|-------------------|
+| <kbd>Ctrl</kbd> + <kbd>T</kbd>                                  | Search file       |
+| <kbd>Ctrl</kbd> + <kbd>F</kbd>                                  | Search directory  |
+| <kbd>Ctrl</kbd> + <kbd>H</kbd>                                  | Search history    |
+| <kbd>Ctrl</kbd> + <kbd>G</kbd> , <kbd>Ctrl</kbd> + <kbd>F</kbd> | Search git file   |
+| <kbd>Ctrl</kbd> + <kbd>G</kbd> , <kbd>Ctrl</kbd> + <kbd>B</kbd> | Search git branch |
+| <kbd>Ctrl</kbd> + <kbd>G</kbd> , <kbd>Ctrl</kbd> + <kbd>R</kbd> | Search git remote |
+| <kbd>Ctrl</kbd> + <kbd>G</kbd> , <kbd>Ctrl</kbd> + <kbd>H</kbd> | Search git log    |
+| <kbd>Mod</kbd> + <kbd>Enter</kbd>                               | Terminal          |
+| <kbd>Mod</kbd> + <kbd>R</kbd>                                   | Rofi              |
+| <kbd>Mod</kbd> + <kbd>Q</kbd>                                   | Kill instance     |
+| <kbd>Mod</kbd> + <kbd>Ctrl</kbd> + <kbd>Q</kbd>                 | Sysact            |
 
 ## FAQ
 Q: Why is there no wallpaper?

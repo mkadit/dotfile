@@ -19,6 +19,7 @@ SAVEHIST=10000               #Number of history entries to save to disk
 setopt appendhistory     #Append history to the history file (no overwriting)
 setopt sharehistory      #Share history across terminals
 setopt incappendhistory  #Immediately append to the history file, not just when a term is killed
+setopt hist_find_no_dups
 
 # GPG Dialog
 export GPG_TTY=$(tty)

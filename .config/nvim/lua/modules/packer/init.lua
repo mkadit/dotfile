@@ -40,6 +40,9 @@ packer.startup(function()
     use 'windwp/nvim-ts-autotag'
     -- use 'AndrewRadev/tagalong.vim'
 
+    -- markdown
+    use 'godlygeek/tabular'
+    use'plasticboy/vim-markdown'
 
     -- Comments
     use 'b3nj5m1n/kommentary'

@@ -48,6 +48,7 @@ nmap q ZQ
 command! FZFfind :set noquickview | :execute 'goto' fnameescape(term('fzf --height 10 2>/dev/tty'))
 nnoremap ff :FZFfind<cr>
 nnoremap bp :!libreoffice --headless --invisible --convert-to pdf %f<cr>
+command ln ln -s %f:p %D
 
 fileview */ tree %c -L 1 --dirsfirst
 fileview ../ tree %c -L 1 --dirsfirst

@@ -21,4 +21,4 @@ vim.api.nvim_exec(
     true)
 
 vim.api.nvim_exec(
-    'let startify_bookmarks = [ { \'i\': \'~/.config/nvim/init.lua\' } , { \'j\': \'~/.config/awesome/rc.lua\' } , ] ' , true)
+    'let startify_bookmarks = [ { \'i\': \'~/.config/nvim/init.lua\' } , { \'h\': \'~/.config/awesome/rc.lua\' } , ] ' , true)

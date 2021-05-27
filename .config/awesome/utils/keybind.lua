@@ -28,31 +28,31 @@ awful.keyboard.append_global_keybindings(
                   {description = "Open email", group = "launcher"}),
         awful.key({Mod, "Control"}, "q",
                   function() awful.spawn.with_shell(apps.sysact) end,
-                  {description = "sysact", group = "launcher"}),
+                  {description = "Sysact", group = "launcher"}),
         awful.key({Mod}, "Tab",
                   function() awful.spawn.with_shell(apps.password) end,
-                  {description = "password manager", group = "launcher"}),
+                  {description = "Password manager", group = "launcher"}),
         awful.key({Mod, "Shift"}, "Tab",
                   function() awful.spawn.with_shell(apps.clipboard) end,
-                  {description = "clipboard", group = "launcher"}),
+                  {description = "Clipboard", group = "launcher"}),
         awful.key({Mod, "Shift"}, "[",
                   function() awful.spawn.with_shell(apps.mount) end,
-                  {description = "mount", group = "launcher"}),
+                  {description = "Mount", group = "launcher"}),
         awful.key({Mod, "Shift"}, "]",
                   function() awful.spawn.with_shell(apps.unmount) end,
-                  {description = "unmount", group = "launcher"}),
+                  {description = "Unmount", group = "launcher"}),
         awful.key({Mod}, "w",
                   function() awful.spawn.with_shell(apps.network) end,
-                  {description = "network manager", group = "launcher"}),
+                  {description = "Network manager", group = "launcher"}),
         awful.key({Mod}, "d", function()
             awful.spawn(apps.music)
-        end, {description = "music player", group = "launcher"}),
+        end, {description = "Music player", group = "launcher"}),
         awful.key({Mod}, "x",
                   function() awful.spawn.with_shell(apps.kill_process) end,
-                  {description = "kill process", group = "launcher"}),
+                  {description = "Kill process", group = "launcher"}),
         awful.key({Mod, "Shift"}, "x",
                   function() awful.spawn.with_shell(apps.systemd) end,
-                  {description = "systemd manage", group = "launcher"}),
+                  {description = "Systemd manage", group = "launcher"}),
     })
 
 -- Workspaces keybindings --
@@ -126,13 +126,13 @@ awful.keyboard.append_global_keybindings(
 awful.keyboard.append_global_keybindings(
     {
         awful.key({Mod}, 'k', function() awful.client.focus.byidx(1) end,
-                  {description = 'Gp to next window', group = 'client'}),
+                  {description = 'Go to next window', group = 'client'}),
         awful.key({Mod}, 'j', function() awful.client.focus.byidx(-1) end,
-                  {description = 'Gp to prev window', group = 'client'}),
+                  {description = 'Go to prev window', group = 'client'}),
         awful.key({Mod}, 'Right', function() awful.client.focus.byidx(1) end,
-                  {description = 'Gp to next window', group = 'client'}),
+                  {description = 'Go to next window', group = 'client'}),
         awful.key({Mod}, 'Left', function() awful.client.focus.byidx(-1) end,
-                  {description = 'Gp to prev window', group = 'client'})
+                  {description = 'Go to prev window', group = 'client'})
     })
 
 client.connect_signal("request::default_keybindings", function()
@@ -143,54 +143,54 @@ client.connect_signal("request::default_keybindings", function()
             awful.key({Mod}, "f", function(c)
                 c.fullscreen = not c.fullscreen
                 c:raise()
-            end, {description = "toggle fullscreen", group = "client"}),
+            end, {description = "Toggle fullscreen", group = "client"}),
 
             -- Close window
             awful.key({Mod}, "q", function(c) c:kill() end,
                       {description = "close", group = "client"}),
             -- Float toggle
             awful.key({Mod, "Control"}, "space", awful.client.floating.toggle,
-                      {description = "toggle floating", group = "client"}),
+                      {description = "Toggle floating", group = "client"}),
 
             -- get master window
             awful.key({Mod, "Control"}, "Return",
                       function(c) c:swap(awful.client.getmaster()) end,
-                      {description = "move to master", group = "client"}),
+                      {description = "Move to master", group = "client"}),
             -- Move to screen
             awful.key({Mod, "Shift"}, "o", function(c)
                 c:move_to_screen()
-            end, {description = "move to screen", group = "client"}),
+            end, {description = "Move to screen", group = "client"}),
             -- stciky top
             awful.key({Mod}, "t", function(c) c.ontop = not c.ontop end,
-                      {description = "toggle keep on top", group = "client"}),
+                      {description = "Toggle keep on top", group = "client"}),
             -- Minimize
             awful.key({Mod}, "n", function(c)
                 -- The client currently has the input focus, so it cannot be
                 -- minimized, since minimized clients can't have the focus.
                 c.minimized = true
-            end, {description = "minimize", group = "client"}),
+            end, {description = "Minimize", group = "client"}),
             awful.key({Mod, "Shift"}, "n", function()
                 local c = awful.client.restore()
                 -- Focus restored client
                 if c then
                     c:activate{raise = true, context = "key.unminimize"}
                 end
-            end, {description = "restore minimized", group = "client"}),
+            end, {description = "Restore minimized", group = "client"}),
             -- maximize
             awful.key({Mod}, "m", function(c)
                 c.maximized = not c.maximized
                 c:raise()
-            end, {description = "(un)maximize", group = "client"}),
+            end, {description = "(Un)Maximize", group = "client"}),
             -- maximize vertically
             awful.key({Mod, "Control"}, "m", function(c)
                 c.maximized_vertical = not c.maximized_vertical
                 c:raise()
-            end, {description = "(un)maximize vertically", group = "client"}),
+            end, {description = "(Un)Maximize vertically", group = "client"}),
             -- maximize horizontally
             awful.key({Mod, "Shift"}, "m", function(c)
                 c.maximized_horizontal = not c.maximized_horizontal
                 c:raise()
-            end, {description = "(un)maximize horizontally", group = "client"})
+            end, {description = "(Un)Maximize horizontally", group = "client"})
         })
 end)
 
