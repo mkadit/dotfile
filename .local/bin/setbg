@@ -11,6 +11,7 @@ bgloc="${XDG_DATA_HOME:-$HOME/.local/share/}/bg"
 ext="${file##*.}"
 
 killall xwinwrap 2>/dev/null
+echo  $exts
 echo "$ext"
 [ -f "$1" ] && ln -sf "$file" "$bgloc" && notify-send -i "$bgloc" "Changing wallpaper..."
 
@@ -20,3 +21,5 @@ case "$ext" in
     jpg|jpeg|png|gif) xwallpaper --zoom "$bgloc";;
     mp4|mkv)xwinwrap -ov -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio "$bgloc" &;;
 esac
+
+xwallpaper --zoom  "$bgloc"
