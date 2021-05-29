@@ -41,8 +41,8 @@ packer.startup(function()
     -- use 'AndrewRadev/tagalong.vim'
 
     -- markdown
-    use 'godlygeek/tabular'
-    use'plasticboy/vim-markdown'
+    use 'junegunn/vim-easy-align'
+    use 'plasticboy/vim-markdown'
 
     -- Comments
     use 'b3nj5m1n/kommentary'

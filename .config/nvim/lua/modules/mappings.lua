@@ -36,6 +36,10 @@ local function set_keybindings()
         {'n', '<Leader>al', '<CMD>lopen<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>ax', '<CMD>LspTroubleToggle<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>aQ', "<CMD>lua require('rest-nvim').run()<CR>", {noremap = true, silent = false}},
+        {'x', 'gl', ":EasyAlign<CR>", {noremap = true, silent = false}},
+        {'n', 'gl', ":EasyAlign<CR>", {noremap = true, silent = false}},
+        {'x', 'gL', ":LiveEasyAlign<CR>", {noremap = true, silent = false}},
+        {'n', 'gL', ":LiveEasyAlign<CR>", {noremap = true, silent = false}},
 
 		-- Colorizer
         {'n', '<Leader>ac', '<CMD>ColorizerToggle<CR>', {noremap = true, silent = false}},
@@ -163,6 +167,9 @@ local function set_keybindings()
         {'n', '<Space>zt', '<cmd>lua require"neuron/telescope".find_tags()<CR>', {noremap = true, silent = true}},
         {'n', '<buffer>gz[', '<cmd>lua require"neuron".goto_prev_extmark()<CR>', {noremap = true, silent = true}},
         {'n', '<buffer>gz]', '<cmd>lua require"neuron".goto_next_extmark()<CR>', {noremap = true, silent = true}},
+
+
+
 
     }
     function _G.show_documentation()

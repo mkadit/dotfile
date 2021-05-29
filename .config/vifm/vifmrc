@@ -30,7 +30,7 @@ map x :!sxiv -ft * 2>/dev/null &<CR>
 nnoremap o :file &<cr>
 map E :!$EDITOR %f<CR>
 " map kd :mkdir<space>
-map bpg :!setbg %f &<CR>
+map bpg :!~/.local/bin/setbg %f 2>/dev/null &<CR>
 map bvg :!xwinwrap -ov -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio %f &<CR>
 nnoremap blg :!betterlockscreen -u %f<CR>
 map X :!ext %f &<CR>

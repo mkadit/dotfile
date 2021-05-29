@@ -2,13 +2,13 @@
 This is a WIP
 
 ## Setup
-* **Distro** : Arch Linux
-* **WM** : awesome wm
-* **status bar** : wibar
-* **Shell** : zsh
+* **Distro**       : Arch Linux
+* **WM**           : awesome wm
+* **status bar**   : wibar
+* **Shell**        : zsh
 * **File Manager** : vifm
-* **Terminal** : st
-* **Editor** : nvim (nightly)
+* **Terminal**     : st
+* **Editor**       : nvim (nightly)
 
 ## Screenshot
 ![Screenshot](./assets/normal.png)
@@ -104,6 +104,7 @@ xorg-xinit
 xorg-xprop
 xorg-xwinfo
 xwallpaper
+xwinwrap-git
 youtube-dl
 zathura
 zathura-pdf-mupdf
@@ -119,6 +120,7 @@ sudo chmod u+s $(command -v brightnessctl)
 ```
 
 ### Useful keybindings (maybe?)
+
 | Key                                                             | Command           |
 |-----------------------------------------------------------------|-------------------|
 | <kbd>Ctrl</kbd> + <kbd>T</kbd>                                  | Search file       |
@@ -130,16 +132,21 @@ sudo chmod u+s $(command -v brightnessctl)
 | <kbd>Ctrl</kbd> + <kbd>G</kbd> , <kbd>Ctrl</kbd> + <kbd>H</kbd> | Search git log    |
 | <kbd>Mod</kbd> + <kbd>Enter</kbd>                               | Terminal          |
 | <kbd>Mod</kbd> + <kbd>R</kbd>                                   | Rofi              |
+| <kbd>Mod</kbd> + <kbd>S</kbd>                                   | Cheatsheet        |
 | <kbd>Mod</kbd> + <kbd>Q</kbd>                                   | Kill instance     |
 | <kbd>Mod</kbd> + <kbd>Ctrl</kbd> + <kbd>Q</kbd>                 | Sysact            |
+
+
+For more mappings see [.config/awesome/utils/keybind.lua](.config/awesome/utils/keybind.lua)
 
 ## FAQ
 Q: Why is there no wallpaper?
 
 A: My config use xwallpaper to set the background using the file located  ~/.local/share/bg. In order to address
-this you can use the script `setbg` on a wallpaper of your chosing and all should be well
+this you can use the script `setbg` on a wallpaper of your chosing and all should be well. You could also use
+<kbd>Ctrl</kbd> + <kbd>x</kbd>, <kbd>Ctrl</kbd> + <kbd>w</kbd> when using sxiv to use the selected wallpaper
 
 Q: Neovim is not working as intended
 
 A: Make sure you use the latest version (nightly) and not the stable one since there are many plugins unavailable on the stable branch. Make ure you already have the necessary LSP in ~/.local/share/nvim/lspinstall as the
-configuration for the LSP is set to point to there
+configuration for the LSP is set to point to there.
