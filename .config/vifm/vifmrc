@@ -1,5 +1,5 @@
 " vim: filetype=vifm
-source ${XDG_CONFIG_HOME:-$HOME/.config}/vifm/vifmshortcuts
+" source ${XDG_CONFIG_HOME:-$HOME/.config}/vifm/vifmshortcuts
 
 set vicmd=$EDITOR
 set statusline="  %t%= %A %10u:%-7g %15E %a %20d  "
@@ -17,22 +17,14 @@ set incsearch
 set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 colorscheme normal
 
-map <C-h> <C-w>h
-map <C-j> <C-w>j
-map <C-k> <C-w>k
-map <C-l> <C-w>l
-map <C-o> <C-w>o
-map <C-s> <C-w>s
-map <C-v> <C-w>v
-
+""" Custom map"
 map R :restart<CR>
 map x :!sxiv -ft * 2>/dev/null &<CR>
 nnoremap o :file &<cr>
 map E :!$EDITOR %f<CR>
 " map kd :mkdir<space>
-map bpg :!~/.local/bin/setbg %f 2>/dev/null &<CR>
-map bvg :!xwinwrap -ov -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio %f &<CR>
-nnoremap blg :!betterlockscreen -u %f<CR>
+map bg :!~/.local/bin/setbg %f 2>/dev/null &<CR>
+nnoremap bG :!betterlockscreen -u %f<CR>
 map X :!ext %f &<CR>
 nnoremap s :shell<cr>
 nnoremap w :view<cr>
@@ -45,11 +37,26 @@ nnoremap A cw
 nnoremap ,w :set wrap!<cr>
 nmap <space> tj
 nmap q ZQ
-command! FZFfind :set noquickview | :execute 'goto' fnameescape(term('fzf --height 10 2>/dev/tty'))
+nmap Q ZZ
 nnoremap ff :FZFfind<cr>
 nnoremap bp :!libreoffice --headless --invisible --convert-to pdf %f<cr>
-command ln ln -s %f:p %D
+nnoremap bj :!libreoffice --headless --invisible --convert-to jpg %f<cr>
 
+
+""" Custom command
+"" symlink create
+command ln ln -s %f:p %D
+"" fzf
+command! FZFfind : set noquickview
+                \| let $FZF_PICK = term('fzf --height 10 2>/dev/tty')
+                " \| let $FZF_PICK = term('fd --hidden --follow --ignore-file=$HOME/.gitignore --exclude .git | fzf --height 10 2>/dev/tty')
+                \| if $FZF_PICK != ''
+                " \|     execute 'goto' fnameescape($FZF_PICK)
+                \|     execute system('[ -f "$FZF_PICK" ] && echo goto || echo cd') fnameescape($FZF_PICK)
+                \| endif
+
+
+""" Rules
 fileview */ tree %c -L 1 --dirsfirst
 fileview ../ tree %c -L 1 --dirsfirst
 fileviewer *.html w3m -dump %c
@@ -92,7 +99,7 @@ filextype *.xcf gimp %f 2>/dev/null &
 
 set vifminfo=dhistory,chistory,tui,shistory,phistory,fhistory,dirstack,registers,bookmarks,bmarks
 
-
+""" Icons
 " file types
 set classify=' :dir:/, :exe:, :reg:, :link:'
 " various file names

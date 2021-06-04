@@ -81,13 +81,13 @@ awful.screen.connect_for_each_screen(function(scr)
    }
 
    local middle = {
-      mpd.icon,
-      mpd.text,
+      wibox.widget.systray(),
+      -- mpd.icon,
+      -- mpd.text,
       layout = wibox.layout.fixed.horizontal
    }
 
    local right = {
-      wibox.widget.systray(),
       net.icon,
       net.text,
       hdd.icon,

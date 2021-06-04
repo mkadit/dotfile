@@ -1,12 +1,4 @@
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.local/bin/statusbar:$PATH"
-export PATH="$HOME/go/bin:$PATH"
-export PATH="$HOME/scripts:$PATH"
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
-export EDITOR="nvim"
-export FZF_DEFAULT_COMMAND='fd --hidden --follow --ignore-file=$HOME/.gitignore --exclude .git'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND --type f"
-export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 # source "$HOME/.cargo/env"
 
 ##############################################################################

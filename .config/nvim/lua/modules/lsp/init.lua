@@ -27,7 +27,7 @@ nvim_lsp.gopls.setup {
     settings = {gopls = {analyses = {unusedparams = true}, staticcheck = true}},
     filetypes = {"go", "gomod"},
     root_dir = function(filename)
-        return nvim_lsp.util.root_pattern("go.mod", ".git")(filename) or nvim_lsp.util.path.dirname(filename)
+        return nvim_lsp.util.root_pattern("go.mod", ".git", "main.go")(filename) or nvim_lsp.util.path.dirname(filename)
     end,
     capabilities = capability
 }

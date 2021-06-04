@@ -10,7 +10,7 @@ esac
 
 cmds="\
 lock		slimlock
-leave awesome	kill -TERM $(pidof -s awesome)
+leave wm	kill -TERM $(pidof -s awesome)
 hibernate	${hib:-sudo -A systemctl suspend-then-hibernate}
 reboot	${reb:-sudo -A reboot}
 shutdown	${shut:-sudo -A shutdown -h now}"

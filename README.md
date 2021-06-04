@@ -90,6 +90,7 @@ slop
 sxiv
 thunar
 tmux
+ueberzug
 unclutter
 unrar
 unzip
@@ -104,13 +105,17 @@ xorg-xinit
 xorg-xprop
 xorg-xwinfo
 xwallpaper
-xwinwrap-git
 youtube-dl
 zathura
 zathura-pdf-mupdf
 zsh
 zsh-autosuggestions
 zsh-fast-syntax-highlighting
+```
+## Optional
+Below package are optional
+```
+xwinwrap-git
 ```
 ## After
 ```
