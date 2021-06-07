@@ -8,12 +8,11 @@ alias ls="ls -hN --color=auto --group-directories-first"
 alias l="ls"
 alias ll="ls -al"
 alias vifm="vifmrun"
-alias bassh="ssh -i muhammad.krishertanto_kawung.key muhammad.krishertanto@kawung.cs.ui.ac.id -p 12122"
+alias bassh="ssh -L 6969:db.cs.ui.ac.id:5432 -i ~/muhammad.krishertanto_kawung.key muhammad.krishertanto@kawung.cs.ui.ac.id -p 12122"
 
 # youtube-dl
 alias ytdlm="youtube-dl -f bestaudio --extract-audio --audio-format mp3 -o '~/Music/%(title)s.%(ext)s'"
 alias ytdlv="youtube-dl -f bestvideo+bestaudio -o '~/Videos/%(title)s.%(ext)s'"
-
 
 # Package
 QPAS='pacman -Si {1}'

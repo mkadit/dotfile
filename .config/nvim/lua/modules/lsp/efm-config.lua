@@ -8,6 +8,7 @@ local lua_efm = {
 local html_prettier = {formatCommand = "prettier ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser html", formatStdin = true}
 local css_prettier = {formatCommand = "prettier ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser css", formatStdin = true}
 local scss_prettier = {formatCommand = "prettier ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser scss", formatStdin = true}
+
 local eslint = {
     lintCommand = "eslint -f unix --stdin --stdin-filename ${INPUT}",
     lintIgnoreExitCode = true,
@@ -15,6 +16,7 @@ local eslint = {
     lintFormats = {"%f:%l:%c: %m"}
 }
 local denofmt = {formatCommand = "cat ${INPUT} | deno fmt -", formatStdin = true}
+local bash = {formatCommand = "shfmt -i 2 -ci -bn -", formatStdin = true}
 local markdown_prettier = {formatCommand = "prettier ${--tab-width:tabWidth} ${--single-quote:singleQuote} --parser markdown", formatStdin = true}
 -- local json_prettier = {formatCommand = "prettier ${--tab-width:tabWidth} --parser json", formatStdin = true}
 local jq = {formatCommand = "jq '.'", formatStdin = true}
@@ -36,6 +38,7 @@ local languages = {
     python = {autopep8},
     tex = {latex},
     bib = {latex},
+    bash = {bash}
 }
 
 nvim_lsp.efm.setup {

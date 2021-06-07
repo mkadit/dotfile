@@ -41,6 +41,20 @@ ZSH_AUTOSUGGEST_USE_ASYNC=1
 
 
 setopt PROMPT_SUBST
-PS1="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}"
+
+
+# Prompt
+export VIRTUAL_ENV_DISABLE_PROMPT=yes
+
+function virtenv_indicator {
+    if [[ -z $VIRTUAL_ENV ]] then
+        psvar[1]=''
+    else
+        psvar[1]=${VIRTUAL_ENV##*/}
+    fi
+}
+add-zsh-hook precmd virtenv_indicator
+PS1="%B%{$fg[magenta]%}%(1V.%B%{$fg[red]%}(%B%{$fg[magenta]%}%1v%B%{$fg[red]%}).)"
+PS1+="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}"
 PS1+='${vcs_info_msg_0_}'
 PS1+=$'\n'"$%b "
