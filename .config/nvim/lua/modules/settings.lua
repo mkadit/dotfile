@@ -33,7 +33,7 @@ local options = {
     fileencoding   = 'utf-8',
     fileencodings  = 'utf-8',
     fileformat     = 'unix',
-    -- fillchars      = 'vert:┃',
+    -- fillchars   = 'vert:┃',
     foldexpr       = 'nvim_treesitter#foldexpr()',
     foldlevel      = 0,
     foldmethod     = 'manual',
@@ -49,7 +49,7 @@ local options = {
     linebreak      = true,
     linespace      = 0,
     list           = true,
-    -- listchars      = {tab='»-»',nbsp='␣',trail='•',extends='»',precedes='«',eol='↲'},
+    -- listchars   = {tab = '»-»',nbsp = '␣',trail = '•',extends = '»',precedes = '«',eol = '↲'},
     mouse          = 'a',
     number         = true,
     pumblend       = 10,
@@ -79,7 +79,7 @@ local options = {
     termguicolors  = true,
     title          = true,
     ttimeoutlen    = 50,
-    timeoutlen    =  500,
+    timeoutlen     = 500,
     undodir        = '~/.local/share/nvim/undo',
     undofile       = true,
     updatetime     = 300,
@@ -94,9 +94,14 @@ local options = {
 }
 setOptions(options)
 
+
+-- function _G.to_root()
+-- 	local pat = require('lspconfig').util.root_pattern(".git")
+-- 	vim.cmd("cd " .. pat)
+-- end
+
 vim.cmd('syntax enable')
 require('base16-colorscheme').setup('nord')
--- vim.cmd('colorscheme sonokai')
 vim.api.nvim_exec([[
 set listchars=tab:»\ ,nbsp:␣,trail:•,extends:»,precedes:«,eol:↲
 set fillchars=eob:\ ,vert:\|
@@ -148,6 +153,9 @@ function! CleanEmptyBuffers()
         exe 'bw ' . join(buffers, ' ')
     endif
 endfunction
+
+" command! -nargs=0  Roote call v:lua.to_root()
+
 ]], false)
 
 vim.g.doge_enable_mappings = 0

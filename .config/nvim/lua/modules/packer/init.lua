@@ -133,7 +133,6 @@ packer.startup(function()
 
     -- rooter
     use 'airblade/vim-rooter'
-    -- use 'ygm2/rooter.nvim'
 
     -- etc
     use 'dstein64/vim-startuptime'
