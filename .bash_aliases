@@ -9,6 +9,7 @@ alias l="ls"
 alias ll="ls -al"
 alias vifm="vifmrun"
 alias bassh="ssh -L 6969:db.cs.ui.ac.id:5432 -i ~/muhammad.krishertanto_kawung.key muhammad.krishertanto@kawung.cs.ui.ac.id -p 12122"
+alias vbg='xwinwrap -ov -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio'
 
 # youtube-dl
 alias ytdlm="youtube-dl -f bestaudio --extract-audio --audio-format mp3 -o '~/Music/%(title)s.%(ext)s'"
@@ -40,5 +41,5 @@ alias ggm='git merge $1'
 alias ggp='git pull origin $1'
 alias ggr='git revert'
 alias ggs='git status'
+alias ggf='git fetch'
 alias glog='git log --all --decorate --oneline --graph'
-alias vbg='xwinwrap -ov -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio'

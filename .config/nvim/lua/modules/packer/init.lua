@@ -126,7 +126,7 @@ packer.startup(function()
     use {'kkoomen/vim-doge', run = ":call doge#install()"}
 
     -- todo
-    use 'dhruvasagar/vim-dotoo'
+    use 'kristijanhusak/orgmode.nvim'
 
     -- debugger
     use 'mfussenegger/nvim-dap'
