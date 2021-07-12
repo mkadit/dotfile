@@ -37,7 +37,7 @@ packer.startup(function()
 
     -- autopair
     use 'windwp/nvim-autopairs'
-    use 'windwp/nvim-ts-autotag'
+    -- use 'windwp/nvim-ts-autotag'
     -- use 'AndrewRadev/tagalong.vim'
 
     -- markdown
@@ -133,6 +133,7 @@ packer.startup(function()
 
     -- rooter
     use 'airblade/vim-rooter'
+    -- use 'ygm2/rooter.nvim'
 
     -- etc
     use 'dstein64/vim-startuptime'
@@ -140,7 +141,6 @@ packer.startup(function()
     use 'RishabhRD/popfix'
     use 'RishabhRD/nvim-cheat.sh'
     use 'famiu/nvim-reload'
-    use 'andweeb/presence.nvim'
 	use {
 		'NTBBloodbath/rest.nvim',
 		requires = { 'nvim-lua/plenary.nvim' }
