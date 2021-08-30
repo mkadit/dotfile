@@ -31,12 +31,12 @@ alias tma="tmux a -t"
 
 # Git
 alias config='/usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=/$HOME'
-alias gac='git add $1 && git commit -m "$2"'
+alias gac='git add $1 && git commit -m "\$2"'
 alias ggC='git commit -m "$1"'
 alias ggP='git push origin $1'
 alias ggR='git reset'
 alias ggc='git checkout'
-alias ggg='git pull; git add -A; git commit -m "$1"; git push;'
+alias ggg='git pull; git add -A; git commit -m \"$1\"; git push;'
 alias ggm='git merge $1'
 alias ggp='git pull origin $1'
 alias ggr='git revert'

@@ -94,12 +94,6 @@ local options = {
 }
 setOptions(options)
 
-
--- function _G.to_root()
--- 	local pat = require('lspconfig').util.root_pattern(".git")
--- 	vim.cmd("cd " .. pat)
--- end
-
 vim.cmd('syntax enable')
 require('base16-colorscheme').setup('nord')
 vim.api.nvim_exec([[
@@ -153,9 +147,6 @@ function! CleanEmptyBuffers()
         exe 'bw ' . join(buffers, ' ')
     endif
 endfunction
-
-" command! -nargs=0  Roote call v:lua.to_root()
-
 ]], false)
 
 vim.g.doge_enable_mappings = 0
