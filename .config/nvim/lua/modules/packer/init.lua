@@ -25,13 +25,26 @@ packer.startup(function()
     use {"folke/lsp-trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}
 
     -- completion
+    -- use {
+    --     "hrsh7th/nvim-compe",
+    --     requires = {
+    --         {
+    --             "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ",
+    --             "kristijanhusak/vim-dadbod-completion"
+    --         }
+    --     }
+    -- }
     use {
-        "hrsh7th/nvim-compe",
+        "hrsh7th/nvim-cmp",
         requires = {
-            {
-                "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ",
-                "kristijanhusak/vim-dadbod-completion"
-            }
+            "kdheepak/cmp-latex-symbols",
+            "hrsh7th/cmp-buffer",
+            "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-vsnip",
+            "hrsh7th/nvim-cmp",
+            "hrsh7th/vim-vsnip",
+            "hrsh7th/cmp-path",
+
         }
     }
 
