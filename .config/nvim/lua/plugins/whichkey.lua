@@ -62,6 +62,7 @@ local leader_keymap = {
         l = {'<CMD>lopen<CR>', 'Open loclist'},
         p = {'<CMD>!opout %<CR>', 'View files in pdf'},
         q = {'<CMD>copen<CR>', 'Open quickfixlist'},
+        Q = {"<CMD>lua require('rest-nvim').run()<CR>", 'Run http request'},
         r = {'<CMD>Restart<CR>', 'Restart'},
         s = {'<CMD>source ~/.config/nvim/init.lua<CR>', 'Source init.lua'},
         u = {'<CMD>UndotreeToggle<CR>', 'Undo tree'},

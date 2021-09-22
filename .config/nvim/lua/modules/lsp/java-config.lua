@@ -17,12 +17,6 @@ function M.setup()
     map('v', '<leader>am', '<Esc><Cmd>lua require("jdtls").extract_method(true)<CR>')
     map('n', '<leader>aF', '<Cmd>lua require("jdtls").code_action(false, "refactor")<CR>')
     map('n', 'ga', '<Cmd>lua require("jdtls").code_action()<CR>')
-
-    -- vim.cmd [[command! -buffer JdtCompile lua require('jdtls').compile()]]
-    -- vim.cmd [[command! -buffer JdtUpdateConfig lua require('jdtls').update_project_config()]]
-    -- vim.cmd [[command! -buffer JdtJol lua require('jdtls').jol()]]
-    -- vim.cmd [[command! -buffer JdtBytecode lua require('jdtls').javap()]]
-    -- vim.cmd [[command! -buffer JdtJshell lua require('jdtls').jshell()]]
 end
 
 return M

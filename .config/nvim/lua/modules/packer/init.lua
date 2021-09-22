@@ -22,28 +22,20 @@ packer.startup(function()
     use {'neovim/nvim-lspconfig', requires = {'glepnir/lspsaga.nvim'}}
     use {"mfussenegger/nvim-jdtls"}
     use 'kabouzeid/nvim-lspinstall'
-    use {"folke/lsp-trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}
+    use {"folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}
+	use {"folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim"}
 
-    -- completion
-    -- use {
-    --     "hrsh7th/nvim-compe",
-    --     requires = {
-    --         {
-    --             "hrsh7th/vim-vsnip", "hrsh7th/vim-vsnip-integ",
-    --             "kristijanhusak/vim-dadbod-completion"
-    --         }
-    --     }
-    -- }
     use {
         "hrsh7th/nvim-cmp",
         requires = {
-            "kdheepak/cmp-latex-symbols",
+			"kristijanhusak/vim-dadbod-completion",
             "hrsh7th/cmp-buffer",
             "hrsh7th/cmp-nvim-lsp",
+            "hrsh7th/cmp-path",
             "hrsh7th/cmp-vsnip",
             "hrsh7th/nvim-cmp",
             "hrsh7th/vim-vsnip",
-            "hrsh7th/cmp-path",
+            "kdheepak/cmp-latex-symbols",
 
         }
     }
@@ -87,7 +79,7 @@ packer.startup(function()
     use 'vifm/vifm.vim'
 
     -- Useful things
-    use 'kdav5758/TrueZen.nvim'
+    use 'folke/zen-mode.nvim'
 
     -- formatter
     use 'sbdchd/neoformat'

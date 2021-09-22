@@ -93,6 +93,7 @@ local function set_keybindings()
         {'n', '<Leader>fr', '<CMD>lua require("telescope.builtin").live_grep()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>ft', '<CMD>lua require("telescope.builtin").treesitter()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>gf', '<CMD>lua require("telescope.builtin").git_branches()<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>fT', '<CMD>TodoTelescope<CR>', {noremap = true, silent = false}},
 
         -- Fugitive
         {'n', '<Leader>gs', '<CMD>G<CR>', {noremap = true, silent = false}},
@@ -135,7 +136,7 @@ local function set_keybindings()
         {'n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts},
         {'n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts},
         {'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts},
-        {'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts},
+        {'n', '[d', '<cmd>lua vim.lsp.buf.hover()<CR>', opts},
 		{'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts},
         {'n', '<Leader>aL', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts},
         {'n', 'K', '<CMD>lua show_documentation()<CR>', {noremap = true, silent = true}},

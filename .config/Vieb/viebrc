@@ -1,0 +1,18 @@
+"Option
+set adblocker=update
+set devtoolsposition=split
+set downloadmethod=confirm
+set firefoxmode=always
+set fontsize=16
+set mintabwidth=250
+set norestoretabs
+set permissioncamera=ask
+set permissiondisplaycapture=ask
+set permissionmediadevices=allow
+set permissionmicrophone=ask
+set permissionpersistentstorage=allow
+set redirecttohttp
+set splitbelow
+set tabclosefocusright
+set tabreopenposition=previous
+set windowtitle=title
