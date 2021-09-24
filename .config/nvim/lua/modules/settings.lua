@@ -100,10 +100,6 @@ vim.api.nvim_exec([[
 set listchars=tab:»\ ,nbsp:␣,trail:•,extends:»,precedes:«,eol:↲
 set fillchars=eob:\ ,vert:\|
 
-
-let g:dotoo#agenda#files = ['~/Documents/todo/*.org']
-let g:dotoo#capture#refile = expand('~/Documents/todo/refile.org')
-
 if executable("rg")
     set grepprg=rg\ --vimgrep\ --no-heading
     set grepformat=%f:%l:%c:%m,%f:%l:%m
@@ -146,6 +142,12 @@ function! CleanEmptyBuffers()
     if !empty(buffers)
         exe 'bw ' . join(buffers, ' ')
     endif
+endfunction
+
+function! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
 endfunction
 ]], false)
 

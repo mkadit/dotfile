@@ -19,7 +19,7 @@ packer.startup(function()
     }
 
     -- nvim-lsp
-    use {'neovim/nvim-lspconfig', requires = {'glepnir/lspsaga.nvim'}}
+    use {'neovim/nvim-lspconfig'}
     use {"mfussenegger/nvim-jdtls"}
     use 'kabouzeid/nvim-lspinstall'
     use {"folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons"}
@@ -36,6 +36,9 @@ packer.startup(function()
             "hrsh7th/nvim-cmp",
             "hrsh7th/vim-vsnip",
             "kdheepak/cmp-latex-symbols",
+            'saadparwaiz1/cmp_luasnip',
+            'L3MON4D3/LuaSnip',
+            'onsails/lspkind-nvim'
 
         }
     }
@@ -60,6 +63,8 @@ packer.startup(function()
     use 'tpope/vim-rhubarb'
     use 'shumphrey/fugitive-gitlab.vim'
     use 'rbong/vim-flog'
+	use 'TimUntersberger/neogit'
+	use 'sindrets/diffview.nvim'
 
     -- Gist
     use {'mattn/vim-gist', requires = {'mattn/webapi-vim'}}
@@ -131,7 +136,6 @@ packer.startup(function()
     use {'kkoomen/vim-doge', run = ":call doge#install()"}
 
     -- todo
-    use 'kristijanhusak/orgmode.nvim'
 
     -- debugger
     use 'mfussenegger/nvim-dap'
@@ -149,6 +153,8 @@ packer.startup(function()
 		'NTBBloodbath/rest.nvim',
 		requires = { 'nvim-lua/plenary.nvim' }
 	}
+    use 'kwkarlwang/bufresize.nvim'
+
 
 
 end)

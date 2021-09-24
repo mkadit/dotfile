@@ -19,7 +19,6 @@ local function set_keybindings()
         -- Find file Root
         {'n', '<Leader>aw', '<CMD>lcd %:p:h<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>aj', '<CMD>Rooter<CR>', {noremap = true, silent = false}},
-
         -- Misc Things
         {'t', '<ESC><ESC>', '<c-\\><c-n>', {noremap = true, silent = false}},
         {'n', '<ESC><ESC>', '<CMD>nohlsearch<CR>', {noremap = true, silent = false}},
@@ -36,6 +35,7 @@ local function set_keybindings()
         {'n', '<Leader>al', '<CMD>lopen<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>ax', '<CMD>LspTroubleToggle<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>aQ', "<CMD>lua require('rest-nvim').run()<CR>", {noremap = true, silent = false}},
+        {'n', '<Leader>at', "<CMD>call TrimWhitespace()<CR>", {noremap = true, silent = false}},
         {'x', 'gl', ":EasyAlign<CR>", {noremap = true, silent = false}},
         {'n', 'gl', ":EasyAlign<CR>", {noremap = true, silent = false}},
         {'x', 'gL', ":LiveEasyAlign<CR>", {noremap = true, silent = false}},
@@ -95,7 +95,7 @@ local function set_keybindings()
         {'n', '<Leader>gf', '<CMD>lua require("telescope.builtin").git_branches()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fT', '<CMD>TodoTelescope<CR>', {noremap = true, silent = false}},
 
-        -- Fugitive
+        -- Git
         {'n', '<Leader>gs', '<CMD>G<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>gD', '<CMD>Gvdiffsplit<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>gb', '<CMD>Gblame<CR>', {noremap = true, silent = false}},
@@ -105,6 +105,7 @@ local function set_keybindings()
         {'n', '<Leader>gj', '<CMD>diffget //2<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>gk', '<CMD>diffget //3<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>gg', '<CMD>Flogsplit<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>gn', '<CMD>Neogit<CR>', {noremap = true, silent = false}},
 
         --- Gist
         {'n', '<Leader>Gg', '<CMD>Gist<CR>', {noremap = true, silent = false}},
@@ -136,20 +137,14 @@ local function set_keybindings()
         {'n', '<space>wr', '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>', opts},
         {'n', '<space>wl', '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>', opts},
         {'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts},
-        {'n', '[d', '<cmd>lua vim.lsp.buf.hover()<CR>', opts},
-		{'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts},
         {'n', '<Leader>aL', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts},
         {'n', 'K', '<CMD>lua show_documentation()<CR>', {noremap = true, silent = true}},
-        -- {'n', 'K', '<CMD>lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true}},
-        {'n', '<C-j>', '<CMD>lua require("lspsaga.action").smart_scroll_with_saga(1)<CR>', {noremap = true, silent = true}},
-        {'n', '<C-k>', '<CMD>lua require("lspsaga.action").smart_scroll_with_saga(-1)<CR>', {noremap = true, silent = true}},
-        -- {'n', 'gk', '<CMD>lua require("lspsaga.provider").preview_definition()<CR>', {noremap = true, silent = true}},
-        {'n', '[d', '<CMD>Lspsaga diagnostic_jump_prev<CR>', {noremap = true, silent = true}},
-        {'n', ']d', '<CMD>Lspsaga diagnostic_jump_next<CR>', {noremap = true, silent = true}},
-        {'n', 'rn', '<CMD>lua require("lspsaga.rename").rename()<CR>', {noremap = true, silent = true}},
+
+        {'n', '[d', '<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>', {noremap = true, silent = true}},
+        {'n', ']d', '<CMD>lua vim.lsp.diagnostic.goto_next()<CR>', {noremap = true, silent = true}},
+        {'n', 'rn', '<CMD>lua vim.lsp.buf.rename()<CR>', {noremap = true, silent = true}},
         {'n', '<Leader>r', '<CMD>lua vim.lsp.buf.formatting()<CR>', {noremap = true, silent = true}},
         {'v', '<Leader>r', '<CMD>lua vim.lsp.buf.range_formatting()<CR>', {noremap = true, silent = true}},
-        {'n', '<leader>p', '<CMD>lua require("lspsaga.provider").lsp_finder()<CR>', {noremap = true, silent = true}},
         {'n', '<leader>ls', ':LspStart ', {noremap = true, silent = true}},
         {'n', '<leader>ln', '<CMD>LspStop<CR>', {noremap = true, silent = true}},
         {'n', '<leader>lr', '<CMD>LspRestart<CR>', {noremap = true, silent = true}},
@@ -177,7 +172,7 @@ local function set_keybindings()
         if vim.fn.index({'vim', 'help'}, vim.bo.filetype) >= 0 then
             vim.cmd('h ' .. vim.fn.expand('<cword>'))
         else
-            vim.cmd('lua require("lspsaga.hover").render_hover_doc()')
+            vim.cmd('lua vim.lsp.buf.hover()')
         end
     end
 

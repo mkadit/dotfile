@@ -1,3 +1,5 @@
+--TODO: Try other LSP auto installer
+--TODO: Clean up config
 -- Packer
 require('modules.packer.bootstrap')
 require('modules.packer')
@@ -12,17 +14,19 @@ require('modules.lsp.lsp-trouble')
 require('modules.lsp.diagnostic')
 
 -- Plugin Settings
+-- require('plugins.formatter')
 require('plugins.autopairs')
 require('plugins.barbar')
+require('plugins.bufresize')
 require('plugins.colorizer')
 require('plugins.completion')
+require('plugins.diffview')
 require('plugins.emmet')
--- require('plugins.formatter')
 require('plugins.galaxyline')
 require('plugins.kommentary')
+require('plugins.neogit')
 require('plugins.neuron')
 require('plugins.nvimTree')
-require('plugins.orgmode')
 require('plugins.rest')
 require('plugins.startify')
 require('plugins.telescope')
