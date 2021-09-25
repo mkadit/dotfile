@@ -1,8 +1,12 @@
 --TODO: Try other LSP auto installer
 --TODO: Clean up config
 -- Packer
+require "impatient"
+require "packer_compiled"
 require "modules.packer.bootstrap"
 require "modules.packer"
+
+-- impatient
 
 -- General Settings
 require "modules.settings"
@@ -26,7 +30,7 @@ require "plugins.galaxyline"
 require "plugins.kommentary"
 require "plugins.neogit"
 require "plugins.neuron"
-require "plugins.nvimTree"
+-- require "plugins.nvimTree"
 require "plugins.rest"
 require "plugins.startify"
 require "plugins.telescope"

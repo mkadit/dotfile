@@ -72,9 +72,8 @@ local function set_keybindings()
         {'n', '<Leader>qo', '<CMD>BufferCloseAllButCurrent<CR>', {noremap = true, silent = true}},
         {'n', '<A-0>', '<CMD>BufferLast<CR>', {noremap = true, silent = true}},
 
-
         -- File Tree
-        {'n', '<Leader>n', '<CMD>NvimTreeFindFile<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>n', '<CMD>NvimTreeToggle<CR>', {noremap = true, silent = false}},
 
         -- Telescope
         {'n', '<Leader>.', '<CMD>lua require("telescope.builtin").file_browser()<CR>', {noremap = true, silent = false}},
