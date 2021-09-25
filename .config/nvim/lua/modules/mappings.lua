@@ -139,6 +139,7 @@ local function set_keybindings()
         {'n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts},
         {'n', '<Leader>aL', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts},
         {'n', 'K', '<CMD>lua show_documentation()<CR>', {noremap = true, silent = true}},
+        {'n', 'ga', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts},
 
         {'n', '[d', '<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>', {noremap = true, silent = true}},
         {'n', ']d', '<CMD>lua vim.lsp.diagnostic.goto_next()<CR>', {noremap = true, silent = true}},
@@ -151,7 +152,8 @@ local function set_keybindings()
         {'n', '<leader>li', '<CMD>LspInfo<CR>', {noremap = true, silent = true}},
 
         -- Formatter
-        {'n', 'rf', '<CMD>Neoformat<CR>', {noremap = true, silent = true}},
+        {'n', '<leader>R', '<CMD>Format<CR>', {noremap = true, silent = true}},
+        {'v', '<leader>R', '<CMD>Format<CR>', {noremap = true, silent = true}},
 
         -- Neuron
         {'n', '<buffer><CR>', '<cmd>lua require"neuron".enter_link()<CR>', {noremap = true, silent = true}},
@@ -176,14 +178,6 @@ local function set_keybindings()
         end
     end
 
-    vim.api.nvim_exec([[
-    if has('nvim-0.5')
-      augroup lsp
-        au!
-        autocmd FileType java lua require'modules.lsp.java-config'.setup()
-      augroup end
-    endif
-    ]], false)
     for _, key in pairs(keybindings) do keymap(key[1], key[2], key[3], key[4]) end
 end
 vim.cmd('let mapleader=" "')

@@ -1,4 +1,4 @@
-local nvim_lsp = require('lspconfig')
+-- local nvim_lsp = require('lspconfig')
 local lua_efm = {
     formatCommand = "lua-format -i --no-keep-simple-function-one-line --no-break-after-operator --column-limit=150 --break-after-table-lb",
     formatStdin = true
@@ -25,7 +25,7 @@ local yaml_prettier = {formatCommand = "prettier ${--tab-width:tabWidth} --parse
 local autopep8 = {formatCommand = "autopep8 -", formatStdin = true}
 local latex = {formatCommand = "latexindent", formatStdin = true}
 
-local languages = {
+Languages = {
     lua = {lua_efm},
     html = {html_prettier},
     htmldjango = {html_prettier},
@@ -41,15 +41,17 @@ local languages = {
     bash = {bash}
 }
 
-nvim_lsp.efm.setup {
-    cmd = {DATA .. "/lspinstall/efm/efm-langserver"},
-    init_options = {documentFormatting = true, codeAction = true},
-    on_attach = function(client)
-        client.resolved_capabilities.rename = false
-        client.resolved_capabilities.hover = false
-        client.resolved_capabilities.document_formatting = true
-        client.resolved_capabilities.completion = false
-    end,
-    filetypes = vim.tbl_keys(languages),
-    settings = {rootMarkers = {".git/"}, languages = languages}
-}
+return Languages
+
+-- nvim_lsp.efm.setup {
+--     cmd = {DATA .. "/lspinstall/efm/efm-langserver"},
+--     init_options = {documentFormatting = true, codeAction = true},
+--     on_attach = function(client)
+--         client.resolved_capabilities.rename = false
+--         client.resolved_capabilities.hover = false
+--         client.resolved_capabilities.document_formatting = true
+--         client.resolved_capabilities.completion = false
+--     end,
+--     filetypes = vim.tbl_keys(languages),
+--     settings = {rootMarkers = {".git/"}, languages = languages}
+-- }
