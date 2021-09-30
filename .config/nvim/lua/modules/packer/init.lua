@@ -91,10 +91,10 @@ packer.startup {
         use "mhartington/formatter.nvim"
 
         -- tree explorer
-        -- use {
-        --     "kyazdani42/nvim-tree.lua",
-        --     requires = { "kyazdani42/nvim-web-devicons" },
-        -- }
+        use {
+            "kyazdani42/nvim-tree.lua",
+            requires = { "kyazdani42/nvim-web-devicons" },
+        }
 
         -- Aesthetics
         use {

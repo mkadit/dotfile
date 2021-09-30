@@ -197,6 +197,10 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/nvim-reload"
   },
+  ["nvim-tree.lua"] = {
+    loaded = true,
+    path = "/home/archi/.local/share/nvim/site/pack/packer/start/nvim-tree.lua"
+  },
   ["nvim-treesitter"] = {
     loaded = true,
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/nvim-treesitter"
