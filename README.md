@@ -158,5 +158,3 @@ Q: Neovim is not working as intended
 A: Make sure you use the latest version (nightly) and not the stable one since there are many plugins unavailable on the stable branch. Make ure you already have the necessary LSP in ~/.local/share/nvim/lspinstall as the
 configuration for the LSP is set to point to there.
 
-Q: Rofi is not showing?
-A: For the moment I'm using the downgraded version of rofi 1.6.1

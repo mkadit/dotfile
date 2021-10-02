@@ -156,3 +156,9 @@
     spacing:    0;
     text-color: @normal-foreground;
 }
+
+/* Transition from 1.6.1 to 1.7 */
+element-text, element-icon {
+    background-color: inherit;
+    text-color:       inherit;
+}
