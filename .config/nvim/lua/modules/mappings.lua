@@ -63,14 +63,11 @@ local function set_keybindings()
         {'n', '<Leader>sd', '<CMD>SDelete<CR>', {noremap = true, silent = true}},
 
         -- Buffers
-        {'n', '<TAB>', '<CMD>BufferNext<CR>', {noremap = true, silent = true}},
-        {'n', '<S-TAB>', '<CMD>BufferPrevious<CR>', {noremap = true, silent = true}},
-        {'n', '<Leader>qd', '<CMD>BufferClose<CR>', {noremap = true, silent = true}},
-        {'n', '<Leader>qf', '<CMD>BufferClose!<CR>', {noremap = true, silent = true}},
-        {'n', '<Leader>qq', '<CMD>bufdo BufferClose<CR>', {noremap = true, silent = true}},
-        {'n', '<Leader>qa', '<CMD>bufdo BufferClose!<CR>', {noremap = true, silent = true}},
-        {'n', '<Leader>qo', '<CMD>BufferCloseAllButCurrent<CR>', {noremap = true, silent = true}},
-        {'n', '<A-0>', '<CMD>BufferLast<CR>', {noremap = true, silent = true}},
+        {'n', '<Leader>qd', '<CMD>bd<CR>', {noremap = true, silent = true}},
+        {'n', '<Leader>qf', '<CMD>bd!<CR>', {noremap = true, silent = true}},
+        {'n', '<Leader>qq', '<CMD>bufdo bd<CR>', {noremap = true, silent = true}},
+        {'n', '<Leader>qa', '<CMD>bufdo bd!<CR>', {noremap = true, silent = true}},
+        {'n', '<Leader>qo', '<CMD>%bdelete|edit #|normal \'\"<CR>', {noremap = true, silent = true}},
 
         -- File Tree
         {'n', '<Leader>n', '<CMD>NvimTreeToggle<CR>', {noremap = true, silent = false}},

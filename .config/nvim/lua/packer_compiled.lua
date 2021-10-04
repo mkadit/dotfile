@@ -73,10 +73,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/LuaSnip"
   },
-  ["barbar.nvim"] = {
-    loaded = true,
-    path = "/home/archi/.local/share/nvim/site/pack/packer/start/barbar.nvim"
-  },
   ["bufresize.nvim"] = {
     loaded = true,
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/bufresize.nvim"
@@ -236,6 +232,10 @@ _G.packer_plugins = {
   ["suda.vim"] = {
     loaded = true,
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/suda.vim"
+  },
+  ["tabby.nvim"] = {
+    loaded = true,
+    path = "/home/archi/.local/share/nvim/site/pack/packer/start/tabby.nvim"
   },
   ["targets.vim"] = {
     loaded = true,

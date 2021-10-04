@@ -103,7 +103,8 @@ packer.startup {
             requires = "kyazdani42/nvim-web-devicons",
         }
 
-        use "romgrk/barbar.nvim"
+        -- use "romgrk/barbar.nvim"
+		use "nanozuki/tabby.nvim"
         use "liuchengxu/vista.vim"
         use "lambdalisue/nerdfont.vim"
         use "RRethy/nvim-base16"

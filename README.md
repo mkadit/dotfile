@@ -3,7 +3,7 @@ This is a WIP
 
 ## Setup
 * **Distro**       : Arch Linux
-* **WM**           : awesome wm
+* **WM**           : awesome wm, dwm
 * **status bar**   : wibar
 * **Shell**        : zsh
 * **File Manager** : vifm
@@ -125,26 +125,14 @@ chsh -s $(which zsh)
 fc-cache -rv
 sudo chmod u+s $(command -v brightnessctl)
 ```
+## Suckless Builds
+- [dwm](https://github.com/mkadit/dwm)
+- [st](https://github.com/mkadit/st)
 
-### Useful keybindings (maybe?)
+### Useful keybindings (maybe)
 
-| Key                                                             | Command           |
-|-----------------------------------------------------------------|-------------------|
-| <kbd>Ctrl</kbd> + <kbd>T</kbd>                                  | Search file       |
-| <kbd>Ctrl</kbd> + <kbd>F</kbd>                                  | Search directory  |
-| <kbd>Ctrl</kbd> + <kbd>H</kbd>                                  | Search history    |
-| <kbd>Ctrl</kbd> + <kbd>G</kbd> , <kbd>Ctrl</kbd> + <kbd>F</kbd> | Search git file   |
-| <kbd>Ctrl</kbd> + <kbd>G</kbd> , <kbd>Ctrl</kbd> + <kbd>B</kbd> | Search git branch |
-| <kbd>Ctrl</kbd> + <kbd>G</kbd> , <kbd>Ctrl</kbd> + <kbd>R</kbd> | Search git remote |
-| <kbd>Ctrl</kbd> + <kbd>G</kbd> , <kbd>Ctrl</kbd> + <kbd>H</kbd> | Search git log    |
-| <kbd>Mod</kbd> + <kbd>Enter</kbd>                               | Terminal          |
-| <kbd>Mod</kbd> + <kbd>R</kbd>                                   | Rofi              |
-| <kbd>Mod</kbd> + <kbd>S</kbd>                                   | Cheatsheet        |
-| <kbd>Mod</kbd> + <kbd>Q</kbd>                                   | Kill instance     |
-| <kbd>Mod</kbd> + <kbd>Ctrl</kbd> + <kbd>Q</kbd>                 | Sysact            |
-
-
-For more mappings see [.config/awesome/utils/keybind.lua](.config/awesome/utils/keybind.lua)
+- [awesome wm keybindings](.config/awesome/utils/keybind.lua)
+- [zsh keybindings](.config/zsh/key-bindings.zsh)
 
 ## FAQ
 Q: Why is there no wallpaper?

@@ -19,7 +19,7 @@ require "modules.lsp.diagnostic"
 -- Plugin Settings
 require "plugins.formatter"
 require "plugins.autopairs"
-require "plugins.barbar"
+require "plugins.bufferline"
 require "plugins.bufresize"
 require "plugins.colorizer"
 require "plugins.completion"

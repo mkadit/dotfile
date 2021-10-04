@@ -98,7 +98,7 @@ local leader_keymap = {
         b = {'<CMD>Gblame<CR>', 'Git blame'},
         g = {'<CMD>Flogsplit<CR>', 'Commits graph'},
         j = {'<CMD>diffget //2<CR>', 'Get left'},
-        k = {'<CMD>diffget //k<CR>', 'Get left'},
+        k = {'<CMD>diffget //3<CR>', 'Get right'},
         l = {'<CMD>G log<CR>', 'Git log'},
         n = {'<CMD>Neogit<CR>', 'Neogit'},
         p = {'<CMD>Gbrowse<CR>', 'Open file in remote repo'},
@@ -124,11 +124,11 @@ local leader_keymap = {
     },
     q = {
         name = '+buffers',
-        d = {'<CMD>BufferClose<CR>', 'Close buffer'},
-        f = {'<CMD>BufferClose<CR>!', 'Close buffer force'},
-        q = {'<CMD>bufdo BufferClose<CR>', 'Close all buffer'},
-        a = {'<CMD>bufdo BufferClose<CR>!', 'Close all buffer force'},
-        o = {'<CMD>BufferCloseAllButCurrent<CR>', 'Close all but current buffer'}
+        d = {'<CMD>bd<CR>', 'Close buffer'},
+        f = {'<CMD>bd!<CR>', 'Close buffer force'},
+        q = {'<CMD>bufdo bd<CR>', 'Close all buffer'},
+        a = {'<CMD>bufdo bd!<CR>', 'Close all buffer force'},
+        o = {'<CMD><CMD>%bdelete|edit #|normal \'\"<CR>', 'Close all but current buffer'}
     },
     l = {
         name = '+LSP',
