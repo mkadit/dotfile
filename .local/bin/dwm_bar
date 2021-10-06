@@ -1,0 +1,103 @@
+#!/bin/bash
+
+interval=0
+
+cpu() {
+  cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
+
+  printf "^c#3b414d^ ^b#A3BE8C^  "
+  printf "^c#abb2bf^ ^b#414753^ $cpu_val"
+}
+
+batt() {
+
+# Loop through all attached batteries and format the info
+    for battery in /sys/class/power_supply/BAT?*; do
+        # If non-first battery, print a space separator.
+        [ -n "${capacity+x}" ] && printf " "
+        # Sets up the status and capacity
+        case "$(cat "$battery/status" 2>&1)" in
+            "Full") status="⚡" ;;
+            "Discharging") status=" " ;;
+            "Charging") status=" " ;;
+            "Not charging") status=" " ;;
+            "Unknown") status=" " ;;
+            *) exit 1 ;;
+        esac
+        capacity="$(cat "$battery/capacity" 2>&1)"
+        # Will make a warn variable if discharging and low
+        [ "$status" = " " ] && [ "$capacity" -le 25 ] && warn=""
+        # Prints the info
+        printf "^c#eceff4^ %s " "$status"
+        printf "^c#eceff4^ %s%d%%" "$warn" "$capacity"; unset warn
+    done && printf "\\n"
+
+  # printf "^c#81A1C1^  "
+  # printf "^c#81A1C1^ $(acpi | sed "s/,//g" | awk '{if ($3 == "Discharging"){print $4; exit} else {print $4""}}' | tr -d "\n")"
+}
+
+brightness() {
+
+  backlight() {
+    backlight="$(xbacklight -get)"
+    echo -e "$backlight"
+  }
+
+  printf "^c#BF616A^   "
+  printf "^c#BF616A^%.0f\n" $(backlight)
+}
+
+vol() {
+    [ $(pamixer --get-mute) = true ] && echo  婢&& exit
+
+    vol="$(pamixer --get-volume)"
+
+    if [ "$vol" -gt "70" ]; then
+        icon=""
+    elif [ "$vol" -lt "30" ]; then
+        icon=""
+    else
+        icon=""
+    fi
+
+  printf "^c#ebdbb2^ $icon"
+  printf "^c#ebdbb2^ $vol"
+}
+
+mem() {
+  printf "^c#7797b7^^b#2E3440^  "
+  printf "^c#7797b7^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)"
+}
+
+wlan() {
+  case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
+      up) wlan_name=$(iwconfig wlp0s20f3 | grep 'ESSID:' | awk '{for(i=4;i<=NF; ++i)print $i}' | sed 's/ESSID://g' |sed 's/"//' | sed ':a;N;$!ba;s/\n/ /g')
+      printf "^c#3b414d^ ^b#7681c5^ 泌 ^d^%s" " ^c#828dd1^$wlan_name" ;;
+  down) printf "^c#3b414d^ ^b#7681c5^ 泌 ^d^%s" " ^c#828dd1^Disconnected" ;;
+  esac
+}
+
+clock() {
+  printf "^c#2E3440^ ^b#b48ead^  "
+  printf "^c#b48ead^ ^b#2e3440^ $(date '+%a, %I:%M %p') "
+}
+
+pkg_updates() {
+  # updates=$(checkupdates | wc -l)   # arch , needs pacman contrib
+  updates=$(yay -Qu | wc -l)
+
+  printf "^c#458588^  "
+  if [ -z "$updates" ]; then
+    printf "^c#458588^ Fully Updated"
+  else
+    printf "^c#458588^ $updates"" updates"
+  fi
+}
+
+while true; do
+
+  [ $interval == 0 ] || [ $(($interval % 3600)) == 0 ] && updates=$(pkg_updates)
+  interval=$((interval + 1))
+
+  sleep 1 && xsetroot -name "$(pkg_updates) $(batt) $(brightness) $(vol) $(cpu) $(mem) $(wlan) $(clock)"
+done

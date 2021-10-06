@@ -80,6 +80,7 @@ local function set_keybindings()
         {'n', '<Leader>ff', '<CMD>lua require("telescope.builtin").find_files()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fg', '<CMD>lua require("telescope.builtin").bcommits()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fh', '<CMD>lua require("telescope.builtin").oldfiles()<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>fH', '<CMD>lua require("telescope.builtin").command_history()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fl', '<CMD>lua require("telescope.builtin").loclist()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fL', '<CMD>Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fm', '<CMD>lua require("telescope").extensions.media_files.media_files()<CR>', {noremap = true, silent = false}},

@@ -85,6 +85,7 @@ local leader_keymap = {
         f = {'<Cmd>lua require("telescope.builtin").find_files()<CR>', 'Files'},
         g = {'<Cmd>lua require("telescope.builtin").bcommits()<CR>', 'Buffer commits'},
         h = {'<Cmd>lua require("telescope.builtin").oldfiles()<CR>', 'File history'},
+        H = {'<Cmd>lua require("telescope.builtin").command_history()<CR>', 'Command history'},
         l = {'<CMD>lua require("telescope.builtin").loclist()<CR>', 'Loclist'},
         m = {'<Cmd>lua require("telescope.builtin").extensions.media_files.media_files()<CR>', 'Media files'},
         p = {'<CMD>lua require("telescope.builtin.lsp").dynamic_workspace_symbols()<CR>', 'Workspace symbols'},
