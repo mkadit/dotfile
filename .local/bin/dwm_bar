@@ -28,12 +28,9 @@ batt() {
         # Will make a warn variable if discharging and low
         [ "$status" = " " ] && [ "$capacity" -le 25 ] && warn=""
         # Prints the info
-        printf "^c#eceff4^ %s " "$status"
-        printf "^c#eceff4^ %s%d%%" "$warn" "$capacity"; unset warn
+        printf "^c#2e3440^ ^b#eceff4^ %s" "$status"
+        printf "^c#eceff4^ ^b#2e3440^ %s%d%%" "$warn" "$capacity"; unset warn
     done && printf "\\n"
-
-  # printf "^c#81A1C1^  "
-  # printf "^c#81A1C1^ $(acpi | sed "s/,//g" | awk '{if ($3 == "Discharging"){print $4; exit} else {print $4""}}' | tr -d "\n")"
 }
 
 brightness() {
@@ -43,8 +40,8 @@ brightness() {
     echo -e "$backlight"
   }
 
-  printf "^c#BF616A^   "
-  printf "^c#BF616A^%.0f\n" $(backlight)
+  printf "^c#2e3440^ ^b#bf616a^  "
+  printf "^c#BF616A^ ^b#2e3440^ %.0f\n" $(backlight)
 }
 
 vol() {
@@ -60,13 +57,13 @@ vol() {
         icon=""
     fi
 
-  printf "^c#ebdbb2^ $icon"
-  printf "^c#ebdbb2^ $vol"
+  printf "^c#2e3440^ ^b#ebdbb2^ $icon"
+  printf "^c#ebdbb2^ ^b#2e3440^ $vol"
 }
 
 mem() {
-  printf "^c#7797b7^^b#2E3440^  "
-  printf "^c#7797b7^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)"
+  printf "^c#2E3440^ ^b#7797b7^  "
+  printf "^c#7797b7^ ^b#2E3440^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)"
 }
 
 wlan() {

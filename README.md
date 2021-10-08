@@ -105,6 +105,7 @@ xorg-xbacklight
 xorg-xdpyinfo
 xorg-xinit
 xorg-xprop
+xorg-xsetroot
 xorg-xwinfo
 xwallpaper
 youtube-dl
