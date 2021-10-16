@@ -5,8 +5,8 @@ interval=0
 cpu() {
   cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
 
-  printf "^c#3b414d^ ^b#A3BE8C^  "
-  printf "^c#abb2bf^ ^b#414753^ $cpu_val"
+  printf "^c#2e3440^ ^b#A3BE8C^  "
+  printf "^c#A3BE8C^ ^b#2e3440^ $cpu_val"
 }
 
 batt() {
@@ -45,7 +45,7 @@ brightness() {
 }
 
 vol() {
-    [ $(pamixer --get-mute) = true ] && echo  婢&& exit
+    [ $(pamixer --get-mute) = true ] && printf "^c#2e3440^ ^b#ebdbb2^ 婢^c#ebdbb2^ ^b#2e3440^ Mute" && exit
 
     vol="$(pamixer --get-volume)"
 

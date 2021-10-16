@@ -22,4 +22,5 @@ case "$ext" in
     mp4|mkv)xwinwrap -ov -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio "$bgloc" &;;
 esac
 
+# xwallpaper --maximize  "$bgloc"
 xwallpaper --zoom  "$bgloc"
