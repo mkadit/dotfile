@@ -34,6 +34,7 @@ local function set_keybindings()
         {'n', '<Leader>aq', '<CMD>copen<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>al', '<CMD>lopen<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>ax', '<CMD>LspTroubleToggle<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>aX', '<CMD>TodoTrouble<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>aQ', "<CMD>lua require('rest-nvim').run()<CR>", {noremap = true, silent = false}},
         {'n', '<Leader>at', "<CMD>call TrimWhitespace()<CR>", {noremap = true, silent = false}},
         {'x', 'gl', ":EasyAlign<CR>", {noremap = true, silent = false}},

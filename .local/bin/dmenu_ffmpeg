@@ -98,6 +98,10 @@ function streamOnVimeo() {
     startStreaming "Vimeo" "rtmps://rtmp-global.cloud.vimeo.com:443/live/"
 }
 
+function webCamera(){
+	 mpv --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)
+}
+
 function stoprecord() {
     if [ -f $recordid ]; then
         kill -15 $(cat $recordid)
@@ -127,7 +131,9 @@ function startrecord() {
         ["壘 Stream On Nimo TV",  "streamOnNimoTv"],
         ["既 Stream On Twitch",   "streamOnTwitch"],
         ["  Stream On Youtube",  "streamOnYoutube"],
-        ["  Stream On Vimeo",    "streamOnVimeo"]
+        ["  Stream On Vimeo",    "streamOnVimeo"],
+        ["  Turn On Web Camera",    "webCamera"]
+
     ]
     '''
     select=$(echo $OPTIONS | jq -r ".[][0]" | $DMENU)

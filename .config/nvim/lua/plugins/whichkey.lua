@@ -69,6 +69,7 @@ local leader_keymap = {
         u = {'<CMD>UndotreeToggle<CR>', 'Undo tree'},
         w = {'<CMD>lcd %:p:h<CR>', 'To current folder'},
         x = {'<CMD>LspTroubleToggle<CR>', 'Show lsp diagnostic'},
+        X = {'<CMD>TodoTrouble<CR>', 'Show TODOs'},
     },
     t = {'<CMD>Vista!!<CR>', 'Tagbar'},
     n = {'<CMD>NvimTreeFindFile<CR>', 'File tree'},
