@@ -79,22 +79,10 @@ clock() {
   printf "^c#b48ead^ ^b#2e3440^ $(date '+%a, %I:%M %p') "
 }
 
-pkg_updates() {
-  # updates=$(checkupdates | wc -l)   # arch , needs pacman contrib
-  updates=$(yay -Qu | wc -l)
-
-  printf "^c#458588^  "
-  if [ -z "$updates" ]; then
-    printf "^c#458588^ Fully Updated"
-  else
-    printf "^c#458588^ $updates"" updates"
-  fi
-}
-
 while true; do
 
   [ $interval == 0 ] || [ $(($interval % 3600)) == 0 ] && updates=$(pkg_updates)
   interval=$((interval + 1))
 
-  sleep 1 && xsetroot -name "$(pkg_updates) $(batt) $(brightness) $(vol) $(cpu) $(mem) $(wlan) $(clock)"
+  sleep 1 && xsetroot -name "$(batt) $(brightness) $(vol) $(cpu) $(mem) $(wlan) $(clock)"
 done
