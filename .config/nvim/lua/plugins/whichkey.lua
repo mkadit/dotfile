@@ -47,7 +47,7 @@ local leader_keymap = {
     name = "+plugins",
     ['.'] = {'<CMD>lua require("telescope.builtin").file_browser()<CR>', 'filer'},
     a = {
-        name = '+action',
+        name = '+Action',
         C = {'<CMD>!compiler %<CR>', 'Compile file'},
         D = {'<CMD>DBUIToggle<CR>', 'Database'},
         L = {'<CMD>lua vim.lsp.diagnostic.set_loclist()<CR>', 'Add file diagnostics to loclist'},
@@ -77,7 +77,7 @@ local leader_keymap = {
     v = {'<CMD>Vifm<CR>', 'File manager'},
     r = {'<CMD>lua vim.lsp.buf.formatting()<CR>', 'Format file'},
     f = {
-        name = '+find',
+        name = '+Find',
         L = {'<Cmd>Telescope find_files find_command=rg,--ignore,--hidden,--file<CR>', 'Hidden files'},
         a = {'<Cmd>lua require("telescope.builtin").autocommands()<CR>', 'Autocommands'},
         b = {'<Cmd>lua require("telescope.builtin").buffers()<CR>', 'Buffers'},
@@ -95,15 +95,18 @@ local leader_keymap = {
         t = {'<Cmd>lua require("telescope.builtin").treesitter()<CR>', 'Treesitter'}
     },
     g = {
-        name = '+git',
+        name = '+Git',
+        -- n = {'<CMD>Neogit<CR>', 'Neogit'},
+        B = {'<CMD>GBrowse<CR>', 'Open file in remote repo'},
         D = {'<CMD>Gdiffsplit<CR>', 'Git diff current file'},
-        b = {'<CMD>Gblame<CR>', 'Git blame'},
+        L = {'<CMD>Gclog<CR>', 'Git commit log'},
+        b = {'<CMD>Git blame<CR>', 'Git blame'},
         g = {'<CMD>Flogsplit<CR>', 'Commits graph'},
         j = {'<CMD>diffget //2<CR>', 'Get left'},
         k = {'<CMD>diffget //3<CR>', 'Get right'},
-        l = {'<CMD>G log<CR>', 'Git log'},
-        n = {'<CMD>Neogit<CR>', 'Neogit'},
-        p = {'<CMD>Gbrowse<CR>', 'Open file in remote repo'},
+        l = {'<CMD>Git log<CR>', 'Git log'},
+        m = {'<CMD>Git merge', 'Git merge'},
+        p = {'<CMD>Git push', 'Git push'},
         s = {'<CMD>G<CR>', 'Git status'}
     },
     G = {
@@ -118,7 +121,7 @@ local leader_keymap = {
     },
 
     s = {
-        name = '+session',
+        name = '+Session',
         s = {'<CMD>SSave<CR>', 'Save sesion'},
         l = {'<CMD>SLoad<CR>', 'Load session'},
         c = {'<CMD>SClose<CR>', 'Close session'},
@@ -139,15 +142,22 @@ local leader_keymap = {
         i = {'<CMD>LspInfo<CR>', 'Info LSP'},
         r = {'<CMD>LspRestart<CR>', 'Restart LSP'}
     },
-    z = {
-        name = '+neuron',
-        n = {'<cmd>lua require"neuron/cmd".new_edit(require"neuron".config.neuron_dir)<CR>', 'New note'},
-        f = {'<cmd>lua require"neuron/telescope".find_zettels()<CR>', 'Find note'},
-        l = {'<cmd>lua require"neuron/telescope".find_zettels{insert = true}<CR>', 'Get link'},
-        b = {'<cmd>lua require"neuron/telescope".find_backlinks()<CR>', 'Find backlinks'},
-        t = {'<cmd>lua require"neuron/telescope".find_tags()<CR>', 'Find tags'},
-        s = {'<cmd>!neuron-ss<CR>', 'Take screenshot notes'}
-    }
+	d = {
+		name= '+Debug',
+        b = {"<CMD>lua require'dap'.toggle_breakpoint()<CR>", 'Toggle breakpoint'},
+        i ={"<CMD>lua require'dap'.step_into()<CR>", 'Step into'},
+        o = {"<CMD>lua require'dap'.step_out()<CR>", 'Step out'},
+        c = {"<CMD>lua require'dap'.continue()<CR>", 'Continue'},
+        p = {"<CMD>lua require'dap'.reverse_continue()<CR>", 'Reverse continue'},
+        f = {"<CMD>lua require'dap'.toggle_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", 'Toggle breakpoint with condition'},
+        r = {"<CMD>lua require'dap'.run_last()<CR>", 'Run last debug settings'},
+        R = {"<CMD>lua require'dap'.run_to_cursor()<CR>", 'Run until cursor'},
+        t = {"<CMD>lua require'dapui'.toggle()<CR>", 'Toggle debug UI'},
+        F = {"<CMD>lua require'dapui'.float_element()<CR>", 'Toggle float'},
+        e = {"<CMD>lua require'dapui'.eval()<CR>", 'Evaluate'},
+        x = {"<CMD>lua require'dapui'.terminate()<CR>", 'Terimate'},
+        q = {"<CMD>lua require'dap'.list_breakpoints()<CR>", 'Send breakpoints to quickfix'},
+	}
 }
 
 local unimpaired = {

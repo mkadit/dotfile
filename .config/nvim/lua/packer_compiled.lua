@@ -69,6 +69,10 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
+  ["DAPInstall.nvim"] = {
+    loaded = true,
+    path = "/home/archi/.local/share/nvim/site/pack/packer/start/DAPInstall.nvim"
+  },
   LuaSnip = {
     loaded = true,
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/LuaSnip"
@@ -145,10 +149,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/nerdfont.vim"
   },
-  ["neuron.nvim"] = {
-    loaded = true,
-    path = "/home/archi/.local/share/nvim/site/pack/packer/start/neuron.nvim"
-  },
   ["nvim-autopairs"] = {
     loaded = true,
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/nvim-autopairs"
@@ -176,6 +176,10 @@ _G.packer_plugins = {
   ["nvim-dap"] = {
     loaded = true,
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/nvim-dap"
+  },
+  ["nvim-dap-ui"] = {
+    loaded = true,
+    path = "/home/archi/.local/share/nvim/site/pack/packer/start/nvim-dap-ui"
   },
   ["nvim-jdtls"] = {
     loaded = true,
@@ -224,6 +228,10 @@ _G.packer_plugins = {
   ["rest.nvim"] = {
     loaded = true,
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/rest.nvim"
+  },
+  ["rust-tools.nvim"] = {
+    loaded = true,
+    path = "/home/archi/.local/share/nvim/site/pack/packer/start/rust-tools.nvim"
   },
   sonokai = {
     loaded = true,

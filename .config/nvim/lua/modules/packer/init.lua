@@ -34,7 +34,6 @@ packer.startup {
                 "hrsh7th/cmp-nvim-lsp",
                 "hrsh7th/cmp-path",
                 "hrsh7th/cmp-vsnip",
-                "hrsh7th/nvim-cmp",
                 "hrsh7th/vim-vsnip",
                 "kdheepak/cmp-latex-symbols",
                 "saadparwaiz1/cmp_luasnip",
@@ -42,6 +41,12 @@ packer.startup {
                 "onsails/lspkind-nvim",
             },
         }
+
+        -- debugger
+        use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "Pocco81/DAPInstall.nvim"} }
+
+        -- lsp extension
+        use 'simrat39/rust-tools.nvim'
 
         -- autopair
         use "windwp/nvim-autopairs"
@@ -110,12 +115,6 @@ packer.startup {
         use "RRethy/nvim-base16"
         use "sainnhe/sonokai"
 
-        -- Notetaking via neuron
-        use {
-            "oberblastmeister/neuron.nvim",
-            requires = { "nvim-lua/popup.nvim", "nvim-lua/plenary.nvim" },
-        }
-
         -- Colorizer
         use "norcalli/nvim-colorizer.lua"
 
@@ -125,8 +124,13 @@ packer.startup {
         -- Reminder keymap
         use "folke/which-key.nvim"
 
-        -- emmet
+        -- emmet and headwind
         use "mattn/emmet-vim"
+		-- use {
+  --           "steelsojka/headwind.nvim",
+  --           ft = {'html', 'css'}
+
+  --       }
 
         -- undotree
         use "mbbill/undotree"
@@ -136,11 +140,6 @@ packer.startup {
 
         -- documentation
         use { "kkoomen/vim-doge", run = ":call doge#install()" }
-
-        -- todo
-
-        -- debugger
-        use "mfussenegger/nvim-dap"
 
         -- rooter
         use "airblade/vim-rooter"
@@ -159,6 +158,7 @@ packer.startup {
 
         -- TODO: Remove impatent after neovim/pull/15436 merged
         use "lewis6991/impatient.nvim"
+
     end,
     config = {
         compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",

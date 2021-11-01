@@ -8,4 +8,4 @@ export PS1="\[\033[38;5;39m\]\u\[$(tput bold)\]\[\033[38;5;14m\]@\[\033[38;5;42m
 PATH=$PATH:$HOME/.local/bin/
 PATH=$PATH:$HOME/go/bin/
 PATH=$PATH:$HOME/node_modules/.bin/
-source "$HOME/.cargo/env"
+. "$HOME/.cargo/env"

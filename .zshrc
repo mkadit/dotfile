@@ -1,5 +1,5 @@
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
-# source "$HOME/.cargo/env"
+source "$HOME/.cargo/env"
 
 ##############################################################################
 # History Configuration

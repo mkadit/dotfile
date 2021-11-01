@@ -23,3 +23,4 @@ export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 
 # EDITOR
 export EDITOR="nvim"
+. "$HOME/.cargo/env"

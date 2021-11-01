@@ -94,16 +94,18 @@ local function set_keybindings()
         {'n', '<Leader>fT', '<CMD>TodoTelescope<CR>', {noremap = true, silent = false}},
 
         -- Git
-        {'n', '<Leader>gs', '<CMD>G<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>gB', '<CMD>GBrowse<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>gD', '<CMD>Gvdiffsplit<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader>gb', '<CMD>Gblame<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader>gp', '<CMD>GBrowse<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader>gl', '<CMD>Git log<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader>gL', '<CMD>Glog<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>gL', '<CMD>Gclog<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>gb', '<CMD>Git blame<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>gg', '<CMD>Flogsplit<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>gj', '<CMD>diffget //2<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>gk', '<CMD>diffget //3<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader>gg', '<CMD>Flogsplit<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader>gn', '<CMD>Neogit<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>gl', '<CMD>Git log<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>gm', '<CMD>Git merge', {noremap = true, silent = false}},
+        -- {'n', '<Leader>gn', '<CMD>Neogit<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>gp', '<CMD>Git push', {noremap = true, silent = false}},
+        {'n', '<Leader>gs', '<CMD>G<CR>', {noremap = true, silent = false}},
 
         --- Gist
         {'n', '<Leader>Gg', '<CMD>Gist<CR>', {noremap = true, silent = false}},
@@ -149,23 +151,24 @@ local function set_keybindings()
         {'n', '<leader>lr', '<CMD>LspRestart<CR>', {noremap = true, silent = true}},
         {'n', '<leader>li', '<CMD>LspInfo<CR>', {noremap = true, silent = true}},
 
+		--debugging
+        {'n', '<leader>db', "<CMD>lua require'dap'.toggle_breakpoint()<CR>", {noremap = true, silent = true}},
+        {'n', '<leader>di', "<CMD>lua require'dap'.step_into()<CR>", {noremap = true, silent = true}},
+        {'n', '<leader>do', "<CMD>lua require'dap'.step_out()<CR>", {noremap = true, silent = true}},
+        {'n', '<leader>dc', "<CMD>lua require'dap'.continue()<CR>", {noremap = true, silent = true}},
+        {'n', '<leader>dp', "<CMD>lua require'dap'.reverse_continue()<CR>", {noremap = true, silent = true}},
+        {'n', '<leader>df', "<CMD>lua require'dap'.toggle_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", {noremap = true, silent = true}},
+        {'n', '<leader>dr', "<CMD>lua require'dap'.run_last()<CR>", {noremap = true, silent = true}},
+        {'n', '<leader>dR', "<CMD>lua require'dap'.run_to_cursor()<CR>", {noremap = true, silent = true}},
+        {'n', '<leader>dt', "<CMD>lua require'dapui'.toggle()<CR>", {noremap = true, silent = true}},
+        {'n', '<leader>dF', "<CMD>lua require'dapui'.float_element()<CR>", {noremap = true, silent = true}},
+        {'n', '<leader>de', "<CMD>lua require'dapui'.eval()<CR>", {noremap = true, silent = true}},
+        {'n', '<leader>dx', "<CMD>lua require'dapui'.terminate()<CR>", {noremap = true, silent = true}},
+        {'n', '<leader>dq', "<CMD>lua require'dap'.list_breakpoints()<CR>", {noremap = true, silent = true}},
+
         -- Formatter
         {'n', '<leader>R', '<CMD>Format<CR>', {noremap = true, silent = true}},
         {'v', '<leader>R', '<CMD>Format<CR>', {noremap = true, silent = true}},
-
-        -- Neuron
-        {'n', '<buffer><CR>', '<cmd>lua require"neuron".enter_link()<CR>', {noremap = true, silent = true}},
-        {'n', '<Space>zb', '<cmd>lua require"neuron/telescope".find_backlinks()<CR>', {noremap = true, silent = true}},
-        {'n', '<Space>zf', '<cmd>lua require"neuron/telescope".find_zettels()<CR>', {noremap = true, silent = true}},
-        {'n', '<Space>zl', '<cmd>lua require"neuron/telescope".find_zettels{insert = true}<CR>', {noremap = true, silent = true}},
-        {'n', '<Space>zn', '<cmd>lua require"neuron/cmd".new_edit(require"neuron".config.neuron_dir)<CR>', {noremap = true, silent = true}},
-        {'n', '<Space>zs', '<cmd>!neuron-ss<CR>', {noremap = true, silent = true}},
-        {'n', '<Space>zt', '<cmd>lua require"neuron/telescope".find_tags()<CR>', {noremap = true, silent = true}},
-        {'n', '<buffer>gz[', '<cmd>lua require"neuron".goto_prev_extmark()<CR>', {noremap = true, silent = true}},
-        {'n', '<buffer>gz]', '<cmd>lua require"neuron".goto_next_extmark()<CR>', {noremap = true, silent = true}},
-
-
-
 
     }
     function _G.show_documentation()
