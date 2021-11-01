@@ -24,17 +24,16 @@ lsp_installer.on_server_ready(function(server)
                        nvim_lsp.util.path.dirname(filename)
         end
     elseif server.name == "rust_analyzer" then
-        local extension_path = os.getenv("HOME") .. '/.vscode-oss/extensions/vadimcn.vscode-lldb-1.6.9/'
+        local extension_path = os.getenv("HOME") ..
+                                   '/.vscode-oss/extensions/vadimcn.vscode-lldb-1.6.9/'
         local codelldb_path = extension_path .. 'adapter/codelldb'
         local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
         require("rust-tools").setup({
-            server = {
-                dap = {
-                    adapter = require('rust-tools.dap').get_codelldb_adapter(
-                        codelldb_path, liblldb_path)
-                },
-               cmd = server._default_options.cmd
-            }
+            dap = {
+                adapter = require('rust-tools.dap').get_codelldb_adapter(
+                    codelldb_path, liblldb_path)
+            },
+            server = {server = {cmd = server._default_options.cmd}},
         })
         return
     end
