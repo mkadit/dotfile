@@ -52,6 +52,7 @@ gnupg
 htop
 imagemagick
 isync
+jq
 libnotify
 lxsession
 man-db

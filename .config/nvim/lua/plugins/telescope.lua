@@ -2,10 +2,21 @@ local actions = require('telescope.actions')
 require('telescope').setup {
     defaults = {
         mappings = {
-            i = {["<C-w>"] = actions.send_selected_to_qflist, ["<C-q>"] = actions.send_to_qflist},
-            n = {["<C-w>"] = actions.send_selected_to_qflist, ["<C-q>"] = actions.send_to_qflist}
+            i = {
+                ["<C-w>"] = actions.send_selected_to_qflist,
+                ["<C-q>"] = actions.send_to_qflist,
+                ["C-t"] = actions.select_tab
+            },
+            n = {
+                ["<C-w>"] = actions.send_selected_to_qflist,
+                ["<C-q>"] = actions.send_to_qflist,
+                ["C-t"] = actions.select_tab
+            }
         },
-        vimgrep_arguments = {'rg', '--color=never', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
+        vimgrep_arguments = {
+            'rg', '--color=never', '--no-heading', '--with-filename',
+            '--line-number', '--column', '--smart-case'
+        },
         prompt_prefix = "❱❱ ",
         selection_caret = "❱ ",
         entry_prefix = "  ",
@@ -13,7 +24,10 @@ require('telescope').setup {
         selection_strategy = "reset",
         sorting_strategy = "descending",
         layout_strategy = "horizontal",
-        layout_config = {horizontal = {mirror = false}, vertical = {mirror = false}},
+        layout_config = {
+            horizontal = {mirror = false},
+            vertical = {mirror = false}
+        },
         file_sorter = require'telescope.sorters'.get_fuzzy_file,
         file_ignore_patterns = {},
         generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
@@ -34,13 +48,14 @@ require('telescope').load_extension('fzy_native', 'project', 'media_files')
 
 local M = {}
 M.git_branches = function()
-    require("telescope.builtin").git_branches({
-        attach_mappings = function(_, map)
-            map('i', '<c-d>', actions.git_delete_branch)
-            map('n', '<c-d>', actions.git_delete_branch)
-            return true
-        end
-    })
+    require("telescope.builtin").git_branches(
+        {
+            attach_mappings = function(_, map)
+                map('i', '<c-d>', actions.git_delete_branch)
+                map('n', '<c-d>', actions.git_delete_branch)
+                return true
+            end
+        })
 end
 
 return M

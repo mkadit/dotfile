@@ -102,9 +102,9 @@ local function set_keybindings()
         {'n', '<Leader>gj', '<CMD>diffget //2<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>gk', '<CMD>diffget //3<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>gl', '<CMD>Git log<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader>gm', '<CMD>Git merge', {noremap = true, silent = false}},
+        {'n', '<Leader>gm', ':Git merge ', {noremap = true, silent = false}},
         -- {'n', '<Leader>gn', '<CMD>Neogit<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader>gp', '<CMD>Git push', {noremap = true, silent = false}},
+        {'n', '<Leader>gp', ':Git push ', {noremap = true, silent = false}},
         {'n', '<Leader>gs', '<CMD>G<CR>', {noremap = true, silent = false}},
 
         --- Gist

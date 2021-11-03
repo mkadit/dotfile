@@ -105,8 +105,8 @@ local leader_keymap = {
         j = {'<CMD>diffget //2<CR>', 'Get left'},
         k = {'<CMD>diffget //3<CR>', 'Get right'},
         l = {'<CMD>Git log<CR>', 'Git log'},
-        m = {'<CMD>Git merge', 'Git merge'},
-        p = {'<CMD>Git push', 'Git push'},
+        m = {':Git merge ', 'Git merge'},
+        p = {':Git push ', 'Git push'},
         s = {'<CMD>G<CR>', 'Git status'}
     },
     G = {
