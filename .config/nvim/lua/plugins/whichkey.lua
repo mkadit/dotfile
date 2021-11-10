@@ -107,6 +107,7 @@ local leader_keymap = {
         l = {'<CMD>Git log<CR>', 'Git log'},
         m = {':Git merge ', 'Git merge'},
         p = {':Git push ', 'Git push'},
+        P = {':Git pull ', 'Git pull'},
         s = {'<CMD>G<CR>', 'Git status'}
     },
     G = {

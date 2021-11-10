@@ -105,6 +105,7 @@ local function set_keybindings()
         {'n', '<Leader>gm', ':Git merge ', {noremap = true, silent = false}},
         -- {'n', '<Leader>gn', '<CMD>Neogit<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>gp', ':Git push ', {noremap = true, silent = false}},
+        {'n', '<Leader>gP', ':Git pull ', {noremap = true, silent = false}},
         {'n', '<Leader>gs', '<CMD>G<CR>', {noremap = true, silent = false}},
 
         --- Gist

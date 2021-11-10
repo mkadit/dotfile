@@ -28,12 +28,13 @@ lsp_installer.on_server_ready(function(server)
                                    '/.vscode-oss/extensions/vadimcn.vscode-lldb-1.6.9/'
         local codelldb_path = extension_path .. 'adapter/codelldb'
         local liblldb_path = extension_path .. 'lldb/lib/liblldb.so'
+		local _, requested_server = lsp_installer.get_server("rust_analyzer")
         require("rust-tools").setup({
             dap = {
                 adapter = require('rust-tools.dap').get_codelldb_adapter(
                     codelldb_path, liblldb_path)
             },
-            server = {server = {cmd = server._default_options.cmd}},
+            server = {server = {cmd = requested_server._default_options.cmd}}
         })
         return
     end
