@@ -23,6 +23,7 @@ packer.startup {
         use { "neovim/nvim-lspconfig" }
         use { "mfussenegger/nvim-jdtls" }
         use "williamboman/nvim-lsp-installer"
+        use "jose-elias-alvarez/null-ls.nvim"
         use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
         use { "folke/todo-comments.nvim", requires = "nvim-lua/plenary.nvim" }
 
@@ -93,7 +94,7 @@ packer.startup {
 
         -- formatter
         use "sbdchd/neoformat"
-        use "mhartington/formatter.nvim"
+        -- use "mhartington/formatter.nvim"
 
         -- tree explorer
         use {

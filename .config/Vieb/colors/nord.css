@@ -20,7 +20,7 @@
     --mode-command-fg: var(--bg);
     --mode-command-bg: #bf617a;
     --mode-insert-fg: var(--bg);
-    --mode-insert-bg: #81a1c1;
+    --mode-insert-bg: #ebdbb2;
     --mode-follow-fg: var(--bg);
     --mode-follow-bg: #d3869b;
     --mode-explore-fg: var(--bg);
@@ -45,7 +45,7 @@
     --follow-click-border: #bf617a;
     --follow-insert-bg: #689d6a;
     --follow-insert-border: #a3be8c;
-    --follow-onclick-bg: #494c5e;
+    --follow-onclick-bg: #eca;
     --follow-onclick-border: #81a1c1;
     --follow-other-bg: #fbf1c7;
     --follow-other-border: #b48ead;
@@ -71,7 +71,7 @@
     --scrollbar-thumb: #b48ead;
     --button-disabled: #999;
     --code-fg: #fff;
-    --code-bg: #111;
+    --code-bg: #333;
     --code-command: #f88;
     --placeholder-text: #ccc;
     --special-page-element-bg: #444;
