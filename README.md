@@ -114,7 +114,8 @@ xorg-xprop
 xorg-xsetroot
 xorg-xwinfo
 xwallpaper
-youtube-dl
+yt-dlp-git
+yt-dlp-drop-in
 zathura
 zathura-pdf-mupdf
 zsh
