@@ -1,0 +1,7 @@
+#!/bin/sh
+
+LINK="$(xclip -o)"
+case "$(printf "zathura\\nmpv" | rofi -dmenu -l 6 -i -p "Screenshot which area?")" in
+	"zathura") zathura $LINK ;;
+	"mpv") mpv $LINK;;
+esac
