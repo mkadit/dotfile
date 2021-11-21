@@ -39,6 +39,7 @@ base-devel
 bat
 bluez
 brightnessctl
+btop
 clipmenu
 cronie
 curl

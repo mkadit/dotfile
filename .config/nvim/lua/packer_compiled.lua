@@ -124,11 +124,6 @@ _G.packer_plugins = {
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/emmet-vim",
     url = "https://github.com/mattn/emmet-vim"
   },
-  ["formatter.nvim"] = {
-    loaded = true,
-    path = "/home/archi/.local/share/nvim/site/pack/packer/start/formatter.nvim",
-    url = "https://github.com/mhartington/formatter.nvim"
-  },
   ["fugitive-gitlab.vim"] = {
     loaded = true,
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/fugitive-gitlab.vim",
@@ -168,6 +163,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/archi/.local/share/nvim/site/pack/packer/start/nerdfont.vim",
     url = "https://github.com/lambdalisue/nerdfont.vim"
+  },
+  ["null-ls.nvim"] = {
+    loaded = true,
+    path = "/home/archi/.local/share/nvim/site/pack/packer/start/null-ls.nvim",
+    url = "https://github.com/jose-elias-alvarez/null-ls.nvim"
   },
   ["nvim-autopairs"] = {
     loaded = true,
