@@ -1,7 +1,13 @@
 #!/bin/sh
 
+error_msg() {
+	notify-send "Error!" "Please check your clipboard"
+}
+
 LINK="$(xclip -o)"
-case "$(printf "zathura\\nmpv" | rofi -dmenu -l 6 -i -p "Screenshot which area?")" in
-	"zathura") zathura $LINK ;;
-	"mpv") mpv $LINK;;
+
+case "$(printf "zathura\\nmpv" | rofi -dmenu -l 2 -i -p "Which program shall you use?")" in
+"zathura") zathura "$LINK" || error_msg ;;
+"mpv") mpv "$LINK" || error_msg ;;
+
 esac

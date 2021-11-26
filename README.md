@@ -77,6 +77,7 @@ nmdu
 nordic-theme
 notmuch
 ntfs-3g
+openssh
 pamac-all
 pamixer
 papirus-nord
@@ -122,6 +123,7 @@ zathura-pdf-mupdf
 zsh
 zsh-autosuggestions
 zsh-fast-syntax-highlighting
+zsh-completion
 ```
 
 ## Optional
@@ -129,10 +131,15 @@ zsh-fast-syntax-highlighting
 Below package are optional
 
 ```
-xwinwrap-git
-prettierd
-stylua
 autopep8
+docker
+docker-compose
+postgresql
+prettierd
+shellcheck
+shfmt
+stylua
+xwinwrap-git
 ```
 
 ## After

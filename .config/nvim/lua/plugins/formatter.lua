@@ -95,7 +95,9 @@ local sources = {
           "yaml",
         }
     },
-    null_ls.builtins.formatting.autopep8
+    null_ls.builtins.formatting.autopep8,
+    null_ls.builtins.formatting.shfmt,
+    null_ls.builtins.diagnostics.shellcheck
     -- null_ls.builtins.diagnostics.write_good,
     -- null_ls.builtins.code_actions.gitsigns,
 }
