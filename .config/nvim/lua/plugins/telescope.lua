@@ -5,12 +5,16 @@ require('telescope').setup {
             i = {
                 ["<C-w>"] = actions.send_selected_to_qflist,
                 ["<C-q>"] = actions.send_to_qflist,
-                ["C-t"] = actions.select_tab
+                ["<C-t>"] = actions.select_tab,
+                ["<C-k>"] = actions.which_key,
+                ["<C-e>"] = actions.delete_buffer
             },
             n = {
                 ["<C-w>"] = actions.send_selected_to_qflist,
                 ["<C-q>"] = actions.send_to_qflist,
-                ["C-t"] = actions.select_tab
+                ["<C-t>"] = actions.select_tab,
+                ["<C-k>"] = actions.which_key,
+                ["<C-e>"] = actions.delete_buffer
             }
         },
         vimgrep_arguments = {
