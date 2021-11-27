@@ -12,6 +12,7 @@ cmds="\
 lock		slimlock
 hibernate	${hib:-sudo -A systemctl suspend-then-hibernate}
 leave dwm	kill -TERM $(pgrep -u $USER "\bdwm$")
+leave openbox	kill -TERM $(pgrep -u $USER "\bopenbox$")
 reboot	${reb:-sudo -A reboot}
 renew dwm	kill -HUP $(pgrep -u $USER "\bdwm$")
 shutdown	${shut:-sudo -A shutdown -h now}"

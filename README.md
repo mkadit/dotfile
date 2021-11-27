@@ -73,6 +73,7 @@ neofetch
 neomutt
 neovim-nightly-git
 newsboat
+nerd-fonts-jetbrains-mono
 nmdu
 nordic-theme
 notmuch
@@ -130,10 +131,19 @@ zsh-completion
 
 Below package are optional
 
+If you are planning to use openbox
+```
+obmenu-generator
+openbox
+plank
+tint2
+```
+
 ```
 autopep8
 docker
 docker-compose
+lxpolkit
 postgresql
 prettierd
 shellcheck
