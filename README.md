@@ -49,6 +49,12 @@ downgrade
 dunst
 exfat-utils
 exiv2
+fctix5
+fctix5-gtk
+fctix5-qt
+fctix5-configtool
+fctix5-mozc
+fctix5-nord
 fd
 ffmpeg
 fzf
@@ -122,9 +128,8 @@ yt-dlp-drop-in
 zathura
 zathura-pdf-mupdf
 zsh
-zsh-autosuggestions
+zsh-autocomplete-git
 zsh-fast-syntax-highlighting
-zsh-completion
 ```
 
 ## Optional
@@ -139,6 +144,7 @@ plank
 tint2
 ```
 
+programming stuff
 ```
 autopep8
 docker
@@ -150,6 +156,12 @@ shellcheck
 shfmt
 stylua
 xwinwrap-git
+```
+
+zsh auto complete alternative (do note you'll need change .zshrc)
+```
+zsh-autosuggestions
+zsh-completion
 ```
 
 ## After

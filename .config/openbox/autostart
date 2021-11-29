@@ -14,3 +14,6 @@ unclutter --timeout 10 &
 setbg &
 ssh-agent &
 tint2 &
+lxpolkit &
+plank &
+fcitx5 --replace -d &

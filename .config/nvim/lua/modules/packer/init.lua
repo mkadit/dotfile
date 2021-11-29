@@ -22,6 +22,8 @@ packer.startup {
         -- nvim-lsp
         use { "neovim/nvim-lspconfig" }
         use { "mfussenegger/nvim-jdtls" }
+        use { "jose-elias-alvarez/nvim-lsp-ts-utils" }
+        use { "JoosepAlviste/nvim-ts-context-commentstring" }
         use "williamboman/nvim-lsp-installer"
         use "jose-elias-alvarez/null-ls.nvim"
         use { "folke/trouble.nvim", requires = "kyazdani42/nvim-web-devicons" }
@@ -44,10 +46,10 @@ packer.startup {
         }
 
         -- debugger
-        use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "Pocco81/DAPInstall.nvim"} }
+        use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "Pocco81/DAPInstall.nvim" } }
 
         -- lsp extension
-        use 'simrat39/rust-tools.nvim'
+        use "simrat39/rust-tools.nvim"
 
         -- autopair
         use "windwp/nvim-autopairs"
@@ -110,7 +112,7 @@ packer.startup {
         }
 
         -- use "romgrk/barbar.nvim"
-		use "nanozuki/tabby.nvim"
+        use "nanozuki/tabby.nvim"
         use "liuchengxu/vista.vim"
         use "lambdalisue/nerdfont.vim"
         use "RRethy/nvim-base16"
@@ -127,11 +129,11 @@ packer.startup {
 
         -- emmet and headwind
         use "mattn/emmet-vim"
-		-- use {
-  --           "steelsojka/headwind.nvim",
-  --           ft = {'html', 'css'}
+        -- use {
+        --           "steelsojka/headwind.nvim",
+        --           ft = {'html', 'css'}
 
-  --       }
+        --       }
 
         -- undotree
         use "mbbill/undotree"
@@ -159,7 +161,6 @@ packer.startup {
 
         -- TODO: Remove impatent after neovim/pull/15436 merged
         use "lewis6991/impatient.nvim"
-
     end,
     config = {
         compile_path = vim.fn.stdpath "config" .. "/lua/packer_compiled.lua",

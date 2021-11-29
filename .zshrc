@@ -1,6 +1,7 @@
+
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 source "$HOME/.cargo/env"
-source ~/.config/zsh/pyenv.zsh
+
 ##############################################################################
 # History Configuration
 ##############################################################################
@@ -21,20 +22,27 @@ export BAT_THEME="Nord"
 
 autoload -U colors && colors # Load colors
 
-autoload -U compinit # completion
-zstyle ':completion:*' menu select
-zmodload zsh/complist
-compinit
-_comp_options+=(globdots) # Include hidden files.
+# autoload -U compinit # completion
+# zstyle ':completion:*' menu select
+# zmodload zsh/complist
+# compinit
+# _comp_options+=(globdots) # Include hidden files.
+# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7ec0ee"
+# ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+# ZSH_AUTOSUGGEST_USE_ASYNC=1
 
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+# Autocomplete
+source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source ~/.config/zsh/completion.zsh
+#
+source ~/.config/zsh/pyenv.zsh
+source ~/.config/zsh/fnm.zsh
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 source ~/.config/zsh/key-bindings.zsh
 source ~/.config/zsh/git_prompt.zsh
-ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7ec0ee"
-ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-ZSH_AUTOSUGGEST_USE_ASYNC=1
+
+#
 [[ -f $HOME/.bash_aliases ]] && . ~/.bash_aliases
 
 setopt PROMPT_SUBST

@@ -12,5 +12,5 @@ configuration {
   display-calc:         "";
   /* columns: 3; */
   matching:				"fuzzy";
-  theme: "~/.config/rofi/theme/nord";
 }
+@theme "~/.config/rofi/theme/nord"
