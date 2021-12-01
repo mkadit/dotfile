@@ -58,3 +58,5 @@ PS1="%B%{$fg[magenta]%}%(1V.%B%{$fg[red]%}(%B%{$fg[magenta]%}%1v%B%{$fg[red]%}).
 PS1+="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magenta]%}%~%{$fg[red]%}]%{$reset_color%}"
 PS1+='${vcs_info_msg_0_}'
 PS1+=$'\n'"$%b "
+# Added by zap installation script
+PATH=$PATH:$HOME/.local/bin/
