@@ -361,6 +361,16 @@
         <to>8</to>
       </action>
     </keybind>
+    <keybind key="W-Tab">
+      <action name="GoToDesktop">
+        <to>next</to>
+      </action>
+    </keybind>
+    <keybind key="W-S-Tab">
+      <action name="GoToDesktop">
+        <to>previous</to>
+      </action>
+    </keybind>
     <keybind key="W-S-1">
       <action name="SendToDesktop">
         <to>1</to>
@@ -401,6 +411,9 @@
         <to>8</to>
       </action>
     </keybind>
+    <keybind key="W-0">
+        <action name="ToggleOmnipresent"/>
+    </keybind>
     <!-- windows -->
     <keybind key="C-A-space">
       <action name="ShowMenu">
@@ -412,13 +425,11 @@
         <menu>root-menu</menu>
       </action>
     </keybind>
-    <keybind key="W-t">
+    <keybind key="W-S-t">
       <action name="ToggleDecorations"/>
     </keybind>
     <keybind key="W-S-r">
-      <action name="Execute">
-        <command>bash -c '~/.config/openbox/visual-mode/mode-toggle just_ui; openbox --reconfigure'</command>
-      </action>
+      <action name="Restart"/>
     </keybind>
     <keybind key="W-f">
       <action name="ToggleFullscreen"/>
@@ -434,6 +445,9 @@
     </keybind>
     <keybind key="W-d">
       <action name="ToggleShowDesktop"/>
+    </keybind>
+    <keybind key="W-t">
+      <action name="ToggleAlwaysOnTop"/>
     </keybind>
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
@@ -457,11 +471,6 @@
       </action>
     </keybind>
     <!-- run apps -->
-    <keybind key="W-F12">
-      <action name="Execute">
-        <command>~/.local/bin/networkmanager_dmenu</command>
-      </action>
-    </keybind>
     <keybind key="W-Return">
       <action name="Execute">
         <command>bash -c 'st'</command>
@@ -485,6 +494,11 @@
     <keybind key="W-p">
       <action name="Execute">
         <command>bash -c '~/.local/bin/dmenu_ffmpeg'</command>
+      </action>
+    </keybind>
+    <keybind key="W-o">
+      <action name="Execute">
+		  <command>bash -c '~/.local/bin/dmenu_open'</command>
       </action>
     </keybind>
     <keybind key="W-backslash">
@@ -907,12 +921,12 @@
       <decor>no</decor>
     </application>
     -->
-    <application name="termite">
+    <!-- <application name="st">
       <size>
         <width>45%</width>
-        <height>43%</height>
+        <height>45%</height>
       </size>
-    </application>
+    </application> -->
     <application class="mpv" type="normal">
       <maximized>true</maximized>
     </application>
