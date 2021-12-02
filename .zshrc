@@ -1,6 +1,7 @@
 
 export LS_COLORS="$LS_COLORS:ow=1;34:tw=1;34:"
 source "$HOME/.cargo/env"
+fpath+=~/.zfunc
 
 ##############################################################################
 # History Configuration
@@ -36,8 +37,9 @@ autoload -U colors && colors # Load colors
 source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source ~/.config/zsh/completion.zsh
 #
-source ~/.config/zsh/pyenv.zsh
-source ~/.config/zsh/fnm.zsh
+source ~/.config/zsh/asdf.zsh
+# source ~/.config/zsh/pyenv.zsh
+# source ~/.config/zsh/fnm.zsh
 source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 source ~/.config/zsh/key-bindings.zsh
 source ~/.config/zsh/git_prompt.zsh
@@ -59,4 +61,4 @@ PS1+="%B%{$fg[red]%}[%{$fg[yellow]%}%n%{$fg[green]%}@%{$fg[blue]%}%M %{$fg[magen
 PS1+='${vcs_info_msg_0_}'
 PS1+=$'\n'"$%b "
 # Added by zap installation script
-PATH=$PATH:$HOME/.local/bin/
+# PATH=$PATH:$HOME/.local/bin/

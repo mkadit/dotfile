@@ -39,7 +39,7 @@ CONNS = CLIENT.get_connections()
 CONF = configparser.ConfigParser()
 CONF.read(expanduser("~/.config/networkmanager-dmenu/config.ini"))
 
-def dmenu_cmd(num_lines, prompt="", active_lines=None):  # pylint: disable=too-many-branches
+def dmenu_cmd(num_lines, prompt="Networks", active_lines=None):  # pylint: disable=too-many-branches
     """Parse config.ini if it exists and add options to the dmenu command
 
     Args: args - num_lines: number of lines to display
@@ -809,8 +809,7 @@ def create_ap_list(adapter, active_connections):
                      key=lambda a: a.get_strength(), reverse=True)
     conns_cur = [i for i in CONNS if
                  i.get_setting_wireless() is not None and
-                 i.get_setting_wireless().get_mac_address() ==
-                 adapter.get_permanent_hw_address()]
+                 conn_matches_adapter(i, adapter)]
     try:
         ap_conns = active_ap.filter_connections(conns_cur)
         active_ap_name = ssid_to_utf8(active_ap)
@@ -838,7 +837,7 @@ def notify(message, details=None, urgency="low"):
     """Use notify-send if available for notifications
 
     """
-    args = ["-u", urgency, message]
+    args = ["-u", urgency, "-a", "networkmanager-dmenu", message]
     if details is not None:
         args.append(details)
 

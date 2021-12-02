@@ -142,6 +142,7 @@ obmenu-generator
 openbox
 plank
 tint2
+gsimplecal
 ```
 
 programming stuff
