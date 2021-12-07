@@ -129,11 +129,6 @@ packer.startup {
 
         -- emmet and headwind
         use "mattn/emmet-vim"
-        -- use {
-        --           "steelsojka/headwind.nvim",
-        --           ft = {'html', 'css'}
-
-        --       }
 
         -- undotree
         use "mbbill/undotree"

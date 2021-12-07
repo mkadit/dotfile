@@ -737,7 +737,7 @@ button_max_icon_size = 0
 # Button 4
 button = new
 button_text = 
-button_tooltip = Switch Visual Mode to Mechanical Theme or Eyecandy Theme
+button_tooltip = Network Manager
 button_lclick_command = ~/.config/openbox/visual-mode/mode-toggle
 button_rclick_command = 
 button_mclick_command = 

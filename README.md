@@ -143,6 +143,7 @@ openbox
 plank
 tint2
 gsimplecal
+lxappearance
 ```
 
 programming stuff

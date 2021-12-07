@@ -30,45 +30,6 @@ lsp_installer.on_server_ready(function(server)
         end
     elseif server.name == "tsserver" then
         opts.on_attach = function(client, bufnr)
-            -- require("nvim-lsp-ts-utils").setup {
-            --     debug = false,
-            --     disable_commands = false,
-            --     enable_import_on_completion = true,
-            --     import_all_timeout = 5000, -- ms
-
-            --     -- eslint
-            --     eslint_enable_code_actions = false,
-            --     eslint_enable_disable_comments = false,
-            --     eslint_bin = "eslint_d",
-            --     eslint_config_fallback = nil,
-            --     eslint_enable_diagnostics = false,
-            --     eslint_opts = {
-            --         -- diagnostics_format = "#{m} [#{c}]",
-            --         condition = function(utils)
-            --             return utils.root_has_file ".eslintrc.js"
-            --         end,
-            --     },
-
-            --     -- formatting
-            --     enable_formatting = false,
-            --     formatter = "prettier_d_slim",
-            --     formatter_config_fallback = nil,
-
-            --     -- parentheses completion
-            --     complete_parens = false,
-            --     signature_help_in_parens = false,
-
-            --     -- update imports on file move
-            --     update_imports_on_move = true,
-            --     require_confirmation_on_move = true,
-            --     watch_dir = nil,
-
-            --     -- filter diagnostics
-            --     filter_out_diagnostics_by_severity = { "hint" },
-            --     filter_out_diagnostics_by_code = {},
-            -- }
-
-            -- require("nvim-lsp-ts-utils").setup_client(client)
             local util = require "nvim-lsp-ts-utils"
             util.setup {
 
@@ -78,11 +39,10 @@ lsp_installer.on_server_ready(function(server)
                 import_all_timeout = 5000, -- ms
 
                 -- eslint
-                eslint_enable_code_actions = true,
-                eslint_enable_disable_comments = false,
-                eslint_bin = "eslint",
-                -- eslint_config_fallback = nil,
-                eslint_enable_diagnostics = true,
+                -- eslint_enable_code_actions = true,
+                -- eslint_enable_disable_comments = false,
+                -- eslint_bin = "eslint",
+                -- eslint_enable_diagnostics = true,
                 -- eslint_opts = {
                 --     -- diagnostics_format = "#{m} [#{c}]",
                 --     condition = function(utils)
