@@ -166,6 +166,12 @@ zsh-autosuggestions
 zsh-completion
 ```
 
+Graphic related
+```
+mesa-utils
+nvidia-prime
+```
+
 ## After
 
 ```

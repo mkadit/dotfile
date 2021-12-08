@@ -11,21 +11,23 @@ export SUDO_ASKPASS="/home/$USER/.local/bin/dmenu_secret"
 
 systemcontrol() {
     service=$(ls "$1" | grep "service" | $DMENU)
-    option=$(echo "$1" | cut -d "/" -f 5)
+    option=$(echo "$1" | cut -d "/" -f 6)
     if [[ $service ]]; then
-        action=$(echo -e "Start\nStop\nReload\nEnable\nDisable" | $DMENU)
+        action=$(echo -e "Start\nStop\nRestart\nReload\nEnable\nDisable" | $DMENU)
         if [[ $option == "system" ]]; then
             case $action in
-            Start) sudo -A systemctl restart $service ;;
+            Start) sudo -A systemctl start $service ;;
             Stop) sudo -A systemctl stop $service ;;
+            Restart) sudo -A systemctl restart $service ;;
             Reload) sudo -A systemctl reload $service ;;
             Enable) sudo -A systemctl enable $service ;;
             Disable) sudo -A systemctl disable $service ;;
             esac
         else
             case $action in
-            Start) systemctl --user restart $service ;;
+            Start) systemctl --user start $service ;;
             Stop) systemctl --user stop $service ;;
+            Restart) systemctl --user restart $service ;;
             Reload) systemctl --user reload $service ;;
             Enable) systemctl --user enable $service ;;
             Disable) systemctl --user disable $service ;;

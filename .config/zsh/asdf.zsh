@@ -1,15 +1,12 @@
 # Find where asdf should be installed
-ASDF_DIR="${ASDF_DIR:-$HOME/.asdf}"
-ASDF_COMPLETIONS="$ASDF_DIR/completions"
+ASDF_DIR="/opt/asdf-vm"
 
 _install_asdf(){
-git clone https://github.com/asdf-vm/asdf.git ~/.asdf 
-cp $ASDF_COMPLETIONS/_asdf ~/.zfunc/_asdf
+    yay -S asdf-vm || paru -S asdf-vm
 
 }
 
-# If not found, check for Homebrew package
-[[ ! -f "$ASDF_DIR/asdf.sh" || ! -f "$ASDF_COMPLETIONS/asdf.bash" ]] && _install_asdf
+[[ ! -f "$ASDF_DIR/asdf.sh" ]] && _install_asdf
 
 # Load command
 if [[ -f "$ASDF_DIR/asdf.sh" ]]; then
