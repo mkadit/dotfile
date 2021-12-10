@@ -167,6 +167,7 @@ zsh-completion
 ```
 
 Graphic related
+
 ```
 mesa-utils
 nvidia-prime
