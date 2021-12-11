@@ -31,105 +31,7 @@ config config --local status.showUntrackedFiles no
 Use the AUR for this to make life easier
 
 ```
-abook
-alsa-utils
-atool
-awesome-git
-base-devel
-bat
-bluez
-brightnessctl
-btop
-clipmenu
-cronie
-curl
-dmenu
-dosfstools
-downgrade
-dunst
-exfat-utils
-exiv2
-fctix5
-fctix5-gtk
-fctix5-qt
-fctix5-configtool
-fctix5-mozc
-fctix5-nord
-fd
-ffmpeg
-fzf
-git
-gnome-keyring
-gnupg
-htop
-imagemagick
-isync
-jq
-libnotify
-lxsession
-man-db
-mediainfo
-mpc
-mpd
-mpv
-msmtp
-mutt-wizard
-ncmpcpp
-neofetch
-neomutt
-neovim-nightly-git
-newsboat
-nerd-fonts-jetbrains-mono
-nmdu
-nordic-theme
-notmuch
-ntfs-3g
-openssh
-pamac-all
-pamixer
-papirus-nord
-pass
-pavucontrol
-picom
-playerctl
-poppler
-pulseaudio
-pulseaudio-alsa
-qutebrowser
-rclone
-ripgrep
-rmlint
-rofi
-simple-mtpfs
-slimlock
-slop
-sxiv
-thunar
-tmux
-ueberzug
-unclutter
-unrar
-unzip
-urlview
-vieb
-vifm
-xclip
-xdotool
-xorg-server
-xorg-xbacklight
-xorg-xdpyinfo
-xorg-xinit
-xorg-xprop
-xorg-xsetroot
-xorg-xwinfo
-xwallpaper
-yt-dlp-git
-yt-dlp-drop-in
-zathura
-zathura-pdf-mupdf
-zsh
-zsh-autocomplete-git
-zsh-fast-syntax-highlighting
+abook alsa-utils atool awesome-git base-devel bat bluez brightnessctl btop clipmenu cronie curl dmenu dosfstools downgrade dunst exfat-utils exiv2 fcitx5 fcitx5-gtk fcitx5-qt fcitx5-configtool fcitx5-mozc fcitx5-nord fd ffmpeg fzf git gnome-keyring gnupg htop imagemagick isync jq libnotify lxsession man-db mediainfo mpc mpd mpv msmtp mutt-wizard ncmpcpp neofetch neomutt newsboat nerd-fonts-jetbrains-mono ncdu nordic-theme-git notmuch ntfs-3g openssh pamixer papirus-nord pass pavucontrol picom playerctl poppler pulseaudio pulseaudio-alsa qutebrowser rclone ripgrep rmlint rofi simple-mtpfs slop sxiv thunar tmux ueberzug unclutter unrar unzip urlview vieb-bin vifm xclip xdotool xorg-server xorg-xbacklight xorg-xdpyinfo xorg-xinit xorg-xprop xorg-xsetroot xorg-xwininfo xwallpaper yt-dlp-git yt-dlp-drop-in zathura zathura-pdf-mupdf zsh zsh-autocomplete-git zsh-fast-syntax-highlighting ip-route2 wireless-tools
 ```
 
 ## Optional
@@ -138,39 +40,23 @@ Below package are optional
 
 If you are planning to use openbox
 ```
-obmenu-generator
-openbox
-plank
-tint2
-gsimplecal
-lxappearance
+obmenu-generator openbox plank tint3 gsimplecal lxappearance lxpolkit
 ```
 
 programming stuff
 ```
-autopep8
-docker
-docker-compose
-lxpolkit
-postgresql
-prettierd
-shellcheck
-shfmt
-stylua
-xwinwrap-git
+autopep8 docker docker-compose postgresql prettierd shellcheck shfmt stylua xwinwrap-git
 ```
 
 zsh auto complete alternative (do note you'll need change .zshrc)
 ```
-zsh-autosuggestions
-zsh-completion
+zsh-autosuggestions zsh-completion
 ```
 
 Graphic related
 
 ```
-mesa-utils
-nvidia-prime
+mesa-utils nvidia-prime
 ```
 
 ## After
@@ -203,3 +89,4 @@ Q: Neovim is not working as intended
 
 A: Make sure you use the latest version (nightly) and not the stable one since there are many plugins unavailable on the stable branch. Make ure you already have the necessary LSP in ~/.local/share/nvim/lspinstall as the
 configuration for the LSP is set to point to there.
+

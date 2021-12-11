@@ -1,7 +1,7 @@
 --TODO: Clean up config
 -- impatient
-require "impatient"
-require "packer_compiled"
+-- require "impatient"
+-- require "packer_compiled"
 
 -- Packer
 require "modules.packer.bootstrap"
@@ -32,10 +32,10 @@ require "plugins.neogit"
 require "plugins.nvimTree"
 require "plugins.rest"
 require "plugins.startify"
-require "plugins.telescope"
-require "plugins.treesitter"
-require "plugins.trueZen"
-require "plugins.whichkey"
+-- require "plugins.telescope"
+-- require "plugins.treesitter"
+-- require "plugins.trueZen"
+-- require "plugins.whichkey"
 
 -- Mappings
-require "modules.mappings"
+-- require "modules.mappings"
