@@ -1,5 +1,5 @@
 # QT theme
-export QT_QPA_PLATFORMTHEME=qt5ct  
+export QT_QPA_PLATFORMTHEME=gtk2
 export QT_AUTO_SCREEN_SCALE=1
 export QT_SCALE_FACTOR=1
 export QT_SCREEN_SCALE_FACTOR=1
@@ -31,3 +31,5 @@ export QT_IM_MODULE="fcitx"
 export XMODIFIERS="@im=fcitx"
 export SDL_IM_MODULE="fcitx"
 export IBUS_USE_PORTAL=1
+
+export TZ='Asia/Jakarta'

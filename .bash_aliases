@@ -21,12 +21,14 @@ QPAS='pacman -Si {1}'
 QYAS='yay -Si {1}'
 QPAR='pacman -Qi {1}'
 QYAR='yay -Qi {1}'
+QAAS='paru -Si {1}'
+QAAR='paru -Qi {1}'
 alias pas='pacman -Slq | fzf -m --preview ${QPAS} | xargs -ro sudo pacman -S'
 alias yas='yay -Slq | fzf -m --preview ${QYAS} | xargs -ro  yay -S'
-alias aas='paru -Slq | fzf -m --preview ${QYAS} | xargs -ro  paru -S'
 alias par='pacman -Qqe | fzf -m --preview ${QPAR} | xargs -ro sudo pacman -Rns'
 alias yar='yay -Qqe | fzf -m --preview ${QYAR} | xargs -ro  yay -Rns'
-alias aar='paru -Qqe | fzf -m --preview ${QYAR} | xargs -ro  paru -Rns'
+alias aas='paru -Slq | fzf -m --preview ${QAAS} | xargs -ro  paru -S'
+alias aar='paru -Qqe | fzf -m --preview ${QAAR} | xargs -ro  paru -Rns'
 
 #Tmux
 alias tmn="tmux new -s"

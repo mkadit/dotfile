@@ -2,23 +2,20 @@
 
 # A rofi -dmenu wrapper script for system functions.
 
-# For non-systemd init systems.
 case "$(readlink -f /sbin/init)" in
-	*runit*) hib="sudo -A zzz" ;;
-	*openrc*) reb="sudo -A openrc-shutdown -r"; shut="sudo -A openrc-shutdown -p" ;;
+	*systemd*) ctl='systemctl' ;;
+	*) ctl='loginctl' ;;
 esac
 
-cmds="\
-lock		slimlock
-hibernate	${hib:-sudo -A systemctl suspend-then-hibernate}
-leave dwm	kill -TERM $(pgrep -u $USER "\bdwm$")
-leave openbox	kill -TERM $(pgrep -u $USER "\bopenbox$")
-reboot	${reb:-sudo -A reboot}
-renew dwm	kill -HUP $(pgrep -u $USER "\bdwm$")
-shutdown	${shut:-sudo -A shutdown -h now}"
-
-choice="$(echo "$cmds" | cut -d'	' -f 1 | rofi -dmenu)" || exit 1
-# choice="$(echo "$cmds" | cut -d'	' -f 1 | rofi -dmenu)" || exit 1
-
-`echo "$cmds" | grep "^$choice	" | cut -d '	' -f2-`
-
+locl='betterlockscreen -l blur'
+case "$(printf "lock\nleave dwm\nrenew dwm\nhibernate\nsleep\nreboot\nshutdown\ndisplay off" | rofi -dmenu -i -p 'Action: ')" in
+	'lock') $locl ;;
+	'leave dwm') kill -TERM "$(pgrep -u "$USER" "\bdwm$")" ;;
+	'leave openbox') kill -TERM "$(pgrep -u "$USER" "\openbox$")" ;;
+	'hibernate') $locl $ctl hibernate ;;
+	'sleep') $locl $ctl suspend ;;
+	'reboot') $ctl reboot ;;
+	'shutdown') $ctl poweroff ;;
+	'display off') xset dpms force off ;;
+	*) exit 1 ;;
+esac

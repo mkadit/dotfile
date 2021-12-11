@@ -412,7 +412,7 @@
       </action>
     </keybind>
     <keybind key="W-0">
-        <action name="ToggleOmnipresent"/>
+      <action name="ToggleOmnipresent"/>
     </keybind>
     <!-- windows -->
     <keybind key="C-A-space">
@@ -498,7 +498,7 @@
     </keybind>
     <keybind key="W-o">
       <action name="Execute">
-		  <command>bash -c '~/.local/bin/dmenu_open'</command>
+        <command>bash -c '~/.local/bin/dmenu_open'</command>
       </action>
     </keybind>
     <keybind key="W-backslash">

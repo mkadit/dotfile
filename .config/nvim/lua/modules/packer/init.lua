@@ -106,8 +106,8 @@ packer.startup {
 
         -- Aesthetics
         use {
-            "glepnir/galaxyline.nvim",
-            branch = "main",
+            -- "~/github/galaxyline.nvim",
+            "~/github/galaxyline.nvim",
             requires = "kyazdani42/nvim-web-devicons",
         }
 
