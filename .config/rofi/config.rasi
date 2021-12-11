@@ -10,7 +10,7 @@ configuration {
   display-window:       "";
   display-file-browser: "";
   display-calc:         "";
-  icon-theme: "ePapirus";
+  icon-theme: "Papirus-Custom";
   /* columns: 3; */
   matching:				"fuzzy";
 }
