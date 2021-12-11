@@ -15,7 +15,7 @@ export PATH="$HOME/go/bin:$PATH"
 export PATH="$HOME/scripts:$PATH"
 
 #FZF
-export FZF_DEFAULT_COMMAND='fd --hidden --follow --ignore-file=$HOME/.gitignore --exclude .git'
+export FZF_DEFAULT_COMMAND="fd --hidden --follow --ignore-file=$HOME/.gitignore --exclude .git"
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND --type f"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
 
@@ -31,5 +31,4 @@ export QT_IM_MODULE="fcitx"
 export XMODIFIERS="@im=fcitx"
 export SDL_IM_MODULE="fcitx"
 export IBUS_USE_PORTAL=1
-
-export TZ='Asia/Jakarta'
+export SUDO_ASKPASS="$HOME/.local/bin/dmenu_secret"

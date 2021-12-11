@@ -8,7 +8,7 @@ case "$(readlink -f /sbin/init)" in
 esac
 
 locl='betterlockscreen -l blur'
-case "$(printf "lock\nleave dwm\nrenew dwm\nhibernate\nsleep\nreboot\nshutdown\ndisplay off" | rofi -dmenu -i -p 'Action: ')" in
+case "$(printf "lock\nleave dwm\nleave openbox\nhibernate\nsleep\nreboot\nshutdown\ndisplay off" | rofi -dmenu -i -p 'Action: ')" in
 	'lock') $locl ;;
 	'leave dwm') kill -TERM "$(pgrep -u "$USER" "\bdwm$")" ;;
 	'leave openbox') kill -TERM "$(pgrep -u "$USER" "\openbox$")" ;;

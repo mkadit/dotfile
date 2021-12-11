@@ -1,7 +1,7 @@
 --TODO: Clean up config
 -- impatient
--- require "impatient"
--- require "packer_compiled"
+require "impatient"
+require "packer_compiled"
 
 -- Packer
 require "modules.packer.bootstrap"
