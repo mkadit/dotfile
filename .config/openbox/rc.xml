@@ -546,6 +546,11 @@
         <command>bash -c 'dunstctl history-pop'</command>
       </action>
     </keybind>
+    <keybind key="C-S-Escape">
+      <action name="Execute">
+        <command>bash -c 'dunstctl set-paused toggle'</command>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
