@@ -719,7 +719,7 @@ button_max_icon_size = 0
 #-------------------------------------
 # Button 3
 button = new
-button_text = 
+button_text = 
 button_tooltip = System monitor
 button_lclick_command = st -e btop
 button_rclick_command = 
@@ -802,7 +802,7 @@ button_max_icon_size = 0
 #-------------------------------------
 # Button 8
 button = new
-button_text = 
+button_text = 
 button_tooltip = Date
 button_lclick_command = gsimplecal
 button_rclick_command = 

@@ -205,3 +205,16 @@ bind-git-helper() {
 }
 bind-git-helper f b t r h s
 unset -f bind-git-helper
+
+# Copy to clipboard
+# vi mode
+bindkey -v
+
+# Yank to the system clipboard
+function vi-yank-xclip {
+    zle vi-yank
+   echo "$CUTBUFFER" | xclip -i
+}
+
+zle -N vi-yank-xclip
+bindkey -M vicmd 'y' vi-yank-xclip

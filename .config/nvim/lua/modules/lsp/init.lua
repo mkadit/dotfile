@@ -6,11 +6,6 @@ DATA = vim.fn.stdpath "data"
 
 local capability = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
-local servers = { "clangd", "tsserver" }
-for _, lsp in ipairs(servers) do
-    nvim_lsp[lsp].setup { capabilities = capability }
-end
-
 lsp_installer.on_server_ready(function(server)
     local opts = { capabilities = capability }
 
