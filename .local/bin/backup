@@ -1,0 +1,35 @@
+#!/bin/sh
+
+# A simple script to easily backup and restore
+
+MOUNT=/mnt
+SOURCES=(
+	"Music"
+	"Pictures"
+	"Documents"
+)
+ISMOUNTED=$(mount | grep sdc)
+
+FROM=''
+TO=''
+
+sync() {
+	for SOURCE in "${SOURCES[@]}"; do
+		rsync -auAXvP "$FROM/$SOURCE" $TO
+	done
+
+}
+
+if [ "$1" = 'restore' ]; then
+
+	FROM="$MOUNT"
+	TO="$HOME"
+else
+
+	FROM="$HOME"
+	TO="$MOUNT"
+fi
+
+if [ "$ISMOUNTED" != '' ]; then
+	sync
+fi

@@ -491,6 +491,16 @@
         <command>bash -c '~/.local/bin/maimpick'</command>
       </action>
     </keybind>
+    <keybind key="W-S-a">
+      <action name="Execute">
+        <command>bash -c 'maim | xclip -selection clipboard -t image/png '</command>
+      </action>
+    </keybind>
+    <keybind key="W-a">
+      <action name="Execute">
+        <command>bash -c 'maim -s | xclip -selection clipboard -t image/png'</command>
+      </action>
+    </keybind>
     <keybind key="W-S-p">
       <action name="Execute">
         <command>bash -c '~/.local/bin/dmenu_ffmpeg'</command>
