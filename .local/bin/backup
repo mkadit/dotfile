@@ -7,11 +7,9 @@ SOURCES=(
 	"Music"
 	"Pictures"
 	"Documents"
+	"Videos"
 )
 ISMOUNTED=$(mount | grep sdc)
-
-FROM=''
-TO=''
 
 sync() {
 	for SOURCE in "${SOURCES[@]}"; do
@@ -20,16 +18,27 @@ sync() {
 
 }
 
+run() {
+
+	if [ "$ISMOUNTED" != '' ]; then
+		sync
+	else
+		echo "Drive is not mounted"
+	fi
+}
+
 if [ "$1" = 'restore' ]; then
 
 	FROM="$MOUNT"
 	TO="$HOME"
-else
+	echo "Restoring data"
+    run
+elif [ "$1" = '' ]; then
 
 	FROM="$HOME"
 	TO="$MOUNT"
-fi
-
-if [ "$ISMOUNTED" != '' ]; then
-	sync
+	echo "Backuping data"
+    run
+else
+	echo "Command is incorrect"
 fi

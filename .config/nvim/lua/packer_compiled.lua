@@ -132,7 +132,7 @@ _G.packer_plugins = {
   ["galaxyline.nvim"] = {
     loaded = true,
     path = "/home/mkadit/.local/share/nvim/site/pack/packer/start/galaxyline.nvim",
-    url = "/home/mkadit/github/galaxyline.nvim"
+    url = "https://github.com/NTBBloodbath/galaxyline.nvim"
   },
   ["impatient.nvim"] = {
     loaded = true,

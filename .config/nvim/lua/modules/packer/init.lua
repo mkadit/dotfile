@@ -106,8 +106,7 @@ packer.startup {
 
         -- Aesthetics
         use {
-            -- "~/github/galaxyline.nvim",
-            "~/github/galaxyline.nvim",
+            "NTBBloodbath/galaxyline.nvim",
             requires = "kyazdani42/nvim-web-devicons",
         }
 

@@ -34,13 +34,14 @@ autoload -U colors && colors # Load colors
 # ZSH_AUTOSUGGEST_USE_ASYNC=1
 
 # Autocomplete
+# FIX: .autocomplete.key-binding.precmd:40: terminfo[kcbt]: parameter not set
 source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 source ~/.config/zsh/completion.zsh
 #
 source ~/.config/zsh/asdf.zsh
 # source ~/.config/zsh/pyenv.zsh
 # source ~/.config/zsh/fnm.zsh
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+# source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 source ~/.config/zsh/key-bindings.zsh
 source ~/.config/zsh/git_prompt.zsh
 
@@ -62,3 +63,5 @@ PS1+='${vcs_info_msg_0_}'
 PS1+=$'\n'"$%b "
 # Added by zap installation script
 # PATH=$PATH:$HOME/.local/bin/
+# Added by zap installation script
+PATH=$PATH:$HOME/.local/bin/

@@ -44,21 +44,25 @@ lsp_installer.on_server_ready(function(server)
             }
             util.setup_client(client)
         end
-    elseif server.name == "rust_analyzer" then
+    end
+    if server.name == "rust_analyzer" then
         local extension_path = os.getenv "HOME" .. "/.vscode-oss/extensions/vadimcn.vscode-lldb-1.6.10/"
         local codelldb_path = extension_path .. "adapter/codelldb"
         local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
-        local _, requested_server = lsp_installer.get_server "rust_analyzer"
+        -- local _, requested_server = lsp_installer.get_server "rust_analyzer"
         require("rust-tools").setup {
             dap = {
                 adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
             },
-            server = { server = { cmd = requested_server._default_options.cmd } },
+            -- server = { server = { cmd = requested_server._default_options.cmd } },
+            server = vim.tbl_deep_extend("force", server:get_default_options(), opts),
         }
+        server:attach_buffers()
         return
+    else
+        server:setup(opts)
     end
 
-    server:setup(opts)
     if server.name == "jdtls" then
         vim.api.nvim_exec(
             [[

@@ -5,3 +5,5 @@ source /etc/profile
 source "$HOME/.cargo/env"
 # Added by zap installation script
 PATH=$PATH:$HOME/.local/bin
+# Added by zap installation script
+PATH=$PATH:$HOME/.local/bin
