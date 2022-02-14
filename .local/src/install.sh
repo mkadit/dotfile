@@ -164,6 +164,7 @@ PKGS=(
 "zathura-pdf-mupdf" 
 "zsh" 
 "zsh-autocomplete-git" 
+"zsh-autosuggestions"
 "zsh-fast-syntax-highlighting" 
 )
 

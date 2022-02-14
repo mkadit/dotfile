@@ -23,20 +23,19 @@ export BAT_THEME="Nord"
 
 autoload -U colors && colors # Load colors
 
-# autoload -U compinit # completion
-# zstyle ':completion:*' menu select
-# zmodload zsh/complist
-# compinit
-# _comp_options+=(globdots) # Include hidden files.
-# source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-# ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7ec0ee"
-# ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-# ZSH_AUTOSUGGEST_USE_ASYNC=1
+autoload -U compinit # completion
+zstyle ':completion:*' menu select
+zmodload zsh/complist
+compinit
+_comp_options+=(globdots) # Include hidden files.
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#7ec0ee"
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+ZSH_AUTOSUGGEST_USE_ASYNC=1
 
 # Autocomplete
 # FIX: .autocomplete.key-binding.precmd:40: terminfo[kcbt]: parameter not set
-source /usr/share/zsh/plugins/zsh-autocomplete/zsh-autocomplete.plugin.zsh
-source ~/.config/zsh/completion.zsh
+# source ~/.config/zsh/completion.zsh
 #
 source ~/.config/zsh/asdf.zsh
 # source ~/.config/zsh/pyenv.zsh
