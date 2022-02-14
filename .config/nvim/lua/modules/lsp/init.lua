@@ -24,6 +24,10 @@ lsp_installer.on_server_ready(function(server)
                 or nvim_lsp.util.path.dirname(filename)
         end
     elseif server.name == "tsserver" then
+        opts.root_dir = function(filename)
+            return nvim_lsp.util.root_pattern("package.json", "tsconfig.json", "jsconfig.json", ".git")(filename)
+                or nvim_lsp.util.path.dirname(filename)
+        end
         opts.on_attach = function(client, bufnr)
             local util = require "nvim-lsp-ts-utils"
             util.setup {

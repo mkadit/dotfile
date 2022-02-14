@@ -111,7 +111,8 @@ packer.startup {
         }
 
         -- use "romgrk/barbar.nvim"
-        use "nanozuki/tabby.nvim"
+        -- use "nanozuki/tabby.nvim"
+        use "noib3/nvim-cokeline"
         use "liuchengxu/vista.vim"
         use "lambdalisue/nerdfont.vim"
         use "RRethy/nvim-base16"

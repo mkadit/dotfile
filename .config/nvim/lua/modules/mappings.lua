@@ -86,7 +86,7 @@ local function set_keybindings()
         {'n', '<Leader>fL', '<CMD>Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fm', '<CMD>lua require("telescope.builtin").man_pages()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fp', '<CMD>lua require("telescope.builtin.lsp").dynamic_workspace_symbols()<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader>fd', '<CMD>lua require("telescope.builtin.lsp").workspace_diagnostics()<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>fd', '<CMD>lua require("telescope.builtin").diagnostics()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fq', '<CMD>lua require("telescope.builtin").quickfix()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fr', '<CMD>lua require("telescope.builtin").live_grep()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>ft', '<CMD>lua require("telescope.builtin").treesitter()<CR>', {noremap = true, silent = false}},
