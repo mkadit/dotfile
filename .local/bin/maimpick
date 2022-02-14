@@ -3,8 +3,10 @@
 case "$(printf "a selected area\\ncurrent window\\nfull screen\\na selected area (copy)\\ncurrent window (copy)\\nfull screen (copy)" | rofi -dmenu -l 6 -i -p "Screenshot which area?")" in
 	"a selected area") maim -s $HOME/Pictures/Screenshot/pic-selected-"$(date '+%y%m%d-%H%M-%S').png" && notify-send "Success!" "Selected area screenshot saved" ;;
 	"current window") maim -i "$(xdotool getactivewindow)" $HOME/Pictures/Screenshot/pic-window-"$(date '+%y%m%d-%H%M-%S').png" && notify-send "Success!" "Current window screenshot saved" ;;
-	"full screen") maim $HOME/Pictures/Screenshot/pic-full-"$(date '+%y%m%d-%H%M-%S').png" && notify-send "Success!" "Full screenshot saved" ;;
+	"full screen") maim -d 3 $HOME/Pictures/Screenshot/pic-full-"$(date '+%y%m%d-%H%M-%S').png" && notify-send "Success!" "Full screenshot saved" ;;
 	"a selected area (copy)") maim -s | xclip -selection clipboard -t image/png && notify-send "Success!" "Selected area screenshot copied";;
 	"current window (copy)") maim -i "$(xdotool getactivewindow)" | xclip -selection clipboard -t image/png && notify-send "Success!" "Current window screenshot copied";;
-	"full screen (copy)") maim | xclip -selection clipboard -t image/png && notify-send "Success!" "Full screenshot copied";;
+	"full screen (copy)") maim -d 3 | xclip -selection clipboard -t image/png && notify-send "Success!" "Full screenshot copied";;
 esac
+
+

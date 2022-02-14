@@ -41,7 +41,7 @@ source ~/.config/zsh/completion.zsh
 source ~/.config/zsh/asdf.zsh
 # source ~/.config/zsh/pyenv.zsh
 # source ~/.config/zsh/fnm.zsh
-# source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
+source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
 source ~/.config/zsh/key-bindings.zsh
 source ~/.config/zsh/git_prompt.zsh
 
