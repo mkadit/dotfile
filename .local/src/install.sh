@@ -21,9 +21,11 @@ config config --local status.showUntrackedFiles no
 PKGS=(
 "abook" 
 "alsa-utils" 
+"asdf-vm"
 "atool" 
 "base-devel" 
 "bat" 
+"betterdiscordctl-git"
 "betterlockscreen" 
 "bluez" 
 "bridge-utils" 
@@ -43,6 +45,7 @@ PKGS=(
 "downgrade" 
 "dunst" 
 "ebtables" 
+"emusak-bin" # For easy yuzu
 "exfat-utils" 
 "exiv2" 
 "fcitx5" 
@@ -85,6 +88,7 @@ PKGS=(
 "nerd-fonts-jetbrains-mono" 
 "newsboat" 
 "nordic-theme-git" 
+"notion-app-enhanced"
 "notmuch" 
 "ntfs-3g" 
 "nvidia-prime" 
