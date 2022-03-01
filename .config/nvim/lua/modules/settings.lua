@@ -149,6 +149,8 @@ function! TrimWhitespace()
     keeppatterns %s/\s\+$//e
     call winrestview(l:save)
 endfunction
+
+set termguicolors
 ]], false)
 
 vim.g.doge_enable_mappings = 0

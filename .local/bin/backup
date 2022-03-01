@@ -13,6 +13,7 @@ ISMOUNTED=$(mount | grep sdc)
 
 sync() {
 	for SOURCE in "${SOURCES[@]}"; do
+		# may change
 		rsync -auAXvP "$FROM/$SOURCE" $TO
 	done
 

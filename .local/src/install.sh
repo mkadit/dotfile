@@ -46,6 +46,7 @@ PKGS=(
 "dunst" 
 "ebtables" 
 "emusak-bin" # For easy yuzu
+"eslint_d"
 "exfat-utils" 
 "exiv2" 
 "fcitx5" 
