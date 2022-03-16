@@ -193,5 +193,13 @@
 			"$0"
 		],
 		"description": "Log error to the console"
+	},
+	"Arrow Function": {
+		"prefix": "arrow function",
+		"body": [
+			"($1) =>{",
+			"\t$0",
+			"}"
+		]
 	}
 }

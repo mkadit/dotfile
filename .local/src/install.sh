@@ -36,6 +36,7 @@ PKGS=(
 "code"
 "cronie" 
 "curl" 
+"deno"
 "discord-canary"
 "dmenu" 
 "dnsmask" 

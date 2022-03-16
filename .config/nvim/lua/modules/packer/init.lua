@@ -46,7 +46,10 @@ packer.startup {
         }
 
         -- debugger
-        use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "Pocco81/DAPInstall.nvim" } }
+        -- use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "Pocco81/DAPInstall.nvim" } }
+
+        -- docker
+        use { "skanehira/denops-docker.vim", requires = { "vim-denops/denops.vim" } }
 
         -- lsp extension
         use "simrat39/rust-tools.nvim"

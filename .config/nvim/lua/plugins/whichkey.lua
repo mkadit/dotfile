@@ -138,7 +138,7 @@ local leader_keymap = {
     },
     l = {
         name = '+LSP',
-        s = {'<CMD>LspStart ', 'Start LSP <name>'},
+        s = {':LspStart ', 'Start LSP <name>'},
         n = {'<CMD>LspStop<CR>', 'Stop LSP'},
         i = {'<CMD>LspInfo<CR>', 'Info LSP'},
         r = {'<CMD>LspRestart<CR>', 'Restart LSP'}
@@ -195,15 +195,15 @@ local brackets = {
     [" "] = "Add blank cursor"
 }
 
-local ataraxis = {
-    T = {'<cmd>TZTop<CR>', 'Toggle top'},
-    B = {'<cmd>TZBottom<CR>', 'Toggle bottom'},
-    L = {'<cmd>TZLeft<CR>', 'Toggle left'},
-    M = {'<cmd>TZMinimalist<CR>', 'Minimal'},
-    A = {'<cmd>TZAtaraxis<CR>', 'Ataraxis'}
-}
+-- local ataraxis = {
+--     T = {'<cmd>TZTop<CR>', 'Toggle top'},
+--     B = {'<cmd>TZBottom<CR>', 'Toggle bottom'},
+--     L = {'<cmd>TZLeft<CR>', 'Toggle left'},
+--     M = {'<cmd>TZMinimalist<CR>', 'Minimal'},
+--     A = {'<cmd>TZAtaraxis<CR>', 'Ataraxis'}
+-- }
 
-add_table(unimpaired, ataraxis)
+-- add_table(unimpaired, ataraxis)
 
 local right_bracket = {name = '+next/off'}
 local left_bracket = {name = "+prev/on"}
