@@ -195,15 +195,15 @@ local brackets = {
     [" "] = "Add blank cursor"
 }
 
--- local ataraxis = {
---     T = {'<cmd>TZTop<CR>', 'Toggle top'},
---     B = {'<cmd>TZBottom<CR>', 'Toggle bottom'},
---     L = {'<cmd>TZLeft<CR>', 'Toggle left'},
---     M = {'<cmd>TZMinimalist<CR>', 'Minimal'},
---     A = {'<cmd>TZAtaraxis<CR>', 'Ataraxis'}
--- }
+local ataraxis = {
+    T = {'<cmd>TZTop<CR>', 'Toggle top'},
+    B = {'<cmd>TZBottom<CR>', 'Toggle bottom'},
+    L = {'<cmd>TZLeft<CR>', 'Toggle left'},
+    M = {'<cmd>TZMinimalist<CR>', 'Minimal'},
+    A = {'<cmd>TZAtaraxis<CR>', 'Ataraxis'}
+}
 
--- add_table(unimpaired, ataraxis)
+add_table(unimpaired, ataraxis)
 
 local right_bracket = {name = '+next/off'}
 local left_bracket = {name = "+prev/on"}

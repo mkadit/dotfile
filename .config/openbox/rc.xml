@@ -561,6 +561,11 @@
         <command>bash -c 'dunstctl set-paused toggle'</command>
       </action>
     </keybind>
+    <keybind key="W-S-m">
+      <action name="Execute">
+        <command>bash -c 'xmouseless'</command>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>

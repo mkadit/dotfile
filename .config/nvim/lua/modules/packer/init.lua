@@ -46,7 +46,7 @@ packer.startup {
         }
 
         -- debugger
-        -- use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap", "Pocco81/DAPInstall.nvim" } }
+        use { "rcarriga/nvim-dap-ui", requires = { "mfussenegger/nvim-dap" } }
 
         -- docker
         use { "skanehira/denops-docker.vim", requires = { "vim-denops/denops.vim" } }
@@ -95,7 +95,8 @@ packer.startup {
         use "vifm/vifm.vim"
 
         -- Useful things
-        use "folke/zen-mode.nvim"
+        -- use "folke/zen-mode.nvim"
+        use "Pocco81/TrueZen.nvim"
 
         -- formatter
         use "sbdchd/neoformat"
@@ -130,7 +131,7 @@ packer.startup {
         -- Reminder keymap
         use "folke/which-key.nvim"
 
-        -- emmet and headwind
+        -- emmet
         use "mattn/emmet-vim"
 
         -- undotree

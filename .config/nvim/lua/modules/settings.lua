@@ -44,7 +44,7 @@ local options = {
     ignorecase     = true,
     inccommand     = 'nosplit',
     incsearch      = true,
-    laststatus     = 2,
+    laststatus     = 3,
     lazyredraw     = true,
     linebreak      = true,
     linespace      = 0,
@@ -150,10 +150,9 @@ function! TrimWhitespace()
     call winrestview(l:save)
 endfunction
 
-set termguicolors
 ]], false)
 
 vim.g.doge_enable_mappings = 0
 vim.g.rooter_manual_only=1
 vim.g.gitgutter_grep = "rg"
-vim.g.python3_host_prog = '/usr/bin/python3.9'
+vim.g.python3_host_prog = '/usr/bin/python3.10'

@@ -69,15 +69,15 @@ end
 time([[try_loadstring definition]], false)
 time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
-  ["DAPInstall.nvim"] = {
-    loaded = true,
-    path = "/home/mkadit/.local/share/nvim/site/pack/packer/start/DAPInstall.nvim",
-    url = "https://github.com/Pocco81/DAPInstall.nvim"
-  },
   LuaSnip = {
     loaded = true,
     path = "/home/mkadit/.local/share/nvim/site/pack/packer/start/LuaSnip",
     url = "https://github.com/L3MON4D3/LuaSnip"
+  },
+  ["TrueZen.nvim"] = {
+    loaded = true,
+    path = "/home/mkadit/.local/share/nvim/site/pack/packer/start/TrueZen.nvim",
+    url = "https://github.com/Pocco81/TrueZen.nvim"
   },
   ["bufresize.nvim"] = {
     loaded = true,
@@ -113,6 +113,16 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mkadit/.local/share/nvim/site/pack/packer/start/cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
+  },
+  ["denops-docker.vim"] = {
+    loaded = true,
+    path = "/home/mkadit/.local/share/nvim/site/pack/packer/start/denops-docker.vim",
+    url = "https://github.com/skanehira/denops-docker.vim"
+  },
+  ["denops.vim"] = {
+    loaded = true,
+    path = "/home/mkadit/.local/share/nvim/site/pack/packer/start/denops.vim",
+    url = "https://github.com/vim-denops/denops.vim"
   },
   ["diffview.nvim"] = {
     loaded = true,
@@ -438,11 +448,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/mkadit/.local/share/nvim/site/pack/packer/start/which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
-  },
-  ["zen-mode.nvim"] = {
-    loaded = true,
-    path = "/home/mkadit/.local/share/nvim/site/pack/packer/start/zen-mode.nvim",
-    url = "https://github.com/folke/zen-mode.nvim"
   }
 }
 

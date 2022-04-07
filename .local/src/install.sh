@@ -39,7 +39,7 @@ PKGS=(
 "deno"
 "discord-canary"
 "dmenu" 
-"dnsmask" 
+"dnsmasq" 
 "docker" 
 "docker-compose" 
 "dosfstools" 
@@ -68,8 +68,10 @@ PKGS=(
 "htop" 
 "imagemagick" 
 "iproute2" 
+"iptables-nft"
 "isync" 
 "jq" 
+"kubectl"
 "libnotify" 
 "libxft-bgra" 
 "lutris"
@@ -78,6 +80,7 @@ PKGS=(
 "man-db" 
 "mediainfo" 
 "mesa-utils" 
+"minikube"
 "mpc" 
 "mpd" 
 "mpv" 
@@ -113,8 +116,8 @@ PKGS=(
 "pulseaudio" 
 "pulseaudio-alsa" 
 "python-magic"
-"python-pipx"
 "python-pip"
+"python-pipx"
 "qbittorrent"
 "qemu" 
 "qemu-arch-extra" 
@@ -209,6 +212,8 @@ fc-cache -rv
 sudo chmod u+s $(command -v brightnessctl)
 
 timedatectl set-ntp true
+
+usermode -aG libvirt $(whoami)
 
 sudo -iu postgres
 initdb -D '/var/lib/postgres/data'

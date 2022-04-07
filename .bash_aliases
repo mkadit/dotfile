@@ -14,8 +14,9 @@ alias ynvidia="__GL_THREADED_OPTIMIZATIONS=1 yuzu"
 alias man="fzf_man"
 
 # youtube-dl
-alias ytdlm="youtube-dl -f bestaudio --extract-audio --audio-format mp3 -o '~/Music/%(title)s.%(ext)s'"
-alias ytdlv="youtube-dl -f bestvideo+bestaudio -o '~/Videos/%(title)s.%(ext)s'"
+alias ytdl="yt-dlp --add-metadata --embed-thumbnail"
+alias ytdlm="yt-dlp --add-metadata --embed-thumbnail -f bestaudio --extract-audio --audio-format mp3 -o '~/Music/%(title)s.%(ext)s'"
+alias ytdlv="yt-dlp --add-metadata --embed-thumbnail -f bestvideo+bestaudio -o '~/Videos/%(title)s.%(ext)s'"
 
 # Package
 QPAS='pacman -Si {1}'
