@@ -21,6 +21,7 @@ config config --local status.showUntrackedFiles no
 PKGS=(
 "abook" 
 "alsa-utils" 
+"ani-cli"
 "asdf-vm"
 "atool" 
 "base-devel" 
@@ -78,6 +79,7 @@ PKGS=(
 "lxappearance" 
 "lxsession" 
 "man-db" 
+"mangodl"
 "mediainfo" 
 "mesa-utils" 
 "minikube"
