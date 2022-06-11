@@ -19,7 +19,7 @@ colorscheme normal
 
 """ Custom map"
 map R :restart<CR>
-map x :!sxiv -ft * 2>/dev/null &<CR>
+map xv :!sxiv -ft * 2>/dev/null &<CR>
 nnoremap o :file &<cr>
 map E :!$EDITOR %f<CR>
 " map kd :mkdir<space>
@@ -32,6 +32,7 @@ vnoremap w :view<cr>gv
 nnoremap yd :!echo %d | xclip %i<cr>
 nnoremap yf :!echo %c:p | xclip %i<cr>
 nnoremap yn :!sed "s/\..*//"<<<%c|xclip %i<cr>
+nnoremap xx :!sxiv -r . <CR>
 nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
 nnoremap A cw

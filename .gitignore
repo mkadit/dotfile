@@ -8,6 +8,7 @@
 .jupyter
 .local/share/Steam
 .lyrics
+.minikube
 .mozilla
 .npm
 .nv
@@ -22,7 +23,7 @@
 .zoom
 Games
 go
-go
 node_store
 packettracer
 remnote
+workspace

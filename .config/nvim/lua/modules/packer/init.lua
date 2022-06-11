@@ -67,7 +67,7 @@ packer.startup {
         use "b3nj5m1n/kommentary"
 
         -- treesitter
-        use { "nvim-treesitter/nvim-treesitter", run = ":TSUpdate" }
+        use { "nvim-treesitter/nvim-treesitter", requires = { "p00f/nvim-ts-rainbow", "nvim-treesitter/nvim-treesitter-textobjects" }, run = ":TSUpdate" }
 
         -- Git
         use "tpope/vim-fugitive"
@@ -117,7 +117,11 @@ packer.startup {
         -- use "romgrk/barbar.nvim"
         -- use "nanozuki/tabby.nvim"
         use "noib3/nvim-cokeline"
-        use "liuchengxu/vista.vim"
+        use "stevearc/aerial.nvim"
+        use {
+            'crusj/structrue-go.nvim',
+            branch = "main"
+        }
         use "lambdalisue/nerdfont.vim"
         use "RRethy/nvim-base16"
         use "sainnhe/sonokai"

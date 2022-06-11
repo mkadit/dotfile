@@ -77,15 +77,16 @@ local function set_keybindings()
         {'n', '<Leader>.', '<CMD>lua require("telescope.builtin").file_browser()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fa', '<CMD>lua require("telescope.builtin").autocommands()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fb', '<CMD>lua require("telescope.builtin").buffers()<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader>fc', '<CMD>lua require("telescope.builtin").commits()<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>fc', '<CMD>lua require("telescope.builtin").git_commits()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>ff', '<CMD>lua require("telescope.builtin").find_files()<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader>fg', '<CMD>lua require("telescope.builtin").bcommits()<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>fg', '<CMD>lua require("telescope.builtin").git_bcommits()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fh', '<CMD>lua require("telescope.builtin").oldfiles()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fH', '<CMD>lua require("telescope.builtin").command_history()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fl', '<CMD>lua require("telescope.builtin").loclist()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fL', '<CMD>Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fm', '<CMD>lua require("telescope.builtin").man_pages()<CR>', {noremap = true, silent = false}},
-        {'n', '<Leader>fp', '<CMD>lua require("telescope.builtin.lsp").dynamic_workspace_symbols()<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>fp', '<CMD>lua require("telescope.builtin").lsp_dynamic_workspace_symbols()<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>fP', '<CMD>lua require("telescope.builtin").lsp_document_symbols()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fd', '<CMD>lua require("telescope.builtin").diagnostics()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fq', '<CMD>lua require("telescope.builtin").quickfix()<CR>', {noremap = true, silent = false}},
         {'n', '<Leader>fr', '<CMD>lua require("telescope.builtin").live_grep()<CR>', {noremap = true, silent = false}},
@@ -120,7 +121,7 @@ local function set_keybindings()
 
 
         -- Tags
-        {'n', '<Leader>t', '<CMD>Vista!!<CR>', {noremap = true, silent = false}},
+        {'n', '<Leader>t', '<CMD>AerialToggle<CR>', {noremap = true, silent = false}},
 
         -- Cheatsheet
         {'n', '<Leader>ah', '<CMD>Cheat<CR>', {noremap = true, silent = false}},
@@ -145,7 +146,7 @@ local function set_keybindings()
         {'n', '[d', '<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>', {noremap = true, silent = true}},
         {'n', ']d', '<CMD>lua vim.lsp.diagnostic.goto_next()<CR>', {noremap = true, silent = true}},
         {'n', 'rn', '<CMD>lua vim.lsp.buf.rename()<CR>', {noremap = true, silent = true}},
-        {'n', '<Leader>r', '<CMD>lua vim.lsp.buf.formatting()<CR>', {noremap = true, silent = true}},
+        {'n', '<Leader>r', '<CMD>lua vim.lsp.buf.format({async= true})<CR>', {noremap = true, silent = true}},
         {'v', '<Leader>r', '<CMD>lua vim.lsp.buf.range_formatting()<CR>', {noremap = true, silent = true}},
         {'n', '<leader>ls', ':LspStart ', {noremap = true, silent = true}},
         {'n', '<leader>ln', '<CMD>LspStop<CR>', {noremap = true, silent = true}},

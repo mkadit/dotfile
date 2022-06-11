@@ -155,4 +155,5 @@ endfunction
 vim.g.doge_enable_mappings = 0
 vim.g.rooter_manual_only=1
 vim.g.gitgutter_grep = "rg"
+vim.g.vista_default_executive = "nvim_lsp"
 vim.g.python3_host_prog = '/usr/bin/python3.10'

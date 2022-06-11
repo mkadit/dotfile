@@ -12,11 +12,11 @@ require "modules.settings"
 
 -- lsp
 require "modules.lsp"
--- require('modules.lsp.efm-config')
 require "modules.lsp.lsp-trouble"
 require "modules.lsp.diagnostic"
 
 -- Plugin Settings
+require "plugins.symbols-outline"
 require "plugins.autopairs"
 require "plugins.bufferline"
 require "plugins.bufresize"

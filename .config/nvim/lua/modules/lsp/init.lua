@@ -7,7 +7,13 @@ DATA = vim.fn.stdpath "data"
 local capability = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 lsp_installer.on_server_ready(function(server)
-    local opts = { capabilities = capability }
+    local opts = {
+        capabilities = capability,
+        on_attach = function(client)
+            local aerial = require "aerial"
+            aerial.on_attach(client)
+        end,
+    }
 
     if server.name == "gopls" then
         opts.root_dir = function(filename)
@@ -16,7 +22,8 @@ lsp_installer.on_server_ready(function(server)
         end
     elseif server.name == "pyright" then
         opts.root_dir = function(filename)
-            return nvim_lsp.util.root_pattern("pyproject.toml", ".git")(filename) or nvim_lsp.util.path.dirname(filename)
+            return nvim_lsp.util.root_pattern("pyproject.toml", ".git")(filename)
+                or nvim_lsp.util.path.dirname(filename)
         end
     elseif server.name == "jdtls" then
         opts.root_dir = function(filename)
