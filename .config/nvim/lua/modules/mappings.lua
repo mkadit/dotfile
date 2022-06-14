@@ -1,5 +1,4 @@
 local keymap = vim.keymap
--- TODO: Tidy this
 
 -- Disable keys
 keymap.set("n", "Q", "<Nop>", { noremap = true, silent = true })
@@ -74,12 +73,6 @@ keymap.set(
   '<CMD>lua require("telescope.builtin").file_browser()<CR>',
   { noremap = true, silent = false }
 )
-keymap.set(
-  "n",
-  "<Leader>fa",
-  '<CMD>lua require("telescope.builtin").autocommands()<CR>',
-  { noremap = true, silent = false }
-)
 keymap.set("n", "<Leader>fb", '<CMD>lua require("telescope.builtin").buffers()<CR>', { noremap = true, silent = false })
 keymap.set(
   "n",
@@ -115,13 +108,7 @@ keymap.set("n", "<Leader>fl", '<CMD>lua require("telescope.builtin").loclist()<C
 keymap.set(
   "n",
   "<Leader>fL",
-  "<CMD>Telescope find_files find_command=rg,--ignore,--hidden,--files<CR>",
-  { noremap = true, silent = false }
-)
-keymap.set(
-  "n",
-  "<Leader>fm",
-  '<CMD>lua require("telescope.builtin").man_pages()<CR>',
+  "<CMD>lua require('telescope.builtin').find_files({hidden=true})<CR>",
   { noremap = true, silent = false }
 )
 keymap.set(
@@ -160,12 +147,6 @@ keymap.set(
   '<CMD>lua require("telescope.builtin").treesitter()<CR>',
   { noremap = true, silent = false }
 )
-keymap.set(
-  "n",
-  "<Leader>gf",
-  '<CMD>lua require("telescope.builtin").git_branches()<CR>',
-  { noremap = true, silent = false }
-)
 keymap.set("n", "<Leader>fT", "<CMD>TodoTelescope<CR>", { noremap = true, silent = false })
 
 -- Git
@@ -173,12 +154,11 @@ keymap.set("n", "<Leader>gB", "<CMD>GBrowse<CR>", { noremap = true, silent = fal
 keymap.set("n", "<Leader>gD", "<CMD>Gvdiffsplit<CR>", { noremap = true, silent = false })
 keymap.set("n", "<Leader>gL", "<CMD>Gclog<CR>", { noremap = true, silent = false })
 keymap.set("n", "<Leader>gb", "<CMD>Git blame<CR>", { noremap = true, silent = false })
-keymap.set("n", "<Leader>gg", "<CMD>Flogsplit<CR>", { noremap = true, silent = false })
+keymap.set("n", "<Leader>gg", "<CMD>Git log --oneline --decorate --graph --all<CR>", { noremap = true, silent = false })
 keymap.set("n", "<Leader>gj", "<CMD>diffget //2<CR>", { noremap = true, silent = false })
 keymap.set("n", "<Leader>gk", "<CMD>diffget //3<CR>", { noremap = true, silent = false })
 keymap.set("n", "<Leader>gl", "<CMD>Git log<CR>", { noremap = true, silent = false })
 keymap.set("n", "<Leader>gm", ":Git merge ", { noremap = true, silent = false })
--- keymap.set{'n', '<Leader>gn', '<CMD>Neogit<CR>', {noremap = true, silent = false}},
 keymap.set("n", "<Leader>gp", ":Git push ", { noremap = true, silent = false })
 keymap.set("n", "<Leader>gP", ":Git pull ", { noremap = true, silent = false })
 keymap.set("n", "<Leader>gs", "<CMD>G<CR>", { noremap = true, silent = false })
@@ -194,9 +174,6 @@ keymap.set("n", "<Leader>Gl", "<CMD>Gist -l<CR>", { noremap = true, silent = fal
 
 -- Tags
 keymap.set("n", "<Leader>t", "<CMD>AerialToggle<CR>", { noremap = true, silent = false })
-
--- Cheatsheet
-keymap.set("n", "<Leader>ah", "<CMD>Cheat<CR>", { noremap = true, silent = false })
 
 -- File Manager
 keymap.set("n", "<Leader>v", "<CMD>Vifm<CR>", { noremap = true, silent = false })
@@ -217,7 +194,6 @@ keymap.set(
   { noremap = true, silent = true }
 )
 keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
-keymap.set("n", "<Leader>aL", "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>", { noremap = true, silent = true })
 keymap.set("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
 keymap.set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
 
@@ -252,15 +228,12 @@ keymap.set("n", "<leader>dx", "<CMD>lua require'dapui'.terminate()<CR>", { norem
 keymap.set("n", "<leader>dq", "<CMD>lua require'dap'.list_breakpoints()<CR>", { noremap = true, silent = true })
 
 -- Formatter
-keymap.set({ "n", "v" }, "<leader>R", "<CMD>Format<CR>", { noremap = true, silent = true })
+keymap.set({ "n", "v" }, "<leader>R", "<CMD>Neoformat<CR>", { noremap = true, silent = true })
 
 -- mini.nvim
 --- Buffer
--- keymap.set( 'n', '<Leader>qd', '<CMD>bd<CR>', {noremap = true, silent = true} )
--- keymap.set( 'n', '<Leader>qf', '<CMD>bd!<CR>', {noremap = true, silent = true} )
 -- keymap.set( 'n', '<Leader>qq', '<CMD>bufdo bd<CR>', {noremap = true, silent = true} )
 -- keymap.set( 'n', '<Leader>qa', '<CMD>bufdo bd!<CR>', {noremap = true, silent = true} )
--- keymap.set( 'n', '<Leader>qo', '<CMD>%bdelete|edit #|normal \'\"<CR>', {noremap = true, silent = true} )
 keymap.set({ "n", "v" }, "<leader>qd", "<CMD>lua MiniBufremove.delete()<CR>", { noremap = true, silent = true })
 keymap.set({ "n", "v" }, "<leader>qD", "<CMD>lua MiniBufremove.delete(0, true)<CR>", { noremap = true, silent = true })
 --- Surround
