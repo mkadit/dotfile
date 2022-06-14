@@ -2,8 +2,10 @@
 
 cd $HOME
 
+# Install Rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
+# Install Paru
 sudo pacman -S --needed base-devel git
 git clone https://aur.archlinux.org/paru.git
 cd paru
@@ -11,13 +13,16 @@ makepkg -si
 cd ..
 rm -rf paru
 
+# Delete existing config
 rm .bash_profile .bashrc .profile
 
+# Clone Repo
 alias config="/usr/bin/git --git-dir $HOME/.cfg/ --work-tree=$HOME"
 git clone --bare https://www.github.com/mkadit/dotfile.git $HOME/.cfg
 config checkout
 config config --local status.showUntrackedFiles no
 
+# Install Dependencies
 PKGS=(
 "abook" 
 "alsa-utils" 
@@ -30,6 +35,7 @@ PKGS=(
 "betterdiscordctl-git"
 "betterlockscreen" 
 "bluez" 
+"bluez-utils"
 "bridge-utils" 
 "brightnessctl" 
 "btop" 
@@ -187,6 +193,7 @@ for PKG in "${PKGS[@]}"; do
 done
 
 
+# Install tools that cannot be installed throug AUR
 mkdir github
 cd github
 git clone https://github.com/neovim/neovim
@@ -211,6 +218,7 @@ source $HOME/.profile
 setbg ~/assets/wallpaper.png
 
 
+# Set configurations
 chsh -s $(which zsh)
 fc-cache -rv
 sudo chmod u+s $(command -v brightnessctl)
@@ -224,3 +232,5 @@ initdb -D '/var/lib/postgres/data'
 exit
 sudo systemctl enable postgresql
 sudo systemctl start postgresql
+
+nvim +JetpackSync

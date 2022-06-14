@@ -1,0 +1,7 @@
+require "ui.gitsigns"
+require "ui.startify"
+require "ui.statusline"
+require "ui.themer"
+require "ui.treesitter"
+require "ui.trueZen"
+require "ui.whichkey"
