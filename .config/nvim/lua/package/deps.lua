@@ -7,7 +7,6 @@ jetpack.setup {
   { "dstein64/vim-startuptime", opt = true },
 
   -- Interface
-  "kyazdani42/nvim-web-devicons",
   "nvim-lua/popup.nvim",
   "nvim-lua/plenary.nvim",
   "Pocco81/TrueZen.nvim",
@@ -15,7 +14,6 @@ jetpack.setup {
   "nanozuki/tabby.nvim",
   "RRethy/nvim-base16",
   "ThemerCorp/themer.lua",
-  "sainnhe/sonokai",
   "folke/which-key.nvim",
   "kwkarlwang/bufresize.nvim",
   "RishabhRD/popfix",
@@ -53,9 +51,6 @@ jetpack.setup {
   "onsails/lspkind-nvim",
 
   -- Editor
-  -- "windwp/nvim-autopairs",
-  -- "b3nj5m1n/kommentary",
-  -- "tpope/vim-surround",
   "akinsho/toggleterm.nvim",
   "wellle/targets.vim",
   "tpope/vim-repeat",
