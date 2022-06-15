@@ -83,4 +83,4 @@ g.python3_host_prog = "/usr/bin/python3"
 
 -- Colorscheme
 vim.cmd "syntax enable"
--- require('base16-colorscheme').setup('nord')
+require('base16-colorscheme').setup('nord')
