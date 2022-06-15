@@ -4,6 +4,13 @@ local keymap = vim.keymap
 keymap.set("n", "Q", "<Nop>", { noremap = true, silent = true })
 keymap.set("n", "<C-z>", "<Nop>", { noremap = true, silent = true })
 
+-- Tabs
+keymap.set("n", "<Leader>ta", "<CMD>tab split<CR>", { noremap = true, silent = false })
+keymap.set("n", "<Leader>tc", "<CMD>tabclose<CR>", { noremap = true, silent = false })
+keymap.set("n", "<Leader>to", "<CMD>tabonly<CR>", { noremap = true, silent = false })
+keymap.set("n", "<Leader>tmp", "<CMD>-tabmove<CR>", { noremap = true, silent = false })
+keymap.set("n", "<Leader>tmn", "<CMD>+tabmove<CR>", { noremap = true, silent = false })
+
 -- Sourcing
 keymap.set("n", "<Leader>as", "<CMD>WriteAndReload<CR>", { noremap = true, silent = false })
 
@@ -36,7 +43,7 @@ keymap.set("n", "<Leader>al", "<CMD>lopen<CR>", { noremap = true, silent = false
 keymap.set("n", "<Leader>ax", "<CMD>TroubleToggle workspace_diagnostics<CR>", { noremap = true, silent = false })
 keymap.set("n", "<Leader>aX", "<CMD>TodoTrouble<CR>", { noremap = true, silent = false })
 keymap.set("n", "<Leader>aQ", "<CMD>lua require('rest-nvim').run()<CR>", { noremap = true, silent = false })
-keymap.set("n", "<Leader>at", "<CMD>call TrimWhitespace()<CR>", { noremap = true, silent = false })
+keymap.set("n", "<Leader>aT", "<CMD>call TrimWhitespace()<CR>", { noremap = true, silent = false })
 keymap.set("x", "gl", ":EasyAlign<CR>", { noremap = true, silent = false })
 keymap.set("n", "gl", ":EasyAlign<CR>", { noremap = true, silent = false })
 keymap.set("x", "gL", ":LiveEasyAlign<CR>", { noremap = true, silent = false })
@@ -173,7 +180,7 @@ keymap.set("n", "<Leader>Gd", "<CMD>Gist -d<CR>", { noremap = true, silent = fal
 keymap.set("n", "<Leader>Gl", "<CMD>Gist -l<CR>", { noremap = true, silent = false })
 
 -- Tags
-keymap.set("n", "<Leader>t", "<CMD>AerialToggle<CR>", { noremap = true, silent = false })
+keymap.set("n", "<Leader>at", "<CMD>AerialToggle<CR>", { noremap = true, silent = false })
 
 -- File Manager
 keymap.set("n", "<Leader>v", "<CMD>Vifm<CR>", { noremap = true, silent = false })
@@ -232,8 +239,6 @@ keymap.set({ "n", "v" }, "<leader>R", "<CMD>Neoformat<CR>", { noremap = true, si
 
 -- mini.nvim
 --- Buffer
--- keymap.set( 'n', '<Leader>qq', '<CMD>bufdo bd<CR>', {noremap = true, silent = true} )
--- keymap.set( 'n', '<Leader>qa', '<CMD>bufdo bd!<CR>', {noremap = true, silent = true} )
 keymap.set({ "n", "v" }, "<leader>qd", "<CMD>lua MiniBufremove.delete()<CR>", { noremap = true, silent = true })
 keymap.set({ "n", "v" }, "<leader>qD", "<CMD>lua MiniBufremove.delete(0, true)<CR>", { noremap = true, silent = true })
 --- Surround

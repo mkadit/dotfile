@@ -62,7 +62,8 @@ local leader_keymap = {
     q = { "<CMD>copen<CR>", "Open quickfixlist" },
     Q = { "<CMD>lua require('rest-nvim').run()<CR>", "Run http request" },
     s = { "<CMD>WriteAndReload<CR>", "Write and reload with current file setting" },
-    t = { "<CMD>call TrimWhitespace()<CR>", "Trim Whitespace" },
+    T = { "<CMD>call TrimWhitespace()<CR>", "Trim Whitespace" },
+    t = { "<CMD>AerialToggle<CR>", "Tagbar" },
     u = { "<CMD>UndotreeToggle<CR>", "Undo tree" },
     w = { "<CMD>lcd %:p:h<CR>", "To current folder" },
     X = { "<CMD>TodoTrouble<CR>", "Show TODOs" },
@@ -138,6 +139,13 @@ local leader_keymap = {
   },
   m = { "<CMD>lua MiniMisc.zoom()<CR>", "Maximizer" },
   n = { "<CMD>NvimTreeToggle<CR>", "File tree" },
+  q = {
+    name = "+Buffers",
+    d = { "<CMD>lua MiniBufremove.delete()<CR>", "Close buffer" },
+    f = { "<CMD>lua MiniBufremove.delete(0, true)<CR>", "Close buffer force" },
+    -- q = {'<CMD>bufdo bd<CR>', 'Close all buffer'},
+    -- a = {'<CMD>bufdo bd!<CR>', 'Close all buffer force'},
+  },
   r = { "<CMD>lua vim.lsp.buf.format({async= true})<CR>", "Format file" },
 
   s = {
@@ -147,14 +155,14 @@ local leader_keymap = {
     c = { "<CMD>SClose<CR>", "Close session" },
     d = { "<CMD>SDelete<CR>", "Delete sesion" },
   },
-  q = {
-    name = "+buffers",
-    d = { "<CMD>lua MiniBufremove.delete()<CR>", "Close buffer" },
-    f = { "<CMD>lua MiniBufremove.delete(0, true)<CR>", "Close buffer force" },
-    -- q = {'<CMD>bufdo bd<CR>', 'Close all buffer'},
-    -- a = {'<CMD>bufdo bd!<CR>', 'Close all buffer force'},
+  t = {
+    name = "+Tabs",
+    a = { "<CMD>tab split<CR>", "Open current in newtab" },
+    c = { "<CMD>tabclose<CR>", "Close tab" },
+    o = { "<CMD>tabonly<CR>", "Close all but current tab" },
+    mp = { "<CMD>-tabmove<CR>", "Move tab to previous" },
+    mn = { "<CMD>+tabmove<CR>", "Move tab to next" },
   },
-  t = { "<CMD>AerialToggle<CR>", "Tagbar" },
   v = { "<CMD>Vifm<CR>", "File manager" },
 }
 
