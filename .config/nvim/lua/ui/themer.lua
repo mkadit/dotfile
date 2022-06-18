@@ -52,7 +52,7 @@ require("themer").setup {
     },
   },
   remaps = {
-    palette = {},
+    -- palette = {},
     -- per colorscheme palette remaps, for example:
     -- remaps.palette = {
     --     rose_pine = {
@@ -68,7 +68,53 @@ require("themer").setup {
     -- },
     --
     -- Also you can do remaps.highlights.globals  for global highlight remaps
-    highlights = {},
+    highlights = {
+      globals = {
+        base = {
+          DiffText = {
+            link = "GitSignsAdd",
+          },
+          DiffAdd = {
+            link = "GitSignsAdd",
+          },
+          DiffChange = {
+            link = "GitSignsDelete",
+          },
+          DiffDelete = {
+            link = "GitSignsChange",
+          },
+          diffAdded = {
+            link = "GitSignsAdd",
+          },
+          diffRemoved = {
+            link = "GitSignsDelete",
+          },
+          diffChanged = {
+            link = "GitSignsChange",
+          },
+        },
+      },
+      nord = {
+        base = {
+          Normal = {
+            bg = "#2e3440",
+            fg = "#e5e9f0",
+          },
+          TabLine = {
+            bg = "#3b4252",
+            fg = "#4c566a",
+          },
+          TabLineSel = {
+            bg = "#3b4252",
+            fg = "#a3be8c",
+          },
+          TabLineFill = {
+            bg = "#3b4252",
+            fg = "#4c566a",
+          },
+        },
+      },
+    },
   },
 
   langs = {
@@ -82,7 +128,7 @@ require("themer").setup {
     barbar = false,
     bufferline = false,
     cmp = false,
-    gitsigns = true,
+    gitsigns = false,
     lsp = true,
     telescope = true,
   },

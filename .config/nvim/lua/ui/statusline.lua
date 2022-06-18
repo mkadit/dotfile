@@ -135,13 +135,13 @@ local vcs = function()
   end
   return table.concat {
     " ",
-    added,
-    changed,
-    removed,
-    " ",
     "%#GitSignsAdd# ",
     git_info.head,
     " %#Normal#",
+    " ",
+    added,
+    changed,
+    removed,
   }
 end
 
@@ -171,7 +171,6 @@ function Statusline.short()
 end
 
 vim.cmd [[
-  set winbar=%=%m\ %f
   augroup Statusline
   au!
   au WinEnter,BufEnter * setlocal statusline=%!v:lua.Statusline.active()

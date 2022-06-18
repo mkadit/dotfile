@@ -44,6 +44,7 @@ keymap.set("n", "<Leader>ax", "<CMD>TroubleToggle workspace_diagnostics<CR>", { 
 keymap.set("n", "<Leader>aX", "<CMD>TodoTrouble<CR>", { noremap = true, silent = false })
 keymap.set("n", "<Leader>aQ", "<CMD>lua require('rest-nvim').run()<CR>", { noremap = true, silent = false })
 keymap.set("n", "<Leader>aT", "<CMD>call TrimWhitespace()<CR>", { noremap = true, silent = false })
+keymap.set("n", "<Leader>aN", "<CMD>NeorgStart<CR>", { noremap = true, silent = false })
 keymap.set("x", "gl", ":EasyAlign<CR>", { noremap = true, silent = false })
 keymap.set("n", "gl", ":EasyAlign<CR>", { noremap = true, silent = false })
 keymap.set("x", "gL", ":LiveEasyAlign<CR>", { noremap = true, silent = false })
@@ -204,8 +205,8 @@ keymap.set("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true,
 keymap.set("n", "K", "<CMD>lua vim.lsp.buf.hover()<CR>", { noremap = true, silent = true })
 keymap.set("n", "ga", "<cmd>lua vim.lsp.buf.code_action()<CR>", { noremap = true, silent = true })
 
-keymap.set("n", "[d", "<CMD>lua vim.lsp.diagnostic.goto_prev()<CR>", { noremap = true, silent = true })
-keymap.set("n", "]d", "<CMD>lua vim.lsp.diagnostic.goto_next()<CR>", { noremap = true, silent = true })
+keymap.set("n", "[d", "<CMD>lua vim.diagnostic.goto_prev()<CR>", { noremap = true, silent = true })
+keymap.set("n", "]d", "<CMD>lua vim.diagnostic.goto_next()<CR>", { noremap = true, silent = true })
 keymap.set("n", "rn", "<CMD>lua vim.lsp.buf.rename()<CR>", { noremap = true, silent = true })
 keymap.set("n", "<Leader>r", "<CMD>lua vim.lsp.buf.format{ async = true }<CR>", { noremap = true, silent = true })
 keymap.set("v", "<Leader>r", "<CMD>lua vim.lsp.buf.range_formatting()<CR>", { noremap = true, silent = true })

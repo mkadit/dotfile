@@ -22,7 +22,7 @@ jetpack.setup {
   -- Telescope
   "nvim-telescope/telescope.nvim",
   "nvim-telescope/telescope-fzy-native.nvim",
-  "nvim-telescope/telescope-media-files.nvim",
+  -- "nvim-telescope/telescope-media-files.nvim",
 
   -- LSP
   "neovim/nvim-lspconfig",
@@ -31,7 +31,7 @@ jetpack.setup {
   --- LSP extension (specific language)
   "mfussenegger/nvim-jdtls",
   -- "jose-elias-alvarez/typescript.nvim",
-  "JoosepAlviste/nvim-ts-context-commentstring",
+  -- "JoosepAlviste/nvim-ts-context-commentstring",
   "simrat39/rust-tools.nvim",
   "plasticboy/vim-markdown",
   --- LSP feature enrichment
@@ -62,6 +62,7 @@ jetpack.setup {
   "mbbill/undotree",
   "NTBBloodbath/rest.nvim",
   "kyazdani42/nvim-tree.lua",
+  "junegunn/vim-easy-align",
   ---mini.nvim
   "echasnovski/mini.nvim",
 
@@ -91,6 +92,13 @@ jetpack.setup {
   "sbdchd/neoformat",
   "lambdalisue/suda.vim",
   "airblade/vim-rooter",
+
+  -- Neorg
+  "nvim-neorg/neorg",
+  "esquires/neorg-gtd-project-tags",
+  "nvim-neorg/neorg-telescope",
+  "max397574/neorg-kanban",
+
 }
 
 -- Make sure to install all dependencies

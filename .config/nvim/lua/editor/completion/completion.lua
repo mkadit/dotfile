@@ -74,6 +74,7 @@ local options = {
     { name = "buffer" },
     { name = "path" },
     { name = "latex_symbols" },
+    { name = "neorg" },
   },
   formatting = {
     format = function(entry, vim_item)
@@ -86,6 +87,7 @@ local options = {
         luasnip = "[Snippet]",
         nvim_lua = "[Lua]",
         latex_symbols = "[Latex]",
+        neorg = "[Neorg]",
       })[entry.source.name]
       return vim_item
     end,
@@ -99,3 +101,4 @@ local options = {
 -- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 cmp.setup(options)
+

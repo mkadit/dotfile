@@ -5,7 +5,8 @@ local sources = {
   null_ls.builtins.diagnostics.vale.with{
     filetypes={
       "markdown",
-      "text"
+      "text",
+      "norg"
     }
   },
   null_ls.builtins.formatting.stylua.with {
@@ -32,10 +33,11 @@ local sources = {
       "css",
       "html",
       "javascript",
-      "javascriptreact",
       "javascript.jsx",
+      "javascriptreact",
       "json",
       "jsonc",
+      "markdown",
       "svelte",
       "typescript",
       "typescriptreact",
@@ -51,3 +53,10 @@ null_ls.setup {
   debounce = 150,
   sources = sources,
 }
+
+vim.api.nvim_create_user_command("NullLsToggle", function()
+    -- you can also create commands to disable or enable sources
+    require("null-ls").toggle({})
+end, {})
+
+vim.keymap.set("n", "<leader>lf", "<CMD>NullLsToggle<CR>", { noremap = true, silent = true })

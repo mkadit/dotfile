@@ -18,6 +18,7 @@ require("nvim-treesitter.configs").setup {
     "lua",
     "make",
     "markdown",
+    "norg",
     "python",
     "rust",
     "svelte",
