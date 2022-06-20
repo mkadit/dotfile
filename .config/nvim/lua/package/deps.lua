@@ -66,6 +66,9 @@ jetpack.setup {
   "junegunn/vim-easy-align",
   "danymat/neogen",
   "ThePrimeagen/harpoon",
+  -- better folding
+  "kevinhwang91/nvim-ufo",
+  "kevinhwang91/promise-async",
   ---mini.nvim
   "echasnovski/mini.nvim",
 
