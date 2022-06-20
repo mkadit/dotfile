@@ -57,7 +57,7 @@ keymap.set("n", "<Leader>ac", "<CMD>ColorizerToggle<CR>", { noremap = true, sile
 keymap.set("n", "<Leader>au", "<CMD>UndotreeToggle<CR>", { noremap = true, silent = false })
 
 -- Document generate
-keymap.set("n", "<Leader>ad", "<CMD>DogeGenerate<CR>", { noremap = true, silent = false })
+keymap.set("n", "<Leader>ad", ":Neogen ", { noremap = true, silent = false })
 
 -- Resizing Panes
 keymap.set("n", "<C-Left>", "<CMD>vertical resize +5<CR>", { noremap = true, silent = true })
@@ -156,6 +156,7 @@ keymap.set(
   { noremap = true, silent = false }
 )
 keymap.set("n", "<Leader>fT", "<CMD>TodoTelescope<CR>", { noremap = true, silent = false })
+keymap.set("n", "<Leader>fw", '<CMD>Telescope neorg switch_workspace<CR>', { noremap = true, silent = false })
 
 -- Git
 keymap.set("n", "<Leader>gB", "<CMD>GBrowse<CR>", { noremap = true, silent = false })
@@ -187,7 +188,7 @@ keymap.set("n", "<Leader>at", "<CMD>AerialToggle<CR>", { noremap = true, silent 
 keymap.set("n", "<Leader>v", "<CMD>Vifm<CR>", { noremap = true, silent = false })
 
 -- Maximizing Pane
-keymap.set("n", "<Leader>m", "<CMD>lua MiniMisc.zoom()<CR>", { noremap = true, silent = false })
+keymap.set("n", "<Leader>am", "<CMD>lua MiniMisc.zoom()<CR>", { noremap = true, silent = false })
 
 -- LSP
 keymap.set("n", "gd", "<Cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })
@@ -237,6 +238,13 @@ keymap.set("n", "<leader>dq", "<CMD>lua require'dap'.list_breakpoints()<CR>", { 
 
 -- Formatter
 keymap.set({ "n", "v" }, "<leader>R", "<CMD>Neoformat<CR>", { noremap = true, silent = true })
+
+-- Harpoon
+keymap.set( "n", "<leader>mf", "<CMD>lua require('harpoon.ui').toggle_quick_menu()<CR>", { noremap = true, silent = true })
+keymap.set( "n", "<leader>ma", "<CMD>lua require('harpoon.mark').add_file()<CR>", { noremap = true, silent = true })
+keymap.set( "n", "<leader>mn", "<CMD>lua require('harpoon.ui').nav_next()<CR>", { noremap = true, silent = true })
+keymap.set( "n", "<leader>ml", "<CMD>lua require('harpoon.ui').nav_prev()<CR>", { noremap = true, silent = true })
+
 
 -- mini.nvim
 --- Buffer

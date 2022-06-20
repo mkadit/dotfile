@@ -14,51 +14,51 @@ end
 local capability = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
 
 lsp_installer.setup {
-    ensure_installed = {
-        "bashls",
-        "clangd",
-        "cmake",
-        "dockerls",
-        "gopls",
-        "html",
-        "jdtls",
-        "jsonls",
-        "pyright",
-        "rust_analyzer",
-        "sumneko_lua",
-        "svelte",
-        "tailwindcss",
-        "tsserver",
-        "taplo",
-        "yamlls",
-    },
+  ensure_installed = {
+    "bashls",
+    "clangd",
+    "cmake",
+    "dockerls",
+    "gopls",
+    "html",
+    "jdtls",
+    "jsonls",
+    "pyright",
+    "rust_analyzer",
+    "sumneko_lua",
+    "svelte",
+    "tailwindcss",
+    "tsserver",
+    "taplo",
+    "yamlls",
+  },
 }
 
 local installed_lsp = lsp_installer.get_installed_servers()
 
 for _, server in pairs(installed_lsp) do
-    local opts = {
-        capabilities = capability,
-        on_attach = function(client)
-            local aerial = require "aerial"
-            aerial.on_attach(client)
-        end,
+  local opts = {
+    capabilities = capability,
+    on_attach = function(client)
+      local aerial = require "aerial"
+      aerial.on_attach(client)
+    end,
+  }
+  -- TODO: Find fix for unable to use in standalone
+  if server.name == "rust_analyzer" then
+    local extension_path = os.getenv "HOME" .. "/.vscode-oss/extensions/vadimcn.vscode-lldb-1.6.10/"
+    local codelldb_path = extension_path .. "adapter/codelldb"
+    local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
+    require("rust-tools").setup {
+      dap = {
+        adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
+      },
     }
-    -- TODO: Find fix for unable to use in standalone
-    if server.name == "rust_analyzer" then
-        local extension_path = os.getenv "HOME" .. "/.vscode-oss/extensions/vadimcn.vscode-lldb-1.6.10/"
-        local codelldb_path = extension_path .. "adapter/codelldb"
-        local liblldb_path = extension_path .. "lldb/lib/liblldb.so"
-        require("rust-tools").setup {
-            dap = {
-                adapter = require("rust-tools.dap").get_codelldb_adapter(codelldb_path, liblldb_path),
-            },
-        }
-    end
-    lspconfig[server.name].setup {
-        -- capabilities = opts.capabilities,
-        -- on_attach = opts.on_attach,
-    }
+  end
+  lspconfig[server.name].setup {
+    -- capabilities = opts.capabilities,
+    -- on_attach = opts.on_attach,
+  }
 end
 
 -- TODO: Import all of this root_dir to the function above

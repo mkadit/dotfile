@@ -18,6 +18,7 @@ jetpack.setup {
   "kwkarlwang/bufresize.nvim",
   "RishabhRD/popfix",
   "lewis6991/gitsigns.nvim",
+  "j-hui/fidget.nvim",
 
   -- Telescope
   "nvim-telescope/telescope.nvim",
@@ -63,6 +64,8 @@ jetpack.setup {
   "NTBBloodbath/rest.nvim",
   "kyazdani42/nvim-tree.lua",
   "junegunn/vim-easy-align",
+  "danymat/neogen",
+  "ThePrimeagen/harpoon",
   ---mini.nvim
   "echasnovski/mini.nvim",
 
@@ -98,7 +101,6 @@ jetpack.setup {
   "esquires/neorg-gtd-project-tags",
   "nvim-neorg/neorg-telescope",
   "max397574/neorg-kanban",
-
 }
 
 -- Make sure to install all dependencies

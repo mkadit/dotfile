@@ -6,4 +6,6 @@ require "ui.treesitter"
 require "ui.tabline"
 require "ui.trueZen"
 require "ui.whichkey"
+require "ui.fidget"
+-- Place here because must be run after treesitter
 require "editor.neorg"
