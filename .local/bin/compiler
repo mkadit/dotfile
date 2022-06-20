@@ -42,7 +42,7 @@ case "$ext" in
 			groffdown -i "$file" | groff > "$base.pdf"
 		else
 			# pandoc -t ms --highlight-style=kate -s -o "$base".pdf "$file"
-			pandoc "$file" --pdf-engine=xelatex -o "$base".pdf
+			pandoc "$file" -f commonmark --pdf-engine=xelatex -o "$base".pdf
 		fi ; ;;
 	mom) preconv "$file" | refer -PS -e | groff -mom -kept -T pdf > "$base".pdf ;;
 	ms) preconv "$file" | refer -PS -e | groff -me -ms -kept -T pdf > "$base".pdf ;;
