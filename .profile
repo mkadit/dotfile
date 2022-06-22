@@ -32,3 +32,6 @@ export XMODIFIERS="@im=fcitx"
 export SDL_IM_MODULE="fcitx"
 export IBUS_USE_PORTAL=1
 export SUDO_ASKPASS="$HOME/.local/bin/dmenu_secret"
+
+# Man
+export MANPAGER="nvim +Man!"
