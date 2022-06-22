@@ -155,6 +155,12 @@ keymap.set(
   '<CMD>lua require("telescope.builtin").treesitter()<CR>',
   { noremap = true, silent = false }
 )
+keymap.set(
+  "n",
+  "<Leader>fM",
+  '<CMD>lua require("telescope.builtin").man_pages()<CR>',
+  { noremap = true, silent = false }
+)
 keymap.set("n", "<Leader>fT", "<CMD>TodoTelescope<CR>", { noremap = true, silent = false })
 keymap.set("n", "<Leader>fw", '<CMD>Telescope neorg switch_workspace<CR>', { noremap = true, silent = false })
 
@@ -244,6 +250,14 @@ keymap.set( "n", "<leader>mf", "<CMD>lua require('harpoon.ui').toggle_quick_menu
 keymap.set( "n", "<leader>ma", "<CMD>lua require('harpoon.mark').add_file()<CR>", { noremap = true, silent = true })
 keymap.set( "n", "<leader>mn", "<CMD>lua require('harpoon.ui').nav_next()<CR>", { noremap = true, silent = true })
 keymap.set( "n", "<leader>ml", "<CMD>lua require('harpoon.ui').nav_prev()<CR>", { noremap = true, silent = true })
+
+-- Neotest
+keymap.set( "n", "<leader>Tn", "<CMD>lua require('neotest').run.run() <CR>", { noremap = true, silent = true })
+keymap.set( "n", "<leader>Tb", "<CMD>lua require('neotest').run.stop() <CR>", { noremap = true, silent = true })
+keymap.set( "n", "<leader>To", "<CMD>lua require('neotest').output.open() <CR>", { noremap = true, silent = true })
+keymap.set( "n", "<leader>Ts", "<CMD>lua require('neotest').summary.toggle() <CR>", { noremap = true, silent = true })
+keymap.set( "n", "<leader>Tf", "<CMD>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", { noremap = true, silent = true })
+keymap.set( "n", "<leader>Tp", "<CMD>lua require('neotest').run.run(vim.fn.getcwd())<CR>", { noremap = true, silent = true })
 
 
 -- mini.nvim

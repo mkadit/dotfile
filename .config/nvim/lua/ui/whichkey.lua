@@ -99,6 +99,7 @@ local leader_keymap = {
     H = { '<Cmd>lua require("telescope.builtin").command_history()<CR>', "Command history" },
     h = { '<Cmd>lua require("telescope.builtin").oldfiles()<CR>', "File history" },
     L = { "<Cmd>lua require('telescope.builtin').find_files({hidden=true})<CR>", "Hidden files" },
+    M = { "<Cmd>lua require('telescope.builtin').man_pages()<CR>", "Hidden files" },
     l = { '<CMD>lua require("telescope.builtin").loclist()<CR>', "Loclist" },
     P = { '<CMD>lua require("telescope.builtin").lsp_document_symbols()<CR>', "Document symbols" },
     p = { '<CMD>lua require("telescope.builtin").lsp_dynamic_workspace_symbols()<CR>', "Workspace symbols" },
@@ -161,6 +162,15 @@ local leader_keymap = {
     l = { "<CMD>SLoad<CR>", "Load session" },
     c = { "<CMD>SClose<CR>", "Close session" },
     d = { "<CMD>SDelete<CR>", "Delete sesion" },
+  },
+  T = {
+    name = "+Testing",
+    n = { "<CMD>lua require('neotest').run.run() <CR>", "Run nearest test" },
+    b = { "<CMD>lua require('neotest').run.stop() <CR>", "Stop nearest test running" },
+    o = { "<CMD>lua require('neotest').output.open() <CR>", "Show unit test" },
+    s = { "<CMD>lua require('neotest').summary.toggle() <CR>", "Show test summary" },
+    f = { "<CMD>lua require('neotest').run.run(vim.fn.expand('%'))<CR>", "Run test for current file" },
+    p = { "<CMD>lua require('neotest').run.run(vim.fn.getcwd())<CR>", "Run test for whole project" },
   },
   t = {
     name = "+Tabs",

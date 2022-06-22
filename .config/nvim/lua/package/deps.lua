@@ -35,6 +35,7 @@ jetpack.setup {
   -- "JoosepAlviste/nvim-ts-context-commentstring",
   "simrat39/rust-tools.nvim",
   "plasticboy/vim-markdown",
+  { "ray-x/go.nvim", ft = "go" },
   --- LSP feature enrichment
   "folke/trouble.nvim",
   "folke/todo-comments.nvim",
@@ -65,6 +66,9 @@ jetpack.setup {
   "kyazdani42/nvim-tree.lua",
   "junegunn/vim-easy-align",
   "danymat/neogen",
+  "nvim-neotest/neotest",
+  "nvim-neotest/neotest-python",
+  "nvim-neotest/neotest-go",
   "ThePrimeagen/harpoon",
   -- better folding
   "kevinhwang91/nvim-ufo",
@@ -86,8 +90,10 @@ jetpack.setup {
   "mattn/webapi-vim",
 
   -- Debugger
-  "rcarriga/nvim-dap-ui",
   "mfussenegger/nvim-dap",
+  "rcarriga/nvim-dap-ui",
+  "theHamsta/nvim-dap-virtual-text",
+  "leoluz/nvim-dap-go",
 
   -- Database
   "kristijanhusak/vim-dadbod-ui",
@@ -98,6 +104,7 @@ jetpack.setup {
   "sbdchd/neoformat",
   "lambdalisue/suda.vim",
   "airblade/vim-rooter",
+  "antoinemadec/FixCursorHold.nvim",
 
   -- Neorg
   "nvim-neorg/neorg",

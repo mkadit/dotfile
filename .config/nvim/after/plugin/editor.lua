@@ -1,10 +1,11 @@
-require("editor.bufresize")
-require("editor.colorizer")
-require("editor.debugger")
-require("editor.diffview")
-require("editor.neogen")
-require("editor.nvimTree")
-require("editor.rest")
-require("editor.telescope")
-require("editor.terminal")
-require("editor.mini")
+require "editor.bufresize"
+require "editor.colorizer"
+require "editor.debugger"
+require "editor.diffview"
+require "editor.mini"
+require "editor.neogen"
+require "editor.neotest"
+require "editor.nvimTree"
+require "editor.rest"
+require "editor.telescope"
+require "editor.terminal"
