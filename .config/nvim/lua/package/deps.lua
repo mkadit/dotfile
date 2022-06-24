@@ -105,6 +105,7 @@ jetpack.setup {
   "lambdalisue/suda.vim",
   "airblade/vim-rooter",
   "antoinemadec/FixCursorHold.nvim",
+  "nathom/filetype.nvim",
 
   -- Neorg
   "nvim-neorg/neorg",
