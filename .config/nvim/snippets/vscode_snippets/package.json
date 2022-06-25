@@ -40,7 +40,9 @@
       },
       {
         "language": [
-          "javascript"
+          "javascript",
+          "typescript",
+          "svelete"
         ],
         "path": "javascript.json"
       },
