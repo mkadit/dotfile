@@ -79,7 +79,6 @@ end
 g.mapleader = " "
 g.doge_enable_mappings = 0
 g.rooter_manual_only = 1
-g.vista_default_executive = "nvim_lsp"
 g.python3_host_prog = "/usr/bin/python3"
 
 -- Colorscheme
