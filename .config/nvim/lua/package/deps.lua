@@ -88,6 +88,7 @@ jetpack.setup {
   "sindrets/diffview.nvim",
   "mattn/vim-gist",
   "mattn/webapi-vim",
+  "ThePrimeagen/git-worktree.nvim",
 
   -- Debugger
   "mfussenegger/nvim-dap",

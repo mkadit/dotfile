@@ -106,6 +106,7 @@ local leader_keymap = {
     q = { '<Cmd>lua require("telescope.builtin").quickfix()<CR>', "Quickfix" },
     r = { '<Cmd>lua require("telescope.builtin").live_grep()<CR>', "Ripgrep" },
     t = { '<Cmd>lua require("telescope.builtin").treesitter()<CR>', "Treesitter" },
+    W = { "<CMD>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", "Navigate worktree" },
   },
   G = {
     name = "+Gist",
@@ -131,6 +132,7 @@ local leader_keymap = {
     p = { ":Git push ", "Git push" },
     P = { ":Git pull ", "Git pull" },
     s = { "<CMD>G<CR>", "Git status" },
+    W = { "<CMD>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", "Create Worktree" },
   },
   l = {
     name = "+LSP",

@@ -58,6 +58,11 @@ local options = {
         file_previewer = previewers.vim_buffer_cat.new,
         grep_previewer = previewers.vim_buffer_vimgrep.new,
         qflist_previewer = previewers.vim_buffer_qflist.new,
+        extension = {
+            git_worktree = {
+
+            },
+        },
     },
 }
 telescope.setup(options)

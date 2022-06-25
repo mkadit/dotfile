@@ -163,6 +163,7 @@ keymap.set(
 )
 keymap.set("n", "<Leader>fT", "<CMD>TodoTelescope<CR>", { noremap = true, silent = false })
 keymap.set("n", "<Leader>fw", '<CMD>Telescope neorg switch_workspace<CR>', { noremap = true, silent = false })
+keymap.set("n", "<Leader>fW", "<CMD>lua require('telescope').extensions.git_worktree.git_worktrees()<CR>", { noremap = true, silent = false })
 
 -- Git
 keymap.set("n", "<Leader>gB", "<CMD>GBrowse<CR>", { noremap = true, silent = false })
@@ -177,6 +178,7 @@ keymap.set("n", "<Leader>gm", ":Git merge ", { noremap = true, silent = false })
 keymap.set("n", "<Leader>gp", ":Git push ", { noremap = true, silent = false })
 keymap.set("n", "<Leader>gP", ":Git pull ", { noremap = true, silent = false })
 keymap.set("n", "<Leader>gs", "<CMD>G<CR>", { noremap = true, silent = false })
+keymap.set("n", "<Leader>gW", "<CMD>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", { noremap = true, silent = false })
 
 --- Gist
 keymap.set({ "n", "v" }, "<Leader>Gg", "<CMD>Gist<CR>", { noremap = true, silent = false })
