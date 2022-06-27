@@ -92,6 +92,9 @@ require("themer").setup {
           diffChanged = {
             link = "GitSignsChange",
           },
+          FoldColumn = {
+            link="Conceal"
+          },
         },
       },
       nord = {
