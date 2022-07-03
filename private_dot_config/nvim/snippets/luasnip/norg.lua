@@ -106,8 +106,8 @@ local link = s(
 )
 table.insert(snippets, link)
 
-local table = s(
-  "table",
+local tables = s(
+  "tables",
   fmt(
     [[
 @math
@@ -117,7 +117,7 @@ local table = s(
     { i(0) }
   )
 )
-table.insert(snippets, table)
+table.insert(snippets, tables)
 
 -- End Refactoring --
 
