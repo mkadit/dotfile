@@ -1,0 +1,6 @@
+autoload/*
+plugin/*
+plugged/*
+session/*
+node_modules/*
+coc-settings.json

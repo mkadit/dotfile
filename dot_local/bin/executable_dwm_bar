@@ -1,0 +1,88 @@
+#!/bin/bash
+
+interval=0
+
+cpu() {
+  cpu_val=$(grep -o "^[^ ]*" /proc/loadavg)
+
+  printf "^c#2e3440^ ^b#A3BE8C^  "
+  printf "^c#A3BE8C^ ^b#2e3440^ $cpu_val"
+}
+
+batt() {
+
+# Loop through all attached batteries and format the info
+    for battery in /sys/class/power_supply/BAT?*; do
+        # If non-first battery, print a space separator.
+        [ -n "${capacity+x}" ] && printf " "
+        # Sets up the status and capacity
+        case "$(cat "$battery/status" 2>&1)" in
+            "Full") status="⚡" ;;
+            "Discharging") status=" " ;;
+            "Charging") status=" " ;;
+            "Not charging") status=" " ;;
+            "Unknown") status=" " ;;
+            *) exit 1 ;;
+        esac
+        capacity="$(cat "$battery/capacity" 2>&1)"
+        # Will make a warn variable if discharging and low
+        [ "$status" = " " ] && [ "$capacity" -le 25 ] && warn=""
+        # Prints the info
+        printf "^c#2e3440^ ^b#eceff4^ %s" "$status"
+        printf "^c#eceff4^ ^b#2e3440^ %s%d%%" "$warn" "$capacity"; unset warn
+    done && printf "\\n"
+}
+
+brightness() {
+
+  backlight() {
+    backlight="$(xbacklight -get)"
+    echo -e "$backlight"
+  }
+
+  printf "^c#2e3440^ ^b#bf616a^  "
+  printf "^c#BF616A^ ^b#2e3440^ %.0f\n" $(backlight)
+}
+
+vol() {
+    [ $(pamixer --get-mute) = true ] && printf "^c#2e3440^ ^b#ebdbb2^ 婢^c#ebdbb2^ ^b#2e3440^ Mute" && exit
+
+    vol="$(pamixer --get-volume)"
+
+    if [ "$vol" -gt "70" ]; then
+        icon=""
+    elif [ "$vol" -lt "30" ]; then
+        icon=""
+    else
+        icon=""
+    fi
+
+  printf "^c#2e3440^ ^b#ebdbb2^ $icon"
+  printf "^c#ebdbb2^ ^b#2e3440^ $vol"
+}
+
+mem() {
+  printf "^c#2E3440^ ^b#7797b7^  "
+  printf "^c#7797b7^ ^b#2E3440^ $(free -h | awk '/^Mem/ { print $3 }' | sed s/i//g)"
+}
+
+wlan() {
+  case "$(cat /sys/class/net/w*/operstate 2>/dev/null)" in
+      up) wlan_name=$(iwconfig wlp0s20f3 | grep 'ESSID:' | awk '{for(i=4;i<=NF; ++i)print $i}' | sed 's/ESSID://g' |sed 's/"//' | sed ':a;N;$!ba;s/\n/ /g')
+      printf "^c#3b414d^ ^b#7681c5^ 泌 ^d^%s" " ^c#828dd1^$wlan_name" ;;
+  down) printf "^c#3b414d^ ^b#7681c5^ 泌 ^d^%s" " ^c#828dd1^Disconnected" ;;
+  esac
+}
+
+clock() {
+  printf "^c#2E3440^ ^b#b48ead^  "
+  printf "^c#b48ead^ ^b#2e3440^ $(date '+%a, %I:%M %p') "
+}
+
+while true; do
+
+  [ $interval == 0 ] || [ $(($interval % 3600)) == 0 ] && updates=$(pkg_updates)
+  interval=$((interval + 1))
+
+  sleep 1 && xsetroot -name "$(batt) $(brightness) $(vol) $(cpu) $(mem) $(wlan) $(clock)"
+done

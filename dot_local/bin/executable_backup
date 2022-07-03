@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# A simple script to easily backup and restore
+
+MOUNT=/mnt
+SOURCES=(
+	"Music"
+	"Pictures"
+	"Documents"
+	"Videos"
+)
+ISMOUNTED=$(mount | grep sdc)
+
+sync() {
+	for SOURCE in "${SOURCES[@]}"; do
+		# may change
+		rsync -auAXvP "$FROM/$SOURCE" $TO
+	done
+
+}
+
+run() {
+
+	if [ "$ISMOUNTED" != '' ]; then
+		sync
+	else
+		echo "Drive is not mounted"
+	fi
+}
+
+if [ "$1" = 'restore' ]; then
+
+	FROM="$MOUNT"
+	TO="$HOME"
+	echo "Restoring data"
+    run
+elif [ "$1" = '' ]; then
+
+	FROM="$HOME"
+	TO="$MOUNT"
+	echo "Backuping data"
+    run
+else
+	echo "Command is incorrect"
+fi
