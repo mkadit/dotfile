@@ -16,7 +16,7 @@ capabilities.textDocument.foldingRange = {
   dynamicRegistration = false,
   lineFoldingOnly = true,
 }
-local capability = require("cmp_nvim_lsp").update_capabilities(capabilities)
+capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
 lsp_installer.setup {
   ensure_installed = {
@@ -35,6 +35,7 @@ lsp_installer.setup {
     "tailwindcss",
     "tsserver",
     "taplo",
+    "vimls",
     "yamlls",
   },
 }
@@ -45,7 +46,7 @@ local install_root_dir = path.concat { vim.fn.stdpath "data", "lsp_servers" }
 
 for _, server in pairs(installed_lsp) do
   local opts = {
-    capabilities = capability,
+    capabilities = capabilities,
     on_attach = function(client)
       local aerial = require "aerial"
       aerial.on_attach(client)
@@ -112,9 +113,36 @@ for _, server in pairs(installed_lsp) do
       -- float term recommand if you use richgo/ginkgo with terminal color
     }
     opts = require("go.lsp").config()
+  elseif server.name == "sumneko_lua" then
+    local runtime_path = vim.split(package.path, ";")
+    table.insert(runtime_path, "lua/?.lua")
+    table.insert(runtime_path, "lua/?/init.lua")
+    opts.settings = {
+      Lua = {
+        completion = {
+          callSnippet = "Replace",
+        },
+        runtime = {
+          -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+          version = "LuaJIT",
+          -- Setup your lua path
+          path = runtime_path,
+        },
+        diagnostics = {
+          -- Get the language server to recognize the `vim` global
+          globals = { "vim" },
+        },
+        workspace = {
+          -- Make the server aware of Neovim runtime files
+          -- library = vim.api.nvim_get_runtime_file("", true),
+        },
+        -- Do not send telemetry data containing a randomized but unique identifier
+        telemetry = {
+          enable = false,
+        },
+      },
+    }
   end
 
-  lspconfig[server.name].setup {
-    opts,
-  }
+  lspconfig[server.name].setup(opts)
 end

@@ -51,7 +51,7 @@ local options = {
     end,
     ["<CR>"] = cmp.mapping.confirm {
       behavior = cmp.ConfirmBehavior.Replace,
-      select = true,
+      select = false,
     },
     ["<Tab>"] = function(fallback)
       if cmp.visible() then
@@ -75,6 +75,7 @@ local options = {
     { name = "path" },
     { name = "latex_symbols" },
     { name = "neorg" },
+    { name = "nvim_lsp_signature_help" },
   },
   formatting = {
     format = function(entry, vim_item)
@@ -92,6 +93,10 @@ local options = {
       return vim_item
     end,
   },
+  confirm_opts = {
+    behavior = cmp.ConfirmBehavior.Replace,
+    select = false,
+  },
   experimental = {
     ghost_text = false, -- this feature conflict with copilot.vim's preview.
   },
@@ -101,4 +106,3 @@ local options = {
 -- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 
 cmp.setup(options)
-
