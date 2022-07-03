@@ -25,12 +25,12 @@ local options = {
         ls.change_choice(-1)
       end
     end,
-    ["<C-k>"] = function()
+    ["<C-j>"] = function()
       if ls.expand_or_jumpable() then
         ls.expand_or_jump()
       end
     end,
-    ["<C-j>"] = function()
+    ["<C-k>"] = function()
       if ls.jumpable(-1) then
         ls.jump(-1)
       end
