@@ -6,7 +6,8 @@ local sources = {
     filetypes={
       "markdown",
       "text",
-      "norg"
+      "norg",
+      "make"
     }
   },
   null_ls.builtins.formatting.stylua.with {
