@@ -69,23 +69,55 @@ local function cs(trigger, nodes, opts) --{{{
 end --}}}
 
 -- Start Refactoring --
-local todo = s("todo", { c(1, { t "TODO: ", t "ERROR: ", t "INFO: ", t "WARNING: ", t "FIXME: " }) })
-table.insert(snippets, todo)
+local code = s(
+  "code",
+  fmt(
+    [[
+@code {} 
+{}
+@end
+]]   ,
+    { i(1), i(0) }
+  )
+)
+table.insert(snippets, code)
 
-local time = s("time", {
-  c(1, {
-    f(function()
-      return os.date "%Y-%m-%d"
-    end),
-    f(function()
-      return os.date "%D - %H:%M"
-    end),
-    f(function()
-      return os.date "%H:%M"
-    end),
-  }),
-})
-table.insert(snippets, time)
+local math = s(
+  "math",
+  fmt(
+    [[
+@math
+{}
+@end
+]]   ,
+    { i(0) }
+  )
+)
+table.insert(snippets, math)
+
+local link = s(
+  "link",
+  fmt(
+    [[ 
+    {{{}}}[]
+]]   ,
+    { i(0) }
+  )
+)
+table.insert(snippets, link)
+
+local table = s(
+  "table",
+  fmt(
+    [[
+@math
+{}
+@end
+]]   ,
+    { i(0) }
+  )
+)
+table.insert(snippets, table)
 
 -- End Refactoring --
 
