@@ -1,0 +1,13 @@
+[".local/src/st"]
+    type = "git-repo"
+    url = "https://github.com/mkadit/st"
+
+[".local/src/neovim"]
+    type = "git-repo"
+    url = "https://github.com/neovim/neovim"
+    refreshPeriod = "168h"
+
+[".config/tmux/plugins/tpm"]
+    type = "git-repo"
+    url = "https://github.com/tmux-plugins/tpm"
+    refreshPeriod = "168h"
