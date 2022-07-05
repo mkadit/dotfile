@@ -15,8 +15,8 @@ keymap.set("n", "<Leader>tmn", "<CMD>+tabmove<CR>", { noremap = true, silent = f
 keymap.set("n", "<Leader>as", "<CMD>WriteAndReload<CR>", { noremap = true, silent = false })
 
 -- Find file Root
-keymap.set("n", "<Leader>aw", "<CMD>lcd %:p:h<CR>", { noremap = true, silent = false })
-keymap.set("n", "<Leader>aj", "<CMD>Rooter<CR>", { noremap = true, silent = false })
+keymap.set("n", "<Leader>aw", "<CMD>lcd %:p:h | cd .<CR>", { noremap = true, silent = false })
+keymap.set("n", "<Leader>aj", "<CMD>Rooter | cd .<CR>", { noremap = true, silent = false })
 
 -- Misc Things
 keymap.set("t", "<ESC><ESC>", "<c-\\><c-n>", { noremap = true, silent = false })
