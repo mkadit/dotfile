@@ -1,15 +1,3 @@
-#     ____      ____
-#    / __/___  / __/
-#   / /_/_  / / /_
-#  / __/ / /_/ __/
-# /_/   /___/_/ key-bindings.zsh
-#
-# - $FZF_TMUX_OPTS
-# - $FZF_CTRL_T_COMMAND
-# - $FZF_CTRL_T_OPTS
-# - $FZF_CTRL_R_OPTS
-# - $FZF_ALT_C_COMMAND
-# - $FZF_ALT_C_OPTS
 
 # Key bindings
 # ------------
@@ -206,15 +194,7 @@ bind-git-helper() {
 bind-git-helper f b t r h s
 unset -f bind-git-helper
 
-# Copy to clipboard
-# vi mode
-bindkey -v
+bindkey "^[[Z" fzf-tab-complete
+bindkey "^I" expand-or-complete
 
-# Yank to the system clipboard
-function vi-yank-xclip {
-    zle vi-yank
-   echo "$CUTBUFFER" | xclip -i
-}
-
-zle -N vi-yank-xclip
-bindkey -M vicmd 'y' vi-yank-xclip
+bindkey ${FZF_MARKS_JUMP:-'^e'} fzm

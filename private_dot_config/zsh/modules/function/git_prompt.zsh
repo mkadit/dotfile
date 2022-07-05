@@ -95,7 +95,7 @@
     }
 
     # Asynchronous VCS status
-    source $HOME/github/zsh-async/async.zsh
+    # source $HOME/github/zsh-async/async.zsh
     async_init
     _vbe_vcs_async_start
     add-zsh-hook precmd _vbe_vcs_precmd
