@@ -32,6 +32,7 @@ source ~/.config/zsh/modules/package/plugin_manager.zsh
 source ~/.config/zsh/modules/completion/asdf.zsh
 # Keybinding last to override other plugins keybind
 source ~/.config/zsh/modules/key-bindings.zsh
+bindkey -v
 
 # Load aliases
 [[ -f $HOME/.bash_aliases ]] && . ~/.bash_aliases
