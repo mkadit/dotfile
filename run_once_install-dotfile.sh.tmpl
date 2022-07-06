@@ -1,0 +1,7 @@
+{{ if eq .chezmoi.os "linux" -}}
+#!/bin/sh
+
+# Run script
+.local/src/script/install.sh
+{{ else if eq .chezmoi.os "darwin" -}}
+{{ end -}}
