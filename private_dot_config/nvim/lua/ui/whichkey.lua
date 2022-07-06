@@ -131,6 +131,8 @@ local leader_keymap = {
     m = { ":Git merge ", "Git merge" },
     p = { ":Git push ", "Git push" },
     P = { ":Git pull ", "Git pull" },
+    r = { ":Git reset ", "Git reset" },
+    R = { ":Git revert ", "Git revert" },
     s = { "<CMD>G<CR>", "Git status" },
     W = { "<CMD>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", "Create Worktree" },
   },

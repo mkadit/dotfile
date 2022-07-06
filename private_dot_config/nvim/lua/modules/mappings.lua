@@ -177,6 +177,8 @@ keymap.set("n", "<Leader>gl", "<CMD>Git log<CR>", { noremap = true, silent = fal
 keymap.set("n", "<Leader>gm", ":Git merge ", { noremap = true, silent = false })
 keymap.set("n", "<Leader>gp", ":Git push ", { noremap = true, silent = false })
 keymap.set("n", "<Leader>gP", ":Git pull ", { noremap = true, silent = false })
+keymap.set("n", "<Leader>gr", ":Git reset  ", { noremap = true, silent = false })
+keymap.set("n", "<Leader>gR", ":Git revert  ", { noremap = true, silent = false })
 keymap.set("n", "<Leader>gs", "<CMD>G<CR>", { noremap = true, silent = false })
 keymap.set("n", "<Leader>gW", "<CMD>lua require('telescope').extensions.git_worktree.create_git_worktree()<CR>", { noremap = true, silent = false })
 
