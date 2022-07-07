@@ -23,4 +23,4 @@ api.nvim_exec(
     true)
 
 api.nvim_exec(
-    'let startify_bookmarks = [ { \'i\': \'~/.config/nvim/init.lua\' }, { \'f\': \'~/.config/vifm/vifmrc\' }, { \'d\': \'~/.local/src/script/install.sh\'},{ \'b\': \'~/.local/bin/backup\'},  { \'s\': \'~/.local/src/st/config.def.h\' }, { \'z\': \'~/.zshrc\' }] ' , true)
+    'let startify_bookmarks = [ { \'i\': \'~/.config/nvim/init.lua\' }, { \'f\': \'~/.config/vifm/vifmrc\' }, { \'d\': \'~/.local/src/script/install.sh\'},{ \'b\': \'~/.local/bin/backup\'},  { \'o\': \'~/Documents/records/notes\' },{ \'s\': \'~/.local/src/st/config.def.h\' }, { \'n\': \'~/Documents/records/home/note.norg\' }, { \'z\': \'~/.zshrc\' }]  ' , true)
