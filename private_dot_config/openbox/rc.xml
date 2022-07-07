@@ -501,6 +501,11 @@
         <command>bash -c 'maim -s | xclip -selection clipboard -t image/png'</command>
       </action>
     </keybind>
+    <keybind key="W-s">
+      <action name="Execute">
+        <command>bash -c 'neuron-ss'</command>
+      </action>
+    </keybind>
     <keybind key="W-S-p">
       <action name="Execute">
         <command>bash -c '~/.local/bin/dmenu_ffmpeg'</command>
