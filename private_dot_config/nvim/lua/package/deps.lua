@@ -112,7 +112,7 @@ jetpack.setup {
     "airblade/vim-rooter",
     "antoinemadec/FixCursorHold.nvim",
     "nathom/filetype.nvim",
-    -- { "soywod/himalaya", rtp = "vim" },
+    "potamides/pantran.nvim",
 
     -- Neorg
     "nvim-neorg/neorg",
