@@ -139,9 +139,8 @@ require("neorg").setup {
     ["core.norg.dirman"] = {
       config = {
         workspaces = {
-          work = "~/Documents/Notes/work",
-          home = "~/Documents/Notes/home",
-          blog = "~/Documents/Notes/blog",
+          work = "~/Documents/records/work",
+          home = "~/Documents/records/home",
           default = vim.fn.getcwd(),
         },
         autochdir = true,
