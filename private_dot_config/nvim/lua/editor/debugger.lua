@@ -2,10 +2,6 @@ local fn = vim.fn
 local highlight = vim.highlight
 require("dapui").setup()
 
-highlight.link("DapBreakpoint", "DiagnosticError")
-highlight.link("DapLogPoint", "GitSignsAdd")
-highlight.link("DapStopped", "ThemerAccent")
-
 fn.sign_define("DapBreakpoint", { text = "🛑", texthl = "DapBreakpoint", linehl = "", numhl = "" })
 fn.sign_define("DapBreakpointCondition", { text = "⇔", texthl = "DapBreakpoint", linehl = "", numhl = "" })
 fn.sign_define("DapBreakpointRejected", { text = "✖", texthl = "DapBreakpoint", linehl = "", numhl = "" })

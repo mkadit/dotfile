@@ -1,5 +1,3 @@
-vim.highlight.link("FidgetTitle", "ThemerStatement")
-vim.highlight.link("FidgetTask", "ThemerStatement")
 require("fidget").setup {
   text = {
     spinner = "pipe", -- animation shown when tasks are ongoing

@@ -93,7 +93,22 @@ require("themer").setup {
             link = "GitSignsChange",
           },
           FoldColumn = {
-            link="Conceal"
+            link = "Conceal",
+          },
+          FidgetTitle = {
+            link = "ThemerStatement",
+          },
+          FidgetTask = {
+            link = "ThemerStatement",
+          },
+          DapBreakpoint = {
+            link = "DiagnosticError",
+          },
+          DapLogPoint = {
+            link = "GitSignsAdd",
+          },
+          DapStopped = {
+            link = "ThemerAccent",
           },
         },
       },
