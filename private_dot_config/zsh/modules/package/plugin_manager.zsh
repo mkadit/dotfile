@@ -52,6 +52,7 @@ plugins=(
   zdharma-continuum/fast-syntax-highlighting
   # jeffreytse/zsh-vi-mode
   mafredri/zsh-async # Async for git prompt
+  # MichaelAquilina/zsh-auto-notify
 
   # Load defer to make the next plugins async
   romkatv/zsh-defer
