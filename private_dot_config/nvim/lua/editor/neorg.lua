@@ -134,6 +134,9 @@ require("neorg").setup {
     ["core.gtd.base"] = {
       config = {
         workspace = "home",
+        exclude = {
+          "documents",
+        },
       },
     },
     ["core.norg.dirman"] = {
