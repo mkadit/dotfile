@@ -2,44 +2,81 @@
 
 # A simple script to easily backup and restore
 
-MOUNT=/mnt
+MOUNT=/mnt/
 SOURCES=(
-	"Music"
+  # "Music"
 	"Pictures"
 	"Documents"
 	"Videos"
+	# "Downloads/ISO"
 )
-ISMOUNTED=$(mount | grep sdc)
+LOCAL_ISMOUNTED=$(mount | grep sdc)
+CLOUD_MOUNT=sync_g_drive:
+CLOUD_ISMOUNTED=$(rclone listremotes | grep $CLOUD_MOUNT)
 
-sync() {
+local_sync() {
 	for SOURCE in "${SOURCES[@]}"; do
-		# may change
-		rsync -auAXvP "$FROM/$SOURCE" $TO
+		# Re configured files to delete as well
+    # -a = archive mode
+    # -u = skip files that are newer on the receiver
+    # -A = preserve ACLs
+    # -X = preserve extended attributes
+    # -v = print the version + other info and exit
+    # -P = Progress bar
+		# rsync -auAXvP "$FROM$SOURCE" "$TO"
+    rclone copy -PL "$FROM$SOURCE" "$TO$SOURCE"
 	done
 
 }
 
-run() {
+cloud_sync(){
+	for SOURCE in "${SOURCES[@]}"; do
+   rclone sync -PL "$FROM$SOURCE" "$CLOUD_MOUNT$SOURCE/"
+	done
+}
 
-	if [ "$ISMOUNTED" != '' ]; then
-		sync
+local_run() {
+
+	if [ "$LOCAL_ISMOUNTED" != '' ]; then
+		local_sync
 	else
 		echo "Drive is not mounted"
 	fi
 }
 
-if [ "$1" = 'restore' ]; then
+cloud_run() {
+
+	if [ "$CLOUD_ISMOUNTED" != '' ]; then
+		cloud_sync
+	else
+		echo "Drive is not mounted"
+	fi
+}
+
+if [ "$1" = 'local_restore' ]; then
 
 	FROM="$MOUNT"
-	TO="$HOME"
+	TO="$HOME/"
 	echo "Restoring data"
-    run
-elif [ "$1" = '' ]; then
+    local_run
+elif [ "$1" = 'local_backup' ]; then
 
-	FROM="$HOME"
+	FROM="$HOME/"
 	TO="$MOUNT"
 	echo "Backuping data"
-    run
+    local_run
+elif [ "$1" = 'cloud_restore' ]; then
+
+	FROM="$CLOUD_MOUNT"
+	TO="$HOME/"
+	echo "Restoring data"
+    cloud_run
+elif [ "$1" = 'cloud_backup' ]; then
+
+	FROM="$HOME/"
+	TO="$CLOUD_MOUNT"
+	echo "Backuping data"
+    cloud_run
 else
 	echo "Command is incorrect"
 fi
