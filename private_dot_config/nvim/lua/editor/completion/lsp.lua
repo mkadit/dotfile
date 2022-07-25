@@ -1,4 +1,4 @@
-local lsp_installer = require "nvim-lsp-installer"
+local lsp_installer = require "mason-lspconfig"
 local lspconfig = require "lspconfig"
 
 USER = vim.fn.expand "$USER"
@@ -18,6 +18,7 @@ capabilities.textDocument.foldingRange = {
 }
 capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
 
+require("mason").setup()
 lsp_installer.setup {
   ensure_installed = {
     "bashls",
@@ -41,8 +42,8 @@ lsp_installer.setup {
 }
 
 local installed_lsp = lsp_installer.get_installed_servers()
-local path = require "nvim-lsp-installer.core.path"
-local install_root_dir = path.concat { vim.fn.stdpath "data", "lsp_servers" }
+local path = require "mason-core.path"
+local install_root_dir = path.concat { vim.fn.stdpath "data", "mason", "bin" }
 
 for _, server in pairs(installed_lsp) do
   local opts = {
@@ -52,7 +53,7 @@ for _, server in pairs(installed_lsp) do
       aerial.on_attach(client)
     end,
   }
-  -- TODO: Find fix for unable to use in standalone
+  -- -- TODO: Find fix for unable to use in standalone
   if server.name == "rust_analyzer" then
     local extension_path = os.getenv "HOME" .. "/.vscode-oss/extensions/vadimcn.vscode-lldb-1.6.10/"
     local codelldb_path = extension_path .. "adapter/codelldb"
@@ -79,7 +80,7 @@ for _, server in pairs(installed_lsp) do
       lsp_cfg = false, -- true: use non-default gopls setup specified in go/lsp.lua
       -- false: do nothing
       -- if lsp_cfg is a table, merge table with with non-default gopls setup in go/lsp.lua, e.g.
-      --   lsp_cfg = {settings={gopls={matcher='CaseInsensitive', ['local'] = 'your_local_module_path', gofumpt = true }}}
+      --   lsp_cfg = {settings={gopls={matcher='Casnvim-lsp-installereInsensitive', ['local'] = 'your_local_module_path', gofumpt = true }}}
       lsp_gofumpt = false, -- true: set default gofmt in gopls format to gofumpt
       lsp_on_attach = nil, -- nil: use on_attach function defined in go/lsp.lua,
       --      when lsp_cfg is true
@@ -98,7 +99,7 @@ for _, server in pairs(installed_lsp) do
       lsp_document_formatting = true,
       -- set to true: use gopls to format
       -- false if you want to use other formatter tool(e.g. efm, nulls)
-      gopls_cmd = { install_root_dir .. "/go/gopls" }, -- if you need to specify gopls path and cmd, e.g {"/home/user/lsp/gopls", "-logfile","/var/log/gopls.log" }
+      gopls_cmd = { install_root_dir .. "/gopls" }, -- if you need to specify gopls path and cmd, e.g {"/home/user/lsp/gopls", "-logfile","/var/log/gopls.log" }
       gopls_remote_auto = true, -- add -remote=auto to gopls
       dap_debug = true, -- set to false to disable dap
       dap_debug_keymap = false, -- true: use keymap for debugger defined in go/dap.lua
@@ -143,6 +144,6 @@ for _, server in pairs(installed_lsp) do
       },
     }
   end
-
-  lspconfig[server.name].setup(opts)
+  --
+  lspconfig[server].setup(opts)
 end
