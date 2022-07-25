@@ -5,9 +5,9 @@
 MOUNT=/mnt/
 SOURCES=(
   # "Music"
-	"Pictures"
+	# "Pictures"
 	"Documents"
-	"Videos"
+	# "Videos"
 	# "Downloads/ISO"
 )
 LOCAL_ISMOUNTED=$(mount | grep sdc)
@@ -24,15 +24,16 @@ local_sync() {
     # -v = print the version + other info and exit
     # -P = Progress bar
 		# rsync -auAXvP "$FROM$SOURCE" "$TO"
-    rclone copy -PL "$FROM$SOURCE" "$TO$SOURCE"
+    # rclone copy -PL "$FROM$SOURCE" "$TO$SOURCE"
+   rclone sync -PL --fast-list "$FROM$SOURCE" "$TO$SOURCE/" --backup-dir "$TO/backup/$(date -I)/$SOURCE/"
 	done
 
 }
 
 cloud_sync(){
 	for SOURCE in "${SOURCES[@]}"; do
-   rclone sync -PL "$FROM$SOURCE" "$CLOUD_MOUNT$SOURCE/"
-	done
+   rclone sync -PL --fast-list "$FROM$SOURCE" "$TO$SOURCE/" --backup-dir "$TO/backup/$(date -I)/$SOURCE/"
+  done
 }
 
 local_run() {
