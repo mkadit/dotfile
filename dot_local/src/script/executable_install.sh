@@ -14,7 +14,7 @@ cd ..
 rm -rf paru
 
 # Delete existing config
-rm .bash_profile .bashrc .profile
+rm -f .bash_profile .bashrc .profile
 
 # Install Dependencies
 PKGS=(
@@ -113,7 +113,7 @@ PKGS=(
 "plank"
 "playerctl"
 "poppler"
-"postgresql"
+# "postgresql"
 "prettierd"
 "protonup-git"
 "pulseaudio"
@@ -183,10 +183,7 @@ PKGS=(
 "zsh-fast-syntax-highlighting"
 )
 
-for PKG in "${PKGS[@]}"; do
-    echo "INSTALLING: ${PKG}"
-    paru -S "$PKG" --noconfirm --needed
-done
+paru -S "$PKGS" --noconfirm --needed
 
 
 # Install tools that cannot be installed throug AUR
@@ -221,12 +218,12 @@ sudo chmod u+s "$(command -v brightnessctl)"
 
 timedatectl set-ntp true
 
-usermode -aG libvirt "$(whoami)"
+sudo usermod -aG libvirt "$(whoami)"
 
-sudo -iu postgres
-initdb -D '/var/lib/postgres/data'
-exit
-sudo systemctl enable postgresql
-sudo systemctl start postgresql
+# sudo -iu postgres
+# initdb -D '/var/lib/postgres/data'
+# exit
+# sudo systemctl enable postgresql
+# sudo systemctl start postgresql
 
 nvim +JetpackSync
