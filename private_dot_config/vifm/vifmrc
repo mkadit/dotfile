@@ -20,7 +20,7 @@ colorscheme normal
 
 """ Custom map"
 map R :restart<CR>
-map xv :!sxiv -ft * 2>/dev/null &<CR>
+map xv :!nsxiv -ft * 2>/dev/null &<CR>
 nnoremap o :file &<cr>
 map E :!$EDITOR %f<CR>
 " map kd :mkdir<space>
@@ -33,7 +33,7 @@ vnoremap w :view<cr>gv
 nnoremap yd :!echo %d | xclip %i<cr>
 nnoremap yf :!echo %c:p | xclip %i<cr>
 nnoremap yn :!sed "s/\..*//"<<<%c|xclip %i<cr>
-nnoremap xx :!sxiv -r . <CR>
+nnoremap xx :!nsxiv -r . <CR>
 nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
 nnoremap A cw
@@ -94,8 +94,8 @@ fileviewer *.[1-8] man ./%c | col -b
 filetype *.[1-8] man ./%c
 
 fileviewer *.jpg,*.jpeg,*.png,*.ico,*.gif vifmimg draw %px %py %pw %ph %c %pc vifmimg clear
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm  ~/.local/bin/rotdir %f 2>/dev/null | sxiv -ia 2>/dev/null &
-" filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm  sxiv %f
+" filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm  ~/.local/bin/rotdir %f 2>/dev/null | nsxiv -ia 2>/dev/null &
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm  nsxiv-rifle %f
 
 filextype *.svg inkscape %f 2>/dev/null &
 filextype *.xcf gimp %f 2>/dev/null &

@@ -1,0 +1,12 @@
+#!/bin/sh
+while read file
+do
+        case "$1" in
+        "C-d")
+                mv "$file" ~/.local/share/vifm/Trash ;;
+        "C-c")
+                echo -n "$file" | xclip -selection clipboard ;;
+        "C-w")
+                ~/.local/bin/setbg "$file" ;;
+        esac
+done
