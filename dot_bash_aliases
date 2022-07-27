@@ -10,8 +10,12 @@ alias ll="ls -al"
 alias vifm="vifmrun"
 alias vbg='xwinwrap -ov -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio'
 alias ynvidia="__GL_THREADED_OPTIMIZATIONS=1 yuzu"
-alias man="fzf_man"
 alias cz="chezmoi"
+
+
+# fzf-extend
+alias man="fzf-man"
+alias rm="fzf-rm"
 
 # youtube-dl
 alias ytdl="yt-dlp --add-metadata --embed-thumbnail"

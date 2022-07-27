@@ -64,4 +64,7 @@ plugins=(
   skywind3000/z.lua
 )
 
+# Load local functions
+source ~/.config/zsh/modules/function/fzf_extend.zsh
+
 z-plugin-load $plugins
