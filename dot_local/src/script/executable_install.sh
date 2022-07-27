@@ -102,6 +102,7 @@ PKGS=(
 "ntfs-3g"
 "nvidia-prime"
 "obmenu-generator"
+"obs-studio"
 "openbox"
 "openbsd-netcat"
 "openssh"
