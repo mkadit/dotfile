@@ -14,5 +14,5 @@
 
 [".local/src/picom"]
     type = "git-repo"
-    url = "https://github.com/pijulius/picom"
+    url = "https://github.com/dccsillag/picom"
     refreshPeriod = "168h"
