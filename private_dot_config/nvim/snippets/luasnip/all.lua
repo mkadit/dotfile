@@ -75,6 +75,9 @@ table.insert(snippets, todo)
 local time = s("time", {
   c(1, {
     f(function()
+      return string.upper("—"..os.date " %I:%M %P ".."—")
+    end),
+    f(function()
       return os.date "%Y-%m-%d"
     end),
     f(function()
