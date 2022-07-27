@@ -371,6 +371,28 @@
         <to>previous</to>
       </action>
     </keybind>
+    <keybind key="W-e">
+      <action name="SendToDesktop">
+        <to>next</to>
+      </action>
+    </keybind>
+    <keybind key="W-S-e">
+      <action name="SendToDesktop">
+        <to>previous</to>
+      </action>
+    </keybind>
+    <keybind key="W-w">
+      <action name="SendToDesktop">
+        <to>next</to>
+        <follow>no</follow>
+      </action>
+    </keybind>
+    <keybind key="W-S-w">
+      <action name="SendToDesktop">
+        <to>previous</to>
+        <follow>no</follow>
+      </action>
+    </keybind>
     <keybind key="W-S-1">
       <action name="SendToDesktop">
         <to>1</to>
@@ -523,7 +545,7 @@
     </keybind>
     <keybind key="W-S-backslash">
       <action name="Execute">
-        <command>bash -c 'clipmenu'</command>
+        <command>bash -c 'CM_LAUNCHER=rofi clipmenu'</command>
       </action>
     </keybind>
     <keybind key="W-x">

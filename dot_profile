@@ -7,6 +7,7 @@ export QT_SCREEN_SCALE_FACTOR=1
 # Clipmenu
 export CM_LAUNCHER=rofi
 export CM_DIR=/tmp/clipmenu
+export CM_SELECTIONS="clipboard"
 
 # PATH
 export PATH="$HOME/.local/bin:$PATH"
