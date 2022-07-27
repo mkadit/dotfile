@@ -1,5 +1,6 @@
 #!/bin/sh
 
+# Go ~
 cd "$HOME" || exit
 
 # Install Rust
@@ -13,12 +14,8 @@ makepkg -si
 cd ..
 rm -rf paru
 
-# Delete existing config
-rm -f .bash_profile .bashrc .profile
-
 # Install Dependencies
 PKGS=(
-  "libconfig"
 "abook"
 "alsa-utils"
 "ani-cli"
@@ -75,6 +72,7 @@ PKGS=(
 "isync"
 "jq"
 "kubectl"
+"libconfig"
 "libnotify"
 "libxft-bgra"
 "lutris"
@@ -84,6 +82,7 @@ PKGS=(
 "mangodl"
 "mediainfo"
 "mesa-utils"
+"meson"
 "minikube"
 "mpc"
 "mpd"
@@ -96,6 +95,7 @@ PKGS=(
 "neomutt"
 "nerd-fonts-jetbrains-mono"
 "newsboat"
+"ninja"
 "nordic-theme-git"
 "notion-app-enhanced"
 "notmuch"
@@ -110,11 +110,9 @@ PKGS=(
 "papirus-nord"
 "pass"
 "pavucontrol"
-"picom"
 "plank"
 "playerctl"
 "poppler"
-# "postgresql"
 "prettierd"
 "protonup-git"
 "pulseaudio"
@@ -152,6 +150,8 @@ PKGS=(
 "unrar"
 "unzip"
 "urlview"
+"utash"
+"vale"
 "vde2"
 "vieb-bin"
 "vifm"
@@ -172,7 +172,6 @@ PKGS=(
 "xorg-xsetroot"
 "xorg-xwininfo"
 "xwallpaper"
-"vale"
 "yt-dlp-drop-in"
 "yt-dlp-git"
 "yuzu-mainline-bin"
@@ -184,7 +183,9 @@ PKGS=(
 "zsh-fast-syntax-highlighting"
 )
 
-paru -S "$PKGS" --needed
+for PKG in "${PKGS[@]}"; do
+    paru -S "$PKG" --needed --noconfirm
+done
 
 
 # Install tools that cannot be installed throug AUR
@@ -199,7 +200,10 @@ sudo make install
 
 # Install picom
 cd "$HOME/.local/src/picom" || exit
-sudo ninja -C build install
+git checkout implement-window-animations
+git submodule update --init --recursive
+meson --buildtype=release . build
+ninja -C buildsudo ninja -C build install
 
 # Unpack icons
 cd "$HOME/.icons" || exit
@@ -223,6 +227,7 @@ sudo chmod u+s "$(command -v brightnessctl)"
 timedatectl set-ntp true
 
 sudo usermod -aG libvirt "$(whoami)"
+sudo usermod -aG wireshark "$(whoami)"
 
 # sudo -iu postgres
 # initdb -D '/var/lib/postgres/data'
