@@ -18,6 +18,7 @@ rm -f .bash_profile .bashrc .profile
 
 # Install Dependencies
 PKGS=(
+  "libconfig"
 "abook"
 "alsa-utils"
 "ani-cli"
@@ -183,7 +184,7 @@ PKGS=(
 "zsh-fast-syntax-highlighting"
 )
 
-paru -S "$PKGS" --noconfirm --needed
+paru -S "$PKGS" --needed
 
 
 # Install tools that cannot be installed throug AUR
@@ -196,6 +197,10 @@ sudo make install
 cd "$HOME/.local/src/neovim" || exit
 sudo make install
 
+# Install picom
+cd "$HOME/.local/src/picom" || exit
+sudo ninja -C build install
+
 # Unpack icons
 cd "$HOME/.icons" || exit
 tar -xf Papirus-Custom.tar.xz
@@ -204,8 +209,7 @@ tar -xf Papirus-Custom.tar.xz
 cd "$HOME/.fonts" || exit
 tar -xf fonts.tar.gz
 
-source $HOME/.profile
-setbg ~/assets/wallpaper.png
+~/.local/bin/setbg ~/assets/wallpaper.png
 
 # Install grammar linter through vale
 vale sync
@@ -226,4 +230,4 @@ sudo usermod -aG libvirt "$(whoami)"
 # sudo systemctl enable postgresql
 # sudo systemctl start postgresql
 
-nvim +JetpackSync
+# nvim +JetpackSync

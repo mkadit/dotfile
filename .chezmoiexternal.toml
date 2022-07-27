@@ -11,3 +11,8 @@
     type = "git-repo"
     url = "https://github.com/tmux-plugins/tpm"
     refreshPeriod = "168h"
+
+[".local/src/picom"]
+    type = "git-repo"
+    url = "https://github.com/pijulius/picom"
+    refreshPeriod = "168h"
