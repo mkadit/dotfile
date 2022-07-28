@@ -26,7 +26,7 @@ else
 	inten=" Take in 10s"
 fi
 
-notify_cmd_shot="dunstify -u low --replace=699 -i ~/.config/dunst/picture/picture.png"
+notify_cmd_shot="dunstify -u low --replace=699 -i /usr/share/archcraft/icons/dunst/picture.png"
 rofi_command="rofi -theme $HOME/.config/rofi/$STYLE/screenshot.rasi"
 
 # notify and view screenshot
@@ -49,7 +49,7 @@ copy_shot () {
 # countdown
 countdown () {
 	for sec in `seq $1 -1 1`; do
-		dunstify -t 1000 --replace=699 -i ~/.config/dunst/picture/timer.png "Taking shot in : $sec"
+		dunstify -t 1000 --replace=699 -i /usr/share/archcraft/icons/dunst/timer.png "Taking shot in : $sec"
 		sleep 1
 	done
 }

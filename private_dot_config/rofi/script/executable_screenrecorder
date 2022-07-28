@@ -31,7 +31,7 @@ fi
 
 # notify
 notify_user() {
-	notify_cmd="dunstify -u low --replace=699 -i ~/.config/dunst/picture/video.png"
+	notify_cmd="dunstify -u low --replace=699 -i /usr/share/archcraft/icons/dunst/video.png"
 	if [[ -e "$dir/$file" ]]; then
 		${notify_cmd} "Saved in $dir"
 	else
@@ -42,7 +42,7 @@ notify_user() {
 # countdown
 countdown() {
 	for sec in $(seq $1 -1 1); do
-		dunstify -t 1000 --replace=699 -i ~/.config/dunst/picture/timer.png "Starting in : $sec"
+		dunstify -t 1000 --replace=699 -i /usr/share/archcraft/icons/dunst/timer.png "Starting in : $sec"
 		sleep 1
 	done
 }

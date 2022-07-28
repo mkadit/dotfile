@@ -31,7 +31,7 @@
     'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>nord</name>
+    <name>Nordic</name>
     <titleLayout>LIMC</titleLayout>
     <!-- available characters are NDSLIMC, each can occur at most once. N: window icon L: window label (AKA title). I: iconify M: maximize C: close S: shade (roll up/down) D: omnipresent (on all desktops). -->
     <keepBorder>yes</keepBorder>
@@ -163,12 +163,12 @@
     </keybind>
     <keybind key="W-b">
       <action name="Execute">
-        <command>bash -c 'brightnessctl set +5%'</command>
+        <command>bash -c '~/.local/bin/brightness_controller --inc'</command>
       </action>
     </keybind>
     <keybind key="W-S-b">
       <action name="Execute">
-        <command>bash -c 'brightnessctl set 5%-'</command>
+        <command>bash -c '~/.local/bin/brightness_controller --dec'</command>
       </action>
     </keybind>
     <!-- volume control -->
@@ -189,17 +189,22 @@
     </keybind>
     <keybind key="W-equal">
       <action name="Execute">
-        <command>bash -c 'pamixer --allow-boost -i 5'</command>
+        <command>bash -c '~/.local/bin/volume_controller --inc'</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-equal">
+      <action name="Execute">
+        <command>bash -c '~/.local/bin/volume_controller --toggle-mic'</command>
       </action>
     </keybind>
     <keybind key="W-minus">
       <action name="Execute">
-        <command>bash -c 'pamixer --allow-boost -d 5'</command>
+        <command>bash -c '~/.local/bin/volume_controller --dec'</command>
       </action>
     </keybind>
     <keybind key="W-S-minus">
       <action name="Execute">
-        <command>bash -c 'pamixer --toggle-mute'</command>
+        <command>bash -c '~/.local/bin/volume_controller --toggle'</command>
       </action>
     </keybind>
     <!-- window switching with the arrow keys -->
@@ -381,13 +386,13 @@
         <to>previous</to>
       </action>
     </keybind>
-    <keybind key="W-w">
+    <keybind key="W-s">
       <action name="SendToDesktop">
         <to>next</to>
         <follow>no</follow>
       </action>
     </keybind>
-    <keybind key="W-S-w">
+    <keybind key="W-S-s">
       <action name="SendToDesktop">
         <to>previous</to>
         <follow>no</follow>
@@ -523,7 +528,7 @@
         <command>bash -c 'maim -s | xclip -selection clipboard -t image/png'</command>
       </action>
     </keybind>
-    <keybind key="W-s">
+    <keybind key="W-S-w">
       <action name="Execute">
         <command>bash -c 'neuron-ss'</command>
       </action>
@@ -590,7 +595,17 @@
     </keybind>
     <keybind key="W-S-m">
       <action name="Execute">
-        <command>bash -c 'xmouseless'</command>
+        <command>bash -c '~/.local/bin/music_controller'</command>
+      </action>
+    </keybind>
+    <keybind key="W-S-t">
+      <action name="Execute">
+        <command>bash -c 'polybar-msg cmd toggle'</command>
+      </action>
+    </keybind>
+    <keybind key="W-w">
+      <action name="Execute">
+        <command>bash -c '~/.local/bin/networkmanager_dmenu'</command>
       </action>
     </keybind>
   </keyboard>

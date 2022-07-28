@@ -5,9 +5,9 @@ configuration {
   disable-history:      true;
   sidebar-mode:         false;
   modi:                 "drun,run,window,filebrowser";
-  display-drun:         "";
+  display-drun:         "";
   display-run:          "";
-  display-window:       "";
+  display-window:       "";
   display-file-browser: "";
   display-calc:         "";
   icon-theme: "Papirus-Custom";

@@ -6,7 +6,11 @@
 STYLE="theme/nordic"
 
 rofi \
-	-show run \
+	-show drun \
+	-modi run,drun,ssh \
 	-scroll-method 0 \
+	-drun-match-fields all \
+	-drun-display-format "{name}" \
+	-no-drun-show-actions \
 	-terminal st \
-	-theme "$HOME"/.config/rofi/"$STYLE"/runner.rasi
+	-theme ~/.config/rofi/$STYLE/launcher.rasi

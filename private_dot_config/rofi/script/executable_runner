@@ -8,5 +8,5 @@ STYLE="theme/nordic"
 rofi \
 	-show run \
 	-scroll-method 0 \
-	-terminal st \
+	-terminal alacritty \
 	-theme "$HOME"/.config/rofi/"$STYLE"/runner.rasi

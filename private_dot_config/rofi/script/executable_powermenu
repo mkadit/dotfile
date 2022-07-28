@@ -12,7 +12,7 @@ rofi_command="rofi -theme $HOME/.config/rofi/$STYLE/powermenu.rasi"
 uptime=$(uptime -p | sed -e 's/up //g')
 
 ## Buttons
-layout=`cat $HOME/.config/rofi/$STYLE/powermenu.rasi | grep BUTTON | cut -d'=' -f2 | tr -d '[:blank:],*/'`
+layout=`cat $HOME/.config/openbox/rofi/$STYLE/powermenu.rasi | grep BUTTON | cut -d'=' -f2 | tr -d '[:blank:],*/'`
 if [[ "$layout" == "TRUE" ]]; then
 	shutdown=""
 	reboot=""

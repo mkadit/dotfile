@@ -18,7 +18,7 @@ window {
     background-color:               @BG;
     text-color:                     @FG;
     border-radius:                  6px;
-    width:                          300;
+    width:                          600;
 }
 
 prompt {
