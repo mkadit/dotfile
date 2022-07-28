@@ -6,7 +6,10 @@
 # Last Modified Date: Minggu, 26/07/2020 19:13 WIB
 # Last Modified By  : M. Nabil Adani <nblid48@gmail.com>
 
-DMENU="rofi -dmenu -i -p Services $@"
+
+STYLE="theme/nordic"
+rofi_command="rofi -theme $HOME/.config/rofi/$STYLE/runner.rasi"
+DMENU="$rofi_command -dmenu -i -p Services $@"
 
 systemcontrol() {
     service=$(ls "$1" | grep "service" | $DMENU)

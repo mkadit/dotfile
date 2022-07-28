@@ -1,9 +1,12 @@
 #!/bin/sh
 
-# Feed this script a link and it will give rofi -dmenu
+# Feed this script a link and it will give $rofi_command -dmenu
 # some choice programs to use to open it.
 
-case "$(printf "copy url\\nmpv\\nmpv (loop)\\nqueue download\\n\\nqueue youtube-dl\\nfeh\\nbrowser\\nw3m\\nmpv (float)" | rofi -dmenu -i -p "Open link with what program?")" in
+STYLE="theme/nordic"
+rofi_command="rofi -theme $HOME/.config/rofi/$STYLE/powermenu.rasi"
+
+case "$(printf "copy url\\nmpv\\nmpv (loop)\\nqueue download\\n\\nqueue youtube-dl\\nfeh\\nbrowser\\nw3m\\nmpv (float)" | $rofi_command -dmenu -i -p "Open link with what program?")" in
 	"copy url") echo "$1" | xclip -selection clipboard ;;
 	mpv) setsid -f mpv -quiet "$1" >/dev/null 2>&1 ;;
 	"mpv (loop)") setsid -f mpv -quiet --loop "$1" >/dev/null 2>&1 ;;

@@ -1,0 +1,132 @@
+#!/usr/bin/env bash
+
+## Copyright (C) 2020-2022 Aditya Shakya <adi1090x@gmail.com>
+## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
+
+## Record Screen with slop and ffmpeg
+STYLE="theme/nordic"
+
+time=$(date +%Y-%m-%d-%H-%M-%S)
+screen_size=$(xrandr | grep 'current' | head -n1 | cut -d',' -f2 | tr -d '[:blank:],current')
+dir="$(xdg-user-dir VIDEOS)/Recording"
+file="Capture_${time}.mp4"
+recordid="/tmp/recordid"
+rofi_command="rofi -theme $HOME/.config/rofi/$STYLE/screenshot.rasi"
+
+# Button
+layout=$(cat $HOME/.config/rofi/$STYLE/screenshot.rasi | grep BUTTON | cut -d'=' -f2 | tr -d '[:blank:],*/')
+if [[ "$layout" == "TRUE" ]]; then
+	screen=""
+	area=""
+	screennoaudio=""
+	areanoaudio=""
+	webcamera=""
+else
+	screen=" Record Screen"
+	area=" Record Area"
+	screennoaudio=" Record Screen No Audio"
+	areanoaudio=" Record Area No Audio"
+	webcamera=" Web Camera"
+fi
+
+# notify
+notify_user() {
+	notify_cmd="dunstify -u low --replace=699 -i /usr/share/archcraft/icons/dunst/video.png"
+	if [[ -e "$dir/$file" ]]; then
+		${notify_cmd} "Saved in $dir"
+	else
+		${notify_cmd} "Video Deleted."
+	fi
+}
+
+# countdown
+countdown() {
+	for sec in $(seq $1 -1 1); do
+		dunstify -t 1000 --replace=699 -i /usr/share/archcraft/icons/dunst/timer.png "Starting in : $sec"
+		sleep 1
+	done
+}
+
+# capture
+rec_screen() {
+	countdown '3'
+	if [[ "$1" == "noaudio" ]]; then
+		ffmpeg -video_size ${screen_size} -framerate 25 -f x11grab -i :0.0+0,0 ${dir}/${file} &
+	else
+		ffmpeg -video_size ${screen_size} -framerate 25 -f x11grab -i :0.0+0,0 -f pulse -ac 2 -i default ${dir}/${file} &
+	fi
+	echo $! >$recordid
+	notify_user
+}
+
+rec_area() {
+	get_win_data=$(slop -f "%x %y %w %h %g %i") || exit 1
+	read -r X Y W H G ID < <(echo $get_win_data)
+
+	countdown '3'
+	if [[ "$1" == "noaudio" ]]; then
+		ffmpeg -video_size ${W}x${H} -framerate 25 -f x11grab -i :0.0+${X},${Y} ${dir}/${file} &
+	else
+		ffmpeg -video_size ${W}x${H} -framerate 25 -f x11grab -i :0.0+${X},${Y} -f pulse -ac 2 -i default ${dir}/${file} &
+	fi
+	echo $! >$recordid
+	notify_user
+}
+
+web_camera() {
+	mpv --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)
+}
+
+function stoprecord() {
+	# pkill obs
+	if [ -f $recordid ]; then
+		kill -15 $(cat $recordid)
+		rm $recordid
+	fi
+
+	sleep 5
+	if [ "$(pidof ffmpeg)" != "" ]; then
+		pkill ffmpeg
+	fi
+}
+
+endrecord() {
+	OPTIONS='["Yes", "No"]'
+	select=$(echo $OPTIONS | jq -r ".[]" | $rofi_command -dmenu -i -p "Stop Recording")
+	[ "$select" == "Yes" ] && stoprecord
+}
+
+startrecord() {
+	options="$screen\n$area\n$screennoaudio\n$areanoaudio\n$webcamera"
+
+	chosen="$(echo -e "$options" | $rofi_command -p 'Take A Shot' -dmenu -selected-row 0)"
+
+	case $chosen in
+	$screen)
+		rec_screen
+		;;
+	$area)
+		rec_area
+		;;
+	$screennoaudio)
+		rec_screen noaudio
+		;;
+	$areanoaudio)
+		rec_area noaudio
+		;;
+	$webcamera)
+		web_camera
+		;;
+	esac
+}
+
+if [[ ! -d "$dir" ]]; then
+	mkdir -p "$dir"
+fi
+
+if [ -f $recordid ]; then
+	endrecord
+else
+	startrecord
+fi
+exit 0

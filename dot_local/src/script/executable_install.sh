@@ -16,6 +16,8 @@ rm -rf paru
 
 # Install Dependencies
 PKGS=(
+"screenkey"
+"maim"
 "abook"
 "alsa-utils"
 "ani-cli"

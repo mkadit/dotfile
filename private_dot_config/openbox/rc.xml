@@ -500,17 +500,17 @@
     </keybind>
     <keybind key="W-r">
       <action name="Execute">
-        <command>bash -c 'rofi -show'</command>
+        <command>bash -c '~/.local/bin/app_launcher'</command>
       </action>
     </keybind>
     <keybind key="W-C-q">
       <action name="Execute">
-        <command>bash -c '~/.local/bin/sysact'</command>
+        <command>bash -c '~/.local/bin/powermenu'</command>
       </action>
     </keybind>
     <keybind key="W-p">
       <action name="Execute">
-        <command>bash -c '~/.local/bin/maimpick'</command>
+        <command>bash -c '~/.local/bin/screenshot'</command>
       </action>
     </keybind>
     <keybind key="W-S-a">
@@ -530,7 +530,7 @@
     </keybind>
     <keybind key="W-S-p">
       <action name="Execute">
-        <command>bash -c '~/.local/bin/dmenu_ffmpeg'</command>
+        <command>bash -c '~/.local/bin/screenrecorder'</command>
       </action>
     </keybind>
     <keybind key="W-o">
@@ -545,7 +545,7 @@
     </keybind>
     <keybind key="W-S-backslash">
       <action name="Execute">
-        <command>bash -c 'CM_LAUNCHER=rofi clipmenu'</command>
+        <command>bash -c 'CM_LAUNCHER=rofi clipmenu -theme ~/.config/rofi/theme/nordic/runner'</command>
       </action>
     </keybind>
     <keybind key="W-x">
