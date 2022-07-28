@@ -16,6 +16,8 @@ rm -rf paru
 
 # Install Dependencies
 PKGS=(
+"lightdm-webkit2-greeter"
+"lightdm-gtk-greeter-settings"
 "screenkey"
 "maim"
 "abook"
