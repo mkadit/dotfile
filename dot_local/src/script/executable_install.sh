@@ -24,7 +24,6 @@ PKGS=(
 "atool"
 "base-devel"
 "bat"
-"betterdiscordctl-git"
 "betterlockscreen"
 "bluez"
 "bluez-utils"
@@ -104,7 +103,6 @@ PKGS=(
 "notmuch"
 "noto-fonts-cjk"
 "ntfs-3g"
-"nvidia-prime"
 "obmenu-generator"
 "obs-studio"
 "openbox"
@@ -118,6 +116,7 @@ PKGS=(
 "pdfarranger-git"
 "plank"
 "playerctl"
+"polybar"
 "poppler"
 "prettierd"
 "protonup-git"
@@ -185,9 +184,10 @@ PKGS=(
 "zsh-autocomplete-git"
 "zsh-autosuggestions"
 "zsh-fast-syntax-highlighting"
-"polybar"
+#"betterdiscordctl-git"
 #"emusak-bin"
 #"lutris"
+#"nvidia-prime"
 #"wine"
 #"wine-gecko"
 #"wine-mono"
@@ -231,6 +231,7 @@ cd "$HOME/.themes" || exit
 tar -xf themes.tar.gz
 
 ~/.local/bin/setbg ~/assets/wallpaper.png
+betterlockscreen -u ~/assets/wallpaper.png
 
 # Install grammar linter through vale
 vale sync
