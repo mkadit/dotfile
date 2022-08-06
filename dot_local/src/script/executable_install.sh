@@ -247,6 +247,8 @@ timedatectl set-ntp true
 sudo usermod -aG libvirt "$(whoami)"
 sudo usermod -aG wireshark "$(whoami)"
 
+localectl set-x11-keymap us "" "" caps:escape
+
 # sudo -iu postgres
 # initdb -D '/var/lib/postgres/data'
 # exit
