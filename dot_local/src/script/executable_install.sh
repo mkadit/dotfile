@@ -47,7 +47,6 @@ PKGS=(
 "downgrade"
 "dunst"
 "ebtables"
-"emusak-bin" # For easy yuzu
 "eslint_d"
 "exfat-utils"
 "exiv2"
@@ -69,7 +68,7 @@ PKGS=(
 "htop"
 "imagemagick"
 "iproute2"
-"iptables-nft"
+"iptables-nft" # Say yes
 "isync"
 "jq"
 "kubectl"
@@ -79,7 +78,6 @@ PKGS=(
 "lightdm-gtk-greeter-settings"
 "lightdm-webkit2-greeter"
 "logseq-desktop-bin"
-"lutris"
 "lxappearance-obconf"
 "lxsession"
 "maim"
@@ -160,23 +158,18 @@ PKGS=(
 "unrar"
 "unzip"
 "urlview"
-"utash"
+"uthash"
 "vale"
 "vde2"
 "vieb-bin"
 "vifm"
 "virt-manager"
 "weechat"
-"wine"
-"wine-gecko"
-"wine-mono"
-"winetricks"
 "wireless_tools"
 "wireshark-qt"
 "xclip"
 "xdotool"
 "xorg-server"
-"xorg-xbacklight"
 "xorg-xdpyinfo"
 "xorg-xinit"
 "xorg-xprop"
@@ -186,13 +179,20 @@ PKGS=(
 "xwallpaper"
 "yt-dlp-drop-in"
 "yt-dlp-git"
-"yuzu-mainline-bin"
 "zathura"
 "zathura-pdf-mupdf"
 "zsh"
 "zsh-autocomplete-git"
 "zsh-autosuggestions"
 "zsh-fast-syntax-highlighting"
+"polybar"
+#"emusak-bin"
+#"lutris"
+#"wine"
+#"wine-gecko"
+#"wine-mono"
+#"winetricks"
+#"yuzu-mainline-bin"
 )
 
 for PKG in "${PKGS[@]}"; do
@@ -215,7 +215,8 @@ cd "$HOME/.local/src/picom" || exit
 git checkout implement-window-animations
 git submodule update --init --recursive
 meson --buildtype=release . build
-ninja -C buildsudo ninja -C build install
+ninja -C build
+sudo ninja -C build install
 
 # Unpack icons
 cd "$HOME/.icons" || exit
@@ -224,6 +225,10 @@ tar -xf Papirus-Custom.tar.xz
 # Unpack fonts
 cd "$HOME/.fonts" || exit
 tar -xf fonts.tar.gz
+
+# Unpack themes
+cd "$HOME/.themes" || exit
+tar -xf themes.tar.gz
 
 ~/.local/bin/setbg ~/assets/wallpaper.png
 
