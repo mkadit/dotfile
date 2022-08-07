@@ -116,7 +116,7 @@ require("neorg").setup {
               -- etc
               { leader .. "ak", "<CMD>Neorg kanban toggle<CR>" },
               { leader .. "ai", "<CMD>Neorg inject-metadata<CR>" },
-              { leader .. "aj", "<CMD>Neorg journal" },
+              { leader .. "aj", "<CMD>Neorg journal<CR>" },
               { leader .. "an", "<CMD>Neorg toc split<CR>" },
               { leader .. "aq", "<CMD>Neorg toc toqflist<CR>" },
               { leader .. "ar", "<CMD>Neorg return<CR>" }, -- Return to previous
