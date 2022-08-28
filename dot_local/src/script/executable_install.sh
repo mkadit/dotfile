@@ -75,7 +75,6 @@ cd "$HOME" || exit
 #"libconfig"
 #"libnotify"
 #"libxft-bgra"
-#"lightdm-gtk-greeter-settings"
 #"lightdm-webkit2-greeter"
 #"logseq-desktop-bin"
 #"lxappearance-obconf"
@@ -103,6 +102,7 @@ cd "$HOME" || exit
 #"notion-app-enhanced"
 #"notmuch"
 #"noto-fonts-cjk"
+#"nsxiv"
 #"ntfs-3g"
 #"obmenu-generator"
 #"obs-studio"
@@ -130,6 +130,7 @@ cd "$HOME" || exit
 #"qemu"
 #"qemu-arch-extra"
 #"qt5ct"
+#"qt5-styleplugins"
 #"qutebrowser"
 #"rclone"
 #"ripgrep"
@@ -182,9 +183,6 @@ cd "$HOME" || exit
 #"zathura"
 #"zathura-pdf-mupdf"
 #"zsh"
-#"zsh-autocomplete-git"
-#"zsh-autosuggestions"
-#"zsh-fast-syntax-highlighting"
 ##"betterdiscordctl-git"
 ##"emusak-bin"
 ##"lutris"
@@ -194,6 +192,9 @@ cd "$HOME" || exit
 ##"wine-mono"
 ##"winetricks"
 ##"yuzu-mainline-bin"
+##"system-config-printer"
+##"hplip"
+##"hplip-plugin"
 #)
 #
 #for PKG in "${PKGS[@]}"; do
@@ -249,6 +250,7 @@ timedatectl set-ntp true
 
 sudo usermod -aG libvirt "$(whoami)"
 sudo usermod -aG wireshark "$(whoami)"
+sudo usermod -aG docker "$(whoami)"
 
 localectl set-x11-keymap us "" "" caps:escape
 

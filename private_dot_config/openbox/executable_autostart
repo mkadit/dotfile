@@ -17,4 +17,4 @@ lxpolkit &
 plank &
 fcitx5 --replace -d &
 ~/.config/polybar/launch.sh
-picom &
+picom -b &

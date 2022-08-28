@@ -32,6 +32,7 @@ get_icon() {
 # Notify 
 notify_vol() {
 	get_icon && dunstify -u low --replace=69 -i "$icon" "Volume : $(get_volume)"
+
 }
 
 # Increase Volume
