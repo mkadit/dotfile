@@ -131,4 +131,6 @@ require("mini.surround").setup {
   -- 'cover_or_nearest'. For more details, see `:h MiniSurround.config`.
   search_method = "cover_or_next",
 }
+
+require("mini.ai").setup {}
 -- require("mini.tabline").setup {}

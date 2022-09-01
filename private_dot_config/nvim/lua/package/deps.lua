@@ -57,7 +57,6 @@ jetpack.setup {
 
   -- Editor
   "akinsho/toggleterm.nvim",
-  "wellle/targets.vim",
   "tpope/vim-repeat",
   "tpope/vim-unimpaired",
   "mhinz/vim-startify",
