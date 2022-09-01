@@ -4,11 +4,12 @@
 
 MOUNT=/mnt/
 SOURCES=(
-  # "Music"
+	#  "Music"
 	# "Pictures"
 	"Documents"
 	# "Videos"
 	# "Downloads/ISO"
+	".local/share/sioyek"
 )
 LOCAL_ISMOUNTED=$(mount | grep sdc)
 CLOUD_MOUNT=sync_g_drive:
