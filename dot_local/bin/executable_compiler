@@ -29,7 +29,7 @@ textype() { \
 case "$ext" in
 	# Try to keep these cases in alphabetical order.
 	[0-9]) preconv "$file" | refer -PS -e | groff -mandoc -T pdf > "$base".pdf ;;
-	c) cc "$file" -o "$base" && "$base" ;;
+	c) gcc "$file" -g -o "$base" && "$base" ;;
 	cpp) g++ "$file" -o "$base" && "$base" ;;
 	cs) mcs "$file" && mono "$base".exe ;;
 	go) go run "$file" ;;
@@ -42,7 +42,8 @@ case "$ext" in
 			groffdown -i "$file" | groff > "$base.pdf"
 		else
 			# pandoc -t ms --highlight-style=kate -s -o "$base".pdf "$file"
-			pandoc "$file" -f commonmark --pdf-engine=xelatex -o "$base".pdf
+			# pandoc "$file" -f commonmark --pdf-engine=xelatex -o "$base".pdf
+			pandoc "$file" --pdf-engine=xelatex -o "$base".pdf
 		fi ; ;;
 	mom) preconv "$file" | refer -PS -e | groff -mom -kept -T pdf > "$base".pdf ;;
 	ms) preconv "$file" | refer -PS -e | groff -me -ms -kept -T pdf > "$base".pdf ;;
