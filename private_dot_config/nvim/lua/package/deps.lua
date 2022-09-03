@@ -62,6 +62,7 @@ jetpack.setup {
   "mhinz/vim-startify",
   "kevinhwang91/nvim-bqf",
   "norcalli/nvim-colorizer.lua",
+  "nvim-colortils/colortils.nvim",
   "mattn/emmet-vim",
   "mbbill/undotree",
   "NTBBloodbath/rest.nvim",

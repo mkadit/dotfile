@@ -110,7 +110,7 @@ local tables = s(
   "tables",
   fmt(
     [[
-@math
+@table
 {}
 @end
 ]]   ,
