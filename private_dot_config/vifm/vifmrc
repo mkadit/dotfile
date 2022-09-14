@@ -101,6 +101,9 @@ filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm  nsxiv-rifle %f
 filextype *.svg inkscape %f 2>/dev/null &
 filextype *.xcf gimp %f 2>/dev/null &
 
+filextype *.pptx,*.ppt libreoffice --impress %f
+filextype *.docx,*.doc libreoffice --writer %f
+
 set vifminfo=dhistory,chistory,tui,shistory,phistory,fhistory,dirstack,registers,bookmarks,bmarks
 
 """ Icons
