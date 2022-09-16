@@ -227,7 +227,7 @@ sudo ninja -C build install
 
 # Unpack icons
 cd "$HOME/.icons" || exit
-tar -xf Papirus-Custom.tar.xz
+tar -xf icons.tar.gz
 
 # Unpack fonts
 cd "$HOME/.fonts" || exit
