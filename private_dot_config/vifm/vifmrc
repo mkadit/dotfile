@@ -1,7 +1,7 @@
 " vim: filetype=vifm
 " source ${XDG_CONFIG_HOME:-$HOME/.config}/vifm/vifmshortcuts
 
-set vicmd=$EDITOR
+set vicmd=$EDITOR\ --noplugin
 set statusline="  %t%= %A %10u:%-7g %15E %a %20d  "
 set syscalls
 set nofollowlinks
