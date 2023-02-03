@@ -1,8 +1,8 @@
 vim.cmd [[ packadd vim-jetpack ]]
 -- vim.g["jetpack#optimization"] = 1
 
-local jetpack = require "jetpack"
-jetpack.setup {
+local jetpack = require "jetpack.paq"
+jetpack{
   { "tani/vim-jetpack", opt = true },
   { "dstein64/vim-startuptime", opt = true },
 

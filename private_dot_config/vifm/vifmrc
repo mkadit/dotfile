@@ -33,7 +33,7 @@ vnoremap w :view<cr>gv
 nnoremap yd :!echo %d | xclip %i<cr>
 nnoremap yf :!echo %c:p | xclip %i<cr>
 nnoremap yn :!sed "s/\..*//"<<<%c|xclip %i<cr>
-nnoremap xx :!nsxiv -r . <CR>
+nnoremap xx :!nsxiv -r . &<CR>
 nnoremap I cw<c-a>
 nnoremap cc cw<c-u>
 nnoremap A cw
@@ -96,7 +96,7 @@ filetype *.[1-8] man ./%c
 
 fileviewer *.jpg,*.jpeg,*.png,*.ico,*.gif vifmimg draw %px %py %pw %ph %c %pc vifmimg clear
 " filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm  ~/.local/bin/rotdir %f 2>/dev/null | nsxiv -ia 2>/dev/null &
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm  nsxiv-rifle %f
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm  nsxiv-rifle %f &
 
 filextype *.svg inkscape %f 2>/dev/null &
 filextype *.xcf gimp %f 2>/dev/null &

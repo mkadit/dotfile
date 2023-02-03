@@ -170,12 +170,8 @@ rm -rf paru
 # "wireshark-qt"
 # "xclip"
 # "xdotool"
-# "xorg-server"
-# "xorg-xdpyinfo"
-# "xorg-xinit"
-# "xorg-xprop"
-# "xorg-xsetroot"
-# "xorg-xwininfo"
+# "xorg"
+# "xterm"
 # "xournalpp"
 # "xwallpaper"
 # "yt-dlp-drop-in"
@@ -204,7 +200,7 @@ rm -rf paru
     #paru -S "$PKG" --needed --noconfirm
 #done
 
-paru -S abook alsa-utils ani-cli aria2 asdf-vm atool base-devel bat betterlockscreen bluez bluez-utils bridge-utils brightnessctl btop calibre clipmenu cmake code cronie curl deno discord-canary dmenu dnsmasq docker docker-compose dosfstools downgrade dunst ebtables eslint_d exfat-utils exiv2 fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-mozc fcitx5-nord fcitx5-qt fd ffmpeg firefox fzf git gnome-keyring gnupg google-chrome gsimplecal htop imagemagick iproute2 iptables-nft isync jq kubectl libconfig libnotify libxft-bgra lightdm-gtk-greeter-settings lightdm-webkit2-greeter logseq-desktop-bin lxappearance-obconf lxsession maim man-db mangodl mediainfo mesa-utils meson minikube mpc mpd mpv msmtp mutt-wizard ncdu ncmpcpp neofetch neomutt nerd-fonts-jetbrains-mono newsboat ninja nordic-theme-git notion-app-enhanced notmuch noto-fonts-cjk ntfs-3g obmenu-generator obs-studio openbox openbsd-netcat openssh ovmf pamixer papirus-nord pass pavucontrol pdfarranger-git plank playerctl polybar poppler prettierd protonup-git pulseaudio pulseaudio-alsa python-magic python-pip python-pipx qbittorrent qemu qemu-arch-extra qt5ct qutebrowser rclone ripgrep rmlint rofi rofi-pass rsync screenkey shellcheck shfmt simple-mtpfs sioyek slop stylua sxiv telegram-desktop thunar tint2 tldr tmux tree-sitter ttf-ms-fonts ueberzug ufw unclutter unrar unzip urlview uthash vale vde2 vieb-bin vifm virt-manager weechat wireless_tools wireshark-qt xclip xdotool xorg-server xorg-xdpyinfo xorg-xinit xorg-xprop xorg-xsetroot xorg-xwininfo xournalpp xwallpaper yt-dlp-drop-in yt-dlp-git zathura zathura-pdf-mupdf zsh zsh-autocomplete-git zsh-autosuggestions zsh-fast-syntax-highlighting
+paru -S abook alsa-utils ani-cli aria2 asdf-vm atool base-devel bat betterlockscreen bluez bluez-utils bridge-utils brightnessctl btop calibre clipmenu cmake code cronie curl deno dmenu dnsmasq docker docker-compose dosfstools downgrade dunst ebtables eslint_d exfat-utils exiv3 fcitx5 fcitx5-configtool fcitx5-gtk fcitx5-mozc fcitx5-nord fcitx5-qt fd ffmpeg firefox fzf git gnome-keyring gnupg google-chrome gsimplecal htop imagemagick iproute2 iptables-nft isync jq kubectl libconfig libnotify libxft-bgra lightdm-gtk-greeter-settings lightdm-webkit2-greeter logseq-desktop-bin lxappearance-obconf lxsession maim man-db mangodl mediainfo mesa-utils meson minikube mpc mpd mpv msmtp mutt-wizard ncdu ncmpcpp neofetch neomutt nerd-fonts-jetbrains-mono newsboat ninja nordic-theme-git notion-app-enhanced notmuch noto-fonts-cjk ntfs-3g obmenu-generator obs-studio openbox openbsd-netcat openssh ovmf pamixer papirus-nord pass pavucontrol pdfarranger-git plank playerctl polybar poppler prettierd protonup-git pulseaudio pulseaudio-alsa python-magic python-pip python-pipx qbittorrent qemu qemu-arch-extra qt5ct qutebrowser rclone ripgrep rmlint rofi rofi-pass rsync screenkey shellcheck shfmt simple-mtpfs sioyek slop stylua sxiv telegram-desktop thunar tint2 tldr tmux tree-sitter ttf-ms-fonts ueberzug ufw unclutter unrar unzip urlview uthash vale vde2 vieb-bin vifm virt-manager weechat wireless_tools wireshark-qt xclip xdotool xorg xournalpp xterm xwallpaper yt-dlp-drop-in yt-dlp-git zathura zathura-pdf-mupdf zsh zsh-autocomplete-git zsh-autosuggestions zsh-fast-syntax-highlighting
 
 
 # Install tools that cannot be installed throug AUR
@@ -266,5 +262,7 @@ sudo sed -i "s/icon-theme-name=.*/icon-theme-name = Papirus/g" /etc/lightdm/ligh
 # exit
 # sudo systemctl enable postgresql
 # sudo systemctl start postgresql
+
+sudo systemctl enable lightdm.service
 
 # nvim +JetpackSync
