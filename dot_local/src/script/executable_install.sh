@@ -234,8 +234,8 @@ tar -xf fonts.tar.gz
 cd "$HOME/.themes" || exit
 tar -xf themes.tar.gz
 
-~/.local/bin/setbg ~/assets/wallpaper.png
-betterlockscreen -u ~/assets/wallpaper.png
+~/.local/bin/setbg ~/assets/wallpaper/wallpaper.png
+betterlockscreen -u ~/assets/wallpaper/wallpaper.png
 
 # Install grammar linter through vale
 vale sync
