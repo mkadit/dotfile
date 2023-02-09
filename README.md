@@ -6,13 +6,13 @@ My daily work machine setup managed by [chezmoi](https://www.chezmoi.io/quick-st
 
 - **Distro**       : Arch Linux
 - **WM**           : [Openbox](https://github.com/danakj/openbox)
-- **Status Bar**   : [tint2](https://gitlab.com/o9000/tint2)
+- **Status Bar**   : [polybar](https://github.com/polybar/polybar)
 - **Shell**        : [zsh](https://github.com/zsh-users/zsh)
 - **File Manager** : [vifm](vifm,%20pcmandfm), [Thunar](https://docs.xfce.org/xfce/thunar/start)
 - **Terminal**     : [st](https://github.com/mkadit/st)
 - **Editor**       : [neovim (nightly)](nvim%20(nightly))
 
-## Screenshot
+## Screenshot (Outdated)
 
 ![Screenshot](./assets/normal.png)
 ![Screenshot2](./assets/nvim_zathura.png)
@@ -42,4 +42,4 @@ without encryption files, scripts, or outside modules:
 ```bash
 chezmoi init --apply --exclude=encrypted,externals,scripts mkadit
 ```
-For more information look [here](https://www.chezmoi.io/reference/command-line-flags/common/%23-f-format-jsonyaml)
+For more information look [here](https://www.chezmoi.io/reference/command-line-flags/common/)

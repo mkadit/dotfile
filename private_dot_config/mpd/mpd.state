@@ -1,7 +1,7 @@
 sw_volume: 61
 audio_device_state:1:Pulseaudio
 state: stop
-current: 7
+current: 0
 random: 0
 repeat: 0
 single: 0
@@ -32,17 +32,16 @@ playlist_begin
 19:Song of the ancients - Devola & Popola duet synced mix.mp3
 20:NIER OST - Song of the Ancients ~ Fate.mp3
 21:Aerith's Theme (Final Fantasy Vii).mp3
-22:'Bad Apple' (Touhou) English Cover by Lizz Robinett.mp3
-23:Hololive/星街すいせい - 駆けろ - Still Still Stellar ver..mp3
-24:Hololive/星街すいせい - Starry Jet.mp3
-25:Hololive/星街すいせい - comet - Still Still Stellar ver..mp3
-26:Hololive/星街すいせい - Bluerose - Still Still Stellar ver..mp3
-27:Hololive/Moona Hoshinova - 愛の小さな歌.mp3
-28:Hololive/角巻わため, Mori Calliope - 曇天羊 feat. Mori Calliope.mp3
-29:Hololive/Mori Calliope - DEAD BEATS.mp3
-30:Nier Automata OST - Weight of the World (Japanese Ver.) (가사, 일본어 발음).mp3
-31:Ed Sheeran/Ed Sheeran - Castle on the Hill.mp3
-32:Ed Sheeran/Ed Sheeran - Perfect.mp3
-33:BUMP OF CHICKEN/Laugh Maker.mp3
-34:Michael Jackson/Michael Jackson - Smooth Criminal - 2012 Remaster.mp3
+22:Hololive/星街すいせい - 駆けろ - Still Still Stellar ver..mp3
+23:Hololive/星街すいせい - Starry Jet.mp3
+24:Hololive/星街すいせい - comet - Still Still Stellar ver..mp3
+25:Hololive/星街すいせい - Bluerose - Still Still Stellar ver..mp3
+26:Hololive/Moona Hoshinova - 愛の小さな歌.mp3
+27:Hololive/角巻わため, Mori Calliope - 曇天羊 feat. Mori Calliope.mp3
+28:Hololive/Mori Calliope - DEAD BEATS.mp3
+29:Nier Automata OST - Weight of the World (Japanese Ver.) (가사, 일본어 발음).mp3
+30:Ed Sheeran/Ed Sheeran - Castle on the Hill.mp3
+31:Ed Sheeran/Ed Sheeran - Perfect.mp3
+32:BUMP OF CHICKEN/Laugh Maker.mp3
+33:Michael Jackson/Michael Jackson - Smooth Criminal - 2012 Remaster.mp3
 playlist_end
