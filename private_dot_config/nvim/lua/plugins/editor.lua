@@ -339,7 +339,7 @@ return {
   { "nvim-lua/plenary.nvim" },
   {
     "rest-nvim/rest.nvim",
-    event = "VeryLazy",
+    ft = "http",
     config = function()
       require("rest-nvim").setup({
         -- Open request results in a horizontal split
@@ -426,7 +426,7 @@ return {
       {
         "<leader>al",
         "<CMD>EasyAlign<CR>",
-        desc = "Previous Harpoon",
+        desc = "Easy Align",
       },
     },
   },
@@ -509,9 +509,7 @@ return {
   {
     "simrat39/symbols-outline.nvim",
     cmd = "SymbolsOutline",
-    config = function()
-      require("symbols-outline").setup()
-    end,
+    config = true,
     keys = {
       {
         "<leader>at",
