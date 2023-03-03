@@ -193,6 +193,8 @@ return {
         ["<leader>u"] = { name = "+ui" },
         ["<leader>w"] = { name = "+windows" },
         ["<leader>x"] = { name = "+diagnostics/quickfix" },
+        ["<leader>m"] = { name = "+harpoon" },
+        ["<leader>a"] = { name = "+action" },
       })
     end,
   },
@@ -425,8 +427,9 @@ return {
 
       {
         "<leader>al",
-        "<CMD>EasyAlign<CR>",
+        ":EasyAlign",
         desc = "Easy Align",
+        mode = { "n", "v" },
       },
     },
   },
@@ -485,14 +488,14 @@ return {
     event = "VeryLazy",
     keys = {
       {
-        "<leader>gw",
+        "<leader>gww",
         function()
           require("telescope").extensions.git_worktree.git_worktrees()
         end,
         desc = "Navigate worktree",
       },
       {
-        "<leader>gw",
+        "<leader>gwc",
         function()
           require("telescope").extensions.git_worktree.create_git_worktree()
         end,

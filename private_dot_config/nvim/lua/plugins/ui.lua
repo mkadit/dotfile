@@ -386,7 +386,12 @@ return {
         options = {
           theme = "auto",
           globalstatus = true,
-          disabled_filetypes = { statusline = { "dashboard", "lazy", "alpha" } },
+          disabled_filetypes = {
+            statusline = { "dashboard", "lazy", "alpha" },
+            winbar = {
+              { "dashboard", "lazy", "alpha" },
+            },
+          },
         },
         sections = {
           lualine_a = { "mode" },

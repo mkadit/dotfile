@@ -35,7 +35,7 @@ return {
       -- LSP Server Settings
       servers = {
         jsonls = {},
-        sumneko_lua = {
+        lua_ls = {
           -- mason = false, -- set to false if you don't want this server to be installed with mason
           settings = {
             Lua = {
@@ -128,6 +128,8 @@ return {
           -- nls.builtins.formatting.prettierd,
           nls.builtins.formatting.stylua,
           nls.builtins.diagnostics.flake8,
+          nls.builtins.formatting.shfmt,
+          nls.builtins.diagnostics.shellcheck,
         },
       }
     end,
