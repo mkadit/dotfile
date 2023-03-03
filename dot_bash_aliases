@@ -4,14 +4,13 @@ alias h='history'
 alias mv='mv -i'
 alias rm='rm -i'
 alias sss='. ~/.profile'
-alias ls="ls -hN --color=auto --group-directories-first"
-alias l="ls"
-alias ll="ls -al"
+alias ls="exa || ls -hN --color=auto --group-directories-first"
+alias l="exa || ls"
+alias ll="exa -al || ls -al"
 alias vifm="vifmrun"
 alias vbg='xwinwrap -ov -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio'
 alias ynvidia="__GL_THREADED_OPTIMIZATIONS=1 yuzu"
 alias cz="chezmoi"
-
 
 # fzf-extend
 alias man="fzf-man"
