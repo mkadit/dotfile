@@ -1,0 +1,25 @@
+session_name: TA
+windows:
+- layout: cede,237x48,0,0,1
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: pane
+  start_directory: /home/mkadit
+  window_name: home
+- layout: cedf,237x48,0,0,2
+  options: {}
+  panes:
+  - focus: 'true'
+    shell_command: pane
+  start_directory: /home/mkadit/Documents/projects/college/TA/aisco-migration-to-fasilkom-and-auto-deployment-with-puppet
+  window_name: skripsi
+- focus: 'true'
+  layout: 5074,237x48,0,0{156x48,0,0,3,80x48,157,0[80x23,157,0,4,80x24,157,24,5]}
+  options: {}
+  panes:
+  - focus: 'true'
+  - vifm
+  - pane
+  start_directory: /home/mkadit/Projects/TA/digital_ocean/var/www
+  window_name: digital_ocean_files
