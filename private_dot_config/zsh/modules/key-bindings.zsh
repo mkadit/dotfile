@@ -114,9 +114,17 @@ bindkey '^H' fzf-history-widget
 
 rfv() {
 	$HOME/.local/bin/rfv
-		 }
+  }
 zle     -N   rfv
 bindkey '^R' rfv
+
+fzf_gfold() {
+  gfold_path=$($HOME/.local/bin/fzf_gfold)
+  cd $gfold_path
+  echo $gfold_path
+  }
+zle     -N   fzf_gfold
+bindkey '^P' fzf_gfold
 
 # GIT heart FZF
 # -------------

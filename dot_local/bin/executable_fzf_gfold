@@ -1,0 +1,10 @@
+#!/bin/sh
+#
+DIR=$HOME
+RES=$(
+	gfold -c never "$DIR" |
+		fzf --reverse --header="Select project" --prompt=">" || exit 0
+)
+EXTRACT_PATH=$(echo "$RES" | awk -F ' ~ ' '{print $2}')
+
+echo "$EXTRACT_PATH"
