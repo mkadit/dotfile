@@ -193,7 +193,7 @@ return {
         ["<leader>u"] = { name = "+ui" },
         ["<leader>w"] = { name = "+windows" },
         ["<leader>x"] = { name = "+diagnostics/quickfix" },
-        ["<leader>m"] = { name = "+harpoon" },
+        ["<leader>m"] = { name = "+grapple" },
         ["<leader>a"] = { name = "+action" },
       })
     end,
@@ -380,42 +380,65 @@ return {
     end,
   },
 
-  -- harpoon
+  -- mark jumps
   {
-    "ThePrimeagen/harpoon",
+    "cbochs/grapple.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
     event = "VeryLazy",
-
     keys = {
-      {
-        "<leader>mf",
-        function()
-          require("harpoon.ui").toggle_quick_menu()
-        end,
-        desc = "Harpoon quick menu",
-      },
       {
         "<leader>ma",
         function()
-          require("harpoon.mark").add_file()
+          require("grapple").toggle()
         end,
-        desc = "Add file to Harpoon",
+        desc = "Toggle Grapple",
       },
+
+      {
+        "<leader>mf",
+        function()
+          require("grapple").popup_tags()
+        end,
+        desc = "Grapple Popups",
+      },
+
       {
         "<leader>mn",
         function()
-          require("harpoon.ui").nav_next()
+          require("grapple").cycle_forward()
         end,
-        desc = "Next Harpoon",
+        desc = "Next Grapple",
       },
       {
         "<leader>ml",
         function()
-          require("harpoon.ui").nav_prev()
+          require("grapple").cycle_backward()
         end,
-        desc = "Previous Harpoon",
+        desc = "Previous Grapple",
       },
-      -- { "<leader>e", "<leader>fe", desc = "Explorer NeoTree (root dir)", remap = true },
-      -- { "<leader>E", "<leader>fE", desc = "Explorer NeoTree (cwd)", remap = true },
+      {
+        "<leader>mA",
+        function()
+          require("grapple").toggle({ scope = "global" })
+        end,
+        desc = "Toggle Grapple Global",
+      },
+
+      {
+        "<leader>mF",
+        function()
+          require("grapple").popup_tags("global")
+        end,
+        desc = "Grapple Popups Global",
+      },
+
+      {
+        "<leader>ms",
+        function()
+          require("grapple").popup_scopes()
+        end,
+        desc = "Grapple Scopes",
+      },
     },
   },
 
