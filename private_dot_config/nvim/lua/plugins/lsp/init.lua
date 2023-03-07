@@ -75,6 +75,9 @@ return {
         name = "DiagnosticSign" .. name
         vim.fn.sign_define(name, { text = icon, texthl = name, numhl = "" })
       end
+      -- opts.diagnostics = {
+      --   virtual_text = false,
+      -- }
       vim.diagnostic.config(opts.diagnostics)
 
       local servers = opts.servers
@@ -159,5 +162,13 @@ return {
         end
       end
     end,
+  },
+
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    config = function()
+      require("lsp_lines").setup()
+    end,
+    pattern = "VeryLazy,",
   },
 }

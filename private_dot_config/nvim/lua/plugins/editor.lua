@@ -420,18 +420,13 @@ return {
   },
 
   -- easy align
-  {
-    "junegunn/vim-easy-align",
-    event = "VeryLazy",
-    keys = {
 
-      {
-        "<leader>al",
-        ":EasyAlign",
-        desc = "Easy Align",
-        mode = { "n", "v" },
-      },
-    },
+  {
+    "echasnovski/mini.align",
+    event = "VeryLazy",
+    config = function()
+      require("mini.align").setup()
+    end,
   },
 
   -- git
