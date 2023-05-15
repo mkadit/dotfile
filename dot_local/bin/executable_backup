@@ -3,19 +3,41 @@
 # A simple script to easily backup and restore
 
 MOUNT=/mnt/
-SOURCES=(
-	# "Music"
-	# "Pictures"
-	"Documents"
-	# "Videos"
-	# "Downloads/ISO"
-	# ".local/share/sioyek"
-)
-LOCAL_ISMOUNTED=$(mount | grep sdb)
-CLOUD_MOUNT=sync_g_drive:
-CLOUD_ISMOUNTED=$(rclone listremotes | grep $CLOUD_MOUNT)
+# MOUNT=/home/mkadit/temp/mount/Card/
+
+if [ "$1" = 'data' ]; then
+  SOURCES=(
+    "Documents"
+    # "Downloads/ISO"
+    # ".local/share/sioyek"
+  )
+  CLOUD_MOUNT=sync_g_drive:
+elif [ "$1" = 'media' ]; then
+  SOURCES=(
+    "Music/etc"
+    "Music/Old Stuff"
+    "Music/Michael Jackson"
+    # "Pictures"
+    # "Videos"
+  )
+  CLOUD_MOUNT=sync_g_media:
+fi
+
+CLOUD_ISMOUNTED=$(rclone listremotes | grep "$CLOUD_MOUNT")
+LOCAL_ISMOUNTED=$(mount | grep sdb || mount | grep simple-mtpfs)
 
 local_sync() {
+
+  if [ "$3" = 'restore' ]; then
+    FROM="$MOUNT"
+    TO="$HOME/"
+    echo "Restoring $1 from $FROM to $TO"
+  elif [ "$3" = 'backup' ]; then
+    FROM="$HOME/"
+    TO="$MOUNT"
+    echo "Backup $1 from $FROM to $TO"
+  fi
+
 	for SOURCE in "${SOURCES[@]}"; do
 		# Re configured files to delete as well
     # -a = archive mode
@@ -32,6 +54,17 @@ local_sync() {
 }
 
 cloud_sync(){
+
+  if [ "$3" = 'restore' ]; then
+    FROM="$CLOUD_MOUNT"
+    TO="$HOME/"
+    echo "Restoring $1 from $FROM to $TO"
+  elif [ "$3" = 'backup' ]; then
+    FROM="$HOME/"
+    TO="$CLOUD_MOUNT"
+    echo "Backup $1 from $FROM to $TO"
+  fi
+
 	for SOURCE in "${SOURCES[@]}"; do
    rclone sync -PL --fast-list "$FROM$SOURCE" "$TO$SOURCE/" --backup-dir "$TO/backup/$(date -I)/$SOURCE/"
   done
@@ -40,7 +73,7 @@ cloud_sync(){
 local_run() {
 
 	if [ "$LOCAL_ISMOUNTED" != '' ]; then
-		local_sync
+		local_sync "$@"
 	else
 		echo "Drive is not mounted"
 	fi
@@ -49,7 +82,7 @@ local_run() {
 cloud_run() {
 
 	if [ "$CLOUD_ISMOUNTED" != '' ]; then
-		cloud_sync
+		cloud_sync "$@"
 	else
 		echo "Drive is not mounted"
 	fi
@@ -57,7 +90,7 @@ cloud_run() {
 
 secret_restore(){
 	cp -r /mnt/Important/. ~/
-	chown -R $(whoami) ~/.gnupg/
+	chown -R "$(whoami)" ~/.gnupg/
 	sudo chmod 700 ~/.ssh
 	sudo chmod 600 ~/.ssh/id_rsa
 	find ~/.gnupg -type f -exec chmod 600 {} \;
@@ -66,32 +99,11 @@ secret_restore(){
 
 }
 
-if [ "$1" = 'local_restore' ]; then
+if [ "$2" = 'cloud' ]; then
+  cloud_run "$@"
+elif [ "$2" = 'local' ]; then
+  local_run "$@"
 
-	FROM="$MOUNT"
-	TO="$HOME/"
-	echo "Restoring data"
-    local_run
-elif [ "$1" = 'local_backup' ]; then
-
-	FROM="$HOME/"
-	TO="$MOUNT"
-	echo "Backuping data"
-    local_run
-elif [ "$1" = 'cloud_restore' ]; then
-
-	FROM="$CLOUD_MOUNT"
-	TO="$HOME/"
-	echo "Restoring data"
-    cloud_run
-elif [ "$1" = 'cloud_backup' ]; then
-
-	FROM="$HOME/"
-	TO="$CLOUD_MOUNT"
-	echo "Backuping data"
-    cloud_run
-elif [ "$1" = 'secret_restore' ]; then
-	secret_restore
-else
-	echo "Command is incorrect"
+elif [ "$2" = 'secret' ]; then
+  secret_restore
 fi
