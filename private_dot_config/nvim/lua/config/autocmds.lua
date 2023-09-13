@@ -32,7 +32,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {
     "qf",
-    "help",
+    -- "help",
     "man",
     "notify",
     "lspinfo",

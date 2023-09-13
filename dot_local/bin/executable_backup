@@ -2,6 +2,7 @@
 
 # A simple script to easily backup and restore
 
+RCLONE_COMMAND="rclone sync"
 MOUNT=/mnt/
 # MOUNT=/home/mkadit/temp/mount/Card/
 
@@ -17,10 +18,11 @@ elif [ "$1" = 'media' ]; then
     "Music/etc"
     "Music/Old Stuff"
     "Music/Michael Jackson"
-    # "Pictures"
+    "Pictures"
     # "Videos"
   )
-  CLOUD_MOUNT=sync_g_media:
+  CLOUD_MOUNT=crypt_sync_g_media:
+  RCLONE_COMMAND="rclone copy"
 fi
 
 CLOUD_ISMOUNTED=$(rclone listremotes | grep "$CLOUD_MOUNT")
@@ -48,7 +50,7 @@ local_sync() {
     # -P = Progress bar
 		# rsync -auAXvP "$FROM$SOURCE" "$TO"
     # rclone copy -PL "$FROM$SOURCE" "$TO$SOURCE"
-   rclone sync -PL --fast-list "$FROM$SOURCE" "$TO$SOURCE/" --backup-dir "$TO/backup/$(date -I)/$SOURCE/"
+   $RCLONE_COMMAND -PL --fast-list "$FROM$SOURCE" "$TO$SOURCE/" --backup-dir "$TO/backup/$(date -I)/$SOURCE/"
 	done
 
 }
@@ -66,7 +68,7 @@ cloud_sync(){
   fi
 
 	for SOURCE in "${SOURCES[@]}"; do
-   rclone sync -PL --fast-list "$FROM$SOURCE" "$TO$SOURCE/" --backup-dir "$TO/backup/$(date -I)/$SOURCE/"
+   $RCLONE_COMMAND -PL --fast-list "$FROM$SOURCE" "$TO$SOURCE/" --backup-dir "$TO/backup/$(date -I)/$SOURCE/"
   done
 }
 

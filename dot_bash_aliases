@@ -23,13 +23,6 @@ alias cz="chezmoi"
 alias man="fzf-man"
 alias rm="fzf-rm"
 
-# youtube-dl
-alias ytdl="yt-dlp --add-metadata --embed-thumbnail"
-alias ytdlm="yt-dlp --add-metadata --embed-thumbnail -f bestaudio --extract-audio --audio-format mp3 -o '~/Music/%(title)s.%(ext)s'"
-alias ytdlv="yt-dlp --add-metadata --embed-thumbnail -f bestvideo+bestaudio -o '~/Videos/%(title)s.%(ext)s'"
-alias ytdlmf="yt-dlp --add-metadata --embed-thumbnail -f bestaudio --extract-audio --audio-format mp3 -o '~/Music/%(title)s.%(ext)s' --batch-file ~/temp/youtube.txt"
-alias ytdlvf="yt-dlp --add-metadata --embed-thumbnail -f bestvideo+bestaudio -o '~/Videos/%(title)s.%(ext)s' --batch-file ~/temp/youtube.txt"
-
 # Package
 QPAS='pacman -Si {1}'
 QYAS='yay -Si {1}'

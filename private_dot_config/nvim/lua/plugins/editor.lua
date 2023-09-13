@@ -63,7 +63,7 @@ return {
     version = false, -- telescope did only one release, so use HEAD for now
     keys = {
       { "<leader>f,", "<cmd>Telescope buffers show_all_buffers=true<cr>", desc = "Switch Buffer" },
-      { "<leader>fr", Util.telescope("live_grep"), desc = "Find in Files (Grep)" },
+      -- { "<leader>fr", Util.telescope("live_grep"), desc = "Find in Files (Grep)" },
       { "<leader>f:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
       -- find
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
@@ -298,6 +298,12 @@ return {
   -- Toggle Terminal
   {
     "akinsho/toggleterm.nvim",
+    event = "VeryLazy",
+    keys = {
+      { "<leader>atv", "<cmd>ToggleTerm direction=vertical<cr>", desc = "Toggle terminal vertical" },
+      { "<leader>atf", "<cmd>ToggleTerm direction=float<cr>", desc = "Toggle terminal float" },
+      { "<leader>ats", "<cmd>ToggleTerm direction=horizontal<cr>", desc = "Toggle terminal horizontal" },
+    },
     config = function()
       require("toggleterm").setup({
         shade_terminals = false,
@@ -439,6 +445,20 @@ return {
         end,
         desc = "Grapple Scopes",
       },
+      {
+        "<leader>mN",
+        function()
+          require("grapple").cycle_forward()
+        end,
+        desc = "Next Grapple",
+      },
+      {
+        "<leader>mL",
+        function()
+          require("grapple").cycle_backward()
+        end,
+        desc = "Previous Grapple",
+      },
     },
   },
 
@@ -454,10 +474,22 @@ return {
 
   -- git
   {
+    "NeogitOrg/neogit",
+    dependencies = "nvim-lua/plenary.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("neogit").setup()
+    end,
+
+    keys = {
+      { "<leader>gs", "<cmd>Neogit<cr>", desc = "Neogit", remap = true },
+    },
+  },
+  {
     "tpope/vim-fugitive",
     event = "VeryLazy",
     keys = {
-      { "<leader>gs", "<cmd>G<cr>", desc = "Git", remap = true },
+      { "<leader>gf", "<cmd>G<cr>", desc = "Git Fugitive", remap = true },
     },
   },
   { "tpope/vim-rhubarb", event = "VeryLazy" },
@@ -533,7 +565,7 @@ return {
     config = true,
     keys = {
       {
-        "<leader>at",
+        "<leader>aT",
         "<CMD>SymbolsOutline<CR>",
         desc = "Toggle outline",
       },
