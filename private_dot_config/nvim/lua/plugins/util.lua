@@ -65,7 +65,7 @@ return {
   { "tpope/vim-repeat", event = "VeryLazy" },
 
   -- Hnady pairs mapping
-  { "tpope/vim-unimpaired", event = "VeryLazy" },
+  -- { "tpope/vim-unimpaired", event = "VeryLazy" },
 
   -- file manager
   {

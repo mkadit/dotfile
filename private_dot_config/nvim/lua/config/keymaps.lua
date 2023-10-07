@@ -137,3 +137,7 @@ map("n", "<leader>aw", "<CMD>lcd %:p:h | cd .<CR>", { desc = "Set (cwd) to curre
 -- Compile and preview
 map("n", "<leader>ap", "<CMD>!compiler %<CR>", { desc = "Compile file" })
 map("n", "<leader>aP", "<CMD>!opout %<CR>", { desc = "Preview file" })
+
+-- custom function
+-- Diff between panes
+map("n", "<Leader>af", "<CMD>call DiffToggle()<CR>", {desc = "Toggle diff between panes"})

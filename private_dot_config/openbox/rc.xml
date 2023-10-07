@@ -500,7 +500,7 @@
     <!-- run apps -->
     <keybind key="W-Return">
       <action name="Execute">
-        <command>bash -c 'st'</command>
+        <command>bash -c 'alacritty'</command>
       </action>
     </keybind>
     <keybind key="W-r">
