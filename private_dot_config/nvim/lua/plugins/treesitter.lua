@@ -48,10 +48,4 @@ return {
       require("nvim-treesitter.configs").setup(opts)
     end,
   },
-
-  -- Rainbow bracket
-  {
-    "hiphish/rainbow-delimiters.nvim",
-    pattern = "VeryLazy",
-  },
 }

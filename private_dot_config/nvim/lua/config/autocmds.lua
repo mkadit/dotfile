@@ -54,3 +54,61 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.spell = true
   end,
 })
+
+
+vim.cmd([[
+" Function for diff
+let g:diff_window = 0
+function! DiffToggle()
+    if g:diff_window
+        diffoff!
+        let g:diff_window= 0
+    else
+        windo diffthis
+        let g:diff_window= 1
+    endif
+endfunction
+
+
+" Function for deleting all empty buffer
+function! CleanEmptyBuffers()
+    let buffers = filter(range(1, bufnr('$')), 'buflisted(v:val) && empty(bufname(v:val)) && bufwinnr(v:val)<0 && !getbufvar(v:val, "&mod")')
+    if !empty(buffers)
+        exe 'bw ' . join(buffers, ' ')
+    endif
+endfunction
+
+function! TrimWhitespace()
+    let l:save = winsaveview()
+    keeppatterns %s/\s\+$//e
+    call winrestview(l:save)
+endfunction
+
+" augroup DadbodSql
+"   au!
+"   autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer { sources = { { name = 'vim-dadbod-completion' } } }
+" augroup END
+
+" Create new tab based on current file 
+command -nargs=0 Zoom call Zoom()
+function! Zoom() abort
+    if winnr('$') > 1
+        let lst = win_findbuf(bufnr())
+        call filter(lst, "tabpagewinnr(win_id2tabwin(v:val)[0], '$') == 1")
+        if len(lst) >=# 1
+            call win_gotoid(lst[0])
+        else
+            tab split
+        endif
+    else
+        let lst = win_findbuf(bufnr())
+        call filter(lst, "v:val !=# " . win_getid())
+        if len(lst) >=# 1
+            wincmd c
+            call win_gotoid(lst[0])
+        endif
+    endif
+endfunction
+
+
+]])

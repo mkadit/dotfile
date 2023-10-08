@@ -5,9 +5,9 @@ M.lazy_version = ">=9.1.0"
 local defaults = {
   -- colorscheme can be a string like `catppuccin` or a function that will load the colorscheme
 
-  -- colorscheme = function()
-  --   require("tokyonight").load()
-  -- end,
+  colorscheme = function()
+    require("nordic").load()
+  end,
   -- icons used by other plugins
   icons = {
     diagnostics = {

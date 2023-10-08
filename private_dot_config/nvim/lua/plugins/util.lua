@@ -64,8 +64,22 @@ return {
   -- makes some plugins dot-repeatable like leap
   { "tpope/vim-repeat", event = "VeryLazy" },
 
-  -- Hnady pairs mapping
+  -- handy pairs mapping
   -- { "tpope/vim-unimpaired", event = "VeryLazy" },
+  {
+    "echasnovski/mini.basics",
+    event = "VeryLazy",
+    config = function()
+      require("mini.basics").setup()
+    end,
+  },
+  {
+    "echasnovski/mini.bracketed",
+    event = "VeryLazy",
+    config = function()
+      require("mini.bracketed").setup()
+    end,
+  },
 
   -- file manager
   {
