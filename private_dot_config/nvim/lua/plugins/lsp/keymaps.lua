@@ -26,11 +26,37 @@ function M.get()
     { "]w", M.diagnostic_goto(true, "WARN"), desc = "Next Warning" },
     { "[w", M.diagnostic_goto(false, "WARN"), desc = "Prev Warning" },
     { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
+    {
+      "<leader>cA",
+      function()
+        vim.lsp.buf.code_action({
+          context = {
+            only = {
+              "source",
+            },
+            diagnostics = {},
+          },
+        })
+      end,
+      desc = "Source Action",
+      has = "codeAction",
+    },
     { "<leader>cf", format, desc = "Format Document", has = "documentFormatting" },
     { "<leader>cf", format, desc = "Format Range", mode = "v", has = "documentRangeFormatting" },
     { "<leader>cr", M.rename, expr = true, desc = "Rename", has = "rename" },
   }
   return M._keys
+end
+
+function M.has(buffer, method)
+  method = method:find("/") and method or "textDocument/" .. method
+  local clients = require("util").get_clients({ bufnr = buffer })
+  for _, client in ipairs(clients) do
+    if client.supports_method(method) then
+      return true
+    end
+  end
+  return false
 end
 
 function M.on_attach(client, buffer)
@@ -47,12 +73,12 @@ function M.on_attach(client, buffer)
   end
 
   for _, keys in pairs(keymaps) do
-    if not keys.has or client.server_capabilities[keys.has .. "Provider"] then
+    if not keys.has or M.has(buffer, keys.has) then
       local opts = Keys.opts(keys)
       opts.has = nil
-      opts.silent = true
+      opts.silent = opts.silent ~= false
       opts.buffer = buffer
-      vim.keymap.set(keys.mode or "n", keys[1], keys[2], opts)
+      vim.keymap.set(keys.mode or "n", keys.lhs, keys.rhs, opts)
     end
   end
 end
