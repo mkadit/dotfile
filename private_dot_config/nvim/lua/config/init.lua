@@ -1,101 +1,190 @@
+local Util = require("util")
+
 local M = {}
 
-M.lazy_version = ">=9.1.0"
-
 local defaults = {
-  -- colorscheme can be a string like `catppuccin` or a function that will load the colorscheme
-
   colorscheme = function()
     require("nordic").load()
   end,
+  -- load the default settings in config
+  defaults = {
+    autocmds = true, -- config.autocmds
+    keymaps = true, -- config.keymaps
+    -- config.options can't be configured here since that's loaded before lazyvim setup
+  },
+  -- news stuff
+  news = {
+    -- When enabled, NEWS.md will be shown when changed.
+    -- This only contains big new features and breaking changes.
+    lazyvim = false,
+    -- Same but for Neovim's news.txt
+    neovim = false,
+  },
   -- icons used by other plugins
+  -- stylua: ignore
   icons = {
+    misc = {
+      dots = "󰇘",
+    },
+    dap = {
+      Stopped             = { "󰁕 ", "DiagnosticWarn", "DapStoppedLine" },
+      Breakpoint          = " ",
+      BreakpointCondition = " ",
+      BreakpointRejected  = { " ", "DiagnosticError" },
+      LogPoint            = ".>",
+    },
     diagnostics = {
       Error = " ",
-      Warn = " ",
-      Hint = " ",
-      Info = " ",
+      Warn  = " ",
+      Hint  = " ",
+      Info  = " ",
     },
     git = {
-      added = " ",
+      added    = " ",
       modified = " ",
-      removed = " ",
+      removed  = " ",
     },
     kinds = {
-      Array = " ",
-      Boolean = " ",
-      Class = " ",
-      Color = " ",
-      Constant = " ",
-      Constructor = " ",
-      Enum = " ",
-      EnumMember = " ",
-      Event = " ",
-      Field = " ",
-      File = " ",
-      Folder = " ",
-      Function = " ",
-      Interface = " ",
-      Key = " ",
-      Keyword = " ",
-      Method = " ",
-      Module = " ",
-      Namespace = " ",
-      Null = "ﳠ ",
-      Number = " ",
-      Object = " ",
-      Operator = " ",
-      Package = " ",
-      Property = " ",
-      Reference = " ",
-      Snippet = " ",
-      String = " ",
-      Struct = " ",
-      Text = " ",
+      Array         = " ",
+      Boolean       = "󰨙 ",
+      Class         = " ",
+      Codeium       = "󰘦 ",
+      Color         = " ",
+      Control       = " ",
+      Collapsed     = " ",
+      Constant      = "󰏿 ",
+      Constructor   = " ",
+      Copilot       = " ",
+      Enum          = " ",
+      EnumMember    = " ",
+      Event         = " ",
+      Field         = " ",
+      File          = " ",
+      Folder        = " ",
+      Function      = "󰊕 ",
+      Interface     = " ",
+      Key           = " ",
+      Keyword       = " ",
+      Method        = "󰊕 ",
+      Module        = " ",
+      Namespace     = "󰦮 ",
+      Null          = " ",
+      Number        = "󰎠 ",
+      Object        = " ",
+      Operator      = " ",
+      Package       = " ",
+      Property      = " ",
+      Reference     = " ",
+      Snippet       = " ",
+      String        = " ",
+      Struct        = "󰆼 ",
+      TabNine       = "󰏚 ",
+      Text          = " ",
       TypeParameter = " ",
-      Unit = " ",
-      Value = " ",
-      Variable = " ",
+      Unit          = " ",
+      Value         = " ",
+      Variable      = "󰀫 ",
+    },
+  },
+  ---@type table<string, string[]>?
+  kind_filter = {
+    default = {
+      "Class",
+      "Constructor",
+      "Enum",
+      "Field",
+      "Function",
+      "Interface",
+      "Method",
+      "Module",
+      "Namespace",
+      "Package",
+      "Property",
+      "Struct",
+      "Trait",
+    },
+    -- you can specify a different filter for each filetype
+    lua = {
+      "Class",
+      "Constructor",
+      "Enum",
+      "Field",
+      "Function",
+      "Interface",
+      "Method",
+      "Module",
+      "Namespace",
+      -- "Package", -- remove package since luals uses it for control flow structures
+      "Property",
+      "Struct",
+      "Trait",
     },
   },
 }
 
+M.json = {
+  version = 2,
+  data = {
+    version = nil, ---@type string?
+    news = {}, ---@type table<string, string>
+    extras = {}, ---@type string[]
+  },
+}
+
+function M.json.load()
+  local path = vim.fn.stdpath("config") .. "/lazyvim.json"
+  local f = io.open(path, "r")
+  if f then
+    local data = f:read("*a")
+    f:close()
+    local ok, json = pcall(vim.json.decode, data, { luanil = { object = true, array = true } })
+    if ok then
+      M.json.data = vim.tbl_deep_extend("force", M.json.data, json or {})
+      if M.json.data.version ~= M.json.version then
+        Util.json.migrate()
+      end
+    end
+  end
+end
+
+---@type LazyVimOptions
 local options
 
+---@param opts? LazyVimOptions
 function M.setup(opts)
-  -- options = vim.tbl_deep_extend("force", defaults, opts or {})
-  options = defaults
+  options = vim.tbl_deep_extend("force", defaults, opts or {}) or {}
 
-  -- Check for lazy.nvim (Plugin manager)
-  if not M.has() then
-    require("lazy.core.util").error(
-      "**LazyVim** needs **lazy.nvim** version "
-        .. M.lazy_version
-        .. " to work properly.\n"
-        .. "Please upgrade **lazy.nvim**",
-      { title = "LazyVim" }
-    )
-    error("Exiting")
-  end
-
-  if vim.fn.argc(-1) == 0 then
-    -- autocmds and keymaps can wait to load
-    vim.api.nvim_create_autocmd("User", {
-      group = vim.api.nvim_create_augroup("LazyVim", { clear = true }),
-      pattern = "VeryLazy",
-      callback = function()
-        M.load("autocmds")
-        M.load("keymaps")
-      end,
-    })
-  else
-    -- load them now so they affect the opened buffers
+  -- autocmds can be loaded lazily when not opening a file
+  local lazy_autocmds = vim.fn.argc(-1) == 0
+  if not lazy_autocmds then
     M.load("autocmds")
-    M.load("keymaps")
   end
 
-  -- Load colorscheme
-  require("lazy.core.util").try(function()
+  local group = vim.api.nvim_create_augroup("LazyVim", { clear = true })
+  vim.api.nvim_create_autocmd("User", {
+    group = group,
+    pattern = "VeryLazy",
+    callback = function()
+      if lazy_autocmds then
+        M.load("autocmds")
+      end
+      M.load("keymaps")
+
+      Util.format.setup()
+      Util.news.setup()
+
+      vim.api.nvim_create_user_command("LazyRoot", function()
+        Util.root.info()
+      end, { desc = "LazyVim roots for the current buffer" })
+
+      vim.api.nvim_create_user_command("LazyExtras", function()
+        Util.extras.show()
+      end, { desc = "Manage LazyVim extras" })
+    end,
+  })
+
+  Util.track("colorscheme")
+  Util.try(function()
     if type(M.colorscheme) == "function" then
       M.colorscheme()
     else
@@ -104,51 +193,72 @@ function M.setup(opts)
   end, {
     msg = "Could not load your colorscheme",
     on_error = function(msg)
-      require("lazy.core.util").error(msg)
+      Util.error(msg)
       vim.cmd.colorscheme("habamax")
     end,
   })
+  Util.track()
 end
 
-function M.has(range)
-  local Semver = require("lazy.manage.semver")
-  return Semver.range(range or M.lazy_version):matches(require("lazy.core.config").version or "0.0.0")
-end
-
-function M.load(name)
-  local Util = require("lazy.core.util")
-  -- always load lazyvim, then user file
-  for _, mod in ipairs({ "config." .. name }) do
-    Util.try(function()
-      require(mod)
-    end, {
-      msg = "Failed loading " .. mod,
-      on_error = function(msg)
-        local modpath = require("lazy.core.cache").find(mod)
-        if modpath then
-          Util.error(msg)
-        end
-      end,
-    })
+---@param buf? number
+---@return string[]?
+function M.get_kind_filter(buf)
+  buf = (buf == nil or buf == 0) and vim.api.nvim_get_current_buf() or buf
+  local ft = vim.bo[buf].filetype
+  if M.kind_filter == false then
+    return
   end
+  return M.kind_filter[ft] or M.kind_filter.default
+end
+
+---@param name "autocmds" | "options" | "keymaps"
+function M.load(name)
+  local function _load(mod)
+    if require("lazy.core.cache").find(mod)[1] then
+      Util.try(function()
+        require(mod)
+      end, { msg = "Failed loading " .. mod })
+    end
+  end
+  -- always load lazyvim, then user file
+  if M.defaults[name] or name == "options" then
+    _load("config." .. name)
+  end
+  _load("config." .. name)
   if vim.bo.filetype == "lazy" then
     -- HACK: LazyVim may have overwritten options of the Lazy ui, so reset this here
     vim.cmd([[do VimResized]])
   end
+  local pattern = "LazyVim" .. name:sub(1, 1):upper() .. name:sub(2)
+  vim.api.nvim_exec_autocmds("User", { pattern = pattern, modeline = false })
 end
 
 M.did_init = false
 function M.init()
-  if not M.did_init then
-    M.did_init = true
-    -- delay notifications till vim.notify was replaced or after 500ms
-    require("util").lazy_notify()
-
-    -- load options here, before lazy init while sourcing plugin modules
-    -- this is needed to make sure options will be correctly applied
-    -- after installing missing plugins
-    require("config").load("options")
+  if M.did_init then
+    return
   end
+  M.did_init = true
+  local plugin = require("lazy.core.config").spec.plugins.LazyVim
+  if plugin then
+    vim.opt.rtp:append(plugin.dir)
+  end
+
+  package.preload["plugins.lsp.format"] = function()
+    Util.deprecate([[require("plugins.lsp.format")]], [[require("util").format]])
+    return Util.format
+  end
+
+  -- delay notifications till vim.notify was replaced or after 500ms
+  require("util").lazy_notify()
+
+  -- load options here, before lazy init while sourcing plugin modules
+  -- this is needed to make sure options will be correctly applied
+  -- after installing missing plugins
+  M.load("options")
+
+  Util.plugin.setup()
+  M.json.load()
 end
 
 setmetatable(M, {

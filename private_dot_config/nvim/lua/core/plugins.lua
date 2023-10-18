@@ -20,9 +20,24 @@ require("lazy").setup({
     -- add LazyVim and import its plugins
     -- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import any extras modules here
-    { import = "plugins.extras.lang.go" },
-    { import = "plugins.extras.neorg" },
     -- { import = "plugins.extras.ui.mini-animate" },
+    { import = "plugins.extras.none-ls" },
+    { import = "plugins.extras.neotest" },
+    { import = "plugins.extras.dap" },
+    { import = "plugins.extras.dadbod" },
+    { import = "plugins.extras.neorg" },
+    { import = "plugins.extras.leetcode" },
+    { import = "plugins.extras.devdocs" },
+    { import = "plugins.extras.zen" },
+
+    -- language
+    { import = "plugins.extras.lang.go" },
+    { import = "plugins.extras.lang.python" },
+    -- { import = "plugins.extras.lang.tailwind" },
+    -- { import = "plugins.extras.lang.java" },
+    { import = "plugins.extras.lang.typescript" },
+    { import = "plugins.extras.lang.docker" },
+    { import = "plugins.extras.lang.tex" },
     -- import/override with your plugins
     { import = "plugins" },
   },

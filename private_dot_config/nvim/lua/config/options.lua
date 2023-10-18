@@ -1,7 +1,18 @@
 -- This file is automatically loaded by plugins.config
 
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = "\\"
+
+-- enable autoformat
+--
+vim.g.autoformat = true
+
+-- root dir detection
+-- Each entry can be:
+-- * the name of a detector function like `lsp` or `cwd`
+-- * a pattern or array of patterns like `.git` or `lua`.
+-- * a function with signature `function(buf) -> string|string[]`
+vim.g.root_spec = { "lsp", { ".git", "lua" }, "cwd" }
 
 local o = vim.opt
 local g = vim.g
@@ -31,7 +42,7 @@ o.cursorline = false -- Enable highlighting of the current line
 o.encoding = "UTF-8" -- set encoding
 o.equalalways = true -- make window size always equal
 o.expandtab = true -- Use spaces instead of tabs
-o.fillchars = { vert = "│", eob = " ", fold = " ", diff = " " } -- make vertical split sign better
+o.fillchars = { vert = "│", eob = " ", fold = " ", diff = " ", foldopen = "", foldclose = "" }
 o.formatoptions = "jcroqlnt" -- tcqj
 o.grepformat = "%f:%l:%c:%m"
 o.hidden = true -- keep hidden buffers
@@ -51,7 +62,7 @@ o.scrolloff = 4 -- Lines of context
 o.sessionoptions = { "buffers", "curdir", "tabpages", "winsize" }
 o.shiftround = true -- Round indent
 o.shiftwidth = 2 -- Size of an indent
-o.shortmess:append({ W = true, I = true, c = true })
+o.shortmess:append({ W = true, I = true, c = true, C = true })
 o.showmode = false -- Dont show mode since we have a statusline
 o.sidescrolloff = 8 -- Columns of context
 o.signcolumn = "yes" -- Always show the signcolumn, otherwise it would shift the text each time
@@ -73,6 +84,16 @@ o.wildmode = "longest:full,full" -- Command-line completion mode
 o.winbar = "%=%m %f" -- set winbar
 o.winminwidth = 5 -- Minimum window width
 o.wrap = false -- don't wrap lines
+
+if vim.fn.has("nvim-0.10") == 1 then
+  -- o.smoothscroll = true
+  o.foldmethod = "expr"
+  o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
+end
+
+-- Folding
+o.foldlevel = 99
+o.foldtext = "v:lua.require'util'.ui.foldtext()"
 
 if vim.fn.has("nvim-0.9.0") == 1 then
   o.splitkeep = "screen"

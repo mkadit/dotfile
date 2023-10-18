@@ -1,56 +1,65 @@
 local M = {}
 
+---@type LazyKeysLspSpec[]|nil
 M._keys = nil
 
+---@alias LazyKeysLspSpec LazyKeysSpec|{has?:string}
+---@alias LazyKeysLsp LazyKeys|{has?:string}
+
+---@return LazyKeysLspSpec[]
 function M.get()
-  local format = require("plugins.lsp.format").format
-  -- stylua: ignore
-  M._keys = M._keys or {
-    { "<leader>cd", vim.diagnostic.open_float, desc = "Line Diagnostics" },
-    { "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
-    { "<leader>cs", ":LspStop ", desc = "Lsp Stop" },
-    { "<leader>cS", ":LspStart ", desc = "Lsp Start" },
-    { "<leader>cR", "<cmd>LspRestart<cr>", desc = "Lsp Restart" },
-    { "gld", "<cmd>Telescope lsp_definitions<cr>", desc = "Goto Definition" },
-    { "glr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
-    { "glD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
-    { "glI", "<cmd>Telescope lsp_implementations<cr>", desc = "Goto Implementation" },
-    { "glt", "<cmd>Telescope lsp_type_definitions<cr>", desc = "Goto Type Definition" },
-    { "K", vim.lsp.buf.hover, desc = "Hover" },
-    { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
-    { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
-    { "]d", M.diagnostic_goto(true), desc = "Next Diagnostic" },
-    { "[d", M.diagnostic_goto(false), desc = "Prev Diagnostic" },
-    { "]e", M.diagnostic_goto(true, "ERROR"), desc = "Next Error" },
-    { "[e", M.diagnostic_goto(false, "ERROR"), desc = "Prev Error" },
-    { "]w", M.diagnostic_goto(true, "WARN"), desc = "Next Warning" },
-    { "[w", M.diagnostic_goto(false, "WARN"), desc = "Prev Warning" },
-    { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
-    {
-      "<leader>cA",
-      function()
-        vim.lsp.buf.code_action({
-          context = {
-            only = {
-              "source",
+  if M._keys then
+    return M._keys
+  end
+    -- stylua: ignore
+    M._keys =  {
+      { "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
+      { "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, desc = "Goto Definition", has = "definition" },
+      { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
+      { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
+      { "gI", function() require("telescope.builtin").lsp_implementations({ reuse_win = true }) end, desc = "Goto Implementation" },
+      { "gy", function() require("telescope.builtin").lsp_type_definitions({ reuse_win = true }) end, desc = "Goto T[y]pe Definition" },
+      { "K", vim.lsp.buf.hover, desc = "Hover" },
+      { "gK", vim.lsp.buf.signature_help, desc = "Signature Help", has = "signatureHelp" },
+      { "<c-k>", vim.lsp.buf.signature_help, mode = "i", desc = "Signature Help", has = "signatureHelp" },
+      { "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
+      {
+        "<leader>cA",
+        function()
+          vim.lsp.buf.code_action({
+            context = {
+              only = {
+                "source",
+              },
+              diagnostics = {},
             },
-            diagnostics = {},
-          },
-        })
+          })
+        end,
+        desc = "Source Action",
+        has = "codeAction",
+      }
+    }
+  if require("util").has("inc-rename.nvim") then
+    M._keys[#M._keys + 1] = {
+      "<leader>cr",
+      function()
+        local inc_rename = require("inc_rename")
+        return ":" .. inc_rename.config.cmd_name .. " " .. vim.fn.expand("<cword>")
       end,
-      desc = "Source Action",
-      has = "codeAction",
-    },
-    { "<leader>cf", format, desc = "Format Document", has = "documentFormatting" },
-    { "<leader>cf", format, desc = "Format Range", mode = "v", has = "documentRangeFormatting" },
-    { "<leader>cr", M.rename, expr = true, desc = "Rename", has = "rename" },
-  }
+      expr = true,
+      desc = "Rename",
+      has = "rename",
+    }
+  else
+    M._keys[#M._keys + 1] = { "<leader>cr", vim.lsp.buf.rename, desc = "Rename", has = "rename" }
+  end
   return M._keys
 end
 
+---@param method string
 function M.has(buffer, method)
   method = method:find("/") and method or "textDocument/" .. method
-  local clients = require("util").get_clients({ bufnr = buffer })
+  local clients = require("util").lsp.get_clients({ bufnr = buffer })
   for _, client in ipairs(clients) do
     if client.supports_method(method) then
       return true
@@ -59,18 +68,25 @@ function M.has(buffer, method)
   return false
 end
 
-function M.on_attach(client, buffer)
+---@return (LazyKeys|{has?:string})[]
+function M.resolve(buffer)
   local Keys = require("lazy.core.handler.keys")
-  local keymaps = {}
-
-  for _, value in ipairs(M.get()) do
-    local keys = Keys.parse(value)
-    if keys[2] == vim.NIL or keys[2] == false then
-      keymaps[keys.id] = nil
-    else
-      keymaps[keys.id] = keys
-    end
+  if not Keys.resolve then
+    return {}
   end
+  local spec = M.get()
+  local opts = require("util").opts("nvim-lspconfig")
+  local clients = require("util").lsp.get_clients({ bufnr = buffer })
+  for _, client in ipairs(clients) do
+    local maps = opts.servers[client.name] and opts.servers[client.name].keys or {}
+    vim.list_extend(spec, maps)
+  end
+  return Keys.resolve(spec)
+end
+
+function M.on_attach(_, buffer)
+  local Keys = require("lazy.core.handler.keys")
+  local keymaps = M.resolve(buffer)
 
   for _, keys in pairs(keymaps) do
     if not keys.has or M.has(buffer, keys.has) then
@@ -80,22 +96,6 @@ function M.on_attach(client, buffer)
       opts.buffer = buffer
       vim.keymap.set(keys.mode or "n", keys.lhs, keys.rhs, opts)
     end
-  end
-end
-
-function M.rename()
-  if pcall(require, "inc_rename") then
-    return ":IncRename " .. vim.fn.expand("<cword>")
-  else
-    vim.lsp.buf.rename()
-  end
-end
-
-function M.diagnostic_goto(next, severity)
-  local go = next and vim.diagnostic.goto_next or vim.diagnostic.goto_prev
-  severity = severity and vim.diagnostic.severity[severity] or nil
-  return function()
-    go({ severity = severity })
   end
 end
 
