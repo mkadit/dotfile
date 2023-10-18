@@ -30,27 +30,91 @@ return {
               local leader = " o"
               keybinds.map_event_to_mode("norg", {
                 n = { -- Bind keys in normal mode
+                  -- Marks the task under the cursor as "undone"
+                  -- ^mark Task as Undone
+                  { leader .. "tu", "core.qol.todo_items.todo.task_undone", opts = { desc = "Mark as Undone" } },
 
-                  -- Keys for managing TODO items and setting their states
-                  { "ghu", "core.norg.qol.todo_items.todo.task_undone" },
-                  { "ghp", "core.norg.qol.todo_items.todo.task_pending" },
-                  { "ghd", "core.norg.qol.todo_items.todo.task_done" },
-                  { "ghh", "core.norg.qol.todo_items.todo.task_on_hold" },
-                  { "ghc", "core.norg.qol.todo_items.todo.task_cancelled" },
-                  { "ghr", "core.norg.qol.todo_items.todo.task_recurring" },
-                  { "ghi", "core.norg.qol.todo_items.todo.task_important" },
-                  { "gh ", "core.norg.qol.todo_items.todo.task_cycle" },
+                  -- Marks the task under the cursor as "pending"
+                  -- ^mark Task as Pending
+                  { leader .. "tp", "core.qol.todo_items.todo.task_pending", opts = { desc = "Mark as Pending" } },
 
-                  -- Keys for managing notes
-                  { leader .. "nn", "core.norg.dirman.new.note" },
+                  -- Marks the task under the cursor as "done"
+                  -- ^mark Task as Done
+                  { leader .. "td", "core.qol.todo_items.todo.task_done", opts = { desc = "Mark as Done" } },
 
-                  { "<CR>", "core.norg.esupports.hop.hop-link" },
-                  -- { "<M-CR>", "core.norg.esupports.hop.hop-link", "vsplit" },
+                  -- Marks the task under the cursor as "on_hold"
+                  -- ^mark Task as on Hold
+                  { leader .. "th", "core.qol.todo_items.todo.task_on_hold", opts = { desc = "Mark as On Hold" } },
 
+                  -- Marks the task under the cursor as "cancelled"
+                  -- ^mark Task as Cancelled
+                  {
+                    leader .. "tc",
+                    "core.qol.todo_items.todo.task_cancelled",
+                    opts = { desc = "Mark as Cancelled" },
+                  },
+
+                  -- Marks the task under the cursor as "recurring"
+                  -- ^mark Task as Recurring
+                  {
+                    leader .. "tr",
+                    "core.qol.todo_items.todo.task_recurring",
+                    opts = { desc = "Mark as Recurring" },
+                  },
+
+                  -- Marks the task under the cursor as "important"
+                  -- ^mark Task as Important
+                  {
+                    leader .. "ti",
+                    "core.qol.todo_items.todo.task_important",
+                    opts = { desc = "Mark as Important" },
+                  },
+
+                  -- Marks the task under the cursor as "ambiguous"
+                  -- ^mark Task as ambiguous
+                  { leader .. "ta", "core.qol.todo_items.todo.task_ambiguous", opts = { desc = "Mark as Ambigous" } },
+
+                  -- Switches the task under the cursor between a select few states
+                  { "<C-Space>", "core.qol.todo_items.todo.task_cycle", opts = { desc = "Cycle Task" } },
+
+                  -- Creates a new .norg file to take notes in
+                  -- ^New Note
+                  { leader .. "nn", "core.dirman.new.note", opts = { desc = "Create New Note" } },
+
+                  -- Hop to the destination of the link under the cursor
+                  { "<CR>", "core.esupports.hop.hop-link", opts = { desc = "Jump to Link" } },
+                  { "gd", "core.esupports.hop.hop-link", opts = { desc = "Jump to Link" } },
+                  { "gf", "core.esupports.hop.hop-link", opts = { desc = "Jump to Link" } },
+                  { "gF", "core.esupports.hop.hop-link", opts = { desc = "Jump to Link" } },
+
+                  -- Same as `<CR>`, except opens the destination in a vertical split
+                  {
+                    "<M-CR>",
+                    "core.esupports.hop.hop-link",
+                    "vsplit",
+                    opts = { desc = "Jump to Link (Vertical Split)" },
+                  },
+
+                  { ">.", "core.promo.promote", opts = { desc = "Promote Object (Non-Recursively)" } },
+                  { "<,", "core.promo.demote", opts = { desc = "Demote Object (Non-Recursively)" } },
+
+                  { ">>", "core.promo.promote", "nested", opts = { desc = "Promote Object (Recursively)" } },
+                  { "<<", "core.promo.demote", "nested", opts = { desc = "Demote Object (Recursively)" } },
+
+                  { leader .. "lt", "core.pivot.toggle-list-type", opts = { desc = "Toggle (Un)ordered List" } },
+                  { leader .. "li", "core.pivot.invert-list-type", opts = { desc = "Invert (Un)ordered List" } },
+
+                  { leader .. "id", "core.tempus.insert-date", opts = { desc = "Insert Date" } },
                   -- Keys for telescope
-                  { leader .. "fl", "core.integrations.telescope.find_linkable" },
-                  { leader .. "fp", "core.integrations.telescope.find_project_tasks" },
-                  { leader .. "fc", "core.integrations.telescope.find_context_tasks" },
+                  {
+                    leader .. "fl",
+                    "core.integrations.telescope.find_linkable",
+                    opts = {
+                      desc = "Find Links",
+                    },
+                  },
+                  -- { leader .. "fp", "core.integrations.telescope.find_project_tasks" },
+                  -- { leader .. "fc", "core.integrations.telescope.find_context_tasks" },
                 },
                 i = {
                   -- { "<C-l>", "core.integrations.telescope.insert_link" },
@@ -63,17 +127,50 @@ return {
               -- Apply the below keys to all modes
               keybinds.map_to_mode("all", {
                 n = {
-                  { leader .. "mn", "<CMD>Neorg mode norg<CR>" },
-                  { leader .. "mh", "<CMD>Neorg mode traverse-heading<CR>" },
+                  { leader .. "mn", ":Neorg mode norg<CR>", opts = { desc = "Enter Norg Mode" } },
+                  {
+                    leader .. "mh",
+                    ":Neorg mode traverse-heading<CR>",
+                    opts = { desc = "Enter Heading Traversal Mode" },
+                  },
 
                   -- etc
-                  { leader .. "ak", "<CMD>Neorg kanban toggle<CR>" },
-                  { leader .. "ai", "<CMD>Neorg inject-metadata<CR>" },
-                  { leader .. "aj", "<CMD>Neorg journal<CR>" },
-                  { leader .. "an", "<CMD>Neorg toc split<CR>" },
-                  { leader .. "aq", "<CMD>Neorg toc toqflist<CR>" },
-                  { leader .. "ar", "<CMD>Neorg return<CR>" }, -- Return to previous
-                  { leader .. "aw", "<CMD>Neorg workspace<CR>" },
+                  -- { leader .. "ak", "<CMD>Neorg kanban toggle<CR>" },
+                  {
+                    leader .. "ai",
+                    "<CMD>Neorg inject-metadata<CR>",
+                    opts = {
+                      { desc = "Inject Metadata" },
+                    },
+                  },
+                  {
+                    leader .. "aj",
+                    "<CMD>Neorg journal<CR>",
+                    opts = {
+                      { desc = "Open Journal" },
+                    },
+                  },
+                  {
+                    leader .. "an",
+                    "<CMD>Neorg toc split<CR>",
+                    opts = {
+                      { desc = "Open ToC in Split" },
+                    },
+                  },
+                  {
+                    leader .. "ar",
+                    "<CMD>Neorg return<CR>",
+                    opts = {
+                      { desc = "Return to File" },
+                    },
+                  }, -- Return to previous
+                  {
+                    leader .. "",
+                    "<CMD>Neorg workspace<CR>",
+                    opts = {
+                      { desc = "Current Workspace" },
+                    },
+                  },
                   -- { leader .. "fP", ":Neorg gtd_project_tags 1 1 1<CR>" },
                 },
               }, {

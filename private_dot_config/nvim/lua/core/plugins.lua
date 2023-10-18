@@ -8,15 +8,9 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
 require("lazy").setup({
   spec = {
+    -- import all plugins
+    { import = "plugins" },
 
-    -- {
-    --   "AlexvZyl/nordic.nvim",
-    --   lazy = false,
-    --   priority = 1000,
-    --   config = function()
-    --     require("nordic").load()
-    --   end,
-    -- },
     -- add LazyVim and import its plugins
     -- { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import any extras modules here
@@ -26,6 +20,7 @@ require("lazy").setup({
     { import = "plugins.extras.dap" },
     { import = "plugins.extras.dadbod" },
     { import = "plugins.extras.neorg" },
+    -- { import = "plugins.extras.org" },
     { import = "plugins.extras.leetcode" },
     { import = "plugins.extras.devdocs" },
     { import = "plugins.extras.zen" },
@@ -33,13 +28,14 @@ require("lazy").setup({
     -- language
     { import = "plugins.extras.lang.go" },
     { import = "plugins.extras.lang.python" },
-    -- { import = "plugins.extras.lang.tailwind" },
+    { import = "plugins.extras.lang.tailwind" },
     -- { import = "plugins.extras.lang.java" },
     { import = "plugins.extras.lang.typescript" },
     { import = "plugins.extras.lang.docker" },
     { import = "plugins.extras.lang.tex" },
-    -- import/override with your plugins
-    { import = "plugins" },
+    { import = "plugins.extras.lang.clang" },
+    { import = "plugins.extras.lang.rust" },
+    -- { import = "plugins.extras.lang.terraform" },
   },
   defaults = {
     -- By default, only LazyVim plugins will be lazy-loaded. Your custom plugins will load during startup.

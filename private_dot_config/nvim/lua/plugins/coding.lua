@@ -42,7 +42,7 @@ return {
       "hrsh7th/cmp-buffer",
       "hrsh7th/cmp-path",
       "saadparwaiz1/cmp_luasnip",
-      { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
+      -- { "roobert/tailwindcss-colorizer-cmp.nvim", config = true },
     },
     opts = function()
       vim.api.nvim_set_hl(0, "CmpGhostText", { link = "Comment", default = true })
