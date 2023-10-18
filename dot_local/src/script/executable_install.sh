@@ -18,6 +18,7 @@ rm -rf paru
 # Install Dependencies
  PKGS=(
 "abook" 
+"alacritty"
 "alsa-utils" 
 "ani-cli" 
 "anytype-bin"
@@ -133,6 +134,7 @@ rm -rf paru
 "pass" 
 "pavucontrol" 
 "pdfarranger-git" 
+"perl-info-mimeinfo"
 "plank" 
 "playerctl" 
 "polybar" 
@@ -225,6 +227,11 @@ done
 
 
 # Install tools that cannot be installed throug AUR
+
+# install bun & other toolset
+curl -fsSL https://bun.sh/install | bash
+
+bun install -g httypac
 
 # Install terminal
 cd "$HOME/.local/src/st" || exit
