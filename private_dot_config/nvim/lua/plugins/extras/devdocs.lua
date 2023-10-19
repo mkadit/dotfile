@@ -6,9 +6,17 @@ return {
     "nvim-treesitter/nvim-treesitter",
   },
   opts = {},
+  cmd = {
+    "DevdocsOpen",
+    "DevdocsOpenCurrent",
+    "DevdocsFetch",
+    "DevdocsInstall",
+    "DevdocsUninstall",
+    "DevdocsUpdate",
+  },
   keys = {
 
-    { "<leader>sd", "<cmd>DevdocsOpenFloat<cr>", desc = "Search Devdocs" },
-    { "<leader>sD", "<cmd>DevdocsOpenCurrentFloat<cr>", desc = "Search Devdocs (current filetype)" },
+    { "<leader>sd", "<cmd>DevdocsOpenCurrent<cr>", desc = "Search Devdocs (current filetype)" },
+    { "<leader>sD", "<cmd>DevdocsOpen<cr>", desc = "Search Devdocs" },
   },
 }
