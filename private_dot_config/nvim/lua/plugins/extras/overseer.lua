@@ -5,7 +5,7 @@ return {
       require("overseer").setup({
         -- strategy = "toggleterm",
 
-        templates = { "builtin", "user.compile_build" },
+        templates = { "builtin", "user.compile_build", "user.dlv_run" },
       })
     end,
 
