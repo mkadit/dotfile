@@ -117,7 +117,10 @@ return {
               cond = function() return package.loaded["noice"] and require("noice").api.status.mode.has() end,
               color = fg("Constant") ,
             },
+            { "overseer" },
+
             { require("lazy.status").updates, cond = require("lazy.status").has_updates, color = fg("Special") },
+
             {
               "diff",
               colored = true,
@@ -273,7 +276,8 @@ return {
     },
     config = function(_, opts)
       vim.api.nvim_create_autocmd("FileType", {
-        pattern = { "Trouble",
+        pattern = {
+          "Trouble",
           "alpha",
           "dashboard",
           "help",
@@ -282,7 +286,8 @@ return {
           "mason",
           "neo-tree",
           "notify",
-          "toggleterm", },
+          "toggleterm",
+        },
         callback = function()
           vim.b.miniindentscope_disable = true
         end,

@@ -154,7 +154,7 @@ map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 map("n", "<leader>aw", "<CMD>lcd %:p:h | cd .<CR>", { desc = "Set (cwd) to current folder" })
 
 -- Compile and preview
-map("n", "<leader>ap", "<CMD>!compiler %<CR>", { desc = "Compile file" })
+map("n", "<leader>aop", "<CMD>WatchRun<CR>", { desc = "Watch and Compile file" })
 map("n", "<leader>aP", "<CMD>!opout %<CR>", { desc = "Preview file" })
 
 -- custom function
