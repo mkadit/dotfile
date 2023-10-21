@@ -145,27 +145,34 @@ return {
       },
     },
   },
-  {
-    "nvim-neotest/neotest",
-    optional = true,
-    dependencies = {
-      "nvim-neotest/neotest-go",
-    },
-    opts = {
-      adapters = {
-        ["neotest-go"] = {
-          -- Here we can set options for neotest-go, e.g.
-          -- args = { "-tags=integration" }
-        },
-      },
-    },
-  },
+  -- {
+  --   "nvim-neotest/neotest",
+  --   optional = true,
+  --   dependencies = {
+  --     "nvim-neotest/neotest-go",
+  --   },
+  --   opts = {
+  --     adapters = {
+  --       ["neotest-go"] = {
+  --         -- Here we can set options for neotest-go, e.g.
+  --         -- args = { "-tags=integration" }
+  --         experimental = {
+  --           test_table = true,
+  --         },
+  --       },
+  --     },
+  --   },
+  -- },
 
   {
     "olexsmir/gopher.nvim",
     ft = "go",
     config = function()
-      require("gopher").setup()
+      require("gopher").setup({
+        gotests = {
+          template = "testify",
+        },
+      })
     end,
     build = function()
       vim.cmd([[silent! GoInstallDeps]])
