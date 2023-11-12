@@ -21,6 +21,8 @@ require("lazy").setup({
     { import = "plugins.extras.dadbod" },
     { import = "plugins.extras.overseer" },
     { import = "plugins.extras.neorg" },
+    -- { import = "plugins.extras.org" },
+    { import = "plugins.extras.whop" },
     { import = "plugins.extras.leetcode" },
     { import = "plugins.extras.devdocs" },
     { import = "plugins.extras.zen" },
@@ -34,7 +36,7 @@ require("lazy").setup({
     { import = "plugins.extras.lang.docker" },
     { import = "plugins.extras.lang.tex" },
     { import = "plugins.extras.lang.clang" },
-    { import = "plugins.extras.lang.rust" },
+    -- { import = "plugins.extras.lang.rust" },
     -- { import = "plugins.extras.lang.terraform" },
   },
   defaults = {
@@ -46,8 +48,8 @@ require("lazy").setup({
     version = false, -- always use the latest git commit
     -- version = "*", -- try installing the latest stable version for plugins that support semver
   },
-  install = { colorscheme = { "nordic", "tokyonight", "habamax" } },
-  checker = { enabled = true }, -- automatically check for plugin updates
+  install = { colorscheme = { "nightfox", "nordic", "tokyonight", "habamax" } },
+  checker = { enabled = true, notify = false }, -- automatically check for plugin updates
   performance = {
     rtp = {
       -- disable some rtp plugins

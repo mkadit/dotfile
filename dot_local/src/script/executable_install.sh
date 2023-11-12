@@ -79,6 +79,7 @@ rm -rf paru
 "iproute2" 
 "iptables-nft" 
 "isync" 
+"jc"
 "jq" 
 "just"
 "kubectl" 

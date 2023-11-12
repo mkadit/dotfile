@@ -3,7 +3,7 @@ return {
   -- Nordic
   {
     "AlexvZyl/nordic.nvim",
-    lazy = false,
+    lazy = true,
     priority = 1000,
     config = function()
       require("nordic").load()
@@ -22,5 +22,12 @@ return {
     "catppuccin/nvim",
     lazy = true,
     name = "catppuccin",
+  },
+
+  -- nightfox
+  {
+    "EdenEast/nightfox.nvim",
+    lazy = true,
+    name = "nightfox",
   },
 }

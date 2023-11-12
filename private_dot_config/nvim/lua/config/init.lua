@@ -3,9 +3,10 @@ local Util = require("util")
 local M = {}
 
 local defaults = {
-  colorscheme = function()
-    require("nordic").load()
-  end,
+  -- colorscheme = function()
+  --   require("nordic").load()
+  -- end,
+  colorscheme = "nordfox",
   -- load the default settings in config
   defaults = {
     autocmds = true, -- config.autocmds

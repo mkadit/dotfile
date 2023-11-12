@@ -1,6 +1,8 @@
+local leet_arg = "leet.nvim"
 return {
 
   "kawre/leetcode.nvim",
+  lazy = leet_arg ~= vim.fn.argv()[1],
   build = ":TSUpdate html",
   dependencies = {
     "nvim-treesitter/nvim-treesitter",
@@ -16,7 +18,7 @@ return {
   },
   opts = {
     -- configuration goes here
-    arg = "leet.nvim",
+    arg = leet_arg,
     lang = "golang",
   },
 }

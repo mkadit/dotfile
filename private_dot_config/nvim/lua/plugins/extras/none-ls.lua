@@ -42,6 +42,7 @@ return {
         nls.builtins.formatting.stylua,
         nls.builtins.formatting.shfmt,
         nls.builtins.diagnostics.shellcheck,
+        nls.builtins.diagnostics.buf,
       })
     end,
   },

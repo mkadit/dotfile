@@ -13,7 +13,10 @@ function M.get()
   end
     -- stylua: ignore
     M._keys =  {
-      { "<leader>cl", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
+      { "<leader>cli", "<cmd>LspInfo<cr>", desc = "Lsp Info" },
+      { "<leader>cls", ":LspStop ", desc = "Lsp Stop" },
+      { "<leader>clS", ":LspStart ", desc = "Lsp Start" },
+      { "<leader>clr", ":LspRestart", desc = "Lsp Restart" },
       { "gd", function() require("telescope.builtin").lsp_definitions({ reuse_win = true }) end, desc = "Goto Definition", has = "definition" },
       { "gr", "<cmd>Telescope lsp_references<cr>", desc = "References" },
       { "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },

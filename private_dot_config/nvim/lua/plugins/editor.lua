@@ -56,6 +56,7 @@ return {
         bind_to_cwd = false,
         follow_current_file = { enabled = true },
         use_libuv_file_watcher = true,
+        hijack_netrw_behavior = "disabled",
       },
       window = {
         mappings = {
@@ -92,6 +93,13 @@ return {
         end,
       })
     end,
+  },
+  {
+    "stevearc/oil.nvim",
+    -- event = "VeryLazy",
+    opts = {},
+    -- Optional dependencies
+    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 
   -- search/replace in multiple files
@@ -154,6 +162,7 @@ return {
       { "<leader>sM", "<cmd>Telescope man_pages<cr>", desc = "Man Pages" },
       { "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
       { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
+      { "<leader>sq", "<cmd>Telescope quickfix<cr>", desc = "Quickfix" },
       { "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
       { "<leader>sw", Util.telescope("grep_string", { word_match = "-w" }), desc = "Word (root dir)" },
       { "<leader>sW", Util.telescope("grep_string", { cwd = false, word_match = "-w" }), desc = "Word (cwd)" },
@@ -267,6 +276,11 @@ return {
         ["<leader>m"] = { name = "+grapple" },
         ["<leader>x"] = { name = "+diagnostics/quickfix" },
         ["<leader>a"] = { name = "+action" },
+        ["<leader>ao"] = { name = "+overseer" },
+        ["<leader>at"] = { name = "+terminal" },
+        ["<leader>cl"] = { name = "+lsp" },
+        ["<leader>gS"] = { name = "+gist" },
+        ["<leader>gw"] = { name = "+worktrees" },
       },
     },
     config = function(_, opts)
@@ -470,7 +484,7 @@ return {
       {
         "<leader>ac",
         "<cmd>Colortils<cr>",
-        desc = "Toggle colorizer",
+        desc = "Check colors",
       },
     },
   },
@@ -704,24 +718,58 @@ return {
     },
   },
 
-  -- database
-  { "tpope/vim-dadbod", event = "VeryLazy" },
-  { "kristijanhusak/vim-dadbod-ui", event = "VeryLazy" },
+  -- git blame
+  {
+    "FabijanZulj/blame.nvim",
+    event = "VeryLazy",
+    config = true,
+    keys = {
+      {
+        "<leader>gb",
+        "<cmd>ToggleBlame<cr>",
+        desc = "Toggle Git Blame",
+      },
+    },
+  },
 
-  -- Symbols outline
+  -- undotree
+  {
+    "mbbill/undotree",
+    event = "VeryLazy",
+    config = function()
+      vim.g.undotree_WindowLayout = 2
+    end,
+
+    keys = {
+      {
+        "<leader>au",
+        "<cmd>UndotreeToggle<cr>",
+        desc = "Undo Tree",
+      },
+    },
+  },
   -- {
-  --   "simrat39/symbols-outline.nvim",
-  --   cmd = "SymbolsOutline",
-  --   config = true,
-  --   keys = {
-  --     {
-  --       "<leader>aT",
-  --       "<CMD>SymbolsOutline<CR>",
-  --       desc = "Toggle outline",
-  --     },
-  --   },
+  --   "debugloop/telescope-undo.nvim",
+  --   event = "LazyFile",
   -- },
 
+  -- clipboard
+  {
+    "AckslD/nvim-neoclip.lua",
+    event = "VeryLazy",
+    config = function()
+      require("neoclip").setup()
+    end,
+
+    keys = {
+      {
+        "<leader>sp",
+        "<cmd>Telescope neoclip<cr>",
+        desc = "Search clipboard (neoclip)",
+      },
+    },
+  },
+  -- Symbols outline
   {
     "stevearc/aerial.nvim",
     event = "LazyFile",
@@ -775,14 +823,20 @@ return {
     opts = function()
       Util.on_load("telescope.nvim", function()
         require("telescope").load_extension("aerial")
+        -- require("telescope").load_extension("undo")
       end)
     end,
     keys = {
       {
-        "<leader>ss",
+        "<leader>cS",
         "<cmd>Telescope aerial<cr>",
         desc = "Goto Symbol (Aerial)",
       },
+      -- {
+      --   "<leader>au",
+      --   "<cmd>Telescope undo<cr>",
+      --   desc = "Undo Tree",
+      -- },
     },
   },
 }

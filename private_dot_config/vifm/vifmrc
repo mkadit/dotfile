@@ -94,7 +94,7 @@ fileviewer *.[1-8] man ./%c | col -b
 filetype *.[1-8] man ./%c
 
 " filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm  ~/.local/bin/rotdir %f 2>/dev/null | nsxiv -ia 2>/dev/null &
-filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm  nsxiv-rifle %f &
+filextype *.bmp,*.jpg,*.jpeg,*.png,*.ico,*.gif,*.xpm  nsxiv-rifle %f 2>/dev/null &
 
 filextype *.svg inkscape %f 2>/dev/null &
 filextype *.xcf gimp %f 2>/dev/null &

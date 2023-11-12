@@ -158,4 +158,10 @@ return {
       end
     end,
   },
+
+  -- {
+  --   "pmizio/typescript-tools.nvim",
+  --   event = "VeryLazy",
+  --   opts = {},
+  -- },
 }

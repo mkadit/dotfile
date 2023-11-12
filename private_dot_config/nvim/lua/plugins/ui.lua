@@ -441,4 +441,10 @@ return {
       require("bufresize").setup()
     end,
   },
+
+  -- sticky buffer
+  {
+    "stevearc/stickybuf.nvim",
+    opts = {},
+  },
 }

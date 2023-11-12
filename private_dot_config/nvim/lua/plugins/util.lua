@@ -80,6 +80,13 @@ return {
       require("mini.bracketed").setup()
     end,
   },
+  -- {
+  --   "echasnovski/mini.animate",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("mini.animate").setup()
+  --   end,
+  -- },
 
   -- file manager
   {
@@ -119,5 +126,14 @@ return {
         default_engine = "google",
       })
     end,
+  },
+
+  {
+    "zeioth/garbage-day.nvim",
+    event = "VeryLazy",
+    opts = {
+      -- seconds until grace
+      grace_period = 60 * 10,
+    },
   },
 }
