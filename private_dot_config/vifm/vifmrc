@@ -103,40 +103,59 @@ filextype *.pptx,*.ppt libreoffice --impress %f
 filextype *.docx,*.doc libreoffice --writer %f
 
 " vifm file preview
-fileviewer *.pdf
-    \ vifmimg pdf %px %py %pw %ph %c
+fileviewer <image/gif>
+    \ #ueberzug#image_no_cache %px %py %pw %ph
     \ %pc
-    \ vifmimg clear
-
-fileviewer *.djvu
-    \ vifmimg djvu %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
-
-fileviewer *.epub
-    \ vifmimg epub %px %py %pw %ph %c
-    \ %pc
-    \ vifmimg clear
-
+    \ #ueberzug#clear
+ 
 fileviewer <video/*>
-    \ vifmimg video %px %py %pw %ph %c
+    \ #ueberzug#video %px %py %pw %ph
     \ %pc
-    \ vifmimg clear
+    \ #ueberzug#clear
 
 fileviewer <image/*>
-    \ vifmimg draw %px %py %pw %ph %c
+    \ #ueberzug#image %px %py %pw %ph
+    " or \ #ueberzug#image_no_cache %px %py %pw %ph
     \ %pc
-    \ vifmimg clear
-
+    \ #ueberzug#clear
 fileviewer <audio/*>
-    \ vifmimg audio %px %py %pw %ph %c
+    \ #ueberzug#audio %px %py %pw %ph
     \ %pc
-    \ vifmimg clear
-
+    \ #ueberzug#clear
 fileviewer <font/*>
-    \ vifmimg font %px %py %pw %ph %c
+    \ #ueberzug#djvu %px %py %pw %ph
     \ %pc
-    \ vifmimg clear
+    \ #ueberzug#clear
+
+fileviewer *.pdf
+    \ #ueberzug#pdf %px %py %pw %ph
+    \ %pc
+    \ #ueberzug#clear
+fileviewer *.epub
+    \ #ueberzug#epub %px %py %pw %ph
+    \ %pc
+    \ #ueberzug#clear
+fileviewer *.djvu
+    \ #ueberzug#djvu %px %py %pw %ph
+    \ %pc
+    \ #ueberzug#clear
+
+fileviewer *.cbz
+    \ #ueberzug#cbz %px %py %pw %ph
+    \ %pc
+    \ #ueberzug#clear
+fileviewer *.cbt
+    \ #ueberzug#cbt %px %py %pw %ph %c
+    \ %pc
+    \ #ueberzug#clear
+fileviewer *.cbr
+    \ #ueberzug#cbr %px %py %pw %ph %c
+    \ %pc
+    \ #ueberzug#clear
+fileviewer *.cb7
+    \ #ueberzug#cb7 %px %py %pw %ph %c
+    \ %pc
+    \ #ueberzug#clear
 
 
 set vifminfo=dhistory,chistory,tui,shistory,phistory,fhistory,dirstack,registers,bookmarks,bmarks
