@@ -54,7 +54,7 @@ return {
       open_files_do_not_replace_types = { "terminal", "Trouble", "qf", "Outline" },
       filesystem = {
         bind_to_cwd = false,
-        follow_current_file = { enabled = true },
+        follow_current_file = { enabled = false },
         use_libuv_file_watcher = true,
         hijack_netrw_behavior = "disabled",
       },
@@ -139,7 +139,8 @@ return {
       { "<leader>f:", "<cmd>Telescope command_history<cr>", desc = "Command History" },
       -- find
       { "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers" },
-      { "<leader>fc", Util.telescope.config_files(), desc = "Find Config File" },
+      { "<leader>fC", Util.telescope.config_files(), desc = "Find Config (nvim)" },
+      { "<leader>fc", "<cmd>Telescope config_pick<cr>", desc = "Find Config" },
       { "<leader>ff", Util.telescope("files"), desc = "Find Files (root dir)" },
       { "<leader>fF", Util.telescope("files", { cwd = false }), desc = "Find Files (cwd)" },
       { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Recent" },
@@ -324,6 +325,20 @@ return {
         map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
         map({ "o", "x" }, "ih", ":<C-U>Gitsigns select_hunk<CR>", "GitSigns Select Hunk")
       end,
+    },
+  },
+
+  -- diff
+  {
+    "sindrets/diffview.nvim",
+    event = "VeryLazy",
+
+    keys = {
+      { "<leader>gdo", ":DiffviewOpen ", desc = "Diff Against Branch" },
+      { "<leader>gdr", "<cmd>DiffviewFileHistory<cr>", desc = "Diff Repo History" },
+      { "<leader>gdf", "<cmd>DiffviewFileHistory --follow %<cr>", desc = "Diff File Git History" },
+      { "<leader>gdf", "<cmd>DiffviewFileHistory --follow<cr>", desc = "Diff Line Git History", mode = { "v" } },
+      { "<leader>gdc", "<cmd>DiffviewClose", desc = "Close Diff" },
     },
   },
 
@@ -638,7 +653,6 @@ return {
     dependencies = {
       "nvim-lua/plenary.nvim", -- required
       "nvim-telescope/telescope.nvim", -- optional
-      "sindrets/diffview.nvim", -- optional
     },
     event = "VeryLazy",
     config = function()
