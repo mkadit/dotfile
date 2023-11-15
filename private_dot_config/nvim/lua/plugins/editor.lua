@@ -164,6 +164,7 @@ return {
       { "<leader>sm", "<cmd>Telescope marks<cr>", desc = "Jump to Mark" },
       { "<leader>so", "<cmd>Telescope vim_options<cr>", desc = "Options" },
       { "<leader>sq", "<cmd>Telescope quickfix<cr>", desc = "Quickfix" },
+      { "<leader>sQ", "<cmd>Telescope quickfixhistory<cr>", desc = "Quickfix History" },
       { "<leader>sR", "<cmd>Telescope resume<cr>", desc = "Resume" },
       { "<leader>sw", Util.telescope("grep_string", { word_match = "-w" }), desc = "Word (root dir)" },
       { "<leader>sW", Util.telescope("grep_string", { cwd = false, word_match = "-w" }), desc = "Word (cwd)" },
@@ -241,6 +242,14 @@ return {
               ["<C-k>"] = actions.which_key,
               -- ["<C-f>"] = actions.preview_scrolling_down,
               -- ["<C-b>"] = actions.preview_scrolling_up,
+
+              ["<C-s>"] = function(prompt_buf)
+                --- Quickfix history settings
+                local action_state = require("telescope.actions.state")
+                local entry = action_state.get_selected_entry()
+                actions.close(prompt_buf)
+                vim.cmd(string.format("%schistory | copen", entry.nr))
+              end,
             },
             n = {
               ["q"] = actions.close,
@@ -277,7 +286,7 @@ return {
         ["<leader>m"] = { name = "+grapple" },
         ["<leader>x"] = { name = "+diagnostics/quickfix" },
         ["<leader>a"] = { name = "+action" },
-        ["<leader>ao"] = { name = "+overseer" },
+        ["<leader>ao"] = { name = "+runner" },
         ["<leader>at"] = { name = "+terminal" },
         ["<leader>cl"] = { name = "+lsp" },
         ["<leader>gS"] = { name = "+gist" },

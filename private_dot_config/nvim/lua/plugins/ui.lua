@@ -437,6 +437,7 @@ return {
   -- Buffer resizigin
   {
     "kwkarlwang/bufresize.nvim",
+    event = "VeryLazy",
     config = function()
       require("bufresize").setup()
     end,
@@ -445,6 +446,9 @@ return {
   -- sticky buffer
   {
     "stevearc/stickybuf.nvim",
+    event = "VeryLazy",
     opts = {},
   },
+
+  { "yorickpeterse/nvim-pqf", event = "VeryLazy", opts = {} },
 }

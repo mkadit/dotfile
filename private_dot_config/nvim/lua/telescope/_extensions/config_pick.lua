@@ -13,6 +13,7 @@ local config_picker = function(opts)
       finder = finders.new_table({
         results = {
           { "alacritty", "~/.config/alacritty/alacritty.yml" },
+          { "backup", "~/.local/bin/backup" },
           { "chezmoi", "~/.local/share/chezmoi/README.md", cd = true },
           { "dunst", "~/.config/dunst/no_theme.dunstrc" },
           { "install.sh", "~/.local/src/script/install.sh" },
