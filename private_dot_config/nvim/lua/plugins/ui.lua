@@ -152,7 +152,10 @@ return {
         winbar = {
           lualine_a = {},
           lualine_b = {},
-          lualine_c = { { "filename", path = 4 } },
+          lualine_c = {
+            { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+            { "filename", path = 4 },
+          },
           lualine_x = {},
           lualine_y = {},
           lualine_z = {},
@@ -161,7 +164,10 @@ return {
         inactive_winbar = {
           lualine_a = {},
           lualine_b = {},
-          lualine_c = { { "filename", path = 1 } },
+          lualine_c = {
+            { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+            { "filename", path = 1 },
+          },
           lualine_x = {},
           lualine_y = {},
           lualine_z = {},
