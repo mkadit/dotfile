@@ -283,7 +283,7 @@ return {
         ["<leader>sn"] = { name = "+noice" },
         ["<leader>u"] = { name = "+ui" },
         ["<leader>w"] = { name = "+windows" },
-        ["<leader>m"] = { name = "+grapple" },
+        ["<leader>m"] = { name = "+harpoon" },
         ["<leader>x"] = { name = "+diagnostics/quickfix" },
         ["<leader>a"] = { name = "+action" },
         ["<leader>ao"] = { name = "+runner" },
@@ -572,76 +572,38 @@ return {
 
   -- mark jumps
   {
-    "cbochs/grapple.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
+    "ThePrimeagen/harpoon",
     event = "VeryLazy",
     keys = {
       {
         "<leader>ma",
         function()
-          require("grapple").toggle()
+          require("harpoon.mark").add_file()
         end,
-        desc = "Toggle Grapple",
+        desc = "Toggle Harpoon",
       },
 
       {
         "<leader>mf",
         function()
-          require("grapple").popup_tags()
+          require("harpoon.ui").toggle_quick_menu()
         end,
-        desc = "Grapple Popups",
+        desc = "Harpoon Popups",
       },
 
       {
         "<leader>mn",
         function()
-          require("grapple").cycle_forward()
+          require("harpoon.ui").nav_next()
         end,
-        desc = "Next Grapple",
+        desc = "Next Harpoon",
       },
       {
         "<leader>ml",
         function()
-          require("grapple").cycle_backward()
+          require("harpoon.ui").nav_prev()
         end,
-        desc = "Previous Grapple",
-      },
-      {
-        "<leader>mA",
-        function()
-          require("grapple").toggle({ scope = "global" })
-        end,
-        desc = "Toggle Grapple Global",
-      },
-
-      {
-        "<leader>mF",
-        function()
-          require("grapple").popup_tags("global")
-        end,
-        desc = "Grapple Popups Global",
-      },
-
-      {
-        "<leader>ms",
-        function()
-          require("grapple").popup_scopes()
-        end,
-        desc = "Grapple Scopes",
-      },
-      {
-        "<leader>mN",
-        function()
-          require("grapple").cycle_forward()
-        end,
-        desc = "Next Grapple",
-      },
-      {
-        "<leader>mL",
-        function()
-          require("grapple").cycle_backward()
-        end,
-        desc = "Previous Grapple",
+        desc = "Previous Harpoon",
       },
     },
   },
@@ -849,6 +811,7 @@ return {
       Util.on_load("telescope.nvim", function()
         require("telescope").load_extension("aerial")
         -- require("telescope").load_extension("undo")
+        require("telescope").load_extension("harpoon")
       end)
     end,
     keys = {
@@ -857,11 +820,11 @@ return {
         "<cmd>Telescope aerial<cr>",
         desc = "Goto Symbol (Aerial)",
       },
-      -- {
-      --   "<leader>au",
-      --   "<cmd>Telescope undo<cr>",
-      --   desc = "Undo Tree",
-      -- },
+      {
+        "<leader>fm",
+        "<cmd>Telescope harpoon marks<cr>",
+        desc = "Harpoon Find",
+      },
     },
   },
 }
