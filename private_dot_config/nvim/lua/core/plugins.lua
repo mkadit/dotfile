@@ -20,6 +20,7 @@ require("lazy").setup({
     { import = "plugins.extras.dap" },
     { import = "plugins.extras.dadbod" },
     { import = "plugins.extras.overseer" },
+    { import = "plugins.extras.ollama" },
     { import = "plugins.extras.neorg" },
     -- { import = "plugins.extras.org" },
     { import = "plugins.extras.whop" },
