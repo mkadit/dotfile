@@ -104,6 +104,10 @@ return {
           goto_previous_end = { ["[F"] = "@function.outer", ["[C"] = "@class.outer" },
         },
       },
+      matchup = {
+        enable = true, -- mandatory, false will disable the whole extension
+        -- disable = { "c", "ruby" },
+      },
     },
     config = function(_, opts)
       if type(opts.ensure_installed) == "table" then
@@ -149,5 +153,12 @@ return {
     "windwp/nvim-ts-autotag",
     event = "InsertEnter",
     opts = {},
+  },
+  {
+    "andymass/vim-matchup",
+    event = "VeryLazy",
+    setup = function()
+      vim.g.matchup_matchparen_offscreen = { method = "popup" }
+    end,
   },
 }
