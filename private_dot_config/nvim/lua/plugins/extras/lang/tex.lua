@@ -37,6 +37,22 @@ return {
             { "<Leader>K", "<plug>(vimtex-doc-package)", desc = "Vimtex Docs", silent = true },
           },
         },
+        ltex = {
+
+          filetypes = {
+            "norg",
+            -- "text",
+            "gitcommit",
+            "markdown",
+            "org",
+            "rst",
+            "rnoweb",
+            -- "tex",
+            "pandoc",
+            "quarto",
+            "rmd",
+          },
+        },
       },
     },
   },
