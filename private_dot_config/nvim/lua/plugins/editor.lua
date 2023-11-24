@@ -61,6 +61,15 @@ return {
       window = {
         mappings = {
           ["<space>"] = "none",
+          ["Y"] = function(state)
+            local node = state.tree:get_node()
+            local content = node.path
+            -- relative
+            -- local content = node.path:gsub(state.path, ""):sub(2)
+            vim.fn.setreg('"', content)
+            vim.fn.setreg("1", content)
+            vim.fn.setreg("+", content)
+          end,
         },
       },
       default_component_configs = {
@@ -101,6 +110,13 @@ return {
     -- Optional dependencies
     dependencies = { "nvim-tree/nvim-web-devicons" },
   },
+
+  -- {
+  --   "echasnovski/mini.files",
+  --   config = function()
+  --     require("mini.files").setup()
+  --   end,
+  -- },
 
   -- search/replace in multiple files
   {
@@ -149,7 +165,7 @@ return {
       -- { "<leader>fS", "<cmd>Telescope git_commits<CR>", desc = "commits" },
       { "<leader>fs", "<cmd>Telescope git_status<CR>", desc = "status" },
       -- search
-      { "<leader>sa", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
+      { "<leader>sA", "<cmd>Telescope autocommands<cr>", desc = "Auto Commands" },
       { "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<cr>", desc = "Buffer" },
       { "<leader>sc", "<cmd>Telescope command_history<cr>", desc = "Command History" },
       { "<leader>sC", "<cmd>Telescope commands<cr>", desc = "Commands" },
@@ -607,7 +623,6 @@ return {
       },
     },
   },
-
   -- easy align
 
   {
@@ -733,10 +748,6 @@ return {
       },
     },
   },
-  -- {
-  --   "debugloop/telescope-undo.nvim",
-  --   event = "LazyFile",
-  -- },
 
   -- clipboard
   {
@@ -816,7 +827,7 @@ return {
     end,
     keys = {
       {
-        "<leader>cS",
+        "<leader>sa",
         "<cmd>Telescope aerial<cr>",
         desc = "Goto Symbol (Aerial)",
       },
