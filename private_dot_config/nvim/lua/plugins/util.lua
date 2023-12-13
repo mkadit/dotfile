@@ -65,7 +65,6 @@ return {
   { "tpope/vim-repeat", event = "VeryLazy" },
 
   -- handy pairs mapping
-  -- { "tpope/vim-unimpaired", event = "VeryLazy" },
   {
     "echasnovski/mini.basics",
     event = "VeryLazy",
@@ -80,13 +79,13 @@ return {
       require("mini.bracketed").setup()
     end,
   },
-  -- {
-  --   "echasnovski/mini.animate",
-  --   event = "VeryLazy",
-  --   config = function()
-  --     require("mini.animate").setup()
-  --   end,
-  -- },
+  {
+    "echasnovski/mini.animate",
+    event = "VeryLazy",
+    config = function()
+      require("mini.animate").setup()
+    end,
+  },
 
   -- file manager
   {
@@ -134,6 +133,7 @@ return {
     opts = {
       -- seconds until grace
       grace_period = 60 * 10,
+      wakeup_delay = 3,
     },
   },
 }

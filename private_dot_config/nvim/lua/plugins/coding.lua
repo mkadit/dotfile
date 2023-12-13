@@ -281,4 +281,54 @@ return {
     -- Uncomment next line if you want to follow only stable versions
     -- version = "*"
   },
+
+  {
+    "andythigpen/nvim-coverage",
+    event = "VeryLazy",
+    dependencies = {
+      "nvim-lua/plenary.nvim",
+      "nvim-neotest/neotest",
+    },
+    config = function()
+      require("coverage").setup({
+        auto_reload = true,
+      })
+    end,
+    keys = {
+      {
+        "<leader>tC",
+        function()
+          local cov = require("coverage")
+          cov.load(true)
+          cov.summary()
+        end,
+        desc = "Coverage Summary",
+      },
+      {
+        "<leader>tc",
+        function()
+          local cov = require("coverage")
+          cov.toggle()
+        end,
+        desc = "Coverage Toggle",
+      },
+
+      {
+        "]v",
+        function()
+          local cov = require("coverage")
+          cov.jump_next("uncovered")
+        end,
+        desc = "Next coverage uncovered",
+      },
+      {
+        "[v",
+        function()
+          local cov = require("coverage")
+          cov.jump_prev("uncovered")
+        end,
+        desc = "Previous coverage uncovered",
+      },
+    },
+  },
 }

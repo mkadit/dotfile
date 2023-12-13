@@ -19,6 +19,8 @@ local config_picker = function(opts)
           { "install.sh", "~/.local/src/script/install.sh" },
           { "neovim plugins", "~/.local/share/nvim/lazy", cd = true },
           { "neovim", "~/.config/nvim/init.lua", cd = true },
+          { "obsidian", "~/Documents/records/vault/personal/index.md", cd = true },
+          { "logseq", "~/Documents/records/notes/pages/index.md", cd = true },
           { "polybar", "~/.config/polybar/system.ini", cd = true },
           { "tmux", "~/.config/tmux/tmux.conf" },
           { "vifm", "~/.config/vifm/vifmrc" },
