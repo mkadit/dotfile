@@ -212,7 +212,6 @@ function M.get_kind_filter(buf)
   return M.kind_filter[ft] or M.kind_filter.default
 end
 
----@param name "autocmds" | "options" | "keymaps"
 function M.load(name)
   local function _load(mod)
     if require("lazy.core.cache").find(mod)[1] then

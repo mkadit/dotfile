@@ -118,13 +118,18 @@ rfv() {
 zle     -N   rfv
 bindkey '^R' rfv
 
-fzf_gfold() {
+zsh_fzf_gfold() {
   gfold_path=$($HOME/.local/bin/fzf_gfold)
   cd $gfold_path
-  echo $gfold_path
   }
-zle     -N   fzf_gfold
-bindkey '^P' fzf_gfold
+zle     -N   zsh_fzf_gfold
+bindkey '^P' zsh_fzf_gfold
+
+zsh_fzf_tmuxp() {
+  $HOME/.local/bin/fzf_tmuxp
+}
+zle     -N   zsh_fzf_tmuxp
+bindkey '^O' zsh_fzf_tmuxp
 
 # GIT heart FZF
 # -------------

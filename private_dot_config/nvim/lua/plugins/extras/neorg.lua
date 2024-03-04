@@ -15,7 +15,7 @@ return {
           config = {
             workspaces = {
               home = "~/Documents/records/home",
-              work = "~/Documents/records/work",
+              -- work = "~/Documents/records/work",
               default = vim.fn.getcwd(),
             },
             autochdir = true,

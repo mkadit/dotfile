@@ -6,18 +6,20 @@
 ## Script To Manage Brightness For Archcraft.
 
 # icons
-iDIR='~/.config/dunst/picture'
+iDIR="$HOME/.config/dunst/picture"
 
 # Graphics card
-CARD=`ls /sys/class/backlight | head -n 1`
+CARD=$(ls /sys/class/backlight | head -n 1)
 
 # Get brightness
 get_backlight() {
 	if [[ "$CARD" == *"intel_"* ]]; then
-		BNESS=`xbacklight -get`
+		CURR_BRIGHT=$(brightnessctl g)
+		MAX_BRIGHT=$(brightnessctl m)
+		BNESS=$((CURR_BRIGHT * 100 / MAX_BRIGHT))
 		LIGHT=${BNESS%.*}
 	else
-		LIGHT=$(printf "%.0f\n" `light -G`)
+		LIGHT=$(printf "%.0f\n" $(light -G))
 	fi
 	echo "${LIGHT}%"
 }
@@ -39,7 +41,7 @@ get_icon() {
 	fi
 }
 
-# Notify 
+# Notify
 notify_bl() {
 	get_icon && dunstify -u low --replace=69 -i "$icon" "Brightness : $(get_backlight)"
 }

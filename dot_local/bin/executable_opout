@@ -7,6 +7,7 @@
 basename="$(echo "${*}" | sed 's/\.[^\/.]*$//')"
 
 PDF_READER=zathura
+BROWSER=google-chrome-stable
 
 case "${*}" in
 *.tex | *.m[dse] | *.[rR]md | *.mom | *.[0-9]) setsid -f $PDF_READER "$basename".pdf >/dev/null 2>&1 ;;

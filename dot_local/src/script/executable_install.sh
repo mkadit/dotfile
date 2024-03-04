@@ -18,26 +18,17 @@ paru -S --needed --noconfirm - <~/.local/src/script/pkglist.txt
 
 # Install tools that cannot be installed throug AUR
 
-# install bun & other toolset
-curl -fsSL https://bun.sh/install | bash
-
-bun install -g httypac
-
-# Install terminal
-cd "$HOME/.local/src/st" || exit
-sudo make install
-
 # Install neovim
 cd "$HOME/.local/src/neovim" || exit
 sudo make install
 
 # Install picom
-cd "$HOME/.local/src/picom" || exit
-git checkout implement-window-animations
-git submodule update --init --recursive
-meson --buildtype=release . build
-ninja -C build
-sudo ninja -C build install
+# cd "$HOME/.local/src/picom" || exit
+# git checkout implement-window-animations
+# git submodule update --init --recursive
+# meson --buildtype=release . build
+# ninja -C build
+# sudo ninja -C build install
 
 # Unpack icons
 cd "$HOME/.icons" || exit
@@ -45,6 +36,7 @@ tar -xf icons.tar.gz
 
 # Unpack fonts
 cd "$HOME/.fonts" || exit
+cat fonts.tar.gz.* >fonts.tar.gz
 tar -xf fonts.tar.gz
 
 # Unpack themes
@@ -85,11 +77,5 @@ sudo sed -i "s/icon-theme-name =.*/icon-theme-name = Papirus/g" /etc/lightdm/lig
 
 # Add ollama
 curl https://ollama.ai/install.sh | sh
-
-# sudo -iu postgres
-# initdb -D '/var/lib/postgres/data'
-# exit
-# sudo systemctl enable postgresql
-# sudo systemctl start postgresql
 
 sudo systemctl enable lightdm.service

@@ -1,10 +1,14 @@
 #!/bin/sh
 #
 DIR=$HOME
+CONSTRUCT=$(
+	gfold -d json "$DIR" |
+		jq 'map({name: .name, branch: .branch, parent: .parent}) | sort_by(.name)'
+)
 RES=$(
-	gfold -c never "$DIR" |
+	echo "$CONSTRUCT" | jq -rc '.[] | (.name + " (" + .branch + ")"+ ": " + (.parent + "/" +.name))' |
 		fzf --reverse --header="Select project" --prompt=">" || exit 0
 )
-EXTRACT_PATH=$(echo "$RES" | awk -F ' ~ ' '{print $2}')
+EXTRACT_PATH=$(echo "$RES" | awk -F ': ' '{print $2}')
 
 echo "$EXTRACT_PATH"

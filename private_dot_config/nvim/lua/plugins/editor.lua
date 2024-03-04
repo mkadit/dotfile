@@ -788,4 +788,31 @@ return {
       },
     },
   },
+  {
+    "rest-nvim/rest.nvim",
+    dependencies = { { "nvim-lua/plenary.nvim" } },
+    event = "VeryLazy",
+    config = function()
+      require("rest-nvim").setup({
+        --- Get the same options from Packer setup
+      })
+    end,
+    keys = {
+      {
+        "<leader>arr",
+        "<Plug>RestNvim",
+        desc = "Run request under cursor",
+      },
+      {
+        "<leader>arl",
+        "<Plug>RestNvimLast",
+        desc = "Run last request",
+      },
+      {
+        "<leader>arp",
+        "<Plug>RestNvimPreview",
+        desc = "Preview the request cURL command",
+      },
+    },
+  },
 }

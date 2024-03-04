@@ -9,17 +9,19 @@ MOUNT=/mnt/
 if [ "$1" = 'data' ]; then
   SOURCES=(
     "Documents"
+
     # "Downloads/ISO"
     # ".local/share/sioyek"
   )
-  CLOUD_MOUNT=sync_g_drive:
+  # CLOUD_MOUNT=sync_g_drive:
+  CLOUD_MOUNT=crypt_sync_g_drive:
 elif [ "$1" = 'media' ]; then
   SOURCES=(
     "Music/etc"
-    "Music/Old Stuff"
-    "Music/Michael Jackson"
+    # "Music/Old Stuff"
+    # "Music/Michael Jackson"
     "Pictures"
-    # "Videos"
+    # "Videos/Archive/Anime"
   )
   CLOUD_MOUNT=crypt_sync_g_media:
   RCLONE_COMMAND="rclone copy"

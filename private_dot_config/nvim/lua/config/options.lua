@@ -81,7 +81,7 @@ o.undofile = true -- persistent undoopt
 o.undolevels = 10000
 o.updatetime = 200 -- Save swap file and trigger CursorHold
 o.wildmode = "longest:full,full" -- Command-line completion mode
-o.winbar = "%=%m %f" -- set winbar
+-- o.winbar = "%=%m %f" -- set winbar
 o.winminwidth = 5 -- Minimum window width
 o.wrap = false -- don't wrap lines
 

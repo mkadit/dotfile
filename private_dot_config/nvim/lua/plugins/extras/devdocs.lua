@@ -16,7 +16,7 @@ return {
   },
   keys = {
 
-    { "<leader>sd", "<cmd>DevdocsOpenCurrent<cr>", desc = "Search Devdocs (current filetype)" },
-    { "<leader>sD", "<cmd>DevdocsOpen<cr>", desc = "Search Devdocs" },
+    { "<leader>sv", "<cmd>DevdocsOpenCurrent<cr>", desc = "Search Devdocs (current filetype)" },
+    { "<leader>sV", "<cmd>DevdocsOpen<cr>", desc = "Search Devdocs" },
   },
 }

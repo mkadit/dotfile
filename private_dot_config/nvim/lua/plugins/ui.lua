@@ -154,7 +154,7 @@ return {
           lualine_b = {},
           lualine_c = {
             { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-            { "filename", path = 4 },
+            { "filename", path = 1 },
           },
           lualine_x = {},
           lualine_y = {},
@@ -367,6 +367,7 @@ return {
       dashboard.section.buttons.val = {
         dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
         dashboard.button("n", " " .. " New file", ":ene <BAR> startinsert <CR>"),
+        dashboard.button("b", "󰏚 " .. " Notes", ":e ~/Documents/records/vault/personal/index.md<CR>"),
         dashboard.button("r", " " .. " Recent files", ":Telescope oldfiles <CR>"),
         dashboard.button("g", " " .. " Find text", ":Telescope live_grep <CR>"),
         dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
