@@ -14,7 +14,7 @@ makepkg -si
 cd ..
 rm -rf paru
 
-paru -S --needed --noconfirm - <~/.local/src/script/pkglist.txt
+paru -S --needed - <~/.local/src/script/pkglist.txt
 
 # Install tools that cannot be installed throug AUR
 
