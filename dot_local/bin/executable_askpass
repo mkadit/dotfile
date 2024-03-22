@@ -6,9 +6,5 @@
 ## rofi dir
 DIR="$HOME/.config/rofi/modules/dialogs"
 
-rofi -dmenu\
-     -password\
-     -i\
-     -no-fixed-num-lines\
-     -p "User Password: "\
-     -theme $DIR/askpass.rasi
+rofi -dmenu -password -i -no-fixed-num-lines -p "User Password: " \
+	-theme $DIR/askpass.rasi

@@ -11,8 +11,8 @@ return {
     "BufReadPre ".. vim.fn.expand("~").."/Documents/records/vault/**.md",
     "BufNewFile ".. vim.fn.expand("~").."/Documents/records/vault/**.md",
     -- logseq pages
-    "BufReadPre ".. vim.fn.expand("~").."/Documents/records/notes/pages/**.md",
-    "BufNewFile ".. vim.fn.expand("~").."/Documents/records/notes/pages/**.md",
+    -- "BufReadPre ".. vim.fn.expand("~").."/Documents/records/notes/pages/**.md",
+    -- "BufNewFile ".. vim.fn.expand("~").."/Documents/records/notes/pages/**.md",
   },
   --stylua: ignore end
   dependencies = {
@@ -27,15 +27,11 @@ return {
         name = "personal",
         path = "~/Documents/records/vault/personal",
       },
-      {
-        name = "story",
-        path = "~/Documents/records/vault/story",
-      },
 
-      {
-        name = "logseq",
-        path = "~/Documents/records/notes/pages/",
-      },
+      -- {
+      --   name = "logseq",
+      --   path = "~/Documents/records/notes/pages/",
+      -- },
     },
 
     templates = {
@@ -68,23 +64,11 @@ return {
     completion = {
       nvim_cmp = true,
       min_chars = 2,
-      new_notes_location = "current_dir",
-
-      -- Control how wiki links are completed with these (mutually exclusive) options:
-      --
-      -- 1. Whether to add the note ID during completion.
-      -- E.g. "[[Foo" completes to "[[foo|Foo]]" assuming "foo" is the ID of the note.
-      -- Mutually exclusive with 'prepend_note_path' and 'use_path_only'.
-      prepend_note_id = false,
-      -- 2. Whether to add the note path during completion.
-      -- E.g. "[[Foo" completes to "[[notes/foo|Foo]]" assuming "notes/foo.md" is the path of the note.
-      -- Mutually exclusive with 'prepend_note_id' and 'use_path_only'.
-      prepend_note_path = false,
-      -- 3. Whether to only use paths during completion.
-      -- E.g. "[[Foo" completes to "[[notes/foo]]" assuming "notes/foo.md" is the path of the note.
-      -- Mutually exclusive with 'prepend_note_id' and 'prepend_note_path'.
-      use_path_only = true,
+      wiki_link_func = function(opts)
+        return string.format("[[%s]]", opts.path)
+      end,
     },
+    new_notes_location = "current_dir",
 
     -- Specify how to handle attachments.
     attachments = {

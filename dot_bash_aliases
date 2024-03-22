@@ -14,7 +14,6 @@ fi
 # alias ls="exa || ls -hN --color=auto --group-directories-first"
 alias l="ls"
 alias ll="ls -al"
-alias vifm="vifmrun"
 alias vbg='xwinwrap -ov -fs -fdt -ni -b -nf -un -o 1.0 -debug -- mpv -wid WID --loop --no-audio'
 alias ynvidia="__GL_THREADED_OPTIMIZATIONS=1 yuzu"
 alias cz="chezmoi"

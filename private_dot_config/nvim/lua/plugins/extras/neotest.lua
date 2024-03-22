@@ -10,7 +10,7 @@ return {
   },
   {
     "nvim-neotest/neotest",
-    dependencies = { "vim-test/vim-test", "nvim-neotest/neotest-vim-test" },
+    dependencies = { "vim-test/vim-test", "nvim-neotest/neotest-vim-test", "nvim-neotest/nvim-nio" },
     opts = {
       -- Can be a list of adapters like what neotest expects,
       -- or a list of adapter names,

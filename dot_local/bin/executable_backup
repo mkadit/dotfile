@@ -108,6 +108,6 @@ if [ "$2" = 'cloud' ]; then
 elif [ "$2" = 'local' ]; then
   local_run "$@"
 
-elif [ "$2" = 'secret' ]; then
+elif [ "$1" = 'secret' ]; then
   secret_restore
 fi

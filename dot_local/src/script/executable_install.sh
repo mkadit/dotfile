@@ -54,8 +54,8 @@ pipx install tmuxp
 
 # TODO: Change to rtx
 # Install npm, etc
-asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-asdf install nodejs lts
+# asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+# asdf install nodejs lts
 
 # Set configurations
 chsh -s "$(which zsh)"
@@ -76,6 +76,6 @@ sudo sed -i "s/theme-name =.*/theme-name = Nordic/g" /etc/lightdm/lightdm-gtk-gr
 sudo sed -i "s/icon-theme-name =.*/icon-theme-name = Papirus/g" /etc/lightdm/lightdm-gtk-greeter.conf
 
 # Add ollama
-curl https://ollama.ai/install.sh | sh
+# curl https://ollama.ai/install.sh | sh
 
 sudo systemctl enable lightdm.service

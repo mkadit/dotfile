@@ -1,7 +1,10 @@
 # QT theme
 # export QT_QPA_PLATFORMTHEME=qt5ct
 
-export QT_QPA_PLATFORMTHEME=gtk2
+if [[ "$XDG_SESSION_TYPE" = 'wayland' ]]; then
+	export QT_QPA_PLATFORM=wayland
+fi
+export QT_QPA_PLATFORMTHEME=qt6ct
 export QT_AUTO_SCREEN_SCALE=1
 export QT_SCALE_FACTOR=1
 export QT_SCREEN_SCALE_FACTOR=1
@@ -29,11 +32,14 @@ export EDITOR="nvim"
 # fcitx
 export GLFW_IM_MODULE="ibus"
 export GTK_IM_MODULE="fcitx"
-export QT_IM_MODULE="fcitx"
-export XMODIFIERS="@im=fcitx"
-export SDL_IM_MODULE="fcitx"
 export IBUS_USE_PORTAL=1
+export INPUT_METHOD="fcitx"
+export QT_IM_MODULE="fcitx"
+export SDL_IM_MODULE="fcitx"
 export SUDO_ASKPASS="$HOME/.local/bin/askpass"
+export XIM="fcitx"
+export XIM_PROGRAM="fcitx"
+export XMODIFIERS="@im=fcitx"
 
 # Man
 export MANPAGER="nvim +Man!"

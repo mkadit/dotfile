@@ -1,3 +1,4 @@
+local Util = require("util")
 return {
 
   -- measure startuptime
@@ -134,6 +135,31 @@ return {
       -- seconds until grace
       grace_period = 60 * 10,
       wakeup_delay = 3,
+    },
+  },
+
+  {
+    "ahmedkhalf/project.nvim",
+    opts = {
+      manual_mode = true,
+    },
+
+    config = function(_, opts)
+      require("project_nvim").setup(opts)
+    end,
+
+    event = "VeryLazy",
+  },
+  {
+    "telescope.nvim",
+    optional = true,
+    opts = function()
+      Util.on_load("telescope.nvim", function()
+        require("telescope").load_extension("projects")
+      end)
+    end,
+    keys = {
+      { "<leader>fp", "<Cmd>Telescope projects<CR>", desc = "Projects" },
     },
   },
 }

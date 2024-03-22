@@ -1,13 +1,13 @@
 # Find where asdf should be installed
 # ASDF_DIR="/opt/asdf-vm"
-ASDF_DIR=$(which rtx)
+ASDF_DIR=$(which mise)
 
 _install_asdf(){
     # yay -S asdf-vm || paru -S asdf-vm
-    yay -S rtx || paru -S rtx
+    yay -S rtx || paru -S mise
 
     # . "$ASDF_DIR/asdf.sh"
-    rtx plugin install
+    mise plugin install
 
     # asdf plugin-add direnv
     # asdf direnv setup --shell zsh --version latest
@@ -15,7 +15,7 @@ _install_asdf(){
 }
 
 # [[ ! -f "$ASDF_DIR/asdf.sh" ]] && _install_asdf
-[[ ! $(command -v rtx) ]] && _install_asdf
+[[ ! $(command -v mise) ]] && _install_asdf
 
 # Load command
 # if [[ -f "$ASDF_DIR/asdf.sh" ]]; then
@@ -23,7 +23,7 @@ _install_asdf(){
 #
 # fi
 
-if [[ $(command -v rtx) ]]; then
+if [[ $(command -v mise) ]]; then
     # . "$ASDF_DIR/asdf.sh"
     eval "$($ASDF_DIR activate zsh)"
 

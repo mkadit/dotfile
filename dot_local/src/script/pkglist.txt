@@ -22,6 +22,7 @@ buf
 calibre
 chezmoi
 chntpw
+cliphist
 clipmenu
 cmake
 code
@@ -70,12 +71,13 @@ iptables-nft
 isync
 jc
 jcryptool
-jdk11-openjdk
+jdk
 jq
 jtbl
+keyd
 kitty
 kubectl
-lazydocker
+lazydocker-git
 lazygit
 libconfig
 libnotify
@@ -94,6 +96,7 @@ maim
 man-db
 mediainfo
 mesa
+mesa
 mesa-utils
 meson
 mpc
@@ -105,6 +108,7 @@ ncdu
 ncmpcpp
 neofetch
 neomutt
+network-manager-applet
 networkmanager
 newsboat
 nginx
@@ -117,6 +121,7 @@ noto-fonts-emoji
 noto-fonts-extra
 nsxiv
 ntfs-3g
+nwg-look
 obmenu-generator
 obs-studio
 obsidian
@@ -160,9 +165,8 @@ ripgrep
 rmlint
 rnote
 rofi
-rofi-pass
+rofi-pass-git
 rsync
-rtx
 screenkey
 shellcheck
 shfmt
@@ -189,6 +193,7 @@ texlive-pstricks
 texlive-publishers
 thunar
 thunderbird
+tidy
 timetrace-bin
 tint2
 tldr
@@ -213,10 +218,13 @@ vifm
 virt-manager
 vulkan-intel
 watchexec
+waybar
 websocat
 weechat
 wireless_tools
 wireshark-qt
+wl-clipboard
+wtype
 xclip
 xdg-user-dirs
 xdg-user-dirs-gtk

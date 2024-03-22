@@ -764,6 +764,43 @@ return {
       { "<leader>cs", "<cmd>AerialToggle<cr>", desc = "Aerial (Symbols)" },
     },
   },
+
+  {
+    "vhyrro/luarocks.nvim",
+    opts = {
+      rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }, -- Specify LuaRocks packages to install
+    },
+  },
+  {
+    "rest-nvim/rest.nvim",
+    ft = "http",
+    dependencies = { "luarocks.nvim" },
+    config = function()
+      require("rest-nvim").setup()
+    end,
+    keys = {
+      {
+        "<leader>arr",
+        "<cmd> Rest run cursor<cr>",
+        desc = "Run request under cursor",
+      },
+      {
+        "<leader>arl",
+        "<cmd> Rest run last<cr>",
+        desc = "Run last request",
+      },
+      {
+        "<leader>arn",
+        "<cmd> Rest result next<cr>",
+        desc = "Run result next",
+      },
+      {
+        "<leader>arp",
+        "<cmd> Rest result previous<cr>",
+        desc = "Run result prev",
+      },
+    },
+  },
   -- Telescope integration
   {
     "nvim-telescope/telescope.nvim",
@@ -773,6 +810,7 @@ return {
         require("telescope").load_extension("aerial")
         -- require("telescope").load_extension("undo")
         require("telescope").load_extension("harpoon")
+        require("telescope").load_extension("rest")
       end)
     end,
     keys = {
@@ -786,32 +824,10 @@ return {
         "<cmd>Telescope harpoon marks<cr>",
         desc = "Harpoon Find",
       },
-    },
-  },
-  {
-    "rest-nvim/rest.nvim",
-    dependencies = { { "nvim-lua/plenary.nvim" } },
-    event = "VeryLazy",
-    config = function()
-      require("rest-nvim").setup({
-        --- Get the same options from Packer setup
-      })
-    end,
-    keys = {
       {
-        "<leader>arr",
-        "<Plug>RestNvim",
-        desc = "Run request under cursor",
-      },
-      {
-        "<leader>arl",
-        "<Plug>RestNvimLast",
-        desc = "Run last request",
-      },
-      {
-        "<leader>arp",
-        "<Plug>RestNvimPreview",
-        desc = "Preview the request cURL command",
+        "<leader>arv",
+        "<cmd>Telescope rest select_env<cr>",
+        desc = "Rest select environment",
       },
     },
   },

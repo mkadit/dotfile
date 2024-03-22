@@ -27,7 +27,6 @@ map("i", "<A-j>", "<Esc>:m .+1<cr>==gi", { desc = "Move down" })
 map("n", "<A-k>", ":m .-2<cr>==", { desc = "Move up" })
 map("v", "<A-k>", ":m '<-2<cr>gv=gv", { desc = "Move up" })
 map("i", "<A-k>", "<Esc>:m .-2<cr>==gi", { desc = "Move up" })
-
 -- buffers
 -- map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
 -- map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next buffer" })
