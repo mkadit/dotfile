@@ -10,3 +10,4 @@ history
 help
 clearhistory
 help clearhistoryonquit
+quitall

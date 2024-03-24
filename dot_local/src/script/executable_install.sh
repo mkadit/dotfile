@@ -1,6 +1,9 @@
 #!/bin/sh
 
-# Go
+scrDir=$HOME/.local/src/script/install
+
+# Pre-Install
+"${scrDir}/install_pre.sh"
 cd "$HOME" || exit
 
 # Install Rust
@@ -14,12 +17,18 @@ makepkg -si
 cd ..
 rm -rf paru
 
-paru -S --needed - <~/.local/src/script/pkglist.txt
+"${scrDir}/install_pkg.sh" "${scrDir}/install_pkg.lst"
+
+# Unpack fonts, icons, and themes
+cat Font_Old.tar.gz.* >Font_Old.tar.gz
+
+"${scrDir}/restore_fnt.sh"
 
 # Install tools that cannot be installed throug AUR
 
 # Install neovim
 cd "$HOME/.local/src/neovim" || exit
+sudo make CMAKE_BUILD_TYPE=Release
 sudo make install
 
 # Install picom
@@ -30,24 +39,11 @@ sudo make install
 # ninja -C build
 # sudo ninja -C build install
 
-# Unpack icons
-cd "$HOME/.icons" || exit
-tar -xf icons.tar.gz
-
-# Unpack fonts
-cd "$HOME/.fonts" || exit
-cat fonts.tar.gz.* >fonts.tar.gz
-tar -xf fonts.tar.gz
-
-# Unpack themes
-cd "$HOME/.themes" || exit
-tar -xf themes.tar.gz
-
-~/.local/bin/setbg ~/assets/wallpaper/wallpaper.png
-betterlockscreen -u ~/assets/wallpaper/wallpaper.png
+# ~/.local/bin/setbg ~/assets/wallpaper/wallpaper.png
+# betterlockscreen -u ~/assets/wallpaper/wallpaper.png
 
 # Install grammar linter through vale
-vale sync
+# vale sync
 
 # install tmuxp for tmux
 pipx install tmuxp
@@ -70,12 +66,16 @@ sudo usermod -aG docker "$(whoami)"
 
 localectl set-x11-keymap us "" "" caps:escape
 
-sudo cp ~/assets/wallpaper/wallpaper2.png /usr/share/backgrounds/wallpaper.png
-sudo sed -i "s/background =.*/background = \/usr\/share\/backgrounds\/wallpaper.png/g" /etc/lightdm/lightdm-gtk-greeter.conf
-sudo sed -i "s/theme-name =.*/theme-name = Nordic/g" /etc/lightdm/lightdm-gtk-greeter.conf
-sudo sed -i "s/icon-theme-name =.*/icon-theme-name = Papirus/g" /etc/lightdm/lightdm-gtk-greeter.conf
-
 # Add ollama
 # curl https://ollama.ai/install.sh | sh
 
-sudo systemctl enable lightdm.service
+while read servChk; do
+
+	if [[ $(systemctl list-units --all -t service --full --no-legend "${servChk}.service" | sed 's/^\s*//g' | cut -f1 -d' ') == "${servChk}.service" ]]; then
+		echo -e "\033[0;33m[SKIP]\033[0m ${servChk} service is active..."
+	else
+		echo -e "\033[0;32m[systemctl]\033[0m starting ${servChk} system service..."
+		sudo systemctl enable "${servChk}.service"
+		sudo systemctl start "${servChk}.service"
+	fi
+done <"${scrDir}/system_ctl.lst"

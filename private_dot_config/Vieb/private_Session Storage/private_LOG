@@ -1,6 +1,3 @@
-2022/07/03-04:47:04.066 8a644 Reusing MANIFEST /home/mkadit/.config/Vieb/Session Storage/MANIFEST-000001
-2022/07/03-04:47:04.067 8a644 Recovering log #4
-2022/07/03-04:47:04.220 8a644 Reusing old log /home/mkadit/.config/Vieb/Session Storage/000004.log 
-2022/07/03-04:47:09.266 8ab6d Level-0 table #8: started
-2022/07/03-04:47:09.457 8ab6d Level-0 table #8: 25523 bytes OK
-2022/07/03-04:47:09.641 8ab6d Delete type=0 #4
+2024/03/22-09:35:36.206 4099 Reusing MANIFEST /home/mkadit/.config/Vieb/Session Storage/MANIFEST-000001
+2024/03/22-09:35:36.206 4099 Recovering log #7
+2024/03/22-09:35:36.207 4099 Reusing old log /home/mkadit/.config/Vieb/Session Storage/000007.log 

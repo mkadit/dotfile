@@ -1,202 +1,167 @@
-/* ############################################################################################################ */
-/* ##   ______  __      __  _______   ________  _______    ______   __    __   ______   __    __  ________   ## */
-/* ##  /      \|  \    /  \|       \ |        \|       \  /      \ |  \  |  \ /      \ |  \  /  \|        \  ## */
-/* ## |  $$$$$$\\$$\  /  $$| $$$$$$$\| $$$$$$$$| $$$$$$$\|  $$$$$$\| $$\ | $$|  $$$$$$\| $$ /  $$| $$$$$$$$  ## */
-/* ## | $$   \$$ \$$\/  $$ | $$__/ $$| $$__    | $$__| $$| $$___\$$| $$$\| $$| $$__| $$| $$/  $$ | $$__      ## */
-/* ## | $$        \$$  $$  | $$    $$| $$  \   | $$    $$ \$$    \ | $$$$\ $$| $$    $$| $$  $$  | $$  \     ## */
-/* ## | $$   __    \$$$$   | $$$$$$$\| $$$$$   | $$$$$$$\ _\$$$$$$\| $$\$$ $$| $$$$$$$$| $$$$$\  | $$$$$     ## */
-/* ## | $$__/  \   | $$    | $$__/ $$| $$_____ | $$  | $$|  \__| $$| $$ \$$$$| $$  | $$| $$ \$$\ | $$_____   ## */
-/* ##  \$$    $$   | $$    | $$    $$| $$     \| $$  | $$ \$$    $$| $$  \$$$| $$  | $$| $$  \$$\| $$     \  ## */
-/* ##   \$$$$$$     \$$     \$$$$$$$  \$$$$$$$$ \$$   \$$  \$$$$$$  \$$   \$$ \$$   \$$ \$$   \$$ \$$$$$$$$  ## */
-/* ##                                                                                                        ## */
-/* ## Created by Cybersnake                                                                                  ## */
-/* ############################################################################################################ */
-
 * {
     border: none;
-    border-radius: 7px;
+    border-radius: 0px;
     font-family: "JetBrainsMono Nerd Font";
     font-weight: bold;
-    font-size: 13px;
-    min-height: 0;
+    font-size: 10px;
+    min-height: 10px;
 }
 
+@import "themes/theme.css";
+
 window#waybar {
-    background: rgba(21, 18, 27, 0);
-    color: #cdd6f4;
+    background: @bar-bg;
 }
 
 tooltip {
-    background: #000000;
+    background: @main-bg;
+    color: @main-fg;
     border-radius: 7px;
-    border-width: 2.5px;
-    border-style: solid;
-    border-color: #8aadf4;
-    padding-right: 5px;
-    padding-left: 5px;
-    padding-top: 5px;
-    padding-bottom: 5px;
+    border-width: 0px;
 }
 
 #workspaces button {
-    color: #313244;
-    margin-right: 5px;
-    padding-right: 0px;
-    padding-left: 0px;
+    box-shadow: none;
+	text-shadow: none;
+    padding: 0px;
+    border-radius: 9px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    margin-left: 0px;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-right: 0px;
+    color: @main-fg;
+    animation: ws_normal 20s ease-in-out 1;
 }
 
 #workspaces button.active {
-    color: #f5a97f;
-}
-
-#workspaces button.focused {
-    color: #a6adc8;
-    background: #eba0ac;
-    border-radius: 7px;
-}
-
-#workspaces button.urgent {
-    color: #11111b;
-    background: #a6e3a1;
-    border-radius: 7px;
+    background: @wb-act-bg;
+    color: @wb-act-fg;
+    margin-left: 3px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-right: 3px;
+    animation: ws_active 20s ease-in-out 1;
+    transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
 #workspaces button:hover {
-    background: #11111b;
-    color: #cdd6f4;
-    border-radius: 7px;
+    background: @wb-hvr-bg;
+    color: @wb-hvr-fg;
+    animation: ws_hover 20s ease-in-out 1;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
-#window,
-#clock,
-#battery,
-#pulseaudio,
-#pulseaudio.microphone,
-#network,
-#bluetooth,
-#custom-notifications,
-#custom-updates,
-#custom-player,
-#workspaces,
-#tray,
-#memory,
-#disk,
-#backlight,
-
-#backlight {
-    background: #000000;
-    opacity: 1.0;
-    padding: 1.5px 7px 1.5px 7px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    border-radius: 7px 7px 7px 7px;
-    margin-right: 5px;
-    margin-left: 5px;
-}
-
-#tray {
-    border-radius: 7px;
-    margin-right: 7px;
-}
-
-#workspaces {
-    background: #000000;
-    border-radius: 7px;
-    margin-left: 5px;
-    padding-right: 0px;
-}
-
-#window {
-    border-radius: 7px;
-    margin-left: 60px;
-    margin-right: 60px;
-}
-
-#clock {
-    color: #a6e3a1;
-    border-radius: 7px 7px 7px 7px;
-    margin-right: 3px;
-    margin-left: 3px;
-}
-
-#network {
-    color: #f9e2af;
-    border-radius: 7px 7px 7px 7px;
-    margin-right: 5px;
-}
-
-#custom-notifications {
-    color: #f9e2af;
-    border-radius: 7px 7px 7px 7px;
-    padding-left: 9px;
-    padding-right: 15px;
-    margin-left:  2px;
-    margin-right: 2px;
-
-}
-
-#custom-updates {
-    color: #89b4fa;
-    border-radius: 7px 7px 7px 7px;
-    border-left:  0px;
-    border-right: 0px;
-    margin-left:  2px;
-    margin-right: 2px;
-}
-
-#custom-player {
- color: #cba6f7;
- border-radius: 7px 7px 7px 7px;
- padding-left: 4px;
- margin-left:  5px;
- margin-right: 5px;
-}
-
-#memory {
-    color: #89b4fa;
-    border-radius: 7px 7px 7px 7px;
-    margin-left: 5px;
-}
-
-#disk {
-    color: #a6e3a1;
-    border-radius: 7px 7px 7px 7px;
-    margin-left: 5px;
-}
-
-
-#bluetooth {
-  color: #89b4fa;
-  border-radius: 7px 7px 7px 7px;
-  margin-left: 5px;
-  margin-right: 5px;
-} 
-
-#pulseaudio {
-  color: #89b4fa;
-  border-radius: 7px 0px 0px 7px;
-  margin-right: 0px;
-}
-
-#pulseaudio.microphone {
-    color: #cba6f7;
-    border-radius: 0px 7px 7px 0px;
+#taskbar button {
+    box-shadow: none;
+	text-shadow: none;
+    padding: 0px;
+    border-radius: 9px;
+    margin-top: 3px;
+    margin-bottom: 3px;
     margin-left: 0px;
+    padding-left: 3px;
+    padding-right: 3px;
+    margin-right: 0px;
+    color: @wb-color;
+    animation: tb_normal 20s ease-in-out 1;
 }
 
-#battery {
-    color: #a6e3a1;
-    border-radius: 7px 7px 7px 7px;
-    margin-right: 5px;
-    margin-left: 5px;
+#taskbar button.active {
+    background: @wb-act-bg;
+    color: @wb-act-color;
+    margin-left: 3px;
+    padding-left: 12px;
+    padding-right: 12px;
+    margin-right: 3px;
+    animation: tb_active 20s ease-in-out 1;
+    transition: all 0.4s cubic-bezier(.55,-0.68,.48,1.682);
 }
 
-#battery.critical:not(.charging) {
-  background-color:           #F53C3C;
-  color:                      #EEEEEE;
-  animation-name:             blink;
-  animation-duration:         0.5s;
-  animation-timing-function:  linear;
-  animation-iteration-count:  infinite;
-  animation-direction:        alternate;
+#taskbar button:hover {
+    background: @wb-hvr-bg;
+    color: @wb-hvr-color;
+    animation: tb_hover 20s ease-in-out 1;
+    transition: all 0.3s cubic-bezier(.55,-0.68,.48,1.682);
+}
+
+#backlight,
+#battery,
+#bluetooth,
+#custom-cliphist,
+#clock,
+#custom-cpuinfo,
+#cpu,
+#custom-gpuinfo,
+#idle_inhibitor,
+#custom-keybindhint,
+#language,
+#memory,
+#mpris,
+#network,
+#custom-power,
+#pulseaudio,
+#custom-spotify,
+#taskbar,
+#custom-theme,
+#tray,
+#custom-updates,
+#custom-wallchange,
+#custom-wbar,
+#window,
+#workspaces,
+#custom-l_end,
+#custom-r_end,
+#custom-sl_end,
+#custom-sr_end,
+#custom-rl_end,
+#custom-rr_end {
+    color: @main-fg;
+    background: @main-bg;
+    opacity: 1;
+    margin: 4px 0px 4px 0px;
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+#workspaces,
+#taskbar {
+    padding: 0px;
+}
+
+#custom-r_end {
+    border-radius: 0px 21px 21px 0px;
+    margin-right: 9px;
+    padding-right: 3px;
+}
+
+#custom-l_end {
+    border-radius: 21px 0px 0px 21px;
+    margin-left: 9px;
+    padding-left: 3px;
+}
+
+#custom-sr_end {
+    border-radius: 0px;
+    margin-right: 9px;
+    padding-right: 3px;
+}
+
+#custom-sl_end {
+    border-radius: 0px;
+    margin-left: 9px;
+    padding-left: 3px;
+}
+
+#custom-rr_end {
+    border-radius: 0px 7px 7px 0px;
+    margin-right: 9px;
+    padding-right: 3px;
+}
+
+#custom-rl_end {
+    border-radius: 7px 0px 0px 7px;
+    margin-left: 9px;
+    padding-left: 3px;
 }
