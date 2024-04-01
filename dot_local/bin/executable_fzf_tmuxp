@@ -3,7 +3,7 @@
 
 TMUXP_SESSION=$(tmuxp ls | fzf --header='Select session' --prompt='>')
 if [[ ! -z "$TMUXP_SESSION" ]]; then
-	tmuxp load -y -d "$TMUXP_SESSION" || exit
+	tmuxp load -y -d "$TMUXP_SESSION"
 fi
 
-echo "$TMUXP_SESSION"
+# echo "$TMUXP_SESSION"

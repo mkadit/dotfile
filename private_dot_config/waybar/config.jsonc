@@ -15,8 +15,8 @@
 // positions generated based on config.ctl //
 
 	"modules-left": ["custom/padd","custom/l_end","custom/power","custom/cliphist","custom/wbar","custom/theme","custom/wallchange","custom/r_end","custom/l_end","wlr/taskbar","custom/spotify","custom/r_end","","custom/padd"],
-	"modules-center": ["custom/padd","custom/l_end","idle_inhibitor","clock","custom/r_end","custom/padd"],
-	"modules-right": ["custom/padd","custom/l_end","tray","battery","custom/r_end","custom/l_end","backlight","network","bluetooth","pulseaudio","pulseaudio#microphone","custom/keybindhint","custom/r_end","custom/padd"],
+	"modules-center": ["custom/padd","custom/l_end","idle_inhibitor","clock","hyprland/workspaces","custom/r_end","custom/padd"],
+	"modules-right": ["custom/padd","custom/l_end","tray","memory","battery","custom/r_end","custom/l_end","backlight","network","bluetooth","pulseaudio","pulseaudio#microphone","custom/keybindhint","custom/r_end","custom/padd"],
 
 
 // sourced from modules based on config.ctl //
@@ -25,8 +25,8 @@
         "format": "{}",
         "rotate": 0,
         "exec": "echo ; echo  logout",
-        "on-click": "~/.config/hyprdots/scripts/logoutlaunch.sh 2",
-        "on-click-right": "~/.config/hyprdots/scripts/logoutlaunch.sh 1",
+        "on-click": "/home/mkadit/.local/bin/wayland/logoutlaunch.sh 2",
+        "on-click-right": "/home/mkadit/.local/bin/wayland/logoutlaunch.sh 1",
         "interval" : 86400, // once every day
         "tooltip": true
     },
@@ -35,9 +35,9 @@
         "format": "{}",
         "rotate": 0,
         "exec": "echo ; echo 󰅇 clipboard history",
-        "on-click": "sleep 0.1 && ~/.config/hyprdots/scripts/cliphist.sh c",
-        "on-click-right": "sleep 0.1 && ~/.config/hyprdots/scripts/cliphist.sh d",
-        "on-click-middle": "sleep 0.1 && ~/.config/hyprdots/scripts/cliphist.sh w",
+        "on-click": "sleep 0.1 && /home/mkadit/.local/bin/wayland/cliphist.sh c",
+        "on-click-right": "sleep 0.1 && /home/mkadit/.local/bin/wayland/cliphist.sh d",
+        "on-click-middle": "sleep 0.1 && /home/mkadit/.local/bin/wayland/cliphist.sh w",
         "interval" : 86400, // once every day
         "tooltip": true
     },
@@ -46,9 +46,9 @@
         "format": "{}", //    //
         "rotate": 0,
         "exec": "echo ; echo  switch bar //  dock",
-        "on-click": "~/.config/hyprdots/scripts/wbarconfgen.sh n",
-        "on-click-right": "~/.config/hyprdots/scripts/wbarconfgen.sh p",
-        "on-click-middle": "sleep 0.1 && ~/.config/hyprdots/scripts/quickapps.sh kitty firefox spotify code dolphin",
+        "on-click": "/home/mkadit/.local/bin/wayland/wbarconfgen.sh n",
+        "on-click-right": "/home/mkadit/.local/bin/wayland/wbarconfgen.sh p",
+        "on-click-middle": "sleep 0.1 && /home/mkadit/.local/bin/wayland/quickapps.sh kitty firefox spotify code dolphin",
         "interval" : 86400,
         "tooltip": true
     },
@@ -57,9 +57,9 @@
         "format": "{}",
         "rotate": 0,
         "exec": "echo ; echo 󰟡 switch theme",
-        "on-click": "~/.config/hyprdots/scripts/themeswitch.sh -n",
-        "on-click-right": "~/.config/hyprdots/scripts/themeswitch.sh -p",
-        "on-click-middle": "sleep 0.1 && ~/.config/hyprdots/scripts/themeselect.sh",
+        "on-click": "/home/mkadit/.local/bin/wayland/themeswitch.sh -n",
+        "on-click-right": "/home/mkadit/.local/bin/wayland/themeswitch.sh -p",
+        "on-click-middle": "sleep 0.1 && /home/mkadit/.local/bin/wayland/themeselect.sh",
         "interval" : 86400, // once every day
         "tooltip": true
     },
@@ -68,9 +68,9 @@
         "format": "{}",
         "rotate": 0,
         "exec": "echo ; echo 󰆊 switch wallpaper",
-        "on-click": "~/.config/hyprdots/scripts/swwwallpaper.sh -n",
-        "on-click-right": "~/.config/hyprdots/scripts/swwwallpaper.sh -p",
-        "on-click-middle": "sleep 0.1 && ~/.config/hyprdots/scripts/swwwallselect.sh",
+        "on-click": "/home/mkadit/.local/bin/wayland/swwwallpaper.sh -n",
+        "on-click-right": "/home/mkadit/.local/bin/wayland/swwwallpaper.sh -p",
+        "on-click-middle": "sleep 0.1 && /home/mkadit/.local/bin/wayland/swwwallselect.sh",
         "interval" : 86400, // once every day
         "tooltip": true
     },
@@ -79,29 +79,29 @@
 		"format": "{icon}",
 		"rotate": 0,
 		"icon-size": 18,
-		"icon-theme": "Tela-circle-dracula",
-        "spacing": 0,
+		"icon-theme": "Gruvbox-Plus-Dark",
+    "spacing": 0,
 		"tooltip-format": "{title}",
 		"on-click": "activate",
 		"on-click-middle": "close",
-		"ignore-list": [
-			"Alacritty"
-		],
+		// "ignore-list": [
+		// 	"Alacritty"
+		// ],
 		"app_ids-mapping": {
 			"firefoxdeveloperedition": "firefox-developer-edition"
 		}
 	},
 
     "custom/spotify": {
-        "exec": "/usr/bin/python3 ~/.config/waybar/modules/mediaplayer.py --player spotify",
+        "exec": "/usr/bin/python3 /home/mkadit/.config/waybar/modules/mediaplayer.py --player spotify",
         "format": " {}",
         "rotate": 0,
         "return-type": "json",
         "on-click": "playerctl play-pause --player spotify",
         "on-click-right": "playerctl next --player spotify",
         "on-click-middle": "playerctl previous --player spotify",
-        "on-scroll-up": "~/.config/hyprdots/scripts/volumecontrol.sh -p spotify i",
-        "on-scroll-down": "~/.config/hyprdots/scripts/volumecontrol.sh -p spotify d",
+        "on-scroll-up": "/home/mkadit/.local/bin/wayland/volumecontrol.sh -p spotify i",
+        "on-scroll-down": "/home/mkadit/.local/bin/wayland/volumecontrol.sh -p spotify d",
         "max-length": 25,
         "escape": true,
         "tooltip": true
@@ -141,10 +141,38 @@
         }
     },
 
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "rotate": 0,
+        "all-outputs": true,
+        "active-only": false,
+        "on-click": "activate",
+        "persistent-workspaces": {
+        }
+    },
+
     "tray": {
         "icon-size": 18,
         "rotate": 0,
         "spacing": 5
+    },
+
+    "memory": {
+        "states": {
+            "c": 90, // critical
+            "h": 60, // high
+            "m": 30, // medium
+        },
+        "interval": 30,
+        "format": "󰾆 {used}GB",
+        "rotate": 0,
+        "format-m": "󰾅 {used}GB",
+        "format-h": "󰓅 {used}GB",
+        "format-c": " {used}GB",
+        "format-alt": "󰾆 {percentage}%",
+        "max-length": 10,
+        "tooltip": true,
+        "tooltip-format": "󰾆 {percentage}%\n {used:0.1f}GB/{total:0.1f}GB"
     },
 
     "battery": {
@@ -204,9 +232,9 @@
         "rotate": 0,
         "format-muted": "婢",
         "on-click": "pavucontrol -t 3",
-        "on-click-middle": "~/.config/hyprdots/scripts/volumecontrol.sh -o m",
-        "on-scroll-up": "~/.config/hyprdots/scripts/volumecontrol.sh -o i",
-        "on-scroll-down": "~/.config/hyprdots/scripts/volumecontrol.sh -o d",
+        "on-click-middle": "/home/mkadit/.local/bin/wayland/volumecontrol.sh -o m",
+        "on-scroll-up": "/home/mkadit/.local/bin/wayland/volumecontrol.sh -o i",
+        "on-scroll-down": "/home/mkadit/.local/bin/wayland/volumecontrol.sh -o d",
         "tooltip-format": "{icon} {desc} // {volume}%",
         "scroll-step": 5,
         "format-icons": {
@@ -226,9 +254,9 @@
         "format-source": "",
         "format-source-muted": "",
         "on-click": "pavucontrol -t 4",
-        "on-click-middle": "~/.config/hyprdots/scripts/volumecontrol.sh -i m",
-        "on-scroll-up": "~/.config/hyprdots/scripts/volumecontrol.sh -i i",
-        "on-scroll-down": "~/.config/hyprdots/scripts/volumecontrol.sh -i d",
+        "on-click-middle": "/home/mkadit/.local/bin/wayland/volumecontrol.sh -i m",
+        "on-scroll-up": "/home/mkadit/.local/bin/wayland/volumecontrol.sh -i i",
+        "on-scroll-down": "/home/mkadit/.local/bin/wayland/volumecontrol.sh -i d",
         "tooltip-format": "{format_source} {source_desc} // {source_volume}%",
         "scroll-step": 5
     },
@@ -236,7 +264,7 @@
     "custom/keybindhint": {
         "format": " ",
         "rotate": 0,
-        "on-click": "~/.config/hyprdots/scripts/keybinds_hint.sh"
+        "on-click": "/home/mkadit/.local/bin/wayland/keybinds_hint.sh"
     },
 
 

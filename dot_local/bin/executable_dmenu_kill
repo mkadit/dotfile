@@ -1,5 +1,5 @@
 #!/bin/sh
 
-STYLE="theme/nordic"
-rofi_command="rofi -theme $HOME/.config/rofi/$STYLE/runner.rasi"
-ps -eo pmem,pid,cmd --sort -pmem | sed 1d | $rofi_command -dmenu -i -p "Task Man" "$@" | awk '{print $2}' | xargs kill -${1:-9} ;
+# STYLE="theme/nordic"
+rofi_command="rofi"
+ps -eo pmem,pid,cmd --sort -pmem | sed 1d | $rofi_command -dmenu -i -p "Task Man" "$@" | awk '{print $2}' | xargs kill -${1:-9}

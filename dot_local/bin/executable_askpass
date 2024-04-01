@@ -4,7 +4,6 @@
 ## Everyone is permitted to copy and distribute copies of this file under GNU-GPL3
 
 ## rofi dir
-DIR="$HOME/.config/rofi/modules/dialogs"
+# DIR="$HOME/.config/rofi/modules/dialogs"
 
-rofi -dmenu -password -i -no-fixed-num-lines -p "User Password: " \
-	-theme $DIR/askpass.rasi
+rofi -dmenu -password -i -no-fixed-num-lines -p "User Password: "

@@ -87,8 +87,8 @@ if not Util.has("trouble.nvim") then
   map("n", "[q", vim.cmd.cprev, { desc = "Previous quickfix" })
   map("n", "]q", vim.cmd.cnext, { desc = "Next quickfix" })
 end
-map("n", "]H", "<cmd>cnew<cr>", { desc = "Next quickfix history" })
-map("n", "[H", "<cmd>cold<cr>", { desc = "Prev quickfix history" })
+map("n", "]Q", "<cmd>cnew<cr>", { desc = "Next quickfix history" })
+map("n", "[Q", "<cmd>cold<cr>", { desc = "Prev quickfix history" })
 
 -- formatting
 map({ "n", "v" }, "<leader>cf", function()

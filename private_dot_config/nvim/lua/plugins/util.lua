@@ -66,27 +66,27 @@ return {
   { "tpope/vim-repeat", event = "VeryLazy" },
 
   -- handy pairs mapping
-  {
-    "echasnovski/mini.basics",
-    event = "VeryLazy",
-    config = function()
-      require("mini.basics").setup()
-    end,
-  },
-  {
-    "echasnovski/mini.bracketed",
-    event = "VeryLazy",
-    config = function()
-      require("mini.bracketed").setup()
-    end,
-  },
-  {
-    "echasnovski/mini.animate",
-    event = "VeryLazy",
-    config = function()
-      require("mini.animate").setup()
-    end,
-  },
+  -- {
+  --   "echasnovski/mini.basics",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("mini.basics").setup()
+  --   end,
+  -- },
+  -- {
+  --   "echasnovski/mini.bracketed",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("mini.bracketed").setup()
+  --   end,
+  -- },
+  -- {
+  --   "echasnovski/mini.animate",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     require("mini.animate").setup()
+  --   end,
+  -- },
 
   -- file manager
   {
