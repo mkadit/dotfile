@@ -71,8 +71,10 @@ gtk-theme-switch2
 gtt-bin
 hadolint-bin
 htop
+hypridle
 hyprland
 hyprpicker
+hyprshade
 imagemagick
 intel-media-driver
 intel-ucode
@@ -85,8 +87,6 @@ jq
 jtbl
 kde-cli-tools
 kitty
-hyprshade
-hypridle
 kservice5
 kubectl
 kvantum
@@ -122,6 +122,7 @@ neofetch
 neomutt
 network-manager-applet
 networkmanager
+networkmanager-openconnect
 newsboat
 nginx
 ninja
@@ -133,8 +134,8 @@ noto-fonts-emoji
 noto-fonts-extra
 nsxiv
 ntfs-3g
-nwg-look
 nwg-displays
+nwg-look
 obmenu-generator
 obs-studio
 obsidian
@@ -199,6 +200,7 @@ rofi-pass-git
 rsync
 screenkey
 sddm
+seahorse
 shellcheck
 shfmt
 simple-mtpfs
@@ -258,6 +260,7 @@ visual-studio-code-bin
 vulkan-intel
 watchexec
 waybar
+webkit2gtk-4.1 # for prompt
 websocat
 weechat
 wireless_tools
