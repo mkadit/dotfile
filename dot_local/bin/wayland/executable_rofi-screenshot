@@ -1,0 +1,8 @@
+#!/bin/sh
+
+case "$(printf "Select Area\\nFocused Monitor\\nAll Monitor\\nFreeze and Capture" | rofi -theme $HOME/.config/rofi/clipboard.rasi -dmenu -l 4 -i -p "Screenshot which area?")" in
+"Select Area") $HOME/.local/bin/wayland/screenshot.sh s ;;
+"Focused Monitor") sleep 1 && $HOME/.local/bin/wayland/screenshot.sh m ;;
+"All Monitor") $HOME/.local/bin/wayland/screenshot.sh p ;;
+"Freeze and Capture") $HOME/.local/bin/wayland/screenshot.sh sf ;;
+esac
