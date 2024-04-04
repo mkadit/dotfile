@@ -6,7 +6,6 @@ anytype-bin
 arandr
 aria2
 ark
-asdf-vm
 atool
 base
 base-devel
@@ -29,14 +28,13 @@ clipmenu
 cmake
 code
 cronie
+cups
 dasel
 dbeaver
-deno
 dmenu
 dnsmasq
 docker
 docker-compose
-dolphin
 dosfstools
 downgrade
 dunst
@@ -170,7 +168,6 @@ protonup-git
 pulseaudio
 pulseaudio-alsa
 pulseaudio-bluetooth
-puppet
 python-magic
 python-pip
 python-pipx
@@ -215,6 +212,7 @@ swappy
 swaylock-effects-git
 swww
 sxiv
+system-config-printer
 taskwarrior-tui
 teams-for-linux
 telegram-desktop
