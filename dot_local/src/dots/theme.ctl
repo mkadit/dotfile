@@ -2,7 +2,8 @@
 0|Catppuccin-Latte|Catppuccin.catppuccin-vsc~Catppuccin Latte~catppuccin-latte|~/.config/swww/Catppuccin-Latte/firefly_3.jpeg
 0|Decay-Green|decaycs.decay~Decayce|~/.config/swww/Decay-Green/arcade_decay_red.png
 0|Rose-Pine|mvllow.rose-pine~Rosé Pine~rose-pine|~/.config/swww/Rose-Pine/elysia-rose-pine.jpg
-1|Tokyo-Night|enkia.tokyo-night~Tokyo Night Storm~dracula|~/.config/swww/Tokyo-Night/kirby-12.jpg
+' 1|Tokyo-Night|enkia.tokyo-night~Tokyo Night Storm~dracula|~/.config/swww/Tokyo-Night/kirby-12.jpg
+1|Tokyo-Night|dracula-theme.theme-dracula~Dracula~dracula|~/.config/swww/Tokyo-Night/kirby-12.jpg
 0|Material-Sakura|mvllow.rose-pine~Rosé Pine Dawn~rose-pine-dawn|~/.config/swww/Material-Sakura/elysia.jpg
 0|Graphite-Mono|StepanVanzuriak.mono~mono dark|~/.config/swww/Graphite-Mono/spring_bloom.jpg
 0|Cyberpunk-Edge|JWSandeman.cyberpunk2077-theme~cyberpunk2077~everforest|~/.config/swww/Cyberpunk-Edge/kirby-6.jpg

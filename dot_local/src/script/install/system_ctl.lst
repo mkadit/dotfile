@@ -4,3 +4,4 @@ sddm
 docker
 cups
 virtqemud
+libvirtd
