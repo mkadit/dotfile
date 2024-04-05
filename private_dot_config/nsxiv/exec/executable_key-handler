@@ -1,12 +1,21 @@
 #!/bin/sh
-while read file
-do
-        case "$1" in
-        "C-d")
-                mv "$file" ~/.local/share/vifm/Trash ;;
-        "C-c")
-                echo -n "$file" | xclip -selection clipboard ;;
-        "C-w")
-                ~/.local/bin/setbg "$file" ;;
-        esac
+while read file; do
+	case "$1" in
+	"C-d")
+		mv "$file" ~/.local/share/vifm/Trash
+		;;
+	"C-c")
+		echo -n "$file" | xclip -selection clipboard
+		;;
+	"C-w")
+
+		swww img "$(readlink "$file")" \
+			--transition-bezier .43,1.19,1,.4 \
+			--transition-type "$xtrans" \
+			--transition-duration 0.7 \
+			--transition-fps 60 \
+			--invert-y \
+			--transition-pos "$(hyprctl cursorpos)"
+		;;
+	esac
 done

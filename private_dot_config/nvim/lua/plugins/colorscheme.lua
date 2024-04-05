@@ -44,4 +44,5 @@ return {
   },
   { "sainnhe/gruvbox-material", event = "VeryLazy", name = "gruvbox-material" },
   { "rose-pine/neovim", event = "VeryLazy", name = "rose-pine" },
+  { "Mofiqul/dracula.nvim", event = "VeryLazy", name = "dracula" },
 }

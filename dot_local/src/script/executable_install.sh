@@ -48,11 +48,6 @@ sudo make install
 # install tmuxp for tmux
 pipx install tmuxp
 
-# TODO: Change to rtx
-# Install npm, etc
-# asdf plugin add nodejs https://github.com/asdf-vm/asdf-nodejs.git
-# asdf install nodejs lts
-
 # Set configurations
 chsh -s "$(which zsh)"
 fc-cache -rv

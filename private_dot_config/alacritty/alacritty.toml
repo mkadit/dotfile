@@ -34,17 +34,17 @@ key = "Paste"
 action = "Copy"
 key = "Copy"
 
-[[keyboard.bindings]]
-action = "ScrollPageUp"
-key = "U"
-mode = "~Alt"
-mods = "Shift"
-
-[[keyboard.bindings]]
-action = "ScrollPageDown"
-key = "D"
-mode = "~Alt"
-mods = "Shift"
+# [[keyboard.bindings]]
+# action = "ScrollPageUp"
+# key = "U"
+# mode = "~Alt"
+# mods = "Shift"
+#
+# [[keyboard.bindings]]
+# action = "ScrollPageDown"
+# key = "D"
+# mode = "~Alt"
+# mods = "Shift"
 
 [[keyboard.bindings]]
 action = "ScrollToTop"

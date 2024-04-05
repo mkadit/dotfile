@@ -8,7 +8,7 @@ source ~/.config/zsh/modules/package/plugin_config.zsh
 # clone a plugin, identify its init file, source it, and add it to your fpath
 function z-plugin-load() {
   local repo plugin_name plugin_dir initfile initfiles
-  ZPLUGINDIR=${ZPLUGINDIR:-${ZDOTDIR:-$HOME/.config/zsh}/plugins}
+  ZPLUGINDIR=${ZPLUGINDIR:-$HOME/.config/zsh/plugins}
   for repo in $@; do
     plugin_name=${repo:t}
     plugin_dir=$ZPLUGINDIR/$plugin_name
@@ -50,6 +50,7 @@ plugins=(
   # Load first
   zsh-users/zsh-autosuggestions
   zdharma-continuum/fast-syntax-highlighting
+  # marlonrichert/zsh-autocomplete
   # jeffreytse/zsh-vi-mode
   mafredri/zsh-async # Async for git prompt
   # MichaelAquilina/zsh-auto-notify

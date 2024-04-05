@@ -21,6 +21,7 @@ elif [ "$1" = 'media' ]; then
     # "Music/Old Stuff"
     # "Music/Michael Jackson"
     "Pictures"
+    ".config/swww"
     # "Videos/Archive/Anime"
   )
   CLOUD_MOUNT=crypt_sync_g_media:
