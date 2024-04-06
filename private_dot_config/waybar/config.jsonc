@@ -79,7 +79,7 @@
 		"format": "{icon}",
 		"rotate": 0,
 		"icon-size": 18,
-		"icon-theme": "Gruvbox-Plus-Dark",
+		"icon-theme": "Tela-circle-blue",
     "spacing": 0,
 		"tooltip-format": "{title}",
 		"on-click": "activate",

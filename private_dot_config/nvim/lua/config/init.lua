@@ -3,7 +3,7 @@ local Util = require("util")
 local M = {}
 
 local defaults = {
-  colorscheme = "gruvbox-material",
+  colorscheme = "nordfox",
   -- load the default settings in config
   defaults = {
     autocmds = true, -- config.autocmds

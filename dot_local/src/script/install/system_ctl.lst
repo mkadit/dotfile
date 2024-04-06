@@ -1,7 +1,7 @@
 NetworkManager
 bluetooth
-sddm
 docker
 cups
 virtqemud
 libvirtd
+sddm
