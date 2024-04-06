@@ -61,7 +61,7 @@ echo $IFS
 echo $archPkg
 
 if [[ ${#archPkg[@]} -gt 0 ]]; then
-	sudo pacman ${use_default} -S "${archPkg[@]}"
+	sudo pacman ${use_default} -S --disable-download-timeout "${archPkg[@]}"
 fi
 
 if [[ ${#aurhPkg[@]} -gt 0 ]]; then
