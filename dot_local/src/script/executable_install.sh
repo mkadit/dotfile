@@ -17,10 +17,10 @@ makepkg -si
 cd ..
 rm -rf paru
 
-"${scrDir}/install_pkg.sh" "${scrDir}/pkglist.lst"
+"${scrDir}/install_pkg.sh" "${scrDir}/install_pkg.lst"
 
 # Unpack fonts, icons, and themes
-cat Font_Old.tar.gz.* >Font_Old.tar.gz
+cat ~/.local/src/themes/Font_Old.tar.gz.* >~/.local/src/themes/Font_Old.tar.gz
 
 "${scrDir}/restore_fnt.sh"
 
