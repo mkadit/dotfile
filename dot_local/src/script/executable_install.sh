@@ -17,7 +17,7 @@ makepkg -si
 cd ..
 rm -rf paru
 
-"${scrDir}/install_pkg.sh" "${scrDir}/install_pkg.lst"
+"${scrDir}/install_pkg.sh" "${scrDir}/pkglist.lst"
 
 # Unpack fonts, icons, and themes
 cat Font_Old.tar.gz.* >Font_Old.tar.gz

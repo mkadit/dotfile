@@ -1,7 +1,3 @@
-[".local/src/st"]
-    type = "git-repo"
-    url = "https://github.com/mkadit/st"
-
 [".local/src/neovim"]
     type = "git-repo"
     url = "https://github.com/neovim/neovim"
@@ -12,7 +8,3 @@
     url = "https://github.com/tmux-plugins/tpm"
     refreshPeriod = "168h"
 
-[".local/src/picom"]
-    type = "git-repo"
-    url = "https://github.com/dccsillag/picom"
-    refreshPeriod = "168h"
