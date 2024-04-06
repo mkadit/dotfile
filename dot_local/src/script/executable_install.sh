@@ -17,7 +17,7 @@ makepkg -si
 cd ..
 rm -rf paru
 
-"${scrDir}/install_pkg.sh" "${scrDir}/install_pkg.lst"
+"${scrDir}/install_pkg.sh" "${scrDir}/pkglist.lst"
 
 # Unpack fonts, icons, and themes
 cat ~/.local/src/themes/Font_Old.tar.gz.* >~/.local/src/themes/Font_Old.tar.gz
@@ -30,17 +30,6 @@ cat ~/.local/src/themes/Font_Old.tar.gz.* >~/.local/src/themes/Font_Old.tar.gz
 cd "$HOME/.local/src/neovim" || exit
 sudo make CMAKE_BUILD_TYPE=Release
 sudo make install
-
-# Install picom
-# cd "$HOME/.local/src/picom" || exit
-# git checkout implement-window-animations
-# git submodule update --init --recursive
-# meson --buildtype=release . build
-# ninja -C build
-# sudo ninja -C build install
-
-# ~/.local/bin/setbg ~/assets/wallpaper/wallpaper.png
-# betterlockscreen -u ~/assets/wallpaper/wallpaper.png
 
 # Install grammar linter through vale
 # vale sync
