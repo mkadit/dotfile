@@ -24,6 +24,8 @@ cat ~/.local/src/themes/Font_Old.tar.gz.* >~/.local/src/themes/Font_Old.tar.gz
 
 "${scrDir}/restore_fnt.sh"
 
+"${scrDir}/install_pst.sh"
+
 # Install tools that cannot be installed throug AUR
 
 # Install neovim
@@ -48,7 +50,7 @@ sudo usermod -aG libvirt "$(whoami)"
 sudo usermod -aG wireshark "$(whoami)"
 sudo usermod -aG docker "$(whoami)"
 
-localectl set-x11-keymap us "" "" caps:escape
+# localectl set-x11-keymap us "" "" caps:escape
 
 # Add ollama
 # curl https://ollama.ai/install.sh | sh

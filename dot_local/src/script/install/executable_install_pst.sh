@@ -45,6 +45,3 @@ if pkg_installed sddm; then
 else
 	echo -e "\033[0;33m[WARNING]\033[0m sddm is not installed..."
 fi
-
-# shell
-"${scrDir}/restore_shl.sh"
