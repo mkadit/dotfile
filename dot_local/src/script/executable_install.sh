@@ -50,6 +50,9 @@ sudo usermod -aG libvirt "$(whoami)"
 sudo usermod -aG wireshark "$(whoami)"
 sudo usermod -aG docker "$(whoami)"
 
+# spotify
+sudo chmod a+wr /opt/spotify && sudo chmod a+wr /opt/spotify/Apps -R
+
 # localectl set-x11-keymap us "" "" caps:escape
 
 # Add ollama
