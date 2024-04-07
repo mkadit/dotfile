@@ -118,6 +118,7 @@ neomutt
 network-manager-applet
 networkmanager
 networkmanager-openconnect
+networkmanager-openvpn
 newsboat
 nginx
 ninja
