@@ -48,6 +48,14 @@ mountandroid() {
 	notify-send "Android Mounting" "Android device mounted to $mp."
 }
 
+mountrclone() {
+	chosenRclone="$(echo "$rcloneremotes" | $rofi_command -dmenu -i -p "Mount which drive?")" || exit 1
+	notify-send "Rclone Mounting" "$chosen mounted."
+	alreadymounted=$(lsblk -nrpo "name,type,mountpoint" | awk '$3!~/\/boot|\/home$|SWAP/&&length($3)>1{printf "-not ( -path *%s -prune ) ",$3}')
+	getmount "/mnt /media /mount /home -maxdepth 5 -type d $alreadymounted"
+	rclone mount "$chosenRclone" "$mp" 2>/dev/null
+}
+
 asktype() {
 	choice="$(printf "USB\\nAndroid" | $rofi_command -dmenu -i -p "Mount a USB drive or Android device?")" || exit 1
 	case $choice in
@@ -58,17 +66,26 @@ asktype() {
 
 anddrives=$(simple-mtpfs -l 2>/dev/null)
 usbdrives="$(lsblk -rpo "name,type,size,mountpoint" | awk '$4==""{printf "%s (%s)\n",$1,$3}')"
+rcloneremotes=$(rclone listremotes)
 
-if [ -z "$usbdrives" ]; then
-	[ -z "$anddrives" ] && echo "No USB drive or Android device detected" && exit
-	echo "Android device(s) detected."
-	mountandroid
-else
-	if [ -z "$anddrives" ]; then
-		echo "USB drive(s) detected."
-		mountusb
+chosen="$(echo -e "Etc\nRclone" | $rofi_command -dmenu -i -p "Mount which drive?")" || exit 1
+case "$chosen" in
+Rclone)
+	mountrclone
+	;;
+Etc)
+	if [ -z "$usbdrives" ]; then
+		[ -z "$anddrives" ] && echo "No USB drive or Android device detected" && exit
+		echo "Android device(s) detected."
+		mountandroid
 	else
-		echo "Mountable USB drive(s) and Android device(s) detected."
-		asktype
+		if [ -z "$anddrives" ]; then
+			echo "USB drive(s) detected."
+			mountusb
+		else
+			echo "Mountable USB drive(s) and Android device(s) detected."
+			asktype
+		fi
 	fi
-fi
+	;;
+esac

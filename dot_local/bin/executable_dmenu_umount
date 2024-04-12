@@ -22,6 +22,16 @@ unmountandroid() {
 	sudo -A umount -l "$chosen" && notify-send "Android unmounting" "$chosen unmounted."
 }
 
+unmountrclone() {
+	# chosen="$(echo "$drives" | $rofi_command -dmenu -i -p "Unmount which drive?")" || exit 1
+	chosen="$(mount | grep "fuse.rclone")" || exit 1
+	chosen="$(echo $chosen | awk {'printf "%s %s\n", $1, $3'} | $rofi_command -dmenu -i -p "Unmount which drive?")" || exit 1
+	driver="$(echo $chosen | awk {'print $1'})"
+	mp="$(echo $chosen | awk {'print $2'})"
+	sudo -A fusermount -u $mp && notify-send "Rclone unmounting" "$driver unmounted"
+
+}
+
 asktype() {
 	choice="$(printf "USB\\nAndroid" | $rofi_command -dmenu -i -p "Unmount a USB drive or Android device?")" || exit 1
 	case "$choice" in
@@ -32,16 +42,20 @@ asktype() {
 
 drives=$(lsblk -nrpo "name,type,size,mountpoint" | awk '$4!~/\/boot|\/home$|SWAP/&&length($4)>1{printf "%s (%s)\n",$4,$3}')
 
-if ! grep simple-mtpfs /etc/mtab; then
-	[ -z "$drives" ] && echo "No drives to unmount." && exit
-	echo "Unmountable USB drive detected."
-	unmountusb
+if mount | grep "fuse.rclone" >/dev/null 2>&1; then
+	unmountrclone
 else
-	if [ -z "$drives" ]; then
-		echo "Unmountable Android device detected."
-		unmountandroid
+	if ! grep simple-mtpfs /etc/mtab; then
+		[ -z "$drives" ] && echo "No drives to unmount." && exit
+		echo "Unmountable USB drive detected."
+		unmountusb
 	else
-		echo "Unmountable USB drive(s) and Android device(s) detected."
-		asktype
+		if [ -z "$drives" ]; then
+			echo "Unmountable Android device detected."
+			unmountandroid
+		else
+			echo "Unmountable USB drive(s) and Android device(s) detected."
+			asktype
+		fi
 	fi
 fi
