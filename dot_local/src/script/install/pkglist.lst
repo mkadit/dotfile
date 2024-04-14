@@ -98,7 +98,6 @@ linux-firmware
 linux-zen
 lnav
 logseq-desktop-bin
-lxrandr-gtk3
 lxsession
 maim
 man-db
@@ -106,6 +105,7 @@ mediainfo
 mesa
 mesa-utils
 meson
+mise
 mpc
 mpd
 mpv
