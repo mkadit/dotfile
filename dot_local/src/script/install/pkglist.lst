@@ -76,8 +76,8 @@ intel-ucode
 iptables-nft
 isync
 jc
-jcryptool
 jdk
+jdk21-openjdk
 jq
 jtbl
 kde-cli-tools

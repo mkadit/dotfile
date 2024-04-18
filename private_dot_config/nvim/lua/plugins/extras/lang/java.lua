@@ -151,15 +151,15 @@ return {
                   -- },
                   {
                     name = "JavaSE-17",
-                    path = "/usr/lib/jvm/java-17-openjdk/",
+                    path = "~/.local/share/mise/installs/java/17/",
                   },
                   {
                     name = "JavaSE-11",
-                    path = "/usr/lib/jvm/java-11-openjdk/",
+                    path = "~/.local/share/mise/installs/java/11/",
                   },
                   {
                     name = "JavaSE-1.8",
-                    path = "/usr/lib/jvm/java-8-openjdk/",
+                    path = "~/.local/share/mise/installs/java/adoptopenjdk-8/",
                   },
                   -- {
                   --   name = "JavaSE-22",

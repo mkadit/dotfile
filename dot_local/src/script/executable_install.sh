@@ -36,6 +36,14 @@ sudo make install
 # Install grammar linter through vale
 # vale sync
 
+# install dev with mise
+mise install java@adoptopenjdk-8.0.402+6
+mise install java@11.0.2
+mise install java@17.0.2
+
+# configure java
+sudo archlinux-java set java-21-openjdk
+
 # install tmuxp for tmux
 pipx install tmuxp
 
