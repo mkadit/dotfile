@@ -29,7 +29,6 @@ code
 cronie
 cups
 dasel
-dbeaver
 dmenu
 dnsmasq
 docker
@@ -92,8 +91,6 @@ libconfig
 libnotify
 libreoffice-fresh
 libva-intel-driver
-lightdm-gtk-greeter-settings
-lightdm-webkit2-greeter
 linux-firmware
 linux-zen
 lnav
@@ -132,8 +129,6 @@ ntfs-3g
 nwg-displays
 nwg-look
 obmenu-generator
-obs-studio
-obsidian
 openbooks-bin
 openbsd-netcat
 openssh
@@ -208,7 +203,6 @@ swww
 sxiv
 system-config-printer
 taskwarrior-tui
-teams-for-linux
 telegram-desktop
 texlive-basic
 texlive-bibtexextra
@@ -251,7 +245,6 @@ visual-studio-code-bin
 vulkan-intel
 watchexec
 waybar
-webcord
 webkit2gtk-4.1 # for prompt
 websocat
 weechat

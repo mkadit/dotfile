@@ -45,3 +45,16 @@ if pkg_installed sddm; then
 else
 	echo -e "\033[0;33m[WARNING]\033[0m sddm is not installed..."
 fi
+
+# flatpak
+if ! pkg_installed flatpak; then
+
+	echo -e "\033[0;32m[FLATPAK]\033[0m flatpak application list..."
+	awk -F '#' '$1 != "" {print "["++count"]", $1}' "${scrDir}/.extra/custom_flat.lst"
+
+	echo -e "\033[0;32m[FLATPAK]\033[0m intalling flatpaks..."
+	"${scrDir}/.extra/install_fpk.sh"
+
+else
+	echo -e "\033[0;33m[SKIP]\033[0m flatpak is already installed..."
+fi
