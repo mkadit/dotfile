@@ -23,6 +23,7 @@ local config_picker = function(opts)
           { "hyprland", "~/.config/hypr/hyprland.conf", cd = true },
           { "tmux", "~/.config/tmux/tmux.conf" },
           { "vifm", "~/.config/vifm/vifmrc" },
+          { "vscode", "~/.config/Code/User/settings.json", cd = true },
           { "youtube-src", "~/.local/src/script/youtube-source.txt" },
           { "zsh", "~/.zshrc" },
         },

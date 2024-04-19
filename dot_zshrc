@@ -51,8 +51,9 @@ _comp_options+=(globdots) # Include hidden files.
 source ~/.config/zsh/modules/package/plugin_manager.zsh
 
 # Custom files
+source ~/.config/zsh/modules/function/mise.zsh
 source ~/.config/zsh/modules/completion/mise.zsh
-source ~/.config/zsh/modules/completion/bun.zsh
+source ~/.config/zsh/modules/function/bun.zsh
 
 # Keybinding last to override other plugins keybind
 source ~/.config/zsh/modules/key-bindings.zsh

@@ -18,8 +18,20 @@
   "java.configuration.runtimes": [
     {
       "name": "JavaSE-1.8",
-      "path": "/usr/lib/jvm/java-8-openjdk",
+      "path": "~/.local/share/mise/installs/java/adoptopenjdk-8"
+    },
+    {
+      "name": "JavaSE-11",
+      "path": "~/.local/share/mise/installs/java/11"
+    },
+    {
+      "name": "JavaSE-17",
+      "path": "~/.local/share/mise/installs/java/17",
       "default": true
+    },
+    {
+      "name": "JavaSE-21",
+      "path": "/usr/lib/jvm/java-21-openjdk"
     }
   ],
   "hediet.vscode-drawio.resizeImages": null,
