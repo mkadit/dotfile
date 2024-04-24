@@ -373,6 +373,7 @@ return {
         dashboard.button("c", " " .. " Config", ":e $MYVIMRC <CR>"),
         dashboard.button("C", " " .. " Dotfiles", ":Telescope config_pick <CR>"),
         dashboard.button("s", "勒" .. " Restore Session", [[:lua MiniSessions.select("read")<cr>]]),
+        dashboard.button("p", " " .. "Search Project", ":Telescope projects<CR>"),
         dashboard.button("l", "鈴" .. " Lazy", ":Lazy<CR>"),
         dashboard.button("q", " " .. " Quit", ":qa<CR>"),
       }

@@ -21,6 +21,7 @@ alias cz="chezmoi"
 # fzf-extend
 alias man="fzf-man"
 alias rm="fzf-rm"
+alias zi="z -I"
 
 # Package
 QPAS='pacman -Si {1}'

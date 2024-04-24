@@ -1,5 +1,6 @@
 abook
 acpi
+auto-cpufreq
 alacritty
 alsa-utils
 anytype-bin
@@ -22,6 +23,7 @@ buf
 calibre
 chezmoi
 chntpw
+cifs-utils
 cliphist
 clipmenu
 cmake
@@ -64,6 +66,12 @@ gsimplecal
 gst-plugin-pipewire
 gtk-theme-switch2
 gtt-bin
+gvfs
+gvfs-afc
+gvfs-gphoto2
+gvfs-mtp
+gvfs-nfs
+gvfs-smb
 hadolint-bin
 htop
 hypridle
@@ -117,6 +125,7 @@ networkmanager
 networkmanager-openconnect
 networkmanager-openvpn
 newsboat
+nfs-utils
 nginx
 ninja
 notmuch
