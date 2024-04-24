@@ -1,0 +1,9 @@
+session_name: gapura-inq-ioh
+windows:
+- focus: 'true'
+  layout: c3dd,235x55,0,0,0
+  options: {}
+  panes:
+  - pane
+  start_directory: /home/mkadit/Projects/work/TRI-gapura-inq/gapura-inquiry-pakde-ioh
+  window_name: zsh

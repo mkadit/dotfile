@@ -1,0 +1,9 @@
+session_name: e-sim
+windows:
+- focus: 'true'
+  layout: c3dd,235x55,0,0,0
+  options: {}
+  panes:
+  - pane
+  start_directory: /home/mkadit/Projects/work/E-SIM/backend-esim
+  window_name: zsh
