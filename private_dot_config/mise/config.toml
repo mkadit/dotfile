@@ -1,2 +1,6 @@
 [tools]
 ant = "1.10.14"
+java = "system"
+node = "lts"
+dart = "latest"
+flutter = "latest"

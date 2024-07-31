@@ -3,7 +3,7 @@ local Util = require("util")
 local M = {}
 
 local defaults = {
-  colorscheme = "nordfox",
+  colorscheme = "catppuccin-latte",
   -- load the default settings in config
   defaults = {
     autocmds = true, -- config.autocmds

@@ -30,6 +30,7 @@ require("lazy").setup({
 
     -- language
     { import = "plugins.extras.lang.go" },
+    { import = "plugins.extras.lang.flutter" },
     { import = "plugins.extras.lang.python" },
     { import = "plugins.extras.lang.tailwind" },
     { import = "plugins.extras.lang.java" },

@@ -217,7 +217,6 @@ return {
         "shellcheck",
         "pyright",
         "gopls",
-
         "buf",
       },
     },

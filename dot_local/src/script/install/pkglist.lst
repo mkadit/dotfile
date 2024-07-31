@@ -159,7 +159,7 @@ pipewire-pulse
 plank
 playerctl
 pokemon-colorscripts-git
-polkit-kde-agent
+polkit-gnome
 poppler
 postgresql-libs
 protonup-git
@@ -189,7 +189,6 @@ redis
 ripgrep
 rmlint
 rnote
-rofi
 rofi-lbonn-wayland-git
 rofi-pass-git
 rsync

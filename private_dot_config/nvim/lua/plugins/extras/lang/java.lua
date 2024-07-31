@@ -159,7 +159,7 @@ return {
                   },
                   {
                     name = "JavaSE-1.8",
-                    path = "~/.local/share/mise/installs/java/adoptopenjdk-8/",
+                    path = "~/.local/share/mise/installs/java/adoptopenjdk-8.0.402+6/",
                   },
                   -- {
                   --   name = "JavaSE-22",

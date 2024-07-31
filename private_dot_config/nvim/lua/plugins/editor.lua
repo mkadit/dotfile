@@ -793,12 +793,14 @@ return {
 
   {
     "vhyrro/luarocks.nvim",
+    commit = "d73f4bbbeea9eeb9b66a0c6431db402654f43cb8",
     opts = {
       rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }, -- Specify LuaRocks packages to install
     },
   },
   {
     "rest-nvim/rest.nvim",
+    commit = "60428cc313b8cb11fa8fb1b94f289b14d3121fa4",
     ft = "http",
     dependencies = { "luarocks.nvim" },
     config = function()
@@ -827,6 +829,60 @@ return {
       },
     },
   },
+
+  -- {
+  --   "mistweaverco/kulala.nvim",
+  --   config = function()
+  --     require("kulala").setup()
+  --   end,
+  --   keys = {
+  --     {
+  --       "<leader>arr",
+  --       function()
+  --         require("kulala").run()
+  --       end,
+  --       desc = "Run request under cursor",
+  --     },
+  --     {
+  --       "<leader>arq",
+  --       function()
+  --         require("kulala").close()
+  --       end,
+  --
+  --       desc = "Run last request",
+  --     },
+  --     {
+  --       "<leader>arn",
+  --       function()
+  --         require("kulala").jump_next()
+  --       end,
+  --       desc = "Run result next",
+  --     },
+  --     {
+  --       "<leader>arp",
+  --       function()
+  --         require("kulala").jump_prev()
+  --       end,
+  --       desc = "Run result prev",
+  --     },
+  --
+  --     {
+  --       "<leader>art",
+  --       function()
+  --         require("kulala").toggle_view()
+  --       end,
+  --       desc = "Toggle view",
+  --     },
+  --
+  --     {
+  --       "<leader>arc",
+  --       function()
+  --         require("kulala").copy()
+  --       end,
+  --       desc = "Copy current request",
+  --     },
+  --   },
+  -- },
   -- Telescope integration
   {
     "nvim-telescope/telescope.nvim",
@@ -836,7 +892,7 @@ return {
         require("telescope").load_extension("aerial")
         -- require("telescope").load_extension("undo")
         require("telescope").load_extension("harpoon")
-        require("telescope").load_extension("rest")
+        -- require("telescope").load_extension("rest")
       end)
     end,
     keys = {
@@ -850,11 +906,11 @@ return {
         "<cmd>Telescope harpoon marks<cr>",
         desc = "Harpoon Find",
       },
-      {
-        "<leader>arv",
-        "<cmd>Telescope rest select_env<cr>",
-        desc = "Rest select environment",
-      },
+      -- {
+      --   "<leader>arv",
+      --   "<cmd>Telescope rest select_env<cr>",
+      --   desc = "Rest select environment",
+      -- },
     },
   },
 }

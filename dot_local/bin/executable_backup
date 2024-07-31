@@ -17,7 +17,7 @@ if [ "$1" = 'data' ]; then
   CLOUD_MOUNT=crypt_sync_g_drive:
 elif [ "$1" = 'media' ]; then
   SOURCES=(
-    "Music/etc"
+    "Music"
     # "Music/Old Stuff"
     # "Music/Michael Jackson"
     "Pictures"
@@ -29,7 +29,7 @@ elif [ "$1" = 'media' ]; then
 fi
 
 CLOUD_ISMOUNTED=$(rclone listremotes | grep "$CLOUD_MOUNT")
-LOCAL_ISMOUNTED=$(mount | grep sdb || mount | grep simple-mtpfs)
+LOCAL_ISMOUNTED=$(mount | grep sdc || mount | grep simple-mtpfs)
 
 local_sync() {
 

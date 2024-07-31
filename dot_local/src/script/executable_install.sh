@@ -40,6 +40,7 @@ sudo make install
 mise install java@adoptopenjdk-8.0.402+6
 mise install java@11.0.2
 mise install java@17.0.2
+mise install --global node@lts
 
 # configure java
 sudo archlinux-java set java-21-openjdk
