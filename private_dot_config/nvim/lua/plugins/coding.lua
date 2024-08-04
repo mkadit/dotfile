@@ -30,6 +30,13 @@ return {
       },
       { "<tab>", function() require("luasnip").jump(1) end, mode = "s" },
       { "<s-tab>", function() require("luasnip").jump(-1) end, mode = { "i", "s" } },
+      { "<c-s>", 
+        function() 
+          local ls = require("luasnip")
+          if ls.choice_active() then
+            ls.change_choice(1)
+          end
+        end, mode = { "i", "s" } },
     },
   },
 
