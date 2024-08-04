@@ -46,14 +46,13 @@ return {
       {
         "<leader>cF",
         function()
-          require("conform").format({ formatters = { "injected" } })
+          require("conform").format({ formatters = { "injected" }, timeout_ms = 3000 })
         end,
         mode = { "n", "v" },
         desc = "Format Injected Langs",
       },
     },
     init = function()
-      vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
       -- Install the conform formatter on VeryLazy
       require("util").on_very_lazy(function()
         require("util").format.register({
@@ -61,10 +60,11 @@ return {
           priority = 100,
           primary = true,
           format = function(buf)
-            require("conform").format(Util.merge(format_opts, { bufnr = buf }))
+            require("conform").format({ bufnr = buf })
           end,
           sources = function(buf)
             local ret = require("conform").list_formatters(buf)
+
             return vim.tbl_map(function(v)
               return v.name
             end, ret)
@@ -86,6 +86,8 @@ return {
         -- LazyVim will use these options when formatting with the conform.nvim formatter
         format = {
           timeout_ms = 1000,
+          quiet = false, -- not recommended to change
+          lsp_format = "fallback", -- not recommended to change
         },
         formatters_by_ft = {
           lua = { "stylua" },

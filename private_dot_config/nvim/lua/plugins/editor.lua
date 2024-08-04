@@ -18,7 +18,10 @@ return {
       {
         "<leader>fE",
         function()
-          require("neo-tree.command").execute({ toggle = true, dir = vim.loop.cwd() })
+          require("neo-tree.command").execute({
+            toggle = true,
+            dir = vim.loop.cwd(),
+          })
         end,
         desc = "Explorer NeoTree (cwd)",
       },
@@ -31,6 +34,13 @@ return {
       },
       {
         "<leader>be",
+        function()
+          require("neo-tree.command").execute({ source = "buffers", toggle = true })
+        end,
+        desc = "Buffer explorer",
+      },
+      {
+        "<leader>fn",
         function()
           require("neo-tree.command").execute({ source = "buffers", toggle = true })
         end,
@@ -107,8 +117,6 @@ return {
     "stevearc/oil.nvim",
     -- event = "VeryLazy",
     opts = {},
-    -- Optional dependencies
-    dependencies = { "nvim-tree/nvim-web-devicons" },
   },
 
   -- search/replace in multiple files
@@ -133,6 +141,7 @@ return {
     dependencies = {
       {
         "nvim-telescope/telescope-fzf-native.nvim",
+        "debugloop/telescope-undo.nvim",
         build = "make",
         enabled = vim.fn.executable("make") == 1,
         config = function()
@@ -204,6 +213,8 @@ return {
         end,
         desc = "Goto Symbol (Workspace)",
       },
+
+      { "<leader>au", "<cmd>Telescope undo<cr>", desc = "Undo tree" },
     },
     opts = function()
       local actions = require("telescope.actions")
@@ -279,39 +290,41 @@ return {
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
+    opts_extend = { "spec" },
     opts = {
       plugins = { spelling = true },
-      defaults = {
+      spec = {
         mode = { "n", "v" },
-        ["g"] = { name = "+goto" },
-        ["cs"] = { name = "+surround" },
-        ["]"] = { name = "+next" },
-        ["["] = { name = "+prev" },
-        ["<leader><tab>"] = { name = "+tabs" },
-        ["<leader>b"] = { name = "+buffer" },
-        ["<leader>c"] = { name = "+code" },
-        ["<leader>f"] = { name = "+file/find" },
-        ["<leader>g"] = { name = "+git" },
-        ["<leader>gh"] = { name = "+hunks" },
-        ["<leader>q"] = { name = "+quit/session" },
-        ["<leader>s"] = { name = "+search" },
-        ["<leader>sn"] = { name = "+noice" },
-        ["<leader>u"] = { name = "+ui" },
-        ["<leader>w"] = { name = "+windows" },
-        ["<leader>m"] = { name = "+harpoon" },
-        ["<leader>x"] = { name = "+diagnostics/quickfix" },
-        ["<leader>a"] = { name = "+action" },
-        ["<leader>ao"] = { name = "+runner" },
-        ["<leader>at"] = { name = "+terminal" },
-        ["<leader>cl"] = { name = "+lsp" },
-        ["<leader>gS"] = { name = "+gist" },
-        ["<leader>gw"] = { name = "+worktrees" },
+        { "<leader><tab>", group = "tabs" },
+        { "<leader>a", group = "action" },
+        { "<leader>ao", group = "runner" },
+        { "<leader>at", group = "terminal" },
+        { "<leader>b", group = "buffer" },
+        { "<leader>c", group = "code" },
+        { "<leader>cl", group = "lsp" },
+        { "<leader>f", group = "file/find" },
+        { "<leader>g", group = "git" },
+        { "<leader>gS", group = "gist" },
+        { "<leader>gh", group = "hunks" },
+        { "<leader>gw", group = "worktrees" },
+        { "<leader>m", group = "harpoon" },
+        { "<leader>q", group = "quit/session" },
+        { "<leader>s", group = "search" },
+        { "<leader>sn", group = "noice" },
+        { "<leader>t", group = "test" },
+        { "<leader>u", group = "ui" },
+        { "<leader>w", group = "windows" },
+        { "<leader>x", group = "diagnostics/quickfix" },
+        { "[", group = "prev" },
+        { "]", group = "next" },
+        { "cs", group = "surround" },
+        { "g", group = "goto" },
       },
     },
     config = function(_, opts)
       local wk = require("which-key")
       wk.setup(opts)
-      wk.register(opts.defaults)
+      wk.add(opts.spec)
     end,
   },
 
@@ -458,12 +471,20 @@ return {
   {
     "folke/trouble.nvim",
     cmd = { "TroubleToggle", "Trouble" },
-    opts = { use_diagnostic_signs = true },
+    opts = {
+      modes = {
+        lsp = {
+          win = { position = "right" },
+        },
+      },
+    },
     keys = {
-      { "<leader>xx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics (Trouble)" },
-      { "<leader>xX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics (Trouble)" },
-      { "<leader>xL", "<cmd>TroubleToggle loclist<cr>", desc = "Location List (Trouble)" },
-      { "<leader>xQ", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix List (Trouble)" },
+      { "<leader>xx", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
+      { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "Buffer Diagnostics (Trouble)" },
+      { "<leader>cs", "<cmd>Trouble symbols toggle<cr>", desc = "Symbols (Trouble)" },
+      { "<leader>cS", "<cmd>Trouble lsp toggle<cr>", desc = "LSP references/definitions/... (Trouble)" },
+      { "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List (Trouble)" },
+      { "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List (Trouble)" },
       {
         "[q",
         function()
@@ -565,12 +586,22 @@ return {
   -- mark jumps
   {
     "ThePrimeagen/harpoon",
+    branch = "harpoon2",
     event = "VeryLazy",
+    opts = {
+      menu = {
+        width = vim.api.nvim_win_get_width(0) - 4,
+      },
+      settings = {
+        save_on_toggle = true,
+      },
+    },
     keys = {
       {
         "<leader>ma",
         function()
-          require("harpoon.mark").add_file()
+          local harpoon = require("harpoon")
+          harpoon:list():add()
         end,
         desc = "Toggle Harpoon",
       },
@@ -578,7 +609,8 @@ return {
       {
         "<leader>mf",
         function()
-          require("harpoon.ui").toggle_quick_menu()
+          local harpoon = require("harpoon")
+          harpoon.ui:toggle_quick_menu(harpoon:list())
         end,
         desc = "Harpoon Popups",
       },
@@ -586,13 +618,16 @@ return {
       {
         "<leader>mn",
         function()
-          require("harpoon.ui").nav_next()
+          local harpoon = require("harpoon")
+          harpoon:list():next()
         end,
         desc = "Next Harpoon",
       },
       {
         "<leader>ml",
         function()
+          local harpoon = require("harpoon")
+          harpoon:list():prev()
           require("harpoon.ui").nav_prev()
         end,
         desc = "Previous Harpoon",
@@ -702,28 +737,28 @@ return {
     keys = {
       {
         "<leader>gb",
-        "<cmd>ToggleBlame<cr>",
+        "<cmd>BlameToggle<cr>",
         desc = "Toggle Git Blame",
       },
     },
   },
 
   -- undotree
-  {
-    "mbbill/undotree",
-    event = "VeryLazy",
-    config = function()
-      vim.g.undotree_WindowLayout = 2
-    end,
-
-    keys = {
-      {
-        "<leader>au",
-        "<cmd>UndotreeToggle<cr>",
-        desc = "Undo Tree",
-      },
-    },
-  },
+  -- {
+  --   "mbbill/undotree",
+  --   event = "VeryLazy",
+  --   config = function()
+  --     vim.g.undotree_WindowLayout = 2
+  --   end,
+  --
+  --   keys = {
+  --     {
+  --       "<leader>au",
+  --       "<cmd>UndotreeToggle<cr>",
+  --       desc = "Undo Tree",
+  --     },
+  --   },
+  -- },
 
   -- clipboard
   {
@@ -744,55 +779,10 @@ return {
     },
   },
   -- Symbols outline
-  {
-    "stevearc/aerial.nvim",
-    event = "LazyFile",
-    opts = function()
-      local icons = vim.deepcopy(Config.icons.kinds)
-
-      -- HACK: fix lua's weird choice for `Package` for control
-      -- structures like if/else/for/etc.
-      icons.lua = { Package = icons.Control }
-
-      ---@type table<string, string[]>|false
-      local filter_kind = false
-      if Config.kind_filter then
-        filter_kind = assert(vim.deepcopy(Config.kind_filter))
-        filter_kind._ = filter_kind.default
-        filter_kind.default = nil
-      end
-
-      local opts = {
-        attach_mode = "global",
-        backends = { "lsp", "treesitter", "markdown", "man" },
-        show_guides = true,
-        layout = {
-          resize_to_content = false,
-          win_opts = {
-            winhl = "Normal:NormalFloat,FloatBorder:NormalFloat,SignColumn:SignColumnSB",
-            signcolumn = "yes",
-            statuscolumn = " ",
-          },
-        },
-        icons = icons,
-        filter_kind = filter_kind,
-        -- stylua: ignore
-        guides = {
-          mid_item   = "├╴",
-          last_item  = "└╴",
-          nested_top = "│ ",
-          whitespace = "  ",
-        },
-      }
-      return opts
-    end,
-    keys = {
-      { "<leader>cs", "<cmd>AerialToggle<cr>", desc = "Aerial (Symbols)" },
-    },
-  },
 
   {
     "vhyrro/luarocks.nvim",
+    event = "VeryLazy",
     commit = "d73f4bbbeea9eeb9b66a0c6431db402654f43cb8",
     opts = {
       rocks = { "lua-curl", "nvim-nio", "mimetypes", "xml2lua" }, -- Specify LuaRocks packages to install
@@ -800,6 +790,7 @@ return {
   },
   {
     "rest-nvim/rest.nvim",
+    event = "VeryLazy",
     commit = "60428cc313b8cb11fa8fb1b94f289b14d3121fa4",
     ft = "http",
     dependencies = { "luarocks.nvim" },
@@ -883,24 +874,19 @@ return {
   --     },
   --   },
   -- },
+
   -- Telescope integration
   {
     "nvim-telescope/telescope.nvim",
     optional = true,
     opts = function()
       Util.on_load("telescope.nvim", function()
-        require("telescope").load_extension("aerial")
-        -- require("telescope").load_extension("undo")
-        require("telescope").load_extension("harpoon")
+        require("telescope").load_extension("undo")
+        -- require("telescope").load_extension("harpoon")
         -- require("telescope").load_extension("rest")
       end)
     end,
     keys = {
-      {
-        "<leader>sa",
-        "<cmd>Telescope aerial<cr>",
-        desc = "Goto Symbol (Aerial)",
-      },
       {
         "<leader>fm",
         "<cmd>Telescope harpoon marks<cr>",

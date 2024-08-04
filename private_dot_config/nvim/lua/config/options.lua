@@ -109,3 +109,5 @@ end
 
 g.markdown_recommended_style = 0
 g.rooter_manual_only = 1
+
+o.formatexpr = "v:lua.require'lazyvim.util'.format.formatexpr()"

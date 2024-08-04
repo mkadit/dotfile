@@ -30,14 +30,14 @@ require("lazy").setup({
 
     -- language
     { import = "plugins.extras.lang.go" },
-    { import = "plugins.extras.lang.flutter" },
+    -- { import = "plugins.extras.lang.flutter" },
     { import = "plugins.extras.lang.python" },
     { import = "plugins.extras.lang.tailwind" },
     { import = "plugins.extras.lang.java" },
     { import = "plugins.extras.lang.typescript" },
     { import = "plugins.extras.lang.docker" },
-    { import = "plugins.extras.lang.tex" },
-    { import = "plugins.extras.lang.clang" },
+    -- { import = "plugins.extras.lang.tex" },
+    -- { import = "plugins.extras.lang.clang" },
     { import = "plugins.extras.lang.md" },
     -- { import = "plugins.extras.lang.rust" },
     -- { import = "plugins.extras.lang.terraform" },

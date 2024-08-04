@@ -77,7 +77,7 @@ map("v", ">", ">gv")
 map("n", "<leader>cL", "<cmd>:Lazy<cr>", { desc = "Lazy" })
 
 -- new file
-map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
+map("n", "<leader>fN", "<cmd>enew<cr>", { desc = "New File" })
 
 map("n", "<leader>xl", "<cmd>lopen<cr>", { desc = "Open Location List" })
 map("n", "<leader>xq", "<cmd>copen<cr>", { desc = "Open Quickfix List" })
